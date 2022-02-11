@@ -8,6 +8,7 @@ Inicio da Sprint 1: 15/02/2022
 
 
 Plataforma: Discord.
+
 Kanban: Github Projects;
 
 
