@@ -18,6 +18,7 @@ Terça: Reunião na aula de PI - Rotacionar os cargos.
 Sexta: Reunião 30 min Review;
 
 
+Determinar tarefas solidas para todos com prazos.
 
 
 
