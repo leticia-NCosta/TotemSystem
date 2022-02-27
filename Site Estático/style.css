@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fffbf4;
+    background-color: #fdf7ec;
 }
 
 /* Header */
@@ -44,7 +44,7 @@ body {
 .banner {
     height: 500px;
     color: #000000;
-    background-image: url("");
+    background-image: url("./sptotembanner.jpg");
     background-size: cover;
 }
 
@@ -69,4 +69,55 @@ body {
 
 .banner span {
     font-weight: 800;
+}
+
+/* Serviços */
+
+.servicos {
+    background-color: #fdfaf5;
+    padding: 50px 0;
+}
+
+.servicos .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.servicos .titulo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: #FFAA00;
+    font-size:x-large;
+}
+
+.servicos .boxes {
+    display: flex;
+}
+
+.servicos .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 33%;
+    padding: 50px;
+}
+
+.servicos .box img {
+    width: 150px;
+    align-self: center;
+}
+
+.servicos .box h4 {
+    color: #000000;
+    margin-top: 30px;
+    font-size: x-large;
+}
+
+.servicos .box p {
+color: #000000;
+font-size: x-large;
 }
