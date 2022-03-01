@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fdf7ec;
 }
 
@@ -12,18 +11,24 @@ body {
 }
 
 .header {
-    color: #FFAA00;
-    border-bottom: 3px solid #FFAA00;
+    color: #f5e3e3;
 }
 
 .header .container {
     display: flex;
     justify-content: space-between;
+    justify-content: center;
+    margin: 0;
 }
 
 .header a {
     text-decoration: none;
-    color:#FFAA00;
+    color: #f5e3e3;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header b{
+    font-family: 'Montserrat', sans-serif;
 }
 
 .agora {
@@ -36,88 +41,221 @@ body {
     align-items: center;
     justify-content: space-evenly;
     list-style: none;
-    color: #FFAA00;
+    font-weight: 600;
+    width: 900px;
+    list-style: none;
+    color: #ffeeee;
 }
 
 /* Banner */
 
+.banner .header {
+    position: absolute;
+    display: flex;
+    bottom: 55%; 
+}
+
 .banner {
     height: 500px;
-    color: #000000;
-    background-image: url("./sptotembanner.jpg");
+    color: #f5e3e3;
+    background-image: url("./monitoring.jpg");
     background-size: cover;
+    border-bottom: 2px solid #45a3e2;
 }
+
+.banner img{
+    opacity: 0.7;
+  }
 
 .banner .container {
     height: 500px;
     display: flex;
     align-items: center;
 }
-
 .banner p {
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    width: 280px;
-    font-size: 36px;
-    margin-left: 350px;
+    width: 480px;
+    font-size: 35px;
+    margin-left: 100px;
+    font-family: 'League Spartan', sans-serif;
+    flex-direction: column;
+    display: flex;
 }
 
 .banner b{
-    color: #FFAA00;
+    color: #37a8e9;
+    font-size: 50px;
 }
 
 .banner span {
     font-weight: 800;
 }
 
-/* Serviços */
+/* Sobre noś */
 
-.servicos {
-    background-color: #fdfaf5;
-    padding: 50px 0;
+.sobrenos{
+    background-image: url("./sobrenoscinza.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.servicos .container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.servicos .titulo {
+.sobrenos .titulo{
     display: flex;
     justify-content: center;
+}
+
+.sobrenos .titulo h1{
+    color: #535353;
+    font-size: 50px;
+    font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.sobrenos .titulo_sobrenos{
+    color: #535353;
+    font-family: 'Saira Semi Condensed', sans-serif;
+    font-size: 25px;
+}
+
+.sobrenos .container b{
+    color: #223654;
+    font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.sobrenos .container p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.sobrenos .container_info{
     margin-bottom: 50px;
-    color: #FFAA00;
-    font-size:x-large;
+}
+
+.sobrenos .container {
+    display: flex;
+}
+
+/* Servicos */
+
+.servicos {
+    border-bottom: 2px solid #45a3e2;
+    background-image: url("./nossosservicos.png")
+}
+
+.servicos .titulo{
+    display: flex;
+    justify-content: center;
+    color: #f5e3e3;
 }
 
 .servicos .boxes {
-    display: flex;
+    justify-content: space-between;
+    display: flex
 }
 
-.servicos .box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: 33%;
-    padding: 50px;
+.servicos .container{
+  justify-content: center;
 }
 
 .servicos .box img {
-    width: 150px;
+    width: 300px;
     align-self: center;
 }
 
 .servicos .box h4 {
-    color: #000000;
+    color: #fdf7ec;
     margin-top: 30px;
     font-size: x-large;
+    font-family: 'Smooch Sans', sans-serif;
+    margin-left: 20px;
+}
+
+.servicos .box{
+    background-color: #636363;
+    /* margin-right: 20px;  */
+    margin-bottom: 30px;
+    width: 300px;
 }
 
 .servicos .box p {
-color: #000000;
-font-size: x-large;
+    color: #fdf7ec;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 20px;
+} 
+
+/* Contatos */
+
+.contato{
+    background-image: url("./fundocontato.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.contato .titulo_contato {
+    color: #223654;
+    font-family: 'Lexend Deca', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.contato .titulo_contato h1{
+    border-bottom: 2px solid #223654;
+}
+
+.contato .titulo h1{
+    color: #223654;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.contato p{
+    font-family: 'Montserrat', sans-serif;
+    color: #535353;
+    font-size: 20px;
+}
+
+.contato .container_contato .titulo{
+    color: #223654;
+}
+
+.contato .contato_info {
+    margin-left: 39px;
+}
+
+.contato .container{
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.container_contato p{
+    font-family: 'Montserrat', sans-serif;
+    color: #535353;
+}
+
+.container_contato button{
+     padding: 15px;
+     border-radius: 50px;
+     background-color: #535353;
+     margin-bottom: 20px;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #fff1f1;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(158, 157, 157, 0.514); ;
+    
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer h4{
+    font-family: 'League Spartan', sans-serif;
+    color: #535353cb;
+}
+
+
