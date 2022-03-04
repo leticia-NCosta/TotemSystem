@@ -4,6 +4,7 @@ body {
     background-color: #fdf7ec;
 }
 
+
 /* Header */
 .container {
     width: 80%;
@@ -29,6 +30,11 @@ body {
 
 .header b{
     font-family: 'Montserrat', sans-serif;
+}
+.header a:hover{
+    color: #45a3e2;
+    text-decoration: underline;
+
 }
 
 .agora {
@@ -256,6 +262,33 @@ body {
 .footer h4{
     font-family: 'League Spartan', sans-serif;
     color: #535353cb;
+}
+
+.back-to-top {
+    background-color: #535353cb;
+    border-radius: 65px;
+    bottom: 14px;
+    color: #ffff;
+    cursor: pointer;
+    height: 40px;
+    position: fixed;
+    right: 22px;
+    width: 40px;
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+}
+.back-to-top a{
+    font-size: 36px;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    text-decoration: none;
+}
+.back-to-top a:hover{
+    color: #45a3e2;
 }
 
 
