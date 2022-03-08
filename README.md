@@ -8,11 +8,11 @@
 Sprint 1: 15/02/2022
 
 ## Entregáveis Sprint 1:
-- [ ] Ambiente Azure + Github;
+- [x] Ambiente Azure + Github;
 - [ ] Site estático institucional;
 - [ ] Diagrama de Banco de Dados;
 - [ ] Plano de resposta-Lições Aprendidas;
-- [ ] StoryBoard;
+- [x] StoryBoard;
 - [x] Miniprojeto Java (Individual);
 - [ ] Histórias do Usuário (User Story), Requisitos;
 - [ ] Cliente Linux (WSL);
@@ -20,7 +20,7 @@ Sprint 1: 15/02/2022
 - [x] Definição de Negócio;
 - [ ] Visita (virtual);
 - [ ] Inovação;
-- [ ] Proto-Persona;
+- [x] Proto-Persona;
 - [ ] Slide de Apresentação;
 
 ==================================
