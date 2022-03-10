@@ -1,36 +1,26 @@
-# Grupo9
-Grupo de PI do segundo semestre SPTech
+# Totem System - (Grupo9)
+## Grupo de PI do segundo semestre SPTech - 2ADSB/2022
+
 ---
 
 =================================
 
-Inicio da Sprint 1: 15/02/2022
+Sprint 1: 15/02/2022
 
-
-Plataforma: Discord.
-
-Kanban: Github Projects;
-
-
-
-Project Owner, Scrum  Master, Tester, Development, QA;
-
-P.O: Pauta.
-
-Scrum: Ata.
-
-Seg-Sex: Daily de 15 máximo
-  - Cobrar os trabalhos normais da faculdade.
-
-Terça: Reunião na aula de PI - Rotacionar os cargos.
-
-Sexta: Reunião 30 min Review;
-
-
-Determinar tarefas solidas para todos com prazos.
-
-
-
-
+## Entregáveis Sprint 1:
+- [x] Ambiente Azure + Github;
+- [ ] Site estático institucional;
+- [ ] Diagrama de Banco de Dados;
+- [x] Plano de resposta-Lições Aprendidas;
+- [x] StoryBoard;
+- [x] Miniprojeto Java (Individual);
+- [ ] Histórias do Usuário (User Story), Requisitos;
+- [x] Cliente Linux (WSL);
+- [x] Planner;
+- [x] Definição de Negócio;
+- [ ] Visita (virtual);
+- [ ] Inovação;
+- [x] Proto-Persona;
+- [ ] Slide de Apresentação;
 
 ==================================
