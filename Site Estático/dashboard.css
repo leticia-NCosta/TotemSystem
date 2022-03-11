@@ -5,9 +5,8 @@
 
 
 .cabeca{
-    height: 120px;
-    width: 100%;
-    background-color: black;
+    height: 16vh;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,8 +19,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: #37A8E9;
 
+}
+.cabeca .logo img{
+    width: 80%;
 }
 .cabeca .links{
 
@@ -30,13 +32,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: #37A8E9;
 
 }
 .corpo{
-    height: 640px;
-    width: 100%;
-    background-color: aqua;
+    height: 85vh;
+    width: 100vw;
+    background-color: black;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -46,7 +48,7 @@
 
     height: 100%;
     width: 20%;
-    background-color: aquamarine;
+    background-color: #37A8E9;
 
 
 }
@@ -54,7 +56,6 @@
 
     height: 100%;
     width: 80%;
-    background-color: yellowgreen;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,8 +67,44 @@
 
     height: 30%;
     width: 100%;
-    background-color: black;
-
-
+    background-color: blue;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 
 }
+.dash .alertas .alerta{
+
+    height: 70%;
+    width: 10%;
+    border-radius: 1000px;
+    background-color: yellow;
+
+}
+.dash .graficos{
+
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ;
+
+}
+.dash .graficos .grafico1, .dash .graficos .grafico2{
+
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#grafico1, #grafico2{
+
+    height: 70%;
+    width: 70%;
+
+}
+
