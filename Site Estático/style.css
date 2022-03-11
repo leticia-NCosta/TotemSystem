@@ -64,7 +64,7 @@ body {
 .banner {
     height: 500px;
     color: #f5e3e3;
-    background-image: url("./monitoring.jpg");
+    background-image: url("./Imagens/fundoAzul.jpg");
     background-size: cover;
     border-bottom: 2px solid #45a3e2;
 }
@@ -99,7 +99,7 @@ body {
 /* Sobre noś */
 
 .sobrenos{
-    background-image: url("./sobrenoscinza.jpg");
+    background-image: url("./Imagens/fundoCinza.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -142,7 +142,7 @@ body {
 
 .servicos {
     border-bottom: 2px solid #45a3e2;
-    background-image: url("./nossosservicos.png")
+    background-image: url("./Imagens/nossosservicos.png")
 }
 
 .servicos .titulo{
@@ -189,7 +189,7 @@ body {
 /* Contatos */
 
 .contato{
-    background-image: url("./fundocontato.jpg");
+    background-image: url("./Imagens/fundoCinza\ Azul.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -290,5 +290,6 @@ body {
 .back-to-top a:hover{
     color: #45a3e2;
 }
+
 
 
