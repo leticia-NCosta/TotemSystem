@@ -14,12 +14,12 @@ Sprint 1: 15/02/2022
 - [x] Plano de resposta-Lições Aprendidas;
 - [x] StoryBoard;
 - [x] Miniprojeto Java (Individual);
-- [ ] Histórias do Usuário (User Story), Requisitos;
+- [x] Histórias do Usuário (User Story), Requisitos;
 - [x] Cliente Linux (WSL);
 - [x] Planner;
 - [x] Definição de Negócio;
 - [ ] Visita (virtual);
-- [ ] Inovação;
+- [x] Inovação;
 - [x] Proto-Persona;
 - [ ] Slide de Apresentação;
 
