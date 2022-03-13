@@ -5,6 +5,9 @@ var rand = (Math.random() * (lista_regioes.length-1)).toFixed(0)
 var local = lista_regioes[rand]
 var rand_alert = 0;
 var regiao_alerta;
+var alerta_piscando = false;
+
+
 
 function main(){
 
@@ -74,6 +77,8 @@ function criarBotoes(){
             
             removeAlertas()
             criarAlertas(quant_totens[i],lista_regioes[i])
+            ultimo_botao_clicado = event.target.innerHTML
+            
             
         })
 
@@ -100,19 +105,30 @@ function criarAlertas(num_alerta, regiao){
         var alerta = document.createElement('div')
         var txt = document.createElement('p')
         alerta.setAttribute('class','alerta')
+        alerta.setAttribute('style','background-color: #2e861')
         alerta.setAttribute('id',`${regiao}`)
         
-        txt.innerHTML = `#${i+1}`
+        txt.innerHTML = `${i+1}`
         alerta.appendChild(txt)
         alertas.appendChild(alerta)
 
         alerta.addEventListener('click',()=>{
+            alerta_atual.innerHTML = event.target.innerHTML
+            if(nome_titulo.innerHTML == lista_regioes[regiao_alerta] && rand_alert == alerta_atual.innerHTML){
+                alerta_atual.style.backgroundColor = 'red'
+            } else {
+                alerta_atual.style.backgroundColor = '#2e8617'
+            }
 
             pag1.style.display = 'none';
             pag2.style.display = 'flex';
             
             
             
+            console.log(rand_alert)
+            //console.log(lista_regioes[regiao_alerta])
+
+
 
 
         })
@@ -130,24 +146,28 @@ function criarAlertas(num_alerta, regiao){
 
         class_alertas[rand_alert-1].style.backgroundColor = 'red'
         //getIdAlerta.style.backgroundColor = 'red'
+
+        if(alerta_piscando == false){
+            alerta_piscando = true
+            setInterval(()=>{
+                
+                if(class_alertas[rand_alert-1].style.backgroundColor == 'red'){ 
+                    class_alertas[rand_alert-1].style.backgroundColor = 'black'
+                }else if(class_alertas[rand_alert-1].style.backgroundColor == 'black'){
+                    class_alertas[rand_alert-1].style.backgroundColor = 'red'
+                    
+                }
         
-        setInterval(()=>{
-                
-            if(class_alertas[rand_alert-1].style.backgroundColor == 'red'){ 
-                class_alertas[rand_alert-1].style.backgroundColor = 'black'
-            }else if(class_alertas[rand_alert-1].style.backgroundColor == 'black'){
-                class_alertas[rand_alert-1].style.backgroundColor = 'red'
-                
-            }
+            },500)
     
-        },500)
-
-
-        
-
-
+    
+            
+    
+        }
 
     }
+        
+
 
 
 }
@@ -181,7 +201,6 @@ function voltarDash(){
 
     pag1.style.display = 'flex';
     pag2.style.display = 'none';
-    nome_titulo.innerHTML = `Escolha uma Região`
 }
 
 
