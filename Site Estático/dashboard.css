@@ -250,7 +250,7 @@ html{
 }
 .corpo2 .sidebar2 button{
 
-    height: 10%;
+    height: 90%;
     width: 75%;
     background-color: grey;
     font-size: 20px;
@@ -307,7 +307,7 @@ html{
 }
 .corpo2 .infos .retangulo .box_img{
 
-    height: 100%;
+    height: 70%;
     width: 30%;
     border: 3px solid white;
     display: flex;
@@ -316,10 +316,43 @@ html{
     align-items: center;
 
 }
-.box_img img{
-    height: 50%;
-    width: 50%;
+.corpo2 .infos .retangulo .box_img{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
+.corpo2 .infos .retangulo .box_img .campo_img{
+
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.corpo2 .infos .retangulo .box_img .suporte{
+
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corpo2 .infos .retangulo .box_img .suporte button{
+
+    height: 80%;
+    width: 90%;
+    background-color: grey;
+    font-size: 20px;
+    color: white;
+
+}
+
 .corpo2 .infos .retangulo .box_txt{
 
     height: 100%;
@@ -341,4 +374,22 @@ html{
     color: white;
     border-bottom: 3px solid white;
 }
+.corpo_sidebar2 .alertas2{
+
+    height: 30%;
+    width: 100%;
+    background-color: black;
+    border-bottom: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#alerta_atual{
+
+    font-size: 50px;
+    color: white;
+
+}
+
 
