@@ -1,12 +1,47 @@
-var lista_regioes = ['Tucuruvi','Jabaquara','Trianon-MASP','Barra Funda','Luz','Brigadeiro','Paulista','Consolação']
-var quant_totens = [2,3,4,1,4,3,2,3]
+var lista_regioes = ['Tucuruvi','Jabaquara','Trianon-MASP','Liberdade','Luz','Brigadeiro','Paulista','Consolação']
+var quant_totens = [6,5,3,4,8,4,3,5]
 
+var rand = (Math.random() * (lista_regioes.length-1)).toFixed(0) 
+var local = lista_regioes[rand]
+var rand_alert = 0;
+var regiao_alerta;
 
 function main(){
 
+    
     criarBotoes()
+    verCorBotao()
+    
 
 }
+
+
+function verCorBotao(){
+
+    var botao = document.getElementsByClassName('botoes_sidebar')
+    var botao_red;
+    
+    for(let i = 0; i < botao.length; i++){
+        if(botao[i].style.backgroundColor == 'red'){
+            botao_red = botao[i]
+            regiao_alerta = botao_red.id
+        }
+    }
+  
+    setInterval(()=>{
+                
+        if(botao_red.style.backgroundColor == 'red'){ 
+            botao_red.style.backgroundColor = 'black'
+        }else if(botao_red.style.backgroundColor == 'black'){
+            botao_red.style.backgroundColor = 'red'
+            
+        }
+
+    },500)
+
+}
+
+    
 
 
 
@@ -19,9 +54,18 @@ function criarBotoes(){
 
         var corpo_sibebar = document.getElementById('corpo_sidebarID')
         var botao = document.createElement('button')
-        botao.setAttribute('id',`botao${i}`)
+        botao.setAttribute('id',`${i}`)
+        botao.setAttribute('class','botoes_sidebar')
         botao.innerHTML = lista_regioes[i]
         corpo_sibebar.appendChild(botao)
+
+         
+
+        if(local == lista_regioes[i]){
+
+            botao.style.backgroundColor = 'red'
+
+        } 
 
         botao.addEventListener('click',()=>{
 
@@ -42,18 +86,58 @@ function criarBotoes(){
 
 function criarAlertas(num_alerta, regiao){
 
+    if(rand_alert == 0){
+
+        rand_alert = (Math.random() * (quant_totens[regiao_alerta]-1)+1).toFixed(0)
+        
+    }
+
+
+    
     for(let i = 0; i < num_alerta; i++){
 
         var alertas = document.getElementById("alertasID")
         var alerta = document.createElement('div')
         var txt = document.createElement('p')
         alerta.setAttribute('class','alerta')
-        alerta.setAttribute('id',`alerta${regiao}${i}`)
+        alerta.setAttribute('id',`${regiao}`)
+        
         txt.innerHTML = `#${i+1}`
         alerta.appendChild(txt)
         alertas.appendChild(alerta)
 
     }
+
+    
+
+    var getIdAlerta = document.getElementById(`${regiao}`)
+    if(lista_regioes[regiao_alerta] == getIdAlerta.id){
+
+        var class_alertas = document.getElementsByClassName('alerta')
+
+        
+
+        class_alertas[rand_alert-1].style.backgroundColor = 'red'
+        //getIdAlerta.style.backgroundColor = 'red'
+        
+        setInterval(()=>{
+                
+            if(class_alertas[rand_alert-1].style.backgroundColor == 'red'){ 
+                class_alertas[rand_alert-1].style.backgroundColor = 'black'
+            }else if(class_alertas[rand_alert-1].style.backgroundColor == 'black'){
+                class_alertas[rand_alert-1].style.backgroundColor = 'red'
+                
+            }
+    
+        },500)
+
+
+        
+
+
+
+    }
+
 
 }
 
@@ -66,7 +150,7 @@ function removeAlertas(){
     if(existe){
         
         var filhos = pai.childNodes;
-        console.log(filhos)
+        
         for(let i = filhos.length-1; i >= 0; i--){
 
             
