@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./fundocontato.jpg);
+    background-image: url("../Imagens/");
 }
 .box_login{
 

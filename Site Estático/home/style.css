@@ -64,7 +64,7 @@ body {
 .banner {
     height: 500px;
     color: #f5e3e3;
-    background-image: url("./Imagens/fundoAzul.jpg");
+    background-image: url("../Imagens/fundoAzul.jpg");
     background-size: cover;
     border-bottom: 2px solid #45a3e2;
 }
@@ -99,7 +99,7 @@ body {
 /* Sobre noś */
 
 .sobrenos{
-    background-image: url("./Imagens/fundoCinza.jpg");
+    background-image: url("../Imagens/fundoCinza.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -189,7 +189,7 @@ body {
 /* Contatos */
 
 .contato{
-    background-image: url("./Imagens/fundoCinza\ Azul.jpg");
+    background-image: url("../Imagens/fundoCinza\ Azul.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
