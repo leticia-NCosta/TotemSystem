@@ -55,6 +55,7 @@ body {
     height: 500px;
     color: #f5e3e3;
     background-image: url("./assets/monitoring.jpg");
+    /* background-image: url("../Imagens/fundoAzul.jpg"); */
     background-size: cover;
     border-bottom: 2px solid #45a3e2;
 }
@@ -90,6 +91,7 @@ body {
 
 .sobrenos{
     background-image: url("./assets/sobrenoscinza.jpg");
+    /* background-image: url("../Imagens/fundoCinza.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -133,6 +135,7 @@ body {
 .servicos {
     border-bottom: 2px solid #45a3e2;
     background-image: url("./assets/nossosservicos.png");
+    /* background-image: url("./Imagens/nossosservicos.png") */
 }
 
 .servicos .titulo{
@@ -180,6 +183,7 @@ body {
 
 .contato{
     background-image: url("./assets/fundocontato.jpg");
+    /* background-image: url("../Imagens/fundoCinza\ Azul.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -280,7 +284,6 @@ body {
 .back-to-top a:hover{
     color: #45a3e2;
 }
-
 
 /* Login */
 
@@ -429,6 +432,3 @@ body {
        border: 1px solid #fff1f1 ;
        font-size: smaller;
    }
-   
-
-   
