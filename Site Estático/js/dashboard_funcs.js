@@ -106,6 +106,17 @@ function criarAlertas(num_alerta, regiao){
         alerta.appendChild(txt)
         alertas.appendChild(alerta)
 
+        alerta.addEventListener('click',()=>{
+
+            pag1.style.display = 'none';
+            pag2.style.display = 'flex';
+            
+            
+            
+
+
+        })
+
     }
 
     
@@ -165,6 +176,12 @@ function removeAlertas(){
 
     //
 
+}
+function voltarDash(){
+
+    pag1.style.display = 'flex';
+    pag2.style.display = 'none';
+    nome_titulo.innerHTML = `Escolha uma Região`
 }
 
 
