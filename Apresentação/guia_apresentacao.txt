@@ -1,0 +1,32 @@
+--- Visão Geral ---
+
+Contexto
+Problema
+Solução
+Desenho de Negócio
+Story Board
+
+--- Conhecendo o Problema ---
+
+Visita Virtual
+Mapa do Problema
+Proto Persona
+User Story
+Product Backlog
+
+--- Organizando a Equipe ---
+
+Plano de Resposta
+Planner
+Github
+
+--- Desenvolvendo a Solução ---
+
+Site Estruturado
+Cliente Linux (WSL)
+Diagrama BD
+Azure
+
+--- Conclusão ---
+
+
