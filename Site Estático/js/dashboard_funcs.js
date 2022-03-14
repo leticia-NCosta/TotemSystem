@@ -78,7 +78,11 @@ function criarBotoes(){
             removeAlertas()
             criarAlertas(quant_totens[i],lista_regioes[i])
             ultimo_botao_clicado = event.target.innerHTML
-            
+            id_graficos.style.display = 'flex'
+            gerarDados()
+            limparGrafico()
+            graficoPizza()
+            graficoBar()
             
         })
 
@@ -203,5 +207,137 @@ function voltarDash(){
     pag2.style.display = 'none';
 }
 
+// -------------------------------------------------------
+
+var myChart1;
+var myChart2;
+var dado1;
+var dado2;
+var dado3;
+var dado4;
+var dado5;
+var dado6;
+
 
 main()
+
+function gerarDados(){
+
+    dado1 = (Math.random() * 19 +1).toFixed(0) 
+    dado2 = (Math.random() * 29 +1).toFixed(0) 
+    dado3 = (Math.random() * 39 +1).toFixed(0) 
+    dado4 = (Math.random() * 49 +1).toFixed(0) 
+    dado5 = (Math.random() * 59 +1).toFixed(0) 
+    dado6 = (Math.random() * 69 +1).toFixed(0) 
+    
+
+
+}
+
+
+function limparGrafico(){ //Para criar um gráfico novo é preciso destruir o anterior
+    if(myChart1 != undefined){
+        myChart1.destroy();
+    }
+
+    if(myChart2 != undefined){
+        myChart2.destroy();
+    }
+
+}
+
+
+function graficoPizza(){// Cria o gráfico de pizza
+
+  
+const ctx = document.getElementById('myChart1').getContext('2d');
+myChart1 = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Crítico', 'Em Funcionamento', 'Atenção'],
+        datasets: [{
+            label: 'Alertas por Mês',
+            data: [dado2, dado6, dado3],
+            backgroundColor: [
+                'red',
+                'green',
+                'gold',
+                'green',
+                'purple'
+                
+            ],
+            borderColor: [
+                
+            ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        responsive: true,
+
+        scales: {
+            x:{grid:{tickColor:'blue'}, ticks:{color:'grey',fontSize:5}},
+            y:{}
+        },
+
+        plugins:{
+
+            legend:{labels:{font:{size: 16,weight:'bolder'},color:'white'}},
+            labels:{size: 15},
+	    title:{color:'black'}
+
+        }
+    }
+});
+
+}
+
+function graficoBar(){// Cria o gráfico de barra
+
+
+const ctx = document.getElementById('myChart2').getContext('2d');
+myChart2 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Consolação', 'Brigadeiro', 'Trianon'],
+        datasets: [{
+            //label: '',
+            data: [dado1, dado4, dado5],
+            backgroundColor: [
+                'red',
+                'blue',
+                'gold',
+                'green',
+                'purple'
+                
+            ],
+            borderColor: [
+                'red',
+                'blue',
+                'gold',
+                'green',
+                'purple'
+                
+            ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        responsive: true,
+
+        scales: {
+            x:{grid:{tickColor:'blue'}, ticks:{color:'grey',fontSize:5}},
+            y:{}
+        },
+
+        plugins:{
+
+            legend:{labels:{font:{size: 16,weight:'bolder'},color:'white'}},
+            labels:{size: 15},
+        title:{color:'black'}
+
+        }
+    }
+});
+
+}
