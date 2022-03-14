@@ -78,7 +78,11 @@ function criarBotoes(){
             removeAlertas()
             criarAlertas(quant_totens[i],lista_regioes[i])
             ultimo_botao_clicado = event.target.innerHTML
-            
+            id_graficos.style.display = 'flex'
+            gerarDados()
+            limparGrafico()
+            graficoPizza()
+            graficoBar()
             
         })
 
@@ -125,7 +129,7 @@ function criarAlertas(num_alerta, regiao){
             
             
             
-            console.log(rand_alert)
+            //console.log(rand_alert)
             //console.log(lista_regioes[regiao_alerta])
 
 
@@ -203,5 +207,160 @@ function voltarDash(){
     pag2.style.display = 'none';
 }
 
+// -------------------------------------------------------
+
+var myChart1;
+var myChart2;
+var dado1;
+var dado2;
+var dado3;
+var dado4;
+var dado5;
+var dado6;
+var dado7;
+var dado8;
+var quant_totens_local = [];
+var valores_aleatorios = [];
+
 
 main()
+
+function gerarDados(){
+
+    dado1 = (Math.random() * 19 +1).toFixed(0) 
+    dado2 = (Math.random() * 29 +1).toFixed(0) 
+    dado3 = (Math.random() * 39 +1).toFixed(0) 
+    dado4 = (Math.random() * 49 +1).toFixed(0) 
+    dado5 = (Math.random() * 59 +1).toFixed(0) 
+    dado6 = (Math.random() * 69 +1).toFixed(0) 
+    dado7 = (Math.random() * 59 +1).toFixed(0) 
+    dado8 = (Math.random() * 49 +1).toFixed(0) 
+
+    valores_aleatorios = [dado1,dado2,dado3,dado4,dado5,dado6,dado7,dado8]
+
+    var nome_estacao = event.target.innerHTML
+    var numero_estacao = lista_regioes.indexOf(nome_estacao)
+    quant_totens_local = []
+    for(let i = 1; i <= quant_totens[numero_estacao]; i++){
+        quant_totens_local.push(i)
+        
+    }
+    console.log(quant_totens_local)
+
+
+}
+
+
+function limparGrafico(){ //Para criar um gráfico novo é preciso destruir o anterior
+    if(myChart1 != undefined){
+        myChart1.destroy();
+    }
+
+    if(myChart2 != undefined){
+        myChart2.destroy();
+    }
+
+}
+
+
+function graficoPizza(){// Cria o gráfico de pizza
+
+  
+const ctx = document.getElementById('myChart1').getContext('2d');
+myChart1 = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Crítico', 'Em Funcionamento', 'Atenção'],
+        datasets: [{
+            label: 'Alertas por Mês',
+            data: [dado2, dado6, dado3],
+            backgroundColor: [
+                'red',
+                'green',
+                'gold',
+                'green',
+                'purple'
+                
+            ],
+            borderColor: [
+                
+            ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        responsive: true,
+
+        scales: {
+            x:{grid:{tickColor:'blue'}, ticks:{color:'grey',fontSize:5}},
+            y:{}
+        },
+
+        plugins:{
+
+            legend:{labels:{font:{size: 16,weight:'bolder'},color:'white'}},
+            labels:{size: 15},
+	    title:{color:'black'}
+
+        }
+    }
+});
+
+}
+
+function graficoBar(){// Cria o gráfico de barra
+
+
+const ctx = document.getElementById('myChart2').getContext('2d');
+myChart2 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: quant_totens_local,
+        datasets: [{
+            label: 'Ganho Financeiro por Totem',
+            data: valores_aleatorios,
+            backgroundColor: [
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold'
+                
+            ],
+            borderColor: [
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold',
+                'gold'
+                
+                
+            ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        responsive: true,
+
+        scales: {
+            x:{grid:{tickColor:'blue'}, ticks:{color:'grey',fontSize:5}},
+            y:{}
+        },
+
+        plugins:{
+
+            legend:{labels:{font:{size: 16,weight:'bolder'},color:'white'}},
+            labels:{size: 15},
+        title:{color:'black'}
+
+        }
+    }
+});
+
+}

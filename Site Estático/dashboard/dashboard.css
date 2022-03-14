@@ -27,11 +27,17 @@ html{
     border-right: 3px solid white;
     
 }
+.cabeca .logo a{
+    align-self: center;
+    justify-content: center;
+}
 .logo:hover{
     cursor: pointer;
 }
 .cabeca .logo img{
-    width: 80%;
+    width: 100%;
+    align-self: center;
+    justify-content: center;
 }
 .cabeca .links{
 
@@ -178,24 +184,54 @@ html{
 
 
 }
-.dash .graficos .grafico1, .dash .graficos .grafico2{
+
+.dash .graficos .grafico1{
 
     height: 100%;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 3px solid white;
+
+}
+.grafico1 .titulo_grafico{
+
+    height: 15%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.grafico1{
-    border-right: 3px solid white;
+.grafico1 .titulo_grafico p{
+
+    font-size: 25px;
+    color: white;
+
+}
+.grafico1 .canva1{
+    
+    height: 85%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-#grafico1, #grafico2{
+#grafico1{
 
-    height: 70%;
-    width: 70%;
+    height: 10%;
+    width: 65%;
+    margin-bottom: 25%;
 
+}
+#grafico2{
+
+    height: 90%;
+    width: 100%;
 }
 #pag2{
     display: none;
@@ -240,18 +276,19 @@ html{
 .corpo2 .sidebar2 .botao_voltar{
 
     width: 100%;
-    height: 10%;
+    height: 40%;
     background-color: black;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     border-bottom: 3px solid white;
 
 }
 .corpo2 .sidebar2 button{
 
-    height: 90%;
-    width: 75%;
+    height: 40%;
+    width: 80%;
     background-color: grey;
     font-size: 20px;
     color: white;
