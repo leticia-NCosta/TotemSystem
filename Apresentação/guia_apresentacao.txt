@@ -1,32 +1,39 @@
 --- Visão Geral ---
 
-Contexto
-Problema
-Solução
-Desenho de Negócio
-Story Board
+Apresentação -- Cristian
+Contexto -- Cristian 
+Mapa do Problema -- Júlia
+Solução -- JP 
+Planner -- Letícia 
+Desenho de Negócio --  Volpe 
+Story Board -- Letícia
 
 --- Conhecendo o Problema ---
 
-Visita Virtual
-Mapa do Problema
-Proto Persona
-User Story
-Product Backlog
+Proto Persona -- Julia 
+User Story -- Volpe
+Product Backlog -- Donilo 
 
 --- Organizando a Equipe ---
 
-Plano de Resposta
-Planner
-Github
+Plano de Resposta -- Letícia
+Github -- Donilo 
 
 --- Desenvolvendo a Solução ---
 
-Site Estruturado
-Cliente Linux (WSL)
-Diagrama BD
-Azure
+Site Estruturado -- Júlia
+Cliente Linux (WSL) -- JP e Donilo
+Diagrama BD -- Volpe 
+Azure -- Cristian
 
---- Conclusão ---
+--- Conclusão --- 
+Jp
 
+===
 
+Cristian = 3
+Donilo = 3
+JP = 3
+Letícia = 3
+Volpe = 3
+Julia = 3
