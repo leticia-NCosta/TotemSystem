@@ -1,35 +1,40 @@
---- Visão Geral ---
+--- Inicio ---
 
 Apresentação -- Cristian
 Contexto -- Cristian 
 Mapa do Problema -- Júlia
 Solução -- JP 
-Planner -- Letícia 
-Desenho de Negócio --  Volpe 
-Story Board -- Letícia
 
---- Conhecendo o Problema ---
+--- Organização ---
+
+Planner -- Letícia 
+
+--- Ideação --- 
 
 Proto Persona -- Julia 
 User Story -- Volpe
 Product Backlog -- Donilo 
 
---- Organizando a Equipe ---
+--- StoryBoard ---
 
-Plano de Resposta -- Letícia
-Github -- Donilo 
+Story Board -- Letícia
 
---- Desenvolvendo a Solução ---
+--- Planejamento da Solução --- 
 
+Desenho de Negócio --  Volpe 
 Site Estruturado -- Júlia
+Github -- Donilo
 Cliente Linux (WSL) -- JP e Donilo
-Diagrama BD -- Volpe 
+Diagrama BD -- Volpe
 Azure -- Cristian
 
---- Conclusão --- 
-Jp
+--- Evolução e Aprendizagem --- 
 
-===
+Plano de Resposta -- Letícia
+Conclusão -- JP
+
+--- Agradecimentos ---
+
 
 Cristian = 3
 Donilo = 3
