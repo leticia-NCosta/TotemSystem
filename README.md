@@ -7,8 +7,9 @@
 
 ---
 
-Proect Owner: [@Letícia](https://github.com/Don616)
-Scrum Master: [@Donilo](https://github.com/leticiaNCosta18)
+Proect Owner: [@Letícia](https://github.com/leticiaNCosta18)
+
+Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
