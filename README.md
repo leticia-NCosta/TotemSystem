@@ -2,10 +2,16 @@
 ## Grupo de PI do segundo semestre SPTech - 2ADSB/2022
 
 ---
+=================================
+
+Sprint 2: ??
+
+## Entregáveis Sprint 2:
+- [ ] Slide de Apresentação;
 
 =================================
 
-Sprint 1: 15/02/2022
+~Sprint 1: 15/02/2022~
 
 ## Entregáveis Sprint 1:
 - [x] Ambiente Azure + Github;
@@ -21,6 +27,6 @@ Sprint 1: 15/02/2022
 - [x] Visita (virtual);
 - [x] Inovação;
 - [x] Proto-Persona;
-- [ ] Slide de Apresentação;
+- [x] Slide de Apresentação;
 
 ==================================
