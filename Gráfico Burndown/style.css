@@ -10,6 +10,10 @@ body {
     margin: auto;
     height: 400px;
     width: 80%;
+    background-image: url("../Imagens/logosite.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
 }
 canvas {
     border: 5px solid grey;
