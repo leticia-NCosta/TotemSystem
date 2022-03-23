@@ -13,10 +13,29 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
-Sprint 2: ??
+Sprint 2: 26/04/2022
 
 ## Entregáveis Sprint 2:
 - [ ] Slide de Apresentação;
+- [ ] Plano de resposta - Lições aprendidas;
+- [ ] User Story + Requisitos;
+- [ ] Planner;
+- [ ] Visita Virtual;
+- [ ] Inovação;
+- [ ] Controle de Execução;
+- [ ] Metodologia e Especialização;
+- [ ] Github atualizado;
+- [ ] Documentação Atualizada;
+- [ ] Diagrama de Solução - Visão Tecnica;
+- [ ] Diagrama de BD validado na aula de Análise;
+- [ ] Dashboard Estático;
+- [ ] Inovação Definida;
+- [ ] Jar Inicial - Console conectado ao banco;
+- [ ] Telas de Login Swing;
+- [ ] BPMN;
+- [ ] Mockup de tela;
+- [ ] VM na nuvem AWS;
+- [ ] Uso de API;
 
 =================================
 
