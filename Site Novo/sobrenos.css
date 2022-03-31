@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+.sobrenos{
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.596)), url("./assests/handpoints.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+@media (max-width: 999px) {
+    .sobrenos{
+        overflow-x: hidden;
+    }
+}
+
+.sobrenos h1{
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Raleway', sans-serif;
+    color: #ffffff;
+    padding: 30px;
+}
+
+.sobrenos h2 {
+    font-family: 'Raleway', sans-serif;
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.sobrenos p{
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+.icon_sobrenos{
+    padding: 15px;
+}
+
+.container_sobrenos{
+    display:flex;
+    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.banner_sobrenos{
+    background:linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.288)), url("./assests/team.jpg") no-repeat center center;
+    width: 85%;
+    height: 388px;
+    border-radius: 20px;
+    background-size: cover;
+    margin-left: 100px;
+}
+
+.box_sobrenos{
+    background-color: #ffffff;
+    width: 300px;
+    height: 230px;
+    margin-top: 250px;
+    border-radius: 20px;
+}
+
+.box_sobrenos .icon_sobrenos{
+    display: flex;
+    justify-content: center;
+}
+
+.box_sobrenos img{
+   width: 50px;
+}

@@ -1,0 +1,14 @@
+footer{
+    border-top: 1px solid rgba(110, 110, 110, 0);
+    background-color: #ffffff;
+    height: 10vh;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.37);
+}
+
+footer h4{
+    color: rgb(32, 32, 32);
+    font-family: 'Merriweather Sans', sans-serif;
+    margin-top: 20px;
+    font-size: 10px;
+}
