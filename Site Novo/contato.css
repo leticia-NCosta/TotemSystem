@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
 .contato {
-    height: 80vh;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.192)), url("./assests/cidadesp.png") no-repeat center center;
     background-size: cover;
-    background-color: #0c326950;
 }
 
 @media (max-width: 999px) {
@@ -13,49 +13,29 @@
     }
 }
 
+.bloco{
+    height: 30px;
+}
+
 .container_contato{
-    box-shadow: 0 0 1em rgba(88, 88, 84, 0.363);
-    background-color: rgb(253, 250, 246);
-    width: 700px;
-    height: 400px;
-    margin-top: 20px;
-    margin-left: 50px;
-    display: flex; 
-}
-
-.icons_contato{
-    display: flex; 
-}
-
-.comunicacao{
-    padding: 20px;
-    width: 650px;
-}
-
-.boxes_contato{
-    padding: 20px;
-}
-
-.box_contato p{
-    font-family: 'Quicksand', sans-serif;
-}
-
-.box_contato img {
-    width: 50px;
-    padding: 10px;
+    display: flex;
 }
 
 .formulario{
-    padding: 20px;
-    width: 650px;
-    margin-left: 250px;
+    width: 900px;
+    border-radius: 20px;
+    padding: 25px;
+    margin-left: 200px;
+    display: flex;
+    background-color: #505050da;
 }
 
 .formulario h1 {
     font-size: 30px;
+    height: 30px;
     font-family: 'Raleway', sans-serif;
-    color: #000000;
-    padding: 18px;
+    color: #fff8f8;
+    padding: 15px;
 }
 
 .formulario span {
@@ -63,6 +43,7 @@
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
     color: #000000;
+    color: #fff8f8;
 }
 
 .formulario button{
@@ -76,7 +57,39 @@
 }
 
 .dados input{
-    background-color: #dddddd63;
+    background-color: #fff8f8;
     border: none;
     border: 1px solid #00000070;
+    border-radius: 20px;
+    margin-right: 25px;
+}
+
+.informacao{
+    width: 400px;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.icon_informacao{
+    width: 50px;
+}
+
+ .mapa img{
+    margin-top: 50px;
+    width: 450px; 
+    height: 200px;
+}
+
+.box_informacao{
+    width: 150px;
+}
+
+.informacao p{
+   font-family: 'Quicksand', sans-serif;
+   color: #fff8f8;
+}
+
+.informacao h2{
+    font-family: 'Quicksand', sans-serif;
+    color: #fff8f8;
 }
