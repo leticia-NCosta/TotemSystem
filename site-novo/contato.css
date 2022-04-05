@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+.contato {
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.192)), url("./assests/cidadesp.png") no-repeat center center;
+    background-size: cover;
+}
+
+@media (max-width: 999px) {
+    .contato {
+        overflow-x: hidden;
+    }
+}
+
+.bloco{
+    height: 30px;
+}
+
+.container_contato{
+    display: flex;
+}
+
+.formulario{
+    width: 900px;
+    border-radius: 20px;
+    padding: 25px;
+    margin-left: 200px;
+    display: flex;
+    background-color: #505050da;
+}
+
+.formulario h1 {
+    font-size: 30px;
+    height: 30px;
+    font-family: 'Raleway', sans-serif;
+    color: #fff8f8;
+    padding: 15px;
+}
+
+.formulario span {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #000000;
+    color: #fff8f8;
+}
+
+.formulario button{
+    background-color: #e4e4ff;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    color: #535353;
+    border: 1px solid #505050;
+}
+
+.dados input{
+    background-color: #fff8f8;
+    border: none;
+    border: 1px solid #00000070;
+    border-radius: 20px;
+    margin-right: 25px;
+}
+
+.informacao{
+    width: 400px;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.icon_informacao{
+    width: 50px;
+}
+
+ .mapa img{
+    margin-top: 50px;
+    width: 450px; 
+    height: 200px;
+}
+
+.box_informacao{
+    width: 150px;
+}
+
+.informacao p{
+   font-family: 'Quicksand', sans-serif;
+   color: #fff8f8;
+}
+
+.informacao h2{
+    font-family: 'Quicksand', sans-serif;
+    color: #fff8f8;
+}
