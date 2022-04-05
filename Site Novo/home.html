@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./contato.css">
     <link rel="stylesheet" href="./faq.css">
     <link rel="stylesheet" href="./servicos.css">
+    <link rel="stylesheet" href="./entrar.css">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,9 +56,35 @@
                     <li><a href="/">HOME</a></li>
                     <li><a href="/">SOBRE</a></li>
                     <li><a href="/">FAQ</a></li>
-                    <li><a href="/">ENTRAR</a></li>
+                    <li><a href="javascript:entrar()">ENTRAR</a></li>
                 </ul>
         </header>
+        <div id="modalId" class="modal-entrar">
+            <div id="loginId" class="login">
+                <div class="titulo">
+                    <h2>Faça seu Login</h2>
+                </div>
+                <div class="campos">
+                    <p>Email</p>
+                    <input type="email">
+                    <p>Senha</p>
+                    <input type="password">
+                </div>
+            </div>
+            <div id="cadastroId" class="cadastro">
+                <div class="titulo">
+                    <h2>Cadastre-se!</h2>
+                </div>
+                <div class="campos">
+                    <p>CNPJ</p>
+                    <input type="number">
+                    <p>Email</p>
+                    <input type="email">
+                    <p>Senha</p>
+                    <input type="password">
+                </div>
+            </div>
+        </div>
 
         <div class="titulo_main">
             <h1>Bem Vindo A Totem System</h1>
@@ -76,6 +103,7 @@
         <script src="mobile-navbar.js"></script>
 
     </main>
+    
 
     <div class="sobrenos">
 
@@ -164,11 +192,12 @@
             </div>
         </div>
     </div>
+    
 
     <footer>
         <h4>Totem System © 2021 - All rights reserved </h4>
     </footer>
-
+    <script src="./entrar.js"></script>
 </body>
 
 </html>
