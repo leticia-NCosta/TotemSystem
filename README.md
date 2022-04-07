@@ -21,15 +21,15 @@ Sprint 2: 26/04/2022
 - [ ] User Story + Requisitos;
 - [x] Planner;
 - [x] Visita Virtual;
-- [ ] Inovação;
+- [x] Inovação;
 - [x] Controle de Execução;
 - [x] Metodologia e Especialização;
 - [x] Github atualizado;
 - [ ] Documentação Atualizada;
-- [ ] Diagrama de Solução - Visão Tecnica;
+- [x] Diagrama de Solução - Visão Tecnica;
 - [ ] Diagrama de BD validado na aula de Análise;
 - [x] Dashboard Estático;
-- [ ] Inovação Definida;
+- [x] Inovação Definida;
 - [ ] Jar Inicial - Console conectado ao banco;
 - [ ] Telas de Login Swing;
 - [ ] BPMN;
