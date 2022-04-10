@@ -57,6 +57,10 @@ a:hover {
     color: #ffffff;
 }
 
+.saiba_mais button:hover{
+    cursor: pointer;
+}
+
 nav {
     display: flex;
     justify-content: space-around;

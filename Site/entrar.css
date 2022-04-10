@@ -4,12 +4,32 @@
     position: fixed;
     height: 100vh;
     width: 50vw;
-    background: #161617e2;
+    background: #16161781;
     margin-left: 120vh;
-    border-radius: 5px;
     justify-content: center;
     align-items: center;
 
+}
+
+.modal-entrar h2{
+    font-family: 'Ramabhadra', sans-serif;
+    color: #fff;
+    font-size: 50px;
+}
+
+.modal-entrar input{
+    height: 10%;
+    width: 70%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    border-bottom: #fff 3px solid;
+}
+
+.modal-entrar p{
+    font-family: 'Ramabhadra', sans-serif;
+    color: #fff;
+    font-size: 30px;
 }
 
 .modal-entrar .login {
@@ -17,16 +37,14 @@
     display: flex;
     height: 80%;
     width: 90%;
-    background-color: blue;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 .modal-entrar .login .titulo{
     display: flex;
-    height: 20%;
+    height: 10%;
     width: 100%;
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,31 +52,72 @@
 }
 
 .modal-entrar .login .campos {
-    height: 80%;
+    height: 50%;
     width: 100%;
-    background-color: green;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.modal-entrar .login .configs{
+
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.modal-entrar .login .configs .links{
+
+    height: 20%;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.modal-entrar .login .configs .botao{
+
+    height: 80%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.modal-entrar a{
+    font-size: 18px;
+}
+.modal-entrar button{
+    border: none;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: #3c7ee2;
+    color: #ffffff;
+}
+.modal-entrar button:hover{
+    cursor: pointer;
+}
 
 .modal-entrar .cadastro {
 
     display: none;
     height: 80%;
     width: 90%;
-    background-color: blue;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 .modal-entrar .cadastro .titulo{
     display: flex;
-    height: 20%;
+    height: 10%;
     width: 100%;
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,11 +125,39 @@
 }
 
 .modal-entrar .cadastro .campos {
-    height: 80%;
+    height: 50%;
     width: 100%;
-    background-color: green;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.modal-entrar .cadastro .configs{
+
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.modal-entrar .cadastro .configs .links{
+
+    height: 20%;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.modal-entrar .cadastro .configs .botao{
+
+    height: 80%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

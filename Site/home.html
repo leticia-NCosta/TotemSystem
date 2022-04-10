@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -56,19 +56,26 @@
                     <li><a href="/">HOME</a></li>
                     <li><a href="/">SOBRE</a></li>
                     <li><a href="/">FAQ</a></li>
-                    <li><a href="javascript:entrar()">ENTRAR</a></li>
+                    <li><a href="javascript:abrirEntrar()">ENTRAR</a></li>
                 </ul>
         </header>
         <div id="modalId" class="modal-entrar">
             <div id="loginId" class="login">
                 <div class="titulo">
-                    <h2>Faça seu Login</h2>
+                    <h2>Login</h2>
                 </div>
                 <div class="campos">
-                    <p>Email</p>
+                    <p>Email:</p>
                     <input type="email">
-                    <p>Senha</p>
+                    <p>Senha:</p>
                     <input type="password">
+                </div>
+                <div class="configs">
+                    <div class="links">
+                        <a href="#">Esqueci minha senha</a>
+                        <a href="javascript:naoTenhoConta()">Não tenho Cadastro</a>
+                    </div>
+                    <div class="botao"><button  onclick="entrar()">Entrar</button></div>
                 </div>
             </div>
             <div id="cadastroId" class="cadastro">
@@ -76,12 +83,19 @@
                     <h2>Cadastre-se!</h2>
                 </div>
                 <div class="campos">
-                    <p>CNPJ</p>
-                    <input type="number">
-                    <p>Email</p>
+                    <p>CNPJ:</p>
+                    <input type="text">
+                    <p>Email:</p>
                     <input type="email">
-                    <p>Senha</p>
+                    <p>Senha:</p>
                     <input type="password">
+                </div>
+                <div class="configs">
+                    <div class="links">
+                        <a href="#">Termos de Uso</a>
+                        <a href="javascript:jaPossuoConta()">Já possuo conta. Entrar.</a>
+                    </div>
+                    <div class="botao"><button>Cadastrar</button></div>
                 </div>
             </div>
         </div>
