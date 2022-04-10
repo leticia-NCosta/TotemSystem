@@ -1,0 +1,76 @@
+.modal-entrar{
+    display: none;
+    z-index: 3;
+    position: fixed;
+    height: 100vh;
+    width: 50vw;
+    background: #161617e2;
+    margin-left: 120vh;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-entrar .login {
+
+    display: flex;
+    height: 80%;
+    width: 90%;
+    background-color: blue;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-entrar .login .titulo{
+    display: flex;
+    height: 20%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-entrar .login .campos {
+    height: 80%;
+    width: 100%;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-entrar .cadastro {
+
+    display: none;
+    height: 80%;
+    width: 90%;
+    background-color: blue;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-entrar .cadastro .titulo{
+    display: flex;
+    height: 20%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-entrar .cadastro .campos {
+    height: 80%;
+    width: 100%;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

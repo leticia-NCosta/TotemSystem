@@ -1,6 +1,6 @@
 # Totem System - (Grupo9)
 <p align="center">
-  <img height="300em" width="400em" src="https://github.com/leticiaNCosta18/grupo9/blob/main/Imagens/logoeslogan.jpeg"/>
+  <img height="300em" width="400em" src="https://github.com/leticiaNCosta18/grupo9/blob/main/Imagens/IconTotemSystem-Circulo.png"/>
 </p>
 
 ## Grupo de PI do segundo semestre SPTech - 2ADSB/2022
