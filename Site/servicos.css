@@ -3,6 +3,10 @@
 
 .servicos {
     height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
     background-color: #e7e4e1;
     background-size: cover;
 }
@@ -21,6 +25,8 @@
 }
 
 .titulo_servicos {
+    height: 10%;
+    width: 100%;
     margin-top: 200px;
 }
 
@@ -53,6 +59,8 @@
 
 .container_servicos {
     display: flex;
+    height: 90%;
+    width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     margin-right: 170px;
