@@ -32,8 +32,8 @@ Sprint 2: 26/04/2022
 - [x] Inovação Definida;
 - [ ] Jar Inicial - Console conectado ao banco;
 - [ ] Telas de Login Swing;
-- [ ] BPMN;
-- [ ] Mockup de tela;
+- [x] BPMN;
+- [x] Mockup de tela;
 - [ ] VM na nuvem AWS;
 - [ ] Uso de API;
 
