@@ -11,7 +11,7 @@ public class Usuario {
 
     public Boolean validacaoCampo(String email, String senha){
        System.out.println(email + ""+ senha);
-       if (email.contains("@") && email.contains(".com") && senha.length()<= 8){
+       if (email.contains("@") && email.contains(".com") && senha.length()>= 8){
            this.setEmail(email);
          
            this.setSenha(senha);

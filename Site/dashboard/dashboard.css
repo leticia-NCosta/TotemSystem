@@ -24,6 +24,7 @@ html{
     justify-content: center;
     align-items: center;
     background-color: #273c5c;
+   
     
     
 }
@@ -119,13 +120,15 @@ html{
     background-color: rgb(46, 134, 23);
     font-size: 20px;
     color: white;
-    
+    border-radius: 10px;
+   
 
 }
 .corpo_sidebar button:hover{
 
     cursor: pointer;
     border: 5px solid white;
+    
 }
 .corpo .dash{
 
@@ -279,31 +282,31 @@ html{
 
     width: 100%;
     height: 60%;
-    background-color: black;
+    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid #ffffff;
 
 }
 .corpo2 .sidebar2 button{
 
     height: 40%;
     width: 80%;
-    background-color: grey;
+    background-color: #808080;
     font-size: 20px;
-    color: white;
+    color: #ffffff;
 }
 .corpo2 .sidebar2 button:hover{
-    border: 3px white solid;
+    border: 3px #ffffff solid;
     cursor: pointer;
 }
 
 .titulo_sidebar2 p{
 
     font-size: 25px;
-    color: white;
+    color: #ffffff;
     
 
 
@@ -333,7 +336,7 @@ html{
 
     height: 100%;
     width: 50%;
-    border: 3px solid white;
+    border: 3px solid #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -343,7 +346,7 @@ html{
 
     height: 100%;
     width: 50%;
-    border: 3px solid white;
+    border: 3px solid #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -352,7 +355,7 @@ html{
 
     height: 70%;
     width: 30%;
-    border: 3px solid white;
+    border: 3px solid #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -390,9 +393,9 @@ html{
 
     height: 80%;
     width: 90%;
-    background-color: grey;
+    background-color: #808080;
     font-size: 20px;
-    color: white;
+    color: #ffffff;
 
 }
 
@@ -400,7 +403,7 @@ html{
 
     height: 100%;
     width: 70%;
-    border: 3px solid white;
+    border: 3px solid #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -414,7 +417,7 @@ html{
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    color: white;
+    color: #ffffff;
     border-bottom: 3px solid white;
 }
 .corpo_sidebar2 .alertas2{
