@@ -25,7 +25,7 @@ Sprint 2: 26/04/2022
 - [x] Controle de Execução;
 - [x] Metodologia e Especialização;
 - [x] Github atualizado;
-- [ ] Documentação Atualizada;
+- [x] Documentação Atualizada;
 - [x] Diagrama de Solução - Visão Tecnica;
 - [ ] Diagrama de BD validado na aula de Análise;
 - [x] Dashboard Estático;
