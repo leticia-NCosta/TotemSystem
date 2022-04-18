@@ -16,9 +16,9 @@ public class Teste {
         //System.out.println(looca.getGrupoDeServicos().getServicosAtivos());
 
         
-        totem.processos();
+        //totem.processos();
         
-        //info.getInfo();
+        info.getInfo();
     }
 
     
