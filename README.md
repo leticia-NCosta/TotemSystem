@@ -27,11 +27,11 @@ Sprint 2: 26/04/2022
 - [x] Github atualizado;
 - [x] Documentação Atualizada;
 - [x] Diagrama de Solução - Visão Tecnica;
-- [ ] Diagrama de BD validado na aula de Análise;
+- [x] Diagrama de BD validado na aula de Análise;
 - [x] Dashboard Estático;
 - [x] Inovação Definida;
 - [ ] Jar Inicial - Console conectado ao banco;
-- [ ] Telas de Login Swing;
+- [x] Telas de Login Swing;
 - [x] BPMN;
 - [x] Mockup de tela;
 - [ ] VM na nuvem AWS;
