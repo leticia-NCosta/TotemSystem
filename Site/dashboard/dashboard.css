@@ -49,6 +49,7 @@ html{
     align-items: center;
     background-color: #273c5c;;
     border-bottom: 3px solid white;
+   
 
 }
 .cabeca h1{
@@ -88,6 +89,7 @@ html{
     align-items: center;
     justify-content: center;
     border-bottom: 3px solid white;
+    
 
 }
 
@@ -95,7 +97,7 @@ html{
 
     font-size: 25px;
     color: white;
-    
+    border-radius: 5px;
 
 
 }
@@ -124,10 +126,13 @@ html{
    
 
 }
+
+
 .corpo_sidebar button:hover{
 
     cursor: pointer;
     border: 5px solid white;
+  
     
 }
 .corpo .dash{
@@ -289,6 +294,16 @@ html{
     flex-direction: column;
     border-bottom: 3px solid #ffffff;
 
+}
+
+.corpo2 .sidebar2 button a{
+
+    height: 40%;
+    width: 80%;
+    background-color: #808080;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
 }
 .corpo2 .sidebar2 button{
 
