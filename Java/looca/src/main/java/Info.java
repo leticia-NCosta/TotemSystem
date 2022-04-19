@@ -1,4 +1,9 @@
 import com.github.britooo.looca.api.core.Looca;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+// link para pegar hostname da maquina:
+//https://www.devmedia.com.br/como-detectar-o-endereco-ip-e-o-nome-da-maquina-do-host-sem-usar-socket/3100#:~:text=Veja%20nesta%20dica%20como%20obter%20informa%C3%A7%C3%B5es%20do%20host.&text=A%20classe%20java.,o%20endere%C3%A7o%20da%20m%C3%A1quina%20local.
 
 public class Info {
 
@@ -6,11 +11,19 @@ public class Info {
     Sistema sistema = new Sistema();
     Totem totem = new Totem(4,"Consolação");
 
-    public void getInfo(){
+    public void getInfo(){ 
+        String hostname = "";
+           try {
+            hostname = InetAddress.getLocalHost().getHostName();
+      } catch (UnknownHostException e) {
+            e.printStackTrace();
+      }
+  
 
         sistema.setLinhas("-", 70);
         System.out.println("\t\t\t SISTEMA OPERACIONAL\n");
         System.out.println("Sistema Operacional:\t\t| "+looca.getSistema().getSistemaOperacional());
+        System.out.println("Hostname:\t\t\t| "+hostname);
         System.out.println("Fabricante:\t\t\t| "+looca.getSistema().getFabricante());
         System.out.println("Arquitetura:\t\t\t| "+looca.getSistema().getArquitetura());
         System.out.println("Inicializado em:\t\t| "+looca.getSistema().getInicializado());
