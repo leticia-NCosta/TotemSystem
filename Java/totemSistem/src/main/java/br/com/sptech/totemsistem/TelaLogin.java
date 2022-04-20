@@ -172,21 +172,26 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void BtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrarActionPerformed
         // TODO add your handling code here:
-        
+        App teste = new App();
         String email = inputEmail.getText();
-        String senha = inputSenha.getText(); 
+        String senha = inputSenha.getText();
+        String username = teste.getUsername();
         
        Boolean validacaoCampo = user.validacaoCampo(email, senha);
+        
        
        if(validacaoCampo == true){
             Boolean validacaoBanco = user.validarCredenciais(email, senha);
             if(validacaoBanco == true){
                 //Daqui vai para o console
                 System.out.println("console!!!!");
+                System.out.println(username);
             }
        }
        else {
+           System.out.println(username);
            System.out.println("Dados incorretos!!!!!");
+           System.out.println(username + "test");
        }
       
        
