@@ -7,7 +7,7 @@ public class Usuario {
    private String email;
    private String senha;
 
-    
+  
 
     public Boolean validacaoCampo(String email, String senha){
        System.out.println(email + ""+ senha);
@@ -28,18 +28,7 @@ public class Usuario {
           
     }
     
-    public Boolean validarCredenciais(String email, String senha){
-       if (email.equals(this.getEmail()) && senha.equals(this.getSenha())){
-           
-           System.out.println("Retornou true na validação do banco");
-           return true;
-       }
-       else {
-           System.out.println("Retornou false na validação do banco");
-           return false;
-       }
-        
-    }
+   
     public Integer getId() {
         return id;
     }
