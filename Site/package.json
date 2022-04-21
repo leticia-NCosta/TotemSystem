@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3"
+  },
+  "name": "site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}

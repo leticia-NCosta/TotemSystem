@@ -2,8 +2,10 @@ function abrirEntrar(){
 
     if(modalId.style.display == "none"){
         modalId.style.display = "flex"
+        container_home.style.display = "none"
     } else {
         modalId.style.display = "none"
+        container_home.style.display = "block"
     }
 
 }
