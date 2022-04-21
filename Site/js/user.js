@@ -1,7 +1,7 @@
 mudarTela()
 
 function mvDashboard(){
-    window.location = "./dashboard/dashboard.html"
+    window.location = "./dashboard.html"
 }
 
 function mudarTela(){

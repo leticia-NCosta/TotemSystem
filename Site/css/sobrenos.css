@@ -3,7 +3,7 @@
 
 .sobrenos{
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.596)), url("./assests/handpoints.jpg") no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.596)), url("../assests/handpoints.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .banner_sobrenos{
-    background:linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.288)), url("./assests/team.jpg") no-repeat center center;
+    background:linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.288)), url("../assests/team.jpg") no-repeat center center;
     width: 85%;
     height: 388px;
     border-radius: 20px;

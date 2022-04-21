@@ -9,6 +9,7 @@
     flex-direction: column;
     background-color: #e7e4e1;
     background-size: cover;
+    
 }
 
 @media (max-width: 999px) {
@@ -27,32 +28,30 @@
 .titulo_servicos {
     height: 10%;
     width: 100%;
-    margin-top: 200px;
 }
 
 .servicos h2 {
     font-family: 'Raleway', sans-serif;
     color: #000000;
-    padding: 5px;
     font-size: 25px;
     color: #3c7ee2;
+    text-align: center;
 }
 
 .servicos p {
-    padding: 10px;
     font-size: 17px;
     font-family: 'Quicksand', sans-serif;
-    width: 200px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .icon_servicos {
-    padding: 15px;
     display: flex;
     justify-content: center;
 }
 
 .icon_servicos img {
-    padding: 5px;
     border-radius: 100%;
     border: 1px solid #3f3f3f86;
 }
@@ -61,21 +60,21 @@
     display: flex;
     height: 90%;
     width: 100%;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-right: 170px;
+    padding-bottom: 90px;
 }
 
 .box_servicos_top {
-    width: 180px;
+    width: 20%;
     height: 150px;
-    margin-left: 100px;
-    padding: 10px;
+    /* margin-left: 600px; */
+    padding: 40px;
 }
 
 .box_servicos_bottom {
     margin-top: 100px;
-    width: 180px;
+    width: 20%;
     height: 150px;
-    margin-left: 100px;
 }

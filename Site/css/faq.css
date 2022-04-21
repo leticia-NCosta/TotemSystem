@@ -16,18 +16,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 20px;
-    width: 1000px;
-    margin-left: 100px;
+    margin-top: 50px;
+    width: 100%;
+    /* margin-left: 100px; */
+    align-items: center;
+    text-align: left;
 }
 
 .faq h1{
-    margin-left: 70px;
     font-size: 75px;
     font-family: 'Rajdhani', sans-serif;
     color: #ffffff;
-    padding: 20px;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
 }
 
 summary{
@@ -36,7 +39,7 @@ summary{
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     padding: 9px;
-}
+}  
 
 
 
