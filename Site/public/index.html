@@ -60,16 +60,16 @@
                     <li><a href="javascript:abrirEntrar()">ENTRAR</a></li>
                 </ul>
         </header>
-        <div id="modalId" class="modal-entrar">
+        <div id="modalId" style="display: none;" class="modal-entrar">
             <div id="loginId" class="login">
                 <div class="titulo">
                     <h2>Login</h2>
                 </div>
                 <div class="campos">
                     <p>Email:</p>
-                    <input type="email">
+                    <input id="input_email_entrar" type="email">
                     <p>Senha:</p>
-                    <input type="password">
+                    <input id="input_senha_entrar" type="password">
                 </div>
                 <div class="configs">
                     <div class="links">
@@ -85,18 +85,18 @@
                 </div>
                 <div class="campos">
                     <p>CNPJ:</p>
-                    <input type="text">
+                    <input id="input_cnpj" type="text">
                     <p>Email:</p>
-                    <input type="email">
+                    <input id="input_email" type="email">
                     <p>Senha:</p>
-                    <input type="password">
+                    <input id="input_senha" type="password">
                 </div>
                 <div class="configs">
                     <div class="links">
                         <a href="#">Termos de Uso</a>
                         <a href="javascript:jaPossuoConta()">Já possuo conta. Entrar.</a>
                     </div>
-                    <div class="botao"><button>Cadastrar</button></div>
+                    <div class="botao"><button onclick="cadastrar()">Cadastrar</button></div>
                 </div>
             </div>
         </div>
@@ -283,6 +283,7 @@
         <h4>Totem System © 2021 - All rights reserved </h4>
     </footer>
     <script src="./js/entrar.js"></script>
+    <script src="./js/cadastrar.js"></script>
 </body>
 
 </html>
