@@ -240,7 +240,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 + "\n1 - Mostrar informações do Totem."
                 + "\n2 - Mostrar processos do Totem."
                 + "\n3 - Mostrar serviços em Execução."
-                + "\n4 - Salvar dados de máquina"
+                + "\n4 - Salvar dados de máquina."
                 + "\n5 - Salvar dados variáveis.");
         Integer opcao = leitor.nextInt();
 
@@ -251,7 +251,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 info.getInfo();
                 break;
             case 2:
-                System.out.println("\nOpção escolhida: Mostrar processos do Totem\n");
+                System.out.println("\nOpção escolhida: Mostrar processos do Totem.\n");
                 totem.processos();
                 break;
             case 3:
@@ -265,7 +265,8 @@ public class TelaLogin extends javax.swing.JFrame {
             case 5:
                 System.out.println("\nOpção escolhida: Salvar dados variáveis.");
                 salvar.salvarDadosVariaveis();
-
+            default:
+                System.out.println("\nOpção Inválida.\n");
         }
 
 

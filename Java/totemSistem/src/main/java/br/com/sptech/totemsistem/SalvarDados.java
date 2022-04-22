@@ -51,7 +51,7 @@ public class SalvarDados {
 
     public void salvarDadosVariaveis() {
 
-        String nomeTabela = "tb_registro";
+        String nomeTabela = "tb_log";
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
 
         String inserirDado = String.format("INSERT INTO %s"
