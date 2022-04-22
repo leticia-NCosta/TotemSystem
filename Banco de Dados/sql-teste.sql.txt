@@ -1,0 +1,41 @@
+CREATE DATABASE totemsystem;
+
+use totemsystem;
+
+CREATE TABLE IF NOT EXISTS Usuario(
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255),
+email VARCHAR(255),
+senha VARCHAR(15)
+);
+
+drop table tb_empresa;
+
+CREATE TABLE IF NOT EXISTS tb_empresa(
+id INT PRIMARY KEY AUTO_INCREMENT,
+cnpj VARCHAR(255),
+email VARCHAR(255),
+senha VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS tb_totem(
+idtotem INT PRIMARY KEY AUTO_INCREMENT,
+sistemaOperacional varchar(45),
+hostname varchar(45),
+fabricanteSistema varchar(45),
+arquitetura int,
+inicializadoEm varchar(45),
+permissoes varchar(45),
+marca varchar(45),
+fabricanteProcessador varchar(45),
+microArquitetura varchar(45),
+cpusFisicas int,
+cpusLogicas int,
+pacotesFisicos int,
+frequencia int);
+
+INSERT INTO Usuario VALUES (null, 'admin', 'admin@admin.com', '12345678');
+INSERT INTO Usuario VALUES (null, 'don', 'don@admin.com', '12345678');
+
+select * from tb_totem;
+select * from tb_empresa;
