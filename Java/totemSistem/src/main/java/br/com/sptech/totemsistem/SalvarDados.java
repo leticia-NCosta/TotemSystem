@@ -26,7 +26,7 @@ public class SalvarDados {
 
     public void salvarDadosVariaveis(){
 
-        String nomeTabela = "tb_totem";
+        String nomeTabela = "tb_registro";
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
 
         String inserirDado = String.format("INSERT INTO %s"
