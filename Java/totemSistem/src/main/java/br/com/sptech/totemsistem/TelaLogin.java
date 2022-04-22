@@ -227,7 +227,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void menu(){
+    public void menu() {
 
         Sistema sistema = new Sistema();
         Scanner leitor = new Scanner(System.in);

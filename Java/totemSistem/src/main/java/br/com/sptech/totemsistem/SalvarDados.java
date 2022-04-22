@@ -1,7 +1,8 @@
 package br.com.sptech.totemsistem;
 
-import java.util.List;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.github.britooo.looca.api.core.Looca;
 
@@ -13,26 +14,36 @@ public class SalvarDados {
 
     public void salvarDadosEstaticos() {
 
+        String hostname = "";
+        try {
+            hostname = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
         String nomeTabela = "tb_totem";
+
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
-    //    String Hostname = looca.getSistema().getHostname();
-        String Fabricante = looca.getSistema().getFabricante();
+        String FabricanteSistema = looca.getSistema().getFabricante();
         Integer Arquitetura = looca.getSistema().getArquitetura();
-        Instant InicializadoEm = looca.getSistema().getInicializado();
-        Double Permissões = looca.getSistema().getPermissao();
+        String InicializadoEm = String.valueOf(looca.getSistema().getInicializado());
+        String Permissões = String.valueOf(looca.getSistema().getPermissao());
 //        
         String Marca = looca.getProcessador().getNome();
-        String Fabricante = looca.getProcessador().getFabricante();
+        String FabricanteProcessador = looca.getProcessador().getFabricante();
         String MicroArquitetura =looca.getProcessador().getMicroarquitetura();
-        String CPUsFisicas =looca.getProcessador().getNumeroCpusFisicas();
-        String CPUsLogicas = looca.getProcessador().getNumeroCpusLogicas();
-        String PacotesFisicos = looca.getProcessador().getNumeroPacotesFisicos();
-        String Frequencia =looca.getProcessador().getFrequencia();
+        Integer CPUsFisicas =looca.getProcessador().getNumeroCpusFisicas();
+        Integer CPUsLogicas = looca.getProcessador().getNumeroCpusLogicas();
+        Integer PacotesFisicos = looca.getProcessador().getNumeroPacotesFisicos();
+        Long Frequencia =looca.getProcessador().getFrequencia();
 
         String inserirDado = String.format("INSERT INTO %s"
-                + "(sistemaOperacional,Hostname,Fabricante,Arquitetura,InicializadoEm,Permissões,"
-                + "Marca,Fabricante, Micro arquitetura,CPUs Físicas,CPUs Lógicas,Pacotes Físicos,Frequência) VALUES"
-                + "('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')", nomeTabela, sistemaOperacional);
+                + "(sistemaOperacional,hostname,fabricanteSistema,arquitetura,inicializadoEm,permissoes,"
+                + "marca,fabricanteProcessador, microArquitetura,cpusFisicas,cpusLogicas,pacotesFisicos,frequencia) VALUES"
+                + "('%s','%s','%s',%d,'%s','%s','%s','%s','%s',%d,%d,%d,%d)",
+                nomeTabela, sistemaOperacional,hostname,FabricanteSistema,Arquitetura,InicializadoEm,
+                Permissões,Marca,FabricanteProcessador,MicroArquitetura,CPUsFisicas,CPUsLogicas,
+                PacotesFisicos,Frequencia);
 
         template.execute(inserirDado);
 

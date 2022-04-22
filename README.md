@@ -35,7 +35,7 @@ Sprint 2: 26/04/2022
 - [x] BPMN;
 - [x] Mockup de tela;
 - [ ] VM na nuvem AWS;
-- [ ] Uso de API;
+- [x] Uso de API;
 
 =================================
 
