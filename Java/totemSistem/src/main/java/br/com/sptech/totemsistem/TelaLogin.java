@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.sptech.totemsistem;
-
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -148,6 +148,11 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
         Usuario user = new Usuario();
+
+
+
+
+
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
         String email = inputEmail.getText();
         String senha = inputSenha.getText();
@@ -158,10 +163,9 @@ public class TelaLogin extends javax.swing.JFrame {
        if(validacaoCampo == true){
            // Boolean validacaoBanco = user.validarCredenciais(email, senha);
             if(validacaoBanco.validarLogin(email, senha)){
-                //Daqui vai para o console
-                System.out.println("console!!!!");
+
                 JOptionPane.showMessageDialog(rootPane, "Usuário logado com sucesso!!!");
-               // System.out.println(username);
+                this.menu();
             }
        }
        else {
@@ -222,4 +226,48 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void menu(){
+
+        Sistema sistema = new Sistema();
+        Scanner leitor = new Scanner(System.in);
+        Info info = new Info();
+        Totem totem = new Totem();
+        SalvarDados salvar = new SalvarDados();
+
+        sistema.setLinhas("=",20);
+        System.out.println("Escolha uma opção:"
+                + "\n1 - Mostrar informações do Totem."
+                + "\n2 - Mostrar processos do Totem."
+                + "\n3 - Mostrar serviços em Execução."
+                + "\n4 - Salvar dados de máquina"
+                + "\n5 - Salvar dados variáveis.");
+        Integer opcao = leitor.nextInt();
+
+        switch(opcao){
+
+            case 1:
+                System.out.println("\nOpção escolhida: Informações do Totem\n");
+                info.getInfo();
+                break;
+            case 2:
+                System.out.println("\nOpção escolhida: Mostrar processos do Totem\n");
+                totem.processos();
+                break;
+            case 3:
+                System.out.println("\nOpção escolhida: Mostrar serviços em Execução.\n");
+                totem.servicos();
+                break;
+            case 4:
+                System.out.println("\nOpção escolhida: Salvar dados estáticos.\n");
+                salvar.salvarDadosEstaticos();
+                break;
+            case 5:
+                System.out.println("\nOpção escolhida: Salvar dados variáveis.");
+                salvar.salvarDadosVariaveis();
+
+        }
+
+
+    }
 }

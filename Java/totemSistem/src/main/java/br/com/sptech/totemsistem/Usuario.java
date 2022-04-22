@@ -10,17 +10,17 @@ public class Usuario {
   
 
     public Boolean validacaoCampo(String email, String senha){
-       System.out.println(email + ""+ senha);
+       //System.out.println(email + ""+ senha);
        if (email.contains("@") && email.contains(".com") && senha.length()>= 8){
            this.setEmail(email);
          
            this.setSenha(senha);
-           System.out.println("Retorna True na validação do campo");
+           //System.out.println("Retorna True na validação do campo");
            return true;  
            
        }
        else{
-           System.out.println("Retorna falso na validação do campo");
+           //System.out.println("Retorna falso na validação do campo");
            return false;
        }
        
