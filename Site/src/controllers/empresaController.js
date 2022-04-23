@@ -1,12 +1,12 @@
-var usuarioModel = require("../models/usuarioModel");
+var empresaModel = require("../models/empresaModel");
 
 function testar(req, res) {
-  console.log("ENTRAMOS NA usuarioController");
+  console.log("ENTRAMOS NA empresaController");
   res.json("ESTAMOS FUNCIONANDO!");
 }
 
 function listar(req, res) {
-  usuarioModel
+  empresaModel
     .listar()
     .then(function (resultado) {
       if (resultado.length > 0) {
@@ -39,7 +39,7 @@ function cadastrar(req, res) {
       res.status(400).send("Sua senha está undefined!");
   } 
       
-      usuarioModel.cadastrar(cnpj, email, senha)
+      empresaModel.cadastrar(cnpj, email, senha)
           .then(
               function (resultado) {
                   res.json(resultado);
@@ -65,7 +65,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
         
-        usuarioModel.entrar(email, senha)
+        empresaModel.entrar(email, senha)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -91,9 +91,47 @@ function cadastrar(req, res) {
 
 }
 
+    function atualizar(req, res){
+
+        var razaoSocial = req.body.razaoSocialServer;
+        var ruaEmpresa = req.body.ruaEmpresaServer;
+        var numeroEmpresa = req.body.numeroEmpresaServer;
+        var complementoEmpresa = req.body.complementoEmpresaServer;
+        var telefoneEmpresa = req.body.telefoneEmpresaServer;
+        var email = req.params.email;
+
+        if (razaoSocial == '') {
+            res.status(400).send('Nome do usuário não está definida!');
+          } else if (ruaEmpresa == '') {
+            res.status(400).send('Rua não definido!');
+          } else if (numeroEmpresa == '') {
+            res.status(400).send('Numero não definido!');
+          } else if (complementoEmpresa == '') {
+            res.status(400).send('Complemento não definido!');
+          } else if (telefoneEmpresa == '') {
+            res.status(400).send('Telefone não definido!');
+          } else {
+            empresaModel
+              .atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmpresa, telefoneEmpresa)
+              .then(function (resultado) {
+                res.json(resultado);
+              })
+              .catch(function (erro) {
+                console.log(erro);
+                console.log(
+                  '\nHouve um erro ao realizar a edição! Erro: ',
+                  erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+              });
+          }
+        
+    }
+
 module.exports = {
   listar,
   testar,
   cadastrar,
   entrar,
+  atualizar,
 };

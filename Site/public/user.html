@@ -75,8 +75,16 @@
                 <div class="container">
                     <div class="titulo"><h1>Minha Conta</h1></div>
                     <div class="descricao"><p>lorem</p></div>
-                    <div class="formulario_cadastro"></div>
-                    <div class="botoes"></div>
+                    <div class="formulario_cadastro">
+                       <p>Razão Social:</p> <input id="input_razao_social">
+                       <p>Rua:</p> <input id="input_rua">
+                       <p>Numero:</p> <input id="input_numero">
+                       <p>Complemento:</p><input id="input_complemento">
+                       <p>Telefone:</p> <input id="input_telefone">
+                    </div>
+                    <div class="botoes">
+                        <button type="submit" onclick="atualizar()">Atualizar cadastro</button>
+                    </div>
                 </div>
             </div>
             <div id="tela_totens" class="telas">
@@ -116,5 +124,6 @@
 
     </div>
     <script src="./js/user.js"></script>
+    <script src="./js/atualizar.js"></script>
 </body>
 </html>

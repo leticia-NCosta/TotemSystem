@@ -75,9 +75,9 @@ function entrar(){
                 sessionStorage.NOME_USUARIO = json.NOME_USUARIO;
                 sessionStorage.ID_USUARIO = json.ID_USUARIO;
 
-                localStorage.setItem('EMAIL_USUARIO',json.EMAIL_USUARIO)
-                localStorage.setItem('NOME_USUARIO',json.NOME_USUARIO)
-                localStorage.setItem('ID_USUARIO',json.ID_USUARIO)
+                localStorage.setItem('EMAIL_EMPRESA',json.email_empresa)
+                localStorage.setItem('CNPJ',json.cnpj)
+                // localStorage.setItem('ID_EMPRESA',json.id_empresa)
 
                 setTimeout(function () {
                     window.location = "../user.html";
