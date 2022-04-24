@@ -72,9 +72,9 @@ public class SalvarDados {
         //Double temperatura = looca.getTemperatura().getTemperatura();
 
         String inserirDado = String.format("INSERT INTO tb_log"
-                + "(memoria_uso,memoria_disponivel,total_processos,total_threads,total_servicos,data_atual) VALUES"
-                + "(%d,%d,%d,%d,%d,'%s')",memoriaEmUso,memoriaDisponivel,
-                totalProcessos,totalThreads,totalDeServicos,dataAtual);
+                + "(data_atual,memoria_uso,memoria_disponivel,total_processos,total_threads,total_servicos) VALUES"
+                + "('%s',%d,%d,%d,%d,%d)",dataAtual,memoriaEmUso,memoriaDisponivel,
+                totalProcessos,totalThreads,totalDeServicos);
 
         template.execute(inserirDado);
 
