@@ -163,11 +163,87 @@ function cadastrar(req, res) {
 
     }
 
+    function cadastrarColaborador(req, res){
+      var nome = req.body.nomeServer;
+      var cpf = req.body.cpfServer;
+      var cargo = req.body.cargoServer;
+      var telefone = req.body.telefoneServer;
+      var email = req.body.emailServer;
+      var senha = req.body.senhaServer;
+
+      if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (cpf == undefined) {
+        res.status(400).send("Seu cpf está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("Seu cargo está undefined!");
+    } else if (telefone == undefined){
+      res.status(400).send("Seu telefone está undefinied")
+    } else if (email == undefined){
+      res.status(400).send("Seu email está undefinied")
+    } else if (senha == undefined){
+      res.status(400).send("Sua senha está undefinied")
+    }
+        
+        empresaModel.cadastrarColaborador(nome, cpf, cargo, telefone, email, senha)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+
+    function cadastrarTotem(req, res){
+      var modelo = req.body.modeloServer;
+      var marca = req.body.marcaServer;
+      var dataImplementacao = req.body.dataImplementacaoServer;
+      var dataFabricacao = req.body.dataFabricacaoServer;
+
+      if (modelo == undefined) {
+        res.status(400).send("Seu modelo está undefined!");
+    } else if (marca == undefined) {
+        res.status(400).send("Sua marca está undefined!");
+    } else if (dataImplementacao == undefined) {
+        res.status(400).send("Sua data de implementacao está undefined!");
+    } else if (dataFabricacao == undefined){
+      res.status(400).send("Sua data de fabricacao está undefinied")
+    } 
+        
+        empresaModel.cadastrarColaborador(modelo, marca, dataImplementacao,dataFabricacao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+
 module.exports = {
   listar,
   testar,
   cadastrar,
   entrar,
   atualizar,
-  cadastrarEstacao
+  cadastrarEstacao,
+  cadastrarColaborador,
+  cadastrarTotem
 };

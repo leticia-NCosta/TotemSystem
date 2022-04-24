@@ -1,22 +1,26 @@
-function cadastrarEstacao(){
+function cadastrarColaborador(){
         
-    var linha = input_linha.value;
-    var cidade = input_cidade.value;
-    var bairro = input_bairro.value;
-    var quantTotem = input_quant_totem.value;
-    console.log(linha, cidade, bairro, quantTotem)
+    var nome = input_nome.value;
+    var cpf = input_cpf.value;
+    var cargo = input_cargo.value;
+    var telefone = input_telefone.value;
+    var email = input_email.value;
+    var senha = input_senha.value;
 
 
-    fetch("/usuarios/cadastrarEstacao", {
+
+    fetch("/usuarios/cadastrarColaborador", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            linhaServer: linha,
-            cidadeServer: cidade,
-            bairroServer: bairro,
-            quantTotemServer: quantTotem
+            nomeServer: nome,
+            cpfServer: cpf,
+            cargoServer: cargo,
+            telefoneServer: telefone,
+            emailServer: email,
+            senhaServer: senha
         })
     }).then(function (resposta) {
         // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
@@ -25,7 +29,7 @@ function cadastrarEstacao(){
 
 
         if (resposta.ok) {
-            window.alert("Cadastro da estação realizado com sucesso!");
+            window.alert("Cadastro do colaborador realizado com sucesso!");
             // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");

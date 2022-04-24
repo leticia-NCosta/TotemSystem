@@ -37,10 +37,28 @@ function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmp
   return database.executar(instrucao);
 }
 
-function cadastrarEstacao(linha, cidade, bairro, quantTotem){
+function cadastrarEstacao(linha, cidade, quantTotem, bairro){
   var instrucao = `
-    INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}, '${quantTotem}, '${bairro})
+    INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}', '${quantTotem}', '${bairro}')
   `;
+
+  return database.executar(instrucao)
+}
+
+function cadastrarColaborador(nome, cpf, cargo, telefone, email, senha){
+  var instrucao = `
+    INSERT INTO tb_usuario (fk_empresa, nome, cpf, cargo, senha, telefone, email) VALUES (null, '${nome}', '${cpf}', '${cargo}', '${senha}', '${telefone}', '${email}')
+  `;
+
+  return database.executar(instrucao)
+}
+
+function cadastrarTotem(dataImplementacao, modelo, marca, dataFabricacao){
+  var instrucao = `
+    INSERT INTO tb_totem (data_implementacao, modelo, marca, data_fabricacao) VALUES ( '${dataImplementacao}', '${modelo}', '${marca}', '${dataFabricacao}')
+  `;
+
+  return database.executar(instrucao)
 }
 
 module.exports = {
@@ -48,5 +66,7 @@ module.exports = {
   cadastrar,
   entrar,
   atualizar,
-  cadastrarEstacao
+  cadastrarEstacao,
+  cadastrarColaborador,
+  cadastrarTotem
 };

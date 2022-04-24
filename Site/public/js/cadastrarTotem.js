@@ -1,22 +1,22 @@
-function cadastrarEstacao(){
+function cadastrarTotem(){
         
-    var linha = input_linha.value;
-    var cidade = input_cidade.value;
-    var bairro = input_bairro.value;
-    var quantTotem = input_quant_totem.value;
-    console.log(linha, cidade, bairro, quantTotem)
+    var marca = input_marca.value;
+    var modelo = input_modelo.value;
+    var dataImplementacao = input_data_implementacao.value;
+    var dataFabricacao = input_data_fabricacao.value;
+    
 
 
-    fetch("/usuarios/cadastrarEstacao", {
+    fetch("/usuarios/cadastrarTotem", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            linhaServer: linha,
-            cidadeServer: cidade,
-            bairroServer: bairro,
-            quantTotemServer: quantTotem
+            marcaServer: marca,
+            modeloServer: modelo,
+            dataImplementacaoServer: dataImplementacao,
+            dataFabricacaoServer: dataFabricacao
         })
     }).then(function (resposta) {
         // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
@@ -25,7 +25,7 @@ function cadastrarEstacao(){
 
 
         if (resposta.ok) {
-            window.alert("Cadastro da estação realizado com sucesso!");
+            window.alert("Cadastro do totem realizado com sucesso!");
             // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
