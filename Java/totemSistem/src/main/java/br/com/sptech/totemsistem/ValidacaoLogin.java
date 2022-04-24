@@ -12,7 +12,7 @@ public class ValidacaoLogin {
     public Boolean validarLogin(String email, String senha) {
         Boolean resposta = false;
         List<Usuario> listarUsuario;
-        listarUsuario = template.query("select * from Usuario where email = ? and  senha = ?",
+        listarUsuario = template.query("select * from tb_usuario where email = ? and  senha = ?",
                 new BeanPropertyRowMapper<>(Usuario.class), email, senha);
         
         
