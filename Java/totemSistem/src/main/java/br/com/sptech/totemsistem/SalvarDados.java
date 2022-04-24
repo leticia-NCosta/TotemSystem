@@ -3,6 +3,9 @@ package br.com.sptech.totemsistem;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.github.britooo.looca.api.core.Looca;
 
@@ -11,6 +14,8 @@ public class SalvarDados {
     Connection config = new Connection();
     Looca looca = new Looca();
     JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+    DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
+
 
     public void salvarDadosEstaticos() {
 
@@ -23,6 +28,7 @@ public class SalvarDados {
 
         String nomeTabela = "tb_totem";
 
+        String dataAtual = dtf2.format(LocalDateTime.now());
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
         String FabricanteSistema = looca.getSistema().getFabricante();
         Integer Arquitetura = looca.getSistema().getArquitetura();
@@ -38,10 +44,10 @@ public class SalvarDados {
         Long Frequencia =looca.getProcessador().getFrequencia();
 
         String inserirDado = String.format("INSERT INTO %s"
-                + "(sistemaOperacional,hostname,fabricanteSistema,arquitetura,inicializadoEm,permissoes,"
+                + "(dataAtual,sistemaOperacional,hostname,fabricanteSistema,arquitetura,inicializadoEm,permissoes,"
                 + "marca,fabricanteProcessador, microArquitetura,cpusFisicas,cpusLogicas,pacotesFisicos,frequencia) VALUES"
-                + "('%s','%s','%s',%d,'%s','%s','%s','%s','%s',%d,%d,%d,%d)",
-                nomeTabela, sistemaOperacional,hostname,FabricanteSistema,Arquitetura,InicializadoEm,
+                + "('%s','%s','%s','%s',%d,'%s','%s','%s','%s','%s',%d,%d,%d,%d)",nomeTabela,
+                dataAtual, sistemaOperacional,hostname,FabricanteSistema,Arquitetura,InicializadoEm,
                 Permissões,Marca,FabricanteProcessador,MicroArquitetura,CPUsFisicas,CPUsLogicas,
                 PacotesFisicos,Frequencia);
 
@@ -52,13 +58,22 @@ public class SalvarDados {
     public void salvarDadosVariaveis() {
 
         String nomeTabela = "tb_log";
-        String sistemaOperacional = looca.getSistema().getSistemaOperacional();
+        Long memoriaEmUso = looca.getMemoria().getEmUso();
+        Long memoriaDisponivel = looca.getMemoria().getDisponivel();
+        Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
+        Integer totalThreads = looca.getGrupoDeProcessos().getTotalThreads();
+        Integer totalDeServicos = looca.getGrupoDeServicos().getTotalDeServicos();
+        //Double temperatura = looca.getTemperatura().getTemperatura();
 
         String inserirDado = String.format("INSERT INTO %s"
-                + "(sistemaOperacional) VALUES"
-                + "('%s')", nomeTabela, sistemaOperacional);
+                + "(memoriaEmUso,memoriaDisponivel,totalProcessos,totalThreads,totalDeServicos) VALUES"
+                + "(%d,%d,%d,%d,%d)", nomeTabela, memoriaEmUso,memoriaDisponivel,
+                totalProcessos,totalThreads,totalDeServicos);
 
         template.execute(inserirDado);
+
+
+
 
     }
 

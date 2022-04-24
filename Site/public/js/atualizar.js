@@ -6,7 +6,7 @@ function atualizarCadastro(){
 }
 
 function atualizar(email){
-  
+    console.log(email)
     var razaoSocial = input_razao_social.value;
     var rua = input_rua.value;
     var numero = parseInt(input_numero.value);
