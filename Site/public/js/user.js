@@ -34,12 +34,6 @@ function mudarTela(){
             } else {
                 tela_regioes.style.display = 'none'
             }
-            if(clicado == "Mapa"){
-                tela_mapa.style.display = 'flex'
-            } else {
-                tela_mapa.style.display = 'none'
-            }
-
 
         })
     }

@@ -71,34 +71,36 @@ function entrar(){
                 console.log(JSON.stringify(json));
 
 
-                sessionStorage.EMAIL_USUARIO = json.EMAIL_USUARIO;
-                sessionStorage.NOME_USUARIO = json.NOME_USUARIO;
-                sessionStorage.ID_USUARIO = json.ID_USUARIO;
+                sessionStorage.EMAIL_EMPRESA = json.EMAIL_EMPRESA;
+                sessionStorage.CNPJ = json.CNPJ;
+                sessionStorage.ID_EMPRESA = json.ID_EMPRESA;
 
+                
                 localStorage.setItem('EMAIL_EMPRESA',json.email_empresa)
                 localStorage.setItem('CNPJ',json.cnpj)
                 localStorage.setItem('ID_EMPRESA',json.id_empresa)
 
+                
+                
                 setTimeout(function () {
                     window.location = "../user.html";
                 }, 1000); // apenas para exibir o loading
-
+                
             });
-
+            
         } else {
-
+            
             console.log("Houve um erro ao tentar realizar o login!");
-
+            
             resposta.text().then(texto => {
                 console.error(texto);
                 //finalizarAguardar(texto);
             });
         }
-
+        
     }).catch(function (erro) {
         console.log(erro);
     })
-
+    
     return false;
 }
-

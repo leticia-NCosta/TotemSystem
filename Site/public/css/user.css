@@ -234,6 +234,11 @@ html{
     padding-top: 20px;
 }
 
+.telas .container .btn{
+    display: flex;
+    flex-direction: row;
+}
+
 .telas .container .botoes{
     /* height: 15%; */
     background-color: #273c5c;

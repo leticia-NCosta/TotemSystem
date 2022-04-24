@@ -93,11 +93,12 @@ function cadastrar(req, res) {
 
     function atualizar(req, res){
 
+        console.log("atualizar", req.body)
         var razaoSocial = req.body.razaoSocialServer;
-        var ruaEmpresa = req.body.ruaEmpresaServer;
-        var numeroEmpresa = req.body.numeroEmpresaServer;
-        var complementoEmpresa = req.body.complementoEmpresaServer;
-        var telefoneEmpresa = req.body.telefoneEmpresaServer;
+        var ruaEmpresa = req.body.ruaServer;
+        var numeroEmpresa = req.body.numeroServer;
+        var complementoEmpresa = req.body.complementoServer;
+        var telefoneEmpresa = req.body.telefoneServer;
         var email = req.params.email;
 
         if (razaoSocial == '') {

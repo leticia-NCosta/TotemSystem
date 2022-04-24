@@ -2,7 +2,9 @@ const { func } = require("assert-plus");
 var database = require("../database/config");
 
 function listar() {
-  var instrucao = ``;
+  var instrucao = `
+  SELECT * FROM tb_empresa
+  `;
   console.log("Listando Usuários");
   return database.executar(instrucao);
 }
@@ -26,16 +28,11 @@ function entrar(email, senha) {
   return database.executar(instrucao);
 }
 
-function atualizar(email, razaoSocial, ruaEmpresa, complementoEmpresa, telefoneEmpresa){
+function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmpresa, telefoneEmpresa){
   var instrucao = `
     UPDATE tb_empresa 
-<<<<<<< HEAD
-    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
+    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', numero_empresa = '${numeroEmpresa}', complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
     WHERE email_empresa = '${email}';
-=======
-    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', numero_empresa = ${numeroEmpresa}, complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
-    WHERE email_empresa = '${email}'
->>>>>>> 5d8250c32c2d2c28b7ffaf2e0028d7657057433c
   `;
   return database.executar(instrucao);
 }
