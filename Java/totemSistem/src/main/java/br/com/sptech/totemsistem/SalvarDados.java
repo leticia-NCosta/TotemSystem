@@ -29,6 +29,7 @@ public class SalvarDados {
         String nomeTabela = "tb_totem";
 
         String dataAtual = dtf2.format(LocalDateTime.now());
+        System.out.println("Inserindo... "+dataAtual);
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
         String FabricanteSistema = looca.getSistema().getFabricante();
         Integer Arquitetura = looca.getSistema().getArquitetura();
@@ -44,8 +45,8 @@ public class SalvarDados {
         Long Frequencia =looca.getProcessador().getFrequencia();
 
         String inserirDado = String.format("INSERT INTO %s"
-                + "(dataAtual,sistemaOperacional,hostname,fabricanteSistema,arquitetura,inicializadoEm,permissoes,"
-                + "marca,fabricanteProcessador, microArquitetura,cpusFisicas,cpusLogicas,pacotesFisicos,frequencia) VALUES"
+                + "(data_atual,sistema_operacional,hostname,fabricante_sistema,arquitetura,inicializado_em,permissoes,"
+                + "marca,fabricante_processador, micro_arquitetura,cpus_fisicas,cpus_logicas,pacotes_fisicos,frequencia) VALUES"
                 + "('%s','%s','%s','%s',%d,'%s','%s','%s','%s','%s',%d,%d,%d,%d)",nomeTabela,
                 dataAtual, sistemaOperacional,hostname,FabricanteSistema,Arquitetura,InicializadoEm,
                 Permissões,Marca,FabricanteProcessador,MicroArquitetura,CPUsFisicas,CPUsLogicas,
@@ -58,6 +59,9 @@ public class SalvarDados {
     public void salvarDadosVariaveis() {
 
         String nomeTabela = "tb_log";
+
+        String dataAtual = dtf2.format(LocalDateTime.now());
+        System.out.println("Inserindo... "+dataAtual);
         Long memoriaEmUso = looca.getMemoria().getEmUso();
         Long memoriaDisponivel = looca.getMemoria().getDisponivel();
         Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
@@ -66,8 +70,8 @@ public class SalvarDados {
         //Double temperatura = looca.getTemperatura().getTemperatura();
 
         String inserirDado = String.format("INSERT INTO %s"
-                + "(memoriaEmUso,memoriaDisponivel,totalProcessos,totalThreads,totalDeServicos) VALUES"
-                + "(%d,%d,%d,%d,%d)", nomeTabela, memoriaEmUso,memoriaDisponivel,
+                + "(data_atual,memoria_em_uso,memoria_disponivel,total_processos,total_threads,total_de_servicos) VALUES"
+                + "('%s',%d,%d,%d,%d,%d)", nomeTabela,dataAtual, memoriaEmUso,memoriaDisponivel,
                 totalProcessos,totalThreads,totalDeServicos);
 
         template.execute(inserirDado);
