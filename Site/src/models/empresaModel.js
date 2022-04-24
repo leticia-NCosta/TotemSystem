@@ -39,8 +39,9 @@ function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmp
 
 function cadastrarEstacao(linha, cidade, bairro, quantTotem){
   var instrucao = `
-    INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}, '${quantTotem}, '${bairro})
+    INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}, '${quantTotem}, '${bairro}');
   `;
+  return database.executar(instrucao);
 }
 
 module.exports = {

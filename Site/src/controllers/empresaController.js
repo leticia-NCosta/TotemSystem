@@ -134,6 +134,7 @@ function cadastrar(req, res) {
       var cidade = req.body.cidadeServer;
       var bairro = req.body.bairroServer;
       var quantTotem = req.body.quantTotemServer;
+      
 
       if (linha == undefined) {
         res.status(400).send("Sua linha está undefined!");
