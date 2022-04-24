@@ -5,6 +5,7 @@
 package br.com.sptech.totemsistem;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import java.lang.Thread;
 
 /**
  *
@@ -249,24 +250,46 @@ public class TelaLogin extends javax.swing.JFrame {
             case 1:
                 System.out.println("\nOpção escolhida: Informações do Totem\n");
                 info.getInfo();
+                System.out.println("\nFim.");
                 break;
             case 2:
                 System.out.println("\nOpção escolhida: Mostrar processos do Totem.\n");
                 totem.processos();
+                System.out.println("\nFim.");
                 break;
             case 3:
                 System.out.println("\nOpção escolhida: Mostrar serviços em Execução.\n");
                 totem.servicos();
+                System.out.println("\nFim.");
                 break;
             case 4:
                 System.out.println("\nOpção escolhida: Salvar dados estáticos.\n");
+                System.out.println("\nSalvando dados...");
                 salvar.salvarDadosEstaticos();
+                System.out.println("\nFim.");
                 break;
             case 5:
                 System.out.println("\nOpção escolhida: Salvar dados variáveis.");
-                salvar.salvarDadosVariaveis();
+                System.out.println("\nSalvando dados...");
+
+                try {
+                    for (int i = 0; i < 30; i++) {
+
+                        salvar.salvarDadosVariaveis();
+                        Thread.sleep(1000);
+
+
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("ERRO");
+                }
+                System.out.println("\nFim.");
+                break;
+
             default:
                 System.out.println("\nOpção Inválida.\n");
+                break;
         }
 
 

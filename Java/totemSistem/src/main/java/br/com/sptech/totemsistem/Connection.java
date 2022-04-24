@@ -11,8 +11,8 @@ public class Connection {
 
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/TotemSystem");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setUsername("urubu100");
+        dataSource.setPassword("urubu100");
     }
 
     public BasicDataSource getDataSource() {

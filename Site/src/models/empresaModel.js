@@ -29,7 +29,7 @@ function entrar(email, senha) {
 function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmpresa, telefoneEmpresa){
   var instrucao = `
     UPDATE tb_empresa 
-    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', numero_empresa = '${numeroEmpresa}, complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
+    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', numero_empresa = ${numeroEmpresa}, complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
     WHERE email_empresa = '${email}'
   `;
   return database.executar(instrucao);
