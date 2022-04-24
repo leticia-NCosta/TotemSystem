@@ -105,6 +105,12 @@
                         <p>Marca:</p> <input id="input_marca">
                         <p>Data de implementação:</p> <input id="input_data_implementacao">
                         <p>Data de fabricação:</p> <input id="input_data_fabricacao">
+                        
+                        <div class="btn">
+                            <button class="botoes" type="submit">Cadastrar totem</button>
+                            <button class="botoes" type="submit">Deletar totem</button>
+                         </div>
+
                     </div>
                 </div>
             </div>
@@ -112,14 +118,37 @@
                 <div class="container">
                     <div class="titulo"><h1>Meus Colaboradores</h1></div>
                     <div class="descricao"><p>Cadastre seus novos colaboradores ou atualize os dados deles</p></div>
-                    <div class="formulario_cadastro"></div>
+                    <div class="formulario_cadastro">
+                        <p>Nome:</p> <input id="input_nome">
+                        <p>CPF:</p> <input id="input_cpf">
+                        <p>Cargo:</p> <input id="input_cargo">
+                        <p>Telefone:</p> <input id="input_telefone">
+                        <p>Email:</p> <input id="input_email">
+                        <p>Senha:</p> <input id="input_senha">
+
+                        <div class="btn">
+                            <button class="botoes" type="submit">Cadastrar totem</button>
+                            <button class="botoes" type="submit">Deletar totem</button>
+                         </div>
+
+                    </div>
                 </div>
             </div>
             <div id="tela_regioes" class="telas">
                 <div class="container">
                     <div class="titulo"><h1>Cadastrar Estações</h1></div>
                     <div class="descricao"><p>Aqui voce pode cadastrar novas estações, assim como atualizar os seus dados alem de exclui-las</p></div>
-                    <div class="formulario_cadastro"></div>
+                    <div class="formulario_cadastro">
+                        <p>Linha:</p> <input id="input_linha">
+                        <p>Cidade:</p> <input id="input_cidade">
+                        <p>Bairro:</p> <input id="input_bairro">
+                        <p>Quantidade de totem:</p> <input id="input_quant_totem">
+
+                        <div class="btn">
+                            <button class="botoes" type="submit" onclick="cadastrarEstacao()">Cadastrar estação</button>
+                            <button class="botoes" type="submit">Deletar estação</button>
+                         </div>
+                    </div>
                 </div>
             </div>
             <!-- <div id="tela_mapa" class="telas">
@@ -135,5 +164,6 @@
     </div>
     <script src="./js/user.js"></script>
     <script src="./js/atualizar.js"></script>
+    <script src="./js/cadastrarEstacao.js"></script>
 </body>
 </html>

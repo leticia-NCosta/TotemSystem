@@ -13,11 +13,7 @@ function atualizar(email){
     var numero = input_numero.value;
     var complemento = input_complemento.value;
     var telefone = input_telefone.value;
-    // console.log(razaoSocial)
-    // console.log(rua)
-    // console.log(numero)
-    // console.log(complemento)
-    // console.log(telefone)
+
   
     fetch(`/usuarios/atualizar/${email}`, {
         method: "PUT",
@@ -40,11 +36,6 @@ function atualizar(email){
 
         if (resposta.ok) {
             window.alert("Cadastro atualizado com sucesso!");
-            // console.log(razaoSocialServer)
-            // console.log(ruaServer)
-            // console.log(numeroServer)
-            // console.log(complementoServer)
-            // console.log(telefoneServer)
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
@@ -55,23 +46,3 @@ function atualizar(email){
 
     return false;
 }
-
-// var razao = localStorage.getItem('RAZAO_SOCIAL')
-// console.log(razao)
-// bd_razao.innerHTML = razao
-
-// var rua = localStorage.getItem('RUA_EMPRESA')
-// console.log(rua)
-// bd_rua.innerHTML = rua
-
-// var numero = localStorage.getItem('NUMERO_EMPRESA')
-// console.log(numero)
-// bd_numero.innerHTML = numero
-
-// var complemento = localStorage.getItem('COMPLEMENTO_EMPRESA')
-// console.log(complemento)
-// bd_comp.innerHTML = complemento
-
-// var telefone = localStorage.getItem('TELEFONE_EMPRESA')
-// console.log(telefone)
-// bd_telefone.innerHTML = telefone

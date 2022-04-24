@@ -29,7 +29,7 @@ function mudarTela(){
             } else {
                 tela_colaboradores.style.display = 'none'
             }
-            if(clicado == "Regiões"){
+            if(clicado == "Estações"){
                 tela_regioes.style.display = 'flex'
             } else {
                 tela_regioes.style.display = 'none'

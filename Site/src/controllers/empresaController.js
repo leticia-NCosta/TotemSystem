@@ -129,10 +129,45 @@ function cadastrar(req, res) {
         
     }
 
+    function cadastrarEstacao(req, res){
+      var linha = req.body.linhaServer;
+      var cidade = req.body.cidadeServer;
+      var bairro = req.body.bairroServer;
+      var quantTotem = req.body.quantTotemServer;
+
+      if (linha == undefined) {
+        res.status(400).send("Sua linha está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Sua cidade está undefined!");
+    } else if (bairro == undefined) {
+        res.status(400).send("Seu bairro está undefined!");
+    } else if (quantTotem == undefined){
+      res.status(400).send("Seu quantTotem está undefinied")
+    }
+        
+        empresaModel.cadastrarEstacao(linha, cidade, quantTotem, bairro)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+
 module.exports = {
   listar,
   testar,
   cadastrar,
   entrar,
   atualizar,
+  cadastrarEstacao
 };
