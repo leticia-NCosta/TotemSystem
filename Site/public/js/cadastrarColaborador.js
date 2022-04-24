@@ -3,11 +3,11 @@ function cadastrarColaborador(){
     var nome = input_nome.value;
     var cpf = input_cpf.value;
     var cargo = input_cargo.value;
-    var telefone = input_telefone.value;
+    var telefone = input_telefone_colaborador.value;
     var email = input_email.value;
     var senha = input_senha.value;
 
-
+    console.log(nome, cpf, cargo, telefone, email, senha)
 
     fetch("/usuarios/cadastrarColaborador", {
         method: "POST",
@@ -23,17 +23,11 @@ function cadastrarColaborador(){
             senhaServer: senha
         })
     }).then(function (resposta) {
-        // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
         console.log("resposta: ", resposta);
-        // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer) 
-
-
         if (resposta.ok) {
             window.alert("Cadastro do colaborador realizado com sucesso!");
-            // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
-            // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);

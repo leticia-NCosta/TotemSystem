@@ -220,7 +220,7 @@ function cadastrar(req, res) {
       res.status(400).send("Sua data de fabricacao está undefinied")
     } 
         
-        empresaModel.cadastrarColaborador(modelo, marca, dataImplementacao,dataFabricacao)
+        empresaModel.cadastrarTotem(modelo, marca, dataImplementacao,dataFabricacao)
             .then(
                 function (resultado) {
                     res.json(resultado);

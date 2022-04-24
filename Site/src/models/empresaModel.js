@@ -45,7 +45,7 @@ function cadastrarEstacao(linha, cidade, quantTotem, bairro){
   return database.executar(instrucao)
 }
 
-function cadastrarColaborador(nome, cpf, cargo, telefone, email, senha){
+function cadastrarColaborador(nome, cpf, cargo, senha, telefone, email){
   var instrucao = `
     INSERT INTO tb_usuario (fk_empresa, nome, cpf, cargo, senha, telefone, email) VALUES (null, '${nome}', '${cpf}', '${cargo}', '${senha}', '${telefone}', '${email}')
   `;
