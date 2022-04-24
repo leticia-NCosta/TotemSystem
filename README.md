@@ -16,7 +16,7 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 Sprint 2: 26/04/2022
 
 ## Entregáveis Sprint 2:
-- [ ] Slide de Apresentação;
+- [x] Slide de Apresentação;
 - [ ] Plano de resposta - Lições aprendidas;
 - [ ] User Story + Requisitos;
 - [x] Planner;
@@ -30,11 +30,11 @@ Sprint 2: 26/04/2022
 - [x] Diagrama de BD validado na aula de Análise;
 - [x] Dashboard Estático;
 - [x] Inovação Definida;
-- [ ] Jar Inicial - Console conectado ao banco;
+- [x] Jar Inicial - Console conectado ao banco;
 - [x] Telas de Login Swing;
 - [x] BPMN;
 - [x] Mockup de tela;
-- [ ] VM na nuvem AWS;
+- [x] VM na nuvem AWS;
 - [x] Uso de API;
 
 =================================
