@@ -77,7 +77,7 @@ function entrar(){
 
                 localStorage.setItem('EMAIL_EMPRESA',json.email_empresa)
                 localStorage.setItem('CNPJ',json.cnpj)
-                // localStorage.setItem('ID_EMPRESA',json.id_empresa)
+                localStorage.setItem('ID_EMPRESA',json.id_empresa)
 
                 setTimeout(function () {
                     window.location = "../user.html";

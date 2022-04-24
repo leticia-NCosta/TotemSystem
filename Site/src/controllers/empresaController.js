@@ -101,7 +101,7 @@ function cadastrar(req, res) {
         var email = req.params.email;
 
         if (razaoSocial == '') {
-            res.status(400).send('Nome do usuário não está definida!');
+            res.status(400).send('Razao social não está definida!');
           } else if (ruaEmpresa == '') {
             res.status(400).send('Rua não definido!');
           } else if (numeroEmpresa == '') {

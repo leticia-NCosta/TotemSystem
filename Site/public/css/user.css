@@ -104,10 +104,13 @@ html{
 
     font-size: 25px;
     color: white;
-    
-
 
 }
+
+.titulo_sidebar a{
+    font-size: 25px;
+}
+
 .corpo .sidebar .corpo_sidebar{
 
     width: 100%;
@@ -164,7 +167,8 @@ html{
 
     width: 90%;
     height: 100%;
-    background-color: red;
+    background-color: grey;
+    /* background-color: red; */
 
 }
 
@@ -172,8 +176,8 @@ html{
 
     width: 100%;
     height: 10%;
-    background-color: green;
-    color: #fff;
+    /* background-color: green; */
+    color: #273c5c;
     font-family: 'Saira Semi Condensed', sans-serif;
     display: flex;
     justify-content: center;
@@ -185,26 +189,61 @@ html{
 .telas .container .descricao{
 
     width: 100%;
-    height: 15%;
-    background-color: blue;
-    color: #fff;
+    height: 5%;
+    /* background-color: blue; */
+    color: #273c5c;
     font-family: 'Saira Semi Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
 
 }
 .telas .container .formulario_cadastro{
 
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    height: 50%;
     background-color: grey;
-    color: #fff;
-
+    color: #273c5c;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    /* padding-left: 20px; */
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
 }
+
+.formulario_cadastro input{
+    height: 4%;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.dados{
+    color: #273c5c;
+    font-family: 'Saira Semi Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 20px; */
+    /* margin-left: 30px; */
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.dados p{
+    padding-top: 20px;
+}
+
 .telas .container .botoes{
-
-    width: 100%;
-    height: 15%;
-    background-color: yellow;
-
+    /* height: 15%; */
+    background-color: #273c5c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    color: #fff;
+    padding: 20px 20px;
 }
 
 /* .telas .container .formulario_cadastro input{

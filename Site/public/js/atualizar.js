@@ -1,10 +1,15 @@
-var email = localStorage.getItem("EMAIL_EMPRESA");
-console.log(email)
+
+function atualizarCadastro(){
+    var email = localStorage.getItem("EMAIL_EMPRESA");
+    console.log(email)
+    atualizar(email)
+}
+
 function atualizar(email){
   
     var razaoSocial = input_razao_social.value;
     var rua = input_rua.value;
-    var numero = input_numero.value;
+    var numero = parseInt(input_numero.value);
     var complemento = input_complemento.value;
     var telefone = input_telefone.value;
   

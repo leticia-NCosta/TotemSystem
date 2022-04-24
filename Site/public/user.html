@@ -44,7 +44,7 @@
     <div class="cabeca">
 
         <div class="logo">
-            <img src="./assests/logosite.png" alt="logo">
+           <a href="./user.html"> <img src="./assests/logosite.png" alt="logo"> </a>
             
         </div>
         <div class="links">
@@ -63,52 +63,62 @@
             <div class="titulo_sidebar">Colaboradores</div>
             <div class="titulo_sidebar">Estações</div>
             <div class="titulo_sidebar">Mapa</div>
-            <div class="titulo_sidebar">Sair</div>
+            <div class="titulo_sidebar"><a href="./index.html">Sair</a></div>
             <div id="corpo_sidebarID" class="corpo_sidebar"></div>
 
         </div>
 
         <div class="tela">
 
-            <img src="./assests/IconTotemSystem-Circulo.png" alt="logo">
+            <!-- <img src="./assests/IconTotemSystem-Circulo.png" alt="logo"> -->
             <div id="tela_conta" class="telas">
                 <div class="container">
-                    <div class="titulo"><h1>Minha Conta</h1></div>
-                    <div class="descricao"><p>lorem</p></div>
+                    <div class="titulo"><h1>Meus Dados</h1></div>
+                    <div class="descricao"><p>Seus dados cadastrais voce pode ver aqui, alem de poder atualiza-los</p></div>
+                    <div class="dados">
+                       <p> CNPJ:<span>2412412512</span></p>
+                       <p> Razao Social: <span>TAldis</span></p>
+                       <p> Rua: <span>Rua mane</span></p>
+                       <p> Numero: <span>141</span></p>
+                       <p> Complemento: <span>andar 1</span></p>
+                       <p> Email: <span>tald@.com</span></p>
+                    </div>
                     <div class="formulario_cadastro">
                        <p>Razão Social:</p> <input id="input_razao_social">
                        <p>Rua:</p> <input id="input_rua">
                        <p>Numero:</p> <input id="input_numero">
                        <p>Complemento:</p><input id="input_complemento">
                        <p>Telefone:</p> <input id="input_telefone">
-                    </div>
-                    <div class="botoes">
-                        <button type="submit" onclick="atualizar()">Atualizar cadastro</button>
+                       
+                       <button class="botoes" type="submit" onclick="atualizarCadastro()">Atualizar cadastro</button>
+                    
                     </div>
                 </div>
             </div>
             <div id="tela_totens" class="telas">
                 <div class="container">
                     <div class="titulo"><h1>Gerenciamento de Totens</h1></div>
-                    <div class="descricao"><p>lorem</p></div>
-                    <div class="formulario_cadastro"></div>
-                    <div class="botoes"></div>
+                    <div class="descricao"><p>Cadastre novos totens aqui</p></div>
+                    <div class="formulario_cadastro">
+                        <p>Modelo:</p> <input id="input_modelo">
+                        <p>Marca:</p> <input id="input_marca">
+                        <p>Data de implementação:</p> <input id="input_data_implementacao">
+                        <p>Data de fabricação:</p> <input id="input_data_fabricacao">
+                    </div>
                 </div>
             </div>
             <div id="tela_colaboradores" class="telas">
                 <div class="container">
                     <div class="titulo"><h1>Meus Colaboradores</h1></div>
-                    <div class="descricao"><p>lorem</p></div>
+                    <div class="descricao"><p>Cadastre seus novos colaboradores ou atualize os dados deles</p></div>
                     <div class="formulario_cadastro"></div>
-                    <div class="botoes"></div>
                 </div>
             </div>
             <div id="tela_regioes" class="telas">
                 <div class="container">
-                    <div class="titulo"><h1>Cadastrar Regiões</h1></div>
-                    <div class="descricao"><p>lorem</p></div>
+                    <div class="titulo"><h1>Cadastrar Estações</h1></div>
+                    <div class="descricao"><p>Aqui voce pode cadastrar novas estações, assim como atualizar os seus dados alem de exclui-las</p></div>
                     <div class="formulario_cadastro"></div>
-                    <div class="botoes"></div>
                 </div>
             </div>
             <div id="tela_mapa" class="telas">
@@ -116,7 +126,6 @@
                     <div class="titulo"><h1>Mapa de Totens</h1></div>
                     <div class="descricao"><p>lorem</p></div>
                     <div class="formulario_cadastro"></div>
-                    <div class="botoes"></div>
                 </div>
             </div>
             

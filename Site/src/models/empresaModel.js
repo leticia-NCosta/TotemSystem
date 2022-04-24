@@ -26,11 +26,11 @@ function entrar(email, senha) {
   return database.executar(instrucao);
 }
 
-function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmpresa, telefoneEmpresa){
+function atualizar(email, razaoSocial, ruaEmpresa, complementoEmpresa, telefoneEmpresa){
   var instrucao = `
     UPDATE tb_empresa 
-    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', numero_empresa = '${numeroEmpresa}, complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
-    WHERE email_empresa = '${email}'
+    SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
+    WHERE email_empresa = '${email}';
   `;
   return database.executar(instrucao);
 }
