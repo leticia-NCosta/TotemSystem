@@ -19,11 +19,12 @@ html{
 }
 .cabeca .logo{
 
-    height: 100%;
-    width: 20%;
+    height: 9%;
+    width: 9%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 5%;
     background-color: #273c5c;
     
     
@@ -132,6 +133,7 @@ html{
     background-color: rgb(46, 134, 23);
     font-size: 20px;
     color: white;
+  
     
 
 }
@@ -160,14 +162,17 @@ html{
     overflow-y: scroll;
     justify-content: center;
     align-items: center;
-    
+    border-bottom: #ffffff;
 
 }
 .tela .telas .container{
 
-    width: 90%;
+    width: 80%;
     height: 100%;
-    background-color: grey;
+    background-color: #011222;
+    margin-top: 5px;
+   
+   
     /* background-color: red; */
 
 }
@@ -177,12 +182,12 @@ html{
     width: 100%;
     height: 10%;
     /* background-color: green; */
-    color: #273c5c;
+    color: #ffffff;
     font-family: 'Saira Semi Condensed', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
 
 }
 
@@ -191,47 +196,64 @@ html{
     width: 100%;
     height: 5%;
     /* background-color: blue; */
-    color: #273c5c;
+    color: #ffffff;
     font-family: 'Saira Semi Condensed', sans-serif;
     display: flex;
     justify-content: center;
 
 }
 .telas .container .formulario_cadastro{
-
-    /* width: 100%; */
-    height: 50%;
-    background-color: grey;
-    color: #273c5c;
+    background-color: #273c5c;
+    color: #ffffff;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    /* padding-left: 20px; */
     justify-content: center;
     align-items: center;
+    padding-top: 20px;
+    margin-top: 10%;
+    border-radius: 5px;
     font-weight: 700;
+    font-family: 'Saira Semi Condensed', sans-serif;
 }
+   
+    
 
 .formulario_cadastro input{
-    height: 4%;
-    width: 50%;
+    height: 5%;
+    width: 30%;
     border-radius: 5px;
+    
 }
-
+.formulario_cadastro p{
+    padding-top: 20px;
+    font-size: 15px ;
+}
 .dados{
-    color: #273c5c;
-    font-family: 'Saira Semi Condensed', sans-serif;
+    background-color: #273c5c;
+    color: #ffffff;
+    width: 97%;
+    height: 60%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding-left: 20px; */
-    /* margin-left: 30px; */
+    justify-content:left;
+    align-items: left;
+    padding-left: 20px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-right: 5px; 
+    border-radius: 5px;
     flex-direction: column;
     font-weight: 700;
+    font-family: 'Saira Semi Condensed', sans-serif;
+   
+    
+    
 }
 
 .dados p{
     padding-top: 20px;
+    font-size: 20px ;
+
 }
 
 .telas .container .btn{
@@ -241,19 +263,18 @@ html{
 
 .telas .container .botoes{
     /* height: 15%; */
-    background-color: #273c5c;
+    background-color: #011222;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     border-radius: 20px;
-    color: #fff;
+    color: #ffffff;
     padding: 20px 20px;
+    margin-left: 10px;
 }
 
-/* .telas .container .formulario_cadastro input{
-    bac
-} */
+
 
 
 

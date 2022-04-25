@@ -5,6 +5,7 @@
 }
 html{
     overflow: hidden;
+    background-color: #273c5c;
 }
 
 .cabeca{
@@ -17,16 +18,13 @@ html{
 
 }
 .cabeca .logo{
-
-    height: 100%;
-    width: 20%;
+    height: 7%;
+    width: 7%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 5%;
     background-color: #273c5c;
-   
-    
-    
 }
 .cabeca .logo a{
     align-self: center;
