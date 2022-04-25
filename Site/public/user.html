@@ -107,7 +107,7 @@
                         <p>Data de fabricação:</p> <input id="input_data_fabricacao">
                         
                         <div class="btn">
-                            <button class="botoes" type="submit">Cadastrar totem</button>
+                            <button class="botoes" type="submit" onclick="cadastrarTotem()">Cadastrar totem</button>
                             <button class="botoes" type="submit">Deletar totem</button>
                          </div>
 
@@ -122,13 +122,13 @@
                         <p>Nome:</p> <input id="input_nome">
                         <p>CPF:</p> <input id="input_cpf">
                         <p>Cargo:</p> <input id="input_cargo">
-                        <p>Telefone:</p> <input id="input_telefone">
+                        <p>Telefone:</p> <input id="input_telefone_colaborador">
                         <p>Email:</p> <input id="input_email">
                         <p>Senha:</p> <input id="input_senha">
 
                         <div class="btn">
-                            <button class="botoes" type="submit">Cadastrar totem</button>
-                            <button class="botoes" type="submit">Deletar totem</button>
+                            <button class="botoes" type="submit" onclick="cadastrarColaborador()">Cadastrar Colaborador</button>
+                            <button class="botoes" type="submit">Deletar Colaborador</button>
                          </div>
 
                     </div>
@@ -151,19 +151,13 @@
                     </div>
                 </div>
             </div>
-            <!-- <div id="tela_mapa" class="telas">
-                <div class="container">
-                    <div class="titulo"><h1>Mapa de Totens</h1></div>
-                    <div class="descricao"><p>lorem</p></div>
-                    <div class="formulario_cadastro"></div>
-                </div>
-            </div> -->
-            
         </div>
 
     </div>
     <script src="./js/user.js"></script>
     <script src="./js/atualizar.js"></script>
     <script src="./js/cadastrarEstacao.js"></script>
+    <script src="./js/cadastrarColaborador.js"></script>
+    <script src="./js/cadastrarTotem.js"></script>
 </body>
 </html>

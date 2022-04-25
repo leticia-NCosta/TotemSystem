@@ -25,7 +25,7 @@ function cadastrarEstacao(){
 
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
+            window.alert("Cadastro da estação realizado com sucesso!");
             // console.log(linhaServer, cidadeServer, bairroServer, quantTotemServer)
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");

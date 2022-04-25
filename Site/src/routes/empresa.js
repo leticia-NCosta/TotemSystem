@@ -27,4 +27,12 @@ router.post("/cadastrarEstacao", function(req, res){
   empresaController.cadastrarEstacao(req,res);
 })
 
+router.post("/cadastrarColaborador", function(req, res){
+  empresaController.cadastrarColaborador(req,res);
+})
+
+router.post("/cadastrarTotem", function(req, res){
+  empresaController.cadastrarTotem(req,res);
+})
+
 module.exports = router;
