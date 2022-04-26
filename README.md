@@ -17,8 +17,8 @@ Sprint 2: 26/04/2022
 
 ## Entregáveis Sprint 2:
 - [x] Slide de Apresentação;
-- [ ] Plano de resposta - Lições aprendidas;
-- [ ] User Story + Requisitos;
+- [x] Plano de resposta - Lições aprendidas;
+- [x] User Story + Requisitos;
 - [x] Planner;
 - [x] Visita Virtual;
 - [x] Inovação;
