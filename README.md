@@ -13,14 +13,33 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
-Sprint 3: ---
+Sprint 3: 31/05/2022
 
 ## Entregáveis Sprint 3:
 - [ ] Slide de Apresentação;
 - [ ] Plano de resposta - Lições aprendidas;
 - [ ] Planner;
+- [ ] Diagrama de Solução;
+- [ ] Diagrama de Banco;
 - [ ] Metodologia e Especialização;
 - [ ] Github atualizado;
+- [ ] 3 CRUDS;
+- [ ] Slack com alertas;
+- [ ] Abertura de Chamado;
+- [ ] Geração de Logs;
+- [ ] Responsividade Obrigatória;
+- [ ] Usabilidade;
+- [ ] Inovação útil;
+- [ ] Documentação Completa;
+- [ ] Alertas alinhados ao negócio;
+- [ ] Inovação completa com PPT de "Deep Dive";
+- [ ] Diagrama de Classe;
+- [ ] Aplicação provisória na Nuvem;
+- [ ] Docker;
+- [ ] Assistente de Instalação do Cliente;
+- [ ] Jar completo com Swing;
+- [ ] Dashboard completo;
+- [ ] Jar executável final;
 
 =================================
 
