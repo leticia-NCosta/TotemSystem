@@ -1,4 +1,4 @@
-# Totem System - (Grupo9) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/leticiaNCosta/grupo9/maven)
+# Totem System - (Grupo9) 
 <p align="center">
   <img height="300em" width="400em" src="https://github.com/leticiaNCosta18/grupo9/blob/main/Imagens/IconTotemSystem-Circulo.png"/>
 </p>
