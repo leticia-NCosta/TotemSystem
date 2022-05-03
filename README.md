@@ -13,7 +13,18 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
-Sprint 2: 26/04/2022
+Sprint 3: ---
+
+## Entregáveis Sprint 3:
+- [ ] Slide de Apresentação;
+- [ ] Plano de resposta - Lições aprendidas;
+- [ ] Planner;
+- [ ] Metodologia e Especialização;
+- [ ] Github atualizado;
+
+=================================
+
+~Sprint 2: 26/04/2022~
 
 ## Entregáveis Sprint 2:
 - [x] Slide de Apresentação;
