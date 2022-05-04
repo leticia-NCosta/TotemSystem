@@ -367,6 +367,6 @@ myChart2 = new Chart(ctx, {
 
 function irMapa(){
 
-    window.location = '../mapa/mapa.html'
+    window.location = 'mapa.html'
 
 }

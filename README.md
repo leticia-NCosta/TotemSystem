@@ -1,4 +1,4 @@
-# Totem System - (Grupo9)
+# Totem System - (Grupo9) 
 <p align="center">
   <img height="300em" width="400em" src="https://github.com/leticiaNCosta18/grupo9/blob/main/Imagens/IconTotemSystem-Circulo.png"/>
 </p>
@@ -13,7 +13,37 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
-Sprint 2: 26/04/2022
+Sprint 3: 31/05/2022
+
+## Entregáveis Sprint 3:
+- [ ] Slide de Apresentação;
+- [ ] Plano de resposta - Lições aprendidas;
+- [ ] Planner;
+- [ ] Diagrama de Solução;
+- [ ] Diagrama de Banco;
+- [ ] Metodologia e Especialização;
+- [ ] Github atualizado;
+- [ ] 3 CRUDS;
+- [ ] Slack com alertas;
+- [ ] Abertura de Chamado;
+- [ ] Geração de Logs;
+- [ ] Responsividade Obrigatória;
+- [ ] Usabilidade;
+- [ ] Inovação útil;
+- [ ] Documentação Completa;
+- [ ] Alertas alinhados ao negócio;
+- [ ] Inovação completa com PPT de "Deep Dive";
+- [ ] Diagrama de Classe;
+- [ ] Aplicação provisória na Nuvem;
+- [ ] Docker;
+- [ ] Assistente de Instalação do Cliente;
+- [ ] Jar completo com Swing;
+- [ ] Dashboard completo;
+- [ ] Jar executável final;
+
+=================================
+
+~Sprint 2: 26/04/2022~
 
 ## Entregáveis Sprint 2:
 - [x] Slide de Apresentação;
