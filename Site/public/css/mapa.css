@@ -1,0 +1,264 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+html{
+    overflow: hidden;
+    background-color: #273c5c;
+}
+
+.cabeca{
+    height: 16vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+.cabeca .logo{
+    height: 7%;
+    width: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    background-color: #273c5c;
+}
+.cabeca .logo a{
+    align-self: center;
+    justify-content: center;
+}
+.logo:hover{
+    cursor: pointer;
+}
+.cabeca .logo img{
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+}
+.cabeca .links{
+
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #273c5c;;
+    border-bottom: 3px solid white;
+   
+
+}
+.cabeca h1{
+    color: white;
+    font-size: 50px;
+    font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.corpo2 .sidebar2{
+
+    height: 120%;
+    width: 20%;
+    background-color: #273c5c;
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.corpo2 .sidebar2 .corpo_sidebar2{
+
+    width: 100%;
+    height: 80%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 3px solid white;
+
+}
+.corpo2 .sidebar2 .titulo_sidebar2{
+
+    width: 100%;
+    height: 10%;
+    background-color: #273c5c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid white;
+
+}
+.corpo2 .sidebar2 .botao_voltar{
+
+    width: 100%;
+    height: 60%;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-bottom: 3px solid #ffffff;
+
+}
+
+.corpo2 .sidebar2 button a{
+
+    height: 40%;
+    width: 80%;
+    background-color: #808080;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.corpo2 .sidebar2 button{
+
+    height: 40%;
+    width: 80%;
+    background-color: #808080;
+    font-size: 20px;
+    color: #ffffff;
+}
+.corpo2 .sidebar2 button:hover{
+    border: 3px #ffffff solid;
+    cursor: pointer;
+}
+
+.titulo_sidebar2 p{
+
+    font-size: 25px;
+    color: #ffffff;
+    
+
+
+}
+.corpo2 .infos{
+
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+
+}
+.corpo2 .infos .retangulo{
+
+    height: 50%;
+    width: 100%;
+    background-color: #273c5c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.corpo2 .infos .retangulo .box1{
+
+    height: 100%;
+    width: 50%;
+    border: 3px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.corpo2 .infos .retangulo .box2{
+
+    height: 100%;
+    width: 50%;
+    border: 3px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.corpo2 .infos .retangulo .box_img{
+
+    height: 70%;
+    width: 30%;
+    border: 3px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.corpo2 .infos .retangulo .box_img{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.corpo2 .infos .retangulo .box_img .campo_img{
+
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.corpo2 .infos .retangulo .box_img .suporte{
+
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corpo2 .infos .retangulo .box_img .suporte button{
+
+    height: 80%;
+    width: 90%;
+    background-color: #808080;
+    font-size: 20px;
+    color: #ffffff;
+
+}
+
+.corpo2 .infos .retangulo .box_txt{
+
+    height: 100%;
+    width: 70%;
+    border: 3px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.box_txt .txt_titulo{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #ffffff;
+    border-bottom: 3px solid white;
+}
+.corpo_sidebar2 .alertas2{
+
+    height: 30%;
+    width: 100%;
+    background-color: black;
+    border-bottom: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#alerta_atual{
+
+    font-size: 50px;
+    color: white;
+
+}
+
+
