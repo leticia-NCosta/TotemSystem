@@ -1,84 +1,152 @@
- @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
 .contato {
-    width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.192)), url("../assests/cidadesp.png") no-repeat center center;
-    background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.192)),
+    url("../assests/cidadesp.png") no-repeat center center;
+  background-size: cover;
 }
 
-
-.formulario{
-    width: 100%;
-    border-radius: 20px;
-    /* padding: 25px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #505050da;
+.formulario {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #505050da;
 }
 
 .formulario h1 {
-    font-size: 30px;
-    font-family: 'Raleway', sans-serif;
-    color: #fff8f8;
-    /* padding: 15px; */
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  color: #fff8f8;
+  padding: 15px;
 }
 
 .formulario span {
-    text-align: center;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Quicksand", sans-serif;
+  color: #000000;
+  color: #fff8f8;
+}
+
+.formulario button {
+  background-color: #e4e4ff;
+  border: none;
+  border-radius: 10px;
+  color: #535353;
+  border: 1px solid #505050;
+  padding: 20px 20px;
+}
+.dados {
+  width: 50%;
+  margin: 0 25px;
+}
+
+.dados input {
+  width: 295px;
+  background-color: #fff8f8;
+  border: none;
+  border: 1px solid #00000070;
+  border-radius: 20px;
+}
+
+.dados #mensagem {
+  height: 80px;
+}
+
+.informacao {
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.icon_informacao {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mapa img {
+  max-width: 90%;
+  margin: 50px 0;
+  border-radius: 10px;
+}
+
+.box_informacao {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 30px;
+  margin: 20px 0;
+}
+
+.informacao p {
+  font-family: "Quicksand", sans-serif;
+  color: #fff8f8;
+}
+
+.informacao h2 {
+  font-family: "Quicksand", sans-serif;
+  color: #fff8f8;
+}
+
+@media (max-width: 768px) {
+  .formulario {
+    width: 100%;
+  }
+
+  .formulario h1 {
     font-size: 20px;
-    font-family: 'Quicksand', sans-serif;
-    color: #000000;
-    color: #fff8f8;
-}
+  }
 
-.formulario button{
-    background-color: #e4e4ff;
-    border: none; 
-    border-radius: 10px;
-    color: #535353;
-    border: 1px solid #505050;
-}
+  .formulario span {
+    font-size: 15px;
+  }
 
-.dados input{
-    background-color: #fff8f8;
-    border: none;
-    border: 1px solid #00000070;
-    border-radius: 20px;
-    /* margin-right: 25px; */
-}
+  .dados {
+    margin: 0 15px;
+  }
 
-.informacao{
-    display: inline-flex;
-    justify-content: space-around;
-}
+  .icon_informacao {
+    width: 60%;
+  }
 
-.icon_informacao{
-    width: 50%;
-}
-
-.mapa{
-    /* padding-right: 25px; */
-}
-
-.mapa img{
-    /* margin-top: 50px; */
-    border-radius: 10px;
-}
-
-.box_informacao{
+  .localizacao {
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+  }
+
+  .mapa img {
+    max-width: 100%;
+  }
+
+  .box_informacao {
+    width: 100%;
+    padding: 0 0;
+    margin: 20px 0;
+    font-size: 10px;
+  }
 }
 
-.informacao p{
-   font-family: 'Quicksand', sans-serif;
-   color: #fff8f8;
-}
+@media (max-width: 425px) {
 
-.informacao h2{
-    font-family: 'Quicksand', sans-serif;
-    color: #fff8f8;
-} 
+    .contato{
+        width: 100%;
+    }
+
+    .formulario{
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+    
+    .dados{
+        border: solid 2px yellow;
+    }
+
+    .localizacao{
+        border: solid 2px red;
+    }
+
+}

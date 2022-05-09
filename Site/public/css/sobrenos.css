@@ -37,7 +37,6 @@
 
 .container_sobrenos{
     display:flex;
-    /* justify-content: center; */
     justify-content: space-around;
     flex-wrap: wrap;
 } 
@@ -55,7 +54,7 @@
 .box_sobrenos{
     background-color: #ffffff;
     width: 30%;
-    height: 40vh;
+    height: 40%;
     border-radius: 30px;
     display: flex;
     align-items: center;

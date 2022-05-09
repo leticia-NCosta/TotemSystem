@@ -20,6 +20,15 @@
     color: #3c7ee2;
 } 
 
+@media (max-width: 768px) {
+
+.servicos h1{
+    font-size: 80px;
+}
+
+
+}
+
 .servicos h2 {
     font-family: 'Raleway', sans-serif;
     color: #000000;
@@ -28,11 +37,29 @@
     text-align: center;
 }
 
+@media (max-width: 768px) {
+
+
+    .servicos h2{
+        font-size: 20px;
+    }
+
+}
+
 .servicos p {
     font-size: 17px;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .servicos p{
+        font-size: 14px;
+        padding: 10px 10px;
+    }
+
 }
 
 .icon_servicos {
