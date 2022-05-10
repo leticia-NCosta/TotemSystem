@@ -1,34 +1,49 @@
 package br.com.sptech.totemsistem;
 
+//criação de .TXT
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
-/**
- *
- * @author JP
- */
+//pegar Hostname
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+//data
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
+
+ // @author JP
+ 
 public class LogTxt {
 
     public static void main(String[] args) throws IOException {
-        Scanner ler = new Scanner(System.in);
-        int i, n;
+        
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HH-mm-ss");
+        DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("dd/MM/yy HH-mm-ss");
 
-        System.out.printf("Informe o número para a tabuada:\n");
-        n = ler.nextInt();
-
-        FileWriter arq = new FileWriter("C:\\Users\\Aluno\\Documents\\teste_LogTXT\\Jp.txt"); // Nessa linha escolhemos a rota onde o arquivo ira ser salvado
+        String hostname = "";
+           try {
+            hostname = InetAddress.getLocalHost().getHostName();
+      } catch (UnknownHostException e) {
+            e.printStackTrace();
+      }
+        
+        String arquivo = String.format("Log-%s.txt", dtf2.format(LocalDateTime.now()));
+    
+        FileWriter arq = new FileWriter("/home/aluno/Desktop/"+arquivo); // Nessa linha escolhemos a rota onde o arquivo ira ser salvado
         PrintWriter gravarArq = new PrintWriter(arq);
 
-        gravarArq.printf("+--Resultado--+%n");
-        for (i = 1; i <= 10; i++) {
-            gravarArq.printf("| %2d X %d = %2d |%n", i, n, (i * n));
-        }
-        gravarArq.printf("+-------------+%n");
+
+        gravarArq.printf(("\nUsuário: "+hostname));
+        gravarArq.printf(("\nData e Hora: "+dtf3.format(LocalDateTime.now())));
+        
+        gravarArq.println("\n \n \n ERRO DE LOGIN");
 
         arq.close();
 
-        System.out.printf("\nTabuada do %d foi gravada com sucesso em \"d:\\tabuada.txt\".\n", n);
+        System.out.println("LOG .txt GERADO EM: /home/aluno/Desktop/");
     }
 }
