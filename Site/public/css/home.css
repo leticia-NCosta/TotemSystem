@@ -13,11 +13,17 @@ a {
 a:hover {
     opacity: 0.7;
 }
+.container{
+    width: 100%;
+}
 
 @media (max-width: 425px) {
- .container{
-     width: 100%;
- }   
+    .titulo_main h1{
+        font-size: 24px;
+    }
+    .slogan p{ 
+        font-size: 14px;
+    }
 }
 
 .header{
@@ -78,4 +84,16 @@ a:hover {
 .nav-list li {
     letter-spacing: 3px;
     margin-left: 50px; 
+}
+
+@media (max-width: 425px) {
+    #id_home{
+        display: none;
+    }
+    #id_sobrenos{
+        display: none;
+    }
+    #id_faq_header{
+        display: none;
+    }
 }

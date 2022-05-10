@@ -69,3 +69,12 @@
 .box_sobrenos img{
    width: 100%;
 }  
+
+@media (max-width: 425px) {
+    .box_sobrenos p{
+        
+        font-size: 10px;
+
+    }
+    
+}
