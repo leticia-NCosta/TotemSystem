@@ -13,37 +13,55 @@ import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import java.io.FileReader;
+import java.io.BufferedReader;
 
-
- // @author JP
- 
+// @author JP
 public class LogTxt {
 
     public static void main(String[] args) throws IOException {
-        
+
         DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd-MM-yy_HH-mm-ss");
         DateTimeFormatter dtf3 = DateTimeFormatter.ofPattern("dd/MM/yy HH-mm-ss");
 
-        String hostname = "";
-           try {
-            hostname = InetAddress.getLocalHost().getHostName();
-      } catch (UnknownHostException e) {
-            e.printStackTrace();
-      }
-        
-        String arquivo = String.format("Log-%s.txt", dtf2.format(LocalDateTime.now()));
-    
-        FileWriter arq = new FileWriter("/home/aluno/Desktop/"+arquivo); // Nessa linha escolhemos a rota onde o arquivo ira ser salvado
-        PrintWriter gravarArq = new PrintWriter(arq);
+        String arquivo = "Log.txt";
 
+        //enquanto houver mais linhas
+        try {
+            FileReader file = new FileReader("/home/aluno/Desktop/" + arquivo);
+            BufferedReader reader = new BufferedReader(file);
+            reader.ready();
+            reader.close();
+            file.close();
+            System.out.println("Existe");
 
-        gravarArq.printf(("\nUsuário: "+hostname));
-        gravarArq.printf(("\nData e Hora: "+dtf3.format(LocalDateTime.now())));
-        
-        gravarArq.println("\n \n \n ERRO DE LOGIN");
+            //Arquivo existe
+        } catch (Exception e0) {
 
-        arq.close();
+            // Não existe
+            System.out.println("Nao existe");
 
-        System.out.println("LOG .txt GERADO EM: /home/aluno/Desktop/");
+            String hostname = "";
+            try {
+                hostname = InetAddress.getLocalHost().getHostName();
+            } catch (UnknownHostException e1) {
+                e1.printStackTrace();
+            }
+
+            // String arquivo = String.format("Log-%s.txt", dtf2.format(LocalDateTime.now()));
+            FileWriter arq = new FileWriter("/home/aluno/Desktop/" + arquivo); // Nessa linha escolhemos a rota onde o arquivo ira ser salvado
+            PrintWriter gravarArq = new PrintWriter(arq);
+
+            gravarArq.printf(("\nUsuário: " + hostname));
+            gravarArq.printf(("\nData e Hora: " + dtf3.format(LocalDateTime.now())));
+
+            gravarArq.println("\n \n \n ERRO DE LOGIN");
+
+            arq.close();
+
+            System.out.println("LOG .txt GERADO EM: /home/aluno/Desktop/");
+
+        }
+
     }
 }
