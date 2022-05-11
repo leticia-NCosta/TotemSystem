@@ -38,6 +38,11 @@
   border: 1px solid #505050;
   padding: 20px 20px;
 }
+
+.localizacao{
+  width: 100%;
+}
+
 .dados {
   width: 50%;
   margin: 0 25px;
@@ -141,12 +146,30 @@
         width: 100%;
     }
     
-    .dados{
-        border: solid 2px yellow;
+
+    .box_informacao{
+      flex-direction: column;
+      width: 20%;
     }
 
-    .localizacao{
-        border: solid 2px red;
+    .box_informacao p{
+     font-size: 8px;
+     
     }
 
+    .mapa img{
+      width: 90%;
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      margin-left: 20px;
+    }
+
+    .dados input {
+      width: 200px;
+    }
+    
+    .dados #mensagem {
+      height: 50px;
+    }
 }
