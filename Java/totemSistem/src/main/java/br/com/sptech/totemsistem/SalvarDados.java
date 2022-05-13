@@ -2,10 +2,8 @@ package br.com.sptech.totemsistem;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.github.britooo.looca.api.core.Looca;
 
@@ -13,11 +11,15 @@ public class SalvarDados {
 
     Connection config = new Connection();
     Looca looca = new Looca();
+
     JdbcTemplate template = new JdbcTemplate(config.getDataSource());
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
 
+
     public void salvarDadosEstaticos() {
+
+
 
         String hostname = "";
         try {
@@ -58,7 +60,7 @@ public class SalvarDados {
 
     public void salvarDadosVariaveis() {
 
-        String nomeTabela = "tb_log";
+        //String nomeTabela = "tb_log";
 
 
 
@@ -69,7 +71,7 @@ public class SalvarDados {
         Integer totalDeServicos = looca.getGrupoDeServicos().getTotalDeServicos();
         String dataAtual = dtf2.format(LocalDateTime.now());
         System.out.println("Inserindo... "+dataAtual);
-        //Double temperatura = looca.getTemperatura().getTemperatura();
+        Double temperatura = looca.getTemperatura().getTemperatura();
 
         String inserirDado = String.format("INSERT INTO tb_log"
                 + "(data_atual,memoria_uso,memoria_disponivel,total_processos,total_threads,total_servicos) VALUES"
