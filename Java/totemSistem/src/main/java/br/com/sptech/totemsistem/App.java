@@ -16,6 +16,10 @@ public class App {
         JSONObject json = new JSONObject();
         json.put("text", "Dados de máquina: ola jp");
         Slack.sendMessage(json);
+        
+        
+        Logs log = new Logs();
+        log.gerarLog("Primeiro Log");
                 
     }
 }
