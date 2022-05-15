@@ -2,60 +2,133 @@ CREATE DATABASE totemsystem;
 
 use totemsystem;
 
-drop table Usuario;
-CREATE TABLE IF NOT EXISTS Usuario(
-id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(255),
+create table tb_empresa(
+id_empresa int primary key AUTO_INCREMENT,
+cnpj varchar(45),
+razao_social varchar(45),
+rua_empresa varchar(45),
+numero_empresa varchar(45),
+complemento_empresa varchar(45),
+telefone_empresa varchar(45),
+email_empresa varchar(45),
+senha_empresa varchar(45));
+
+create table tb_estacao(
+id_estacao int PRIMARY KEY AUTO_INCREMENT,
+fk_empresa int,
+nome_estacao varchar(45),
+linha_estacao varchar(45),
+bairro_estacao varchar(45),
+FOREIGN KEY(fk_empresa) REFERENCES tb_empresa(id_empresa));
+
+create table tb_usuario(
+id_usuario int primary key AUTO_INCREMENT,
+fk_empresa int,
+nome varchar(45),
 cpf varchar(45),
 cargo varchar(45),
-email VARCHAR(255),
-senha VARCHAR(225),
-telefone varchar(15)
-);
+email varchar(45),
+senha varchar(45),
+telefone varchar(45),
+FOREIGN KEY(fk_empresa) REFERENCES tb_empresa(id_empresa));
 
-
-CREATE TABLE IF NOT EXISTS tb_empresa(
-id_empresa INT PRIMARY KEY AUTO_INCREMENT,
-cnpj VARCHAR(255),
-razao_social varchar(100),
-rua_empresa varchar(100),
-numero_empresa int,
-complemento_empresa varchar(100),
-telefone_empresa varchar(100),
-email_empresa VARCHAR(255),
-senha_empresa VARCHAR(255)
-);
-
-CREATE TABLE IF NOT EXISTS tb_totem(
-id_totem INT PRIMARY KEY AUTO_INCREMENT,
-data_atual varchar(45),
+create table tb_totem(
+hostname varchar(45) primary key,
+fk_estacao int,
+data_implementacao varchar(45),
+modelo varchar(45),
+marca varchar(45),
+data_fabricacao varchar(45),
 sistema_operacional varchar(45),
-hostname varchar(45),
 fabricante_sistema varchar(45),
 arquitetura int,
 inicializado_em varchar(45),
 permissoes varchar(45),
-marca varchar(45),
+marca_processador varchar(45),
 fabricante_processador varchar(45),
 micro_arquitetura varchar(45),
-cpus_fisicas int,
-cpus_logicas int,
+cpus_fisicas bigint,
+cpus_logicas bigint,
 pacotes_fisicos int,
-frequencia int);
-
-CREATE TABLE IF NOT EXISTS tb_log(
-id_log INT PRIMARY KEY AUTO_INCREMENT,
+frequencia bigint,
 data_atual varchar(45),
-memoria_em_uso BIGINT,
-memoria_disponivel BIGINT,
-total_processos INT,
-total_threads INT,
-total_de_servicos INT);
+FOREIGN KEY(fk_estacao) REFERENCES tb_estacao(id_estacao));
 
-INSERT INTO Usuario VALUES (null, 'don','123','adm', 'admin@admin.com', '12345678','(11)97878-9900');
-INSERT INTO Usuario VALUES (null, 'don','123','adm', '@.com', '12345678','(11)97878-9900');
+create table tb_log(
+id_log int primary key AUTO_INCREMENT,
+fk_hostname varchar(45),
+memoria_uso bigint,
+memoria_disponivel bigint,
+total_processos int,
+total_threads int,
+total_servicos int,
+data_atual varchar(45),
+FOREIGN KEY(fk_hostname) REFERENCES tb_totem(hostname));
 
-    
+create table tb_manutencao_totem(
+id_manutencao_totem int primary key AUTO_INCREMENT,
+fk_usuario int,
+fk_hostname varchar(45),
+data_manutencao varchar(45),
+descricao_manutencao varchar(255),
+FOREIGN KEY(fk_usuario) REFERENCES tb_usuario(id_usuario),
+FOREIGN KEY(fk_hostname) REFERENCES tb_totem(hostname));
 
-select * from tb_totem;
-select * from tb_log;
+insert into tb_empresa (razao_social, email_empresa, senha_empresa) values
+("Empresa Teste LTDA","teste@teste.com","12345678");
+
+insert into tb_usuario (fk_empresa,nome,email,senha) values
+(1,"Don","don@email.com","12345678");
+
+insert into tb_estacao(fk_empresa, nome_estacao) values
+(1,"Liberdade"),
+(1,"Consolacao"),
+(1,"Paulista");
+
+insert into tb_totem(fk_estacao,hostname) values
+(3,"don-pc"),
+(3,"evy-pc"),
+(1,"ze-pc"),
+(2,"adam-pc");
+
+
+insert into tb_log(fk_hostname,memoria_uso) values
+("don-pc",88888),
+("don-pc",99),
+("don-pc",1212),
+("evy-pc",343434),
+("evy-pc",77666),
+("evy-pc",99999);
+
+-- FAZER UMA LÓGICA PARA EVITAR QUE UM HOSTNAME SEJA COLOCADO EM OUTRO TOTEM DIFERENTE
+
+-- Pegar id da empresa através do email:
+select id_empresa from tb_empresa where email_empresa = "teste@teste.com";
+
+-- Pegar quais estações uma empresa tem:
+select nome_estacao from tb_estacao where fk_empresa = 1;
+
+-- Pegar quantas estações uma empresa tem:
+select count(nome_estacao) from tb_estacao where fk_empresa = 1;
+
+-- Pegar os hostnames de uma estação:
+select hostname from tb_totem where fk_estacao = 3; 
+
+-- Contar quantos totens (hostname) a estação tem:
+select count(hostname) from tb_totem where fk_estacao = 3; 
+
+-- Pegar o id da estação do totem (hostname):
+select fk_estacao from tb_totem where hostname = "don-pc" limit 1;
+
+select * from tb_totem;	
+
+select hostname from tb_totem where hostname = "don-pc" limit 1;
+
+-- Pegar dados de maquina:
+select memoria_uso from tb_log where fk_hostname = "evy-pc";
+
+
+select * from tb_totem where hostname = 'VERINBK000062';
+
+
+

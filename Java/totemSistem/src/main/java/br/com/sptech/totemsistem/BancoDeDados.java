@@ -44,7 +44,7 @@ public class BancoDeDados {
             try{
                 fk = Integer.valueOf(resultado.getString("fk_estacao"));
             } catch(Exception e){
-                System.out.println("Erro");
+                System.out.println("FK está null");
                 
             }
             
