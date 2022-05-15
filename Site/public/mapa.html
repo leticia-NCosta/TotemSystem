@@ -4,36 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGV0aWNpYW5jb3N0YSIsImEiOiJjbDMwbnpmN3Mxb2k4M2RvNWtyMmhvM3JzIn0.fMTUzsAks2aead4ceXCGvg';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/leticiancosta/cl30o2bcw002r15tdk1qv98ck', // style URL
+            center: [-46.66065241831226,-23.557575025832566], 
+            
+            zoom: 18 // starting zoom
+        });
 
-    <div class="mapouter">
-        <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
-                src="https://maps.google.com/maps?q=Tucuruvi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
-                href="https://www.whatismyip-address.com/divi-discount/">divi discount</a><br>
-            <style>
-                .mapouter {
-                    position: relative;
-                    text-align: right;
-                    height: 100%;
-                    width: 100%;
-                }
-            </style><a href="https://www.embedgooglemap.net">google map embed generator</a>
-            <style>
-                .gmap_canvas {
-                    overflow: hidden;
-                    background: none !important;
-                    height: 100%;
-                    width: 100%;
-                }
-            </style>
-        </div>
-    </div>
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl());
+    </script>
 
 </body>
-
-</html>

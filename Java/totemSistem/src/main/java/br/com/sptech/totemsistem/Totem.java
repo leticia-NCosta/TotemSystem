@@ -2,79 +2,66 @@ package br.com.sptech.totemsistem;
 
 
 import java.util.List;
-
 import com.github.britooo.looca.api.core.Looca;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Totem {
 
     Looca looca = new Looca();
     Sistema sistema = new Sistema();
 
-    private Integer id;
-    private String localizacao;
-    private String dataImplementacao;
-    private String modelo;
-    private String marca;
-    private String dataFabricacao;
+    // Dados Estáticos
+    private Integer fkEstacao;
+    private String hostname;
+    private String dataAtual;
     private String sistemaOperacional;
-    private String fabricanteSO;
-    private String arquiteturaSO;
-    private String inicializadoEmSO;
-    private String permissoesSO;
-    private String marcaProcessador;
+    private String fabricanteSistema;
+    private Integer arquitetura;
+    private String inicializadoEm;
+    private String permissoes;
+    private String marca;
     private String fabricanteProcessador;
     private String microArquitetura;
-    private String cpusFisicas;
-    private String cpusLogicas;
-    private String pacotesFisicos;
-    private String memoriaTotal;
-    private String quantDiscos;
-    private String quantVolumes;
-    private String tamTotalDiscos;
-    private String hostName;
+    private Integer cpusFisicas;
+    private Integer cpusLogicas;
+    private Integer pacotesFisicos;
+    private Long frequencia;
+    // Dados Variaveis
+    private Long memoriaEmUso;
+    private Long memoriaDisponivel;
+    private Integer totalProcessos;
+    private Integer totalThreads;
+    private Integer totalDeServicos;
+    private Double temperatura;
+
 
     public Totem(){
 
+        this.setHostname();
+        this.setDataAtual();
+        this.setSistemaOperacional();
+        this.setFabricanteSistema();
+        this.setArquitetura();
+        this.setInicializadoEm();
+        this.setPermissoes();
+        this.setMarca();
+        this.setFabricanteProcessador();
+        this.setMicroArquitetura();
+        this.setCpusFisicas();
+        this.setCpusLogicas();
+        this.setPacotesFisicos();
+        this.setFrequencia();
+        this.setMemoriaEmUso();
+        this.setMemoriaDisponivel();
+        this.setTotalProcessos();
+        this.setTotalThreads();
+        this.setTotalDeServicos();
+        this.setTemperatura();
+
     }
-
-    public Totem(Integer id, String localizacao){
-
-        this.setId(id);
-        this.setLocalizacao(localizacao);
-
-    }
-
-    public Totem(Integer id, String localizacao, String dataImplementacao, String modelo, String marca, String dataFabricacao, String sistemaOperacional, String fabricanteSO, String arquiteturaSO, String inicializadoEmSO, String permissoesSO, String marcaProcessador, String fabricanteProcessador, String microArquitetura, String cpusFisicas, String cpusLogicas, String pacotesFisicos, String memoriaTotal, String quantDiscos, String quantVolumes, String tamTotalDiscos, String hostName) {
-        this.id = id;
-        this.localizacao = localizacao;
-        this.dataImplementacao = dataImplementacao;
-        this.modelo = modelo;
-        this.marca = marca;
-        this.dataFabricacao = dataFabricacao;
-        this.sistemaOperacional = sistemaOperacional;
-        this.fabricanteSO = fabricanteSO;
-        this.arquiteturaSO = arquiteturaSO;
-        this.inicializadoEmSO = inicializadoEmSO;
-        this.permissoesSO = permissoesSO;
-        this.marcaProcessador = marcaProcessador;
-        this.fabricanteProcessador = fabricanteProcessador;
-        this.microArquitetura = microArquitetura;
-        this.cpusFisicas = cpusFisicas;
-        this.cpusLogicas = cpusLogicas;
-        this.pacotesFisicos = pacotesFisicos;
-        this.memoriaTotal = memoriaTotal;
-        this.quantDiscos = quantDiscos;
-        this.quantVolumes = quantVolumes;
-        this.tamTotalDiscos = tamTotalDiscos;
-        this.hostName = hostName;
-    }
-
-    @Override
-    public String toString() {
-        return "Totem{" + "localizacao=" + localizacao + ", modelo=" + modelo + ", marca=" + marca + '}';
-    }
-    
-    
 
     public void processos(){
 
@@ -98,199 +85,184 @@ public class Totem {
 
     }
 
-    public Looca getLooca() {
-        return looca;
+    public Integer getFkEstacao(){
+        return fkEstacao;
     }
 
-    public void setLooca(Looca looca) {
-        this.looca = looca;
+    public String getHostname() {
+        return hostname;
     }
 
-    public Sistema getSistema() {
-        return sistema;
+    public void setHostname() {
+
+        this.hostname = "";
+        try {
+            this.hostname = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void setSistema(Sistema sistema) {
-        this.sistema = sistema;
+    public String getDataAtual() {
+        return dataAtual;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
-
-    public String getDataImplementacao() {
-        return dataImplementacao;
-    }
-
-    public void setDataImplementacao(String dataImplementacao) {
-        this.dataImplementacao = dataImplementacao;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getDataFabricacao() {
-        return dataFabricacao;
-    }
-
-    public void setDataFabricacao(String dataFabricacao) {
-        this.dataFabricacao = dataFabricacao;
+    public void setDataAtual() {
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd/MM/yy - HH:mm:ss");
+        this.dataAtual = dtf2.format(LocalDateTime.now());
     }
 
     public String getSistemaOperacional() {
         return sistemaOperacional;
     }
 
-    public void setSistemaOperacional(String sistemaOperacional) {
-        this.sistemaOperacional = sistemaOperacional;
+    public void setSistemaOperacional() {
+        this.sistemaOperacional = looca.getSistema().getSistemaOperacional();
     }
 
-    public String getFabricanteSO() {
-        return fabricanteSO;
+    public String getFabricanteSistema() {
+        return fabricanteSistema;
     }
 
-    public void setFabricanteSO(String fabricanteSO) {
-        this.fabricanteSO = fabricanteSO;
+    public void setFabricanteSistema() {
+        this.fabricanteSistema = looca.getSistema().getFabricante();
     }
 
-    public String getArquiteturaSO() {
-        return arquiteturaSO;
+    public Integer getArquitetura() {
+        return arquitetura;
     }
 
-    public void setArquiteturaSO(String arquiteturaSO) {
-        this.arquiteturaSO = arquiteturaSO;
+    public void setArquitetura() {
+        this.arquitetura = looca.getSistema().getArquitetura();
     }
 
-    public String getInicializadoEmSO() {
-        return inicializadoEmSO;
+    public String getInicializadoEm() {
+        return inicializadoEm;
     }
 
-    public void setInicializadoEmSO(String inicializadoEmSO) {
-        this.inicializadoEmSO = inicializadoEmSO;
+    public void setInicializadoEm() {
+        this.inicializadoEm = String.valueOf(looca.getSistema().getInicializado());
     }
 
-    public String getPermissoesSO() {
-        return permissoesSO;
+    public String getPermissoes() {
+        return permissoes;
     }
 
-    public void setPermissoesSO(String permissoesSO) {
-        this.permissoesSO = permissoesSO;
+    public void setPermissoes() {
+        this.permissoes = String.valueOf(looca.getSistema().getPermissao());
     }
 
-    public String getMarcaProcessador() {
-        return marcaProcessador;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setMarcaProcessador(String marcaProcessador) {
-        this.marcaProcessador = marcaProcessador;
+    public void setMarca() {
+        this.marca = looca.getProcessador().getNome();
     }
 
     public String getFabricanteProcessador() {
         return fabricanteProcessador;
     }
 
-    public void setFabricanteProcessador(String fabricanteProcessador) {
-        this.fabricanteProcessador = fabricanteProcessador;
+    public void setFabricanteProcessador() {
+        this.fabricanteProcessador = looca.getProcessador().getFabricante();
     }
 
     public String getMicroArquitetura() {
         return microArquitetura;
     }
 
-    public void setMicroArquitetura(String microArquitetura) {
-        this.microArquitetura = microArquitetura;
+    public void setMicroArquitetura() {
+        this.microArquitetura = looca.getProcessador().getMicroarquitetura();
     }
 
-    public String getCpusFisicas() {
+    public Integer getCpusFisicas() {
         return cpusFisicas;
     }
 
-    public void setCpusFisicas(String cpusFisicas) {
-        this.cpusFisicas = cpusFisicas;
+    public void setCpusFisicas() {
+        this.cpusFisicas = looca.getProcessador().getNumeroCpusFisicas();
     }
 
-    public String getCpusLogicas() {
+    public Integer getCpusLogicas() {
         return cpusLogicas;
     }
 
-    public void setCpusLogicas(String cpusLogicas) {
-        this.cpusLogicas = cpusLogicas;
+    public void setCpusLogicas() {
+        this.cpusLogicas = looca.getProcessador().getNumeroCpusLogicas();
     }
 
-    public String getPacotesFisicos() {
+    public Integer getPacotesFisicos() {
         return pacotesFisicos;
     }
 
-    public void setPacotesFisicos(String pacotesFisicos) {
-        this.pacotesFisicos = pacotesFisicos;
+    public void setPacotesFisicos() {
+        this.pacotesFisicos = looca.getProcessador().getNumeroPacotesFisicos();
     }
 
-    public String getMemoriaTotal() {
-        return memoriaTotal;
+    public Long getFrequencia() {
+        return frequencia;
     }
 
-    public void setMemoriaTotal(String memoriaTotal) {
-        this.memoriaTotal = memoriaTotal;
+    public void setFrequencia() {
+        this.frequencia = looca.getProcessador().getFrequencia();
     }
 
-    public String getQuantDiscos() {
-        return quantDiscos;
+    public Long getMemoriaEmUso() {
+        return memoriaEmUso;
     }
 
-    public void setQuantDiscos(String quantDiscos) {
-        this.quantDiscos = quantDiscos;
+    public void setMemoriaEmUso() {
+        this.memoriaEmUso = looca.getMemoria().getEmUso();
     }
 
-    public String getQuantVolumes() {
-        return quantVolumes;
+    public Long getMemoriaDisponivel() {
+        return memoriaDisponivel;
     }
 
-    public void setQuantVolumes(String quantVolumes) {
-        this.quantVolumes = quantVolumes;
+    public void setMemoriaDisponivel() {
+        this.memoriaDisponivel = looca.getMemoria().getDisponivel();
     }
 
-    public String getTamTotalDiscos() {
-        return tamTotalDiscos;
+    public Integer getTotalProcessos() {
+        return totalProcessos;
     }
 
-    public void setTamTotalDiscos(String tamTotalDiscos) {
-        this.tamTotalDiscos = tamTotalDiscos;
+    public void setTotalProcessos() {
+        this.totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
     }
 
-    public String getHostName() {
-        return hostName;
+    public Integer getTotalThreads() {
+        return totalThreads;
     }
 
-    public void setHostName(String hostName) {
-        this.hostName = hostName;
+    public void setTotalThreads() {
+        this.totalThreads = looca.getGrupoDeProcessos().getTotalThreads();
+    }
+
+    public Integer getTotalDeServicos() {
+        return totalDeServicos;
+    }
+
+    public void setTotalDeServicos() {
+        this.totalDeServicos = looca.getGrupoDeServicos().getTotalDeServicos();
+    }
+
+    public Double getTemperatura() {
+        return temperatura;
+    }
+
+    public void setTemperatura() {
+        this.temperatura = looca.getTemperatura().getTemperatura();
+    }
+
+    @Override
+    public String toString() {
+        return "Totem{" + "fkEstacao=" + fkEstacao + ", hostname=" + hostname + ", dataAtual=" + dataAtual + ", sistemaOperacional=" + sistemaOperacional + ", fabricanteSistema=" + fabricanteSistema + ", arquitetura=" + arquitetura + ", inicializadoEm=" + inicializadoEm + ", permissoes=" + permissoes + ", marca=" + marca + ", fabricanteProcessador=" + fabricanteProcessador + ", microArquitetura=" + microArquitetura + ", cpusFisicas=" + cpusFisicas + ", cpusLogicas=" + cpusLogicas + ", pacotesFisicos=" + pacotesFisicos + ", frequencia=" + frequencia + ", memoriaEmUso=" + memoriaEmUso + ", memoriaDisponivel=" + memoriaDisponivel + ", totalProcessos=" + totalProcessos + ", totalThreads=" + totalThreads + ", totalDeServicos=" + totalDeServicos + ", temperatura=" + temperatura + '}';
     }
 
 
-
-
+    
+    
 }

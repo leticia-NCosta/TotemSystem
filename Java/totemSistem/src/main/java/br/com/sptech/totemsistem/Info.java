@@ -14,7 +14,7 @@ public class Info {
 
     Looca looca = new Looca();
     Sistema sistema = new Sistema();
-    Totem totem = new Totem(4,"Consolação");
+    
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
     public void getInfo(){ 
@@ -24,7 +24,7 @@ public class Info {
       } catch (UnknownHostException e) {
             e.printStackTrace();
       }
-  
+           
 
         sistema.setLinhas("-", 70);
         System.out.println("\t\t\t SISTEMA OPERACIONAL\n");

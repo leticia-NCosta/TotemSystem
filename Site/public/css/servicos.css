@@ -29,6 +29,15 @@
 
 }
 
+@media (max-width: 425px) {
+    
+    .servicos h1{
+        font-size: 50px;
+    }
+   
+
+}
+
 .servicos h2 {
     font-family: 'Raleway', sans-serif;
     color: #000000;
@@ -42,6 +51,14 @@
 
     .servicos h2{
         font-size: 20px;
+    }
+
+}
+
+@media (max-width:425px) {
+    
+    .servicos h2{
+        font-size: 15px;
     }
 
 }
@@ -88,4 +105,21 @@
 .box_servicos_bottom {
     margin-top: 100px;
     width: 20%;
-} 
+} @media (max-width: 425px) {
+    
+   
+
+}
+
+@media (max-width: 425px) {
+    
+   .box_servicos_top{
+       width: 80%;
+       margin-top: 25px;
+   }
+   .box_servicos_bottom{
+       width: 80%;
+       margin-top: 25px;
+   }
+
+}
