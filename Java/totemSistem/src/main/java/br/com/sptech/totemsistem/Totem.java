@@ -14,6 +14,7 @@ public class Totem {
     Sistema sistema = new Sistema();
 
     // Dados Estáticos
+    private Integer fkEstacao;
     private String hostname;
     private String dataAtual;
     private String sistemaOperacional;
@@ -84,6 +85,9 @@ public class Totem {
 
     }
 
+    public Integer getFkEstacao(){
+        return fkEstacao;
+    }
 
     public String getHostname() {
         return hostname;
@@ -252,4 +256,13 @@ public class Totem {
     public void setTemperatura() {
         this.temperatura = looca.getTemperatura().getTemperatura();
     }
+
+    @Override
+    public String toString() {
+        return "Totem{" + "fkEstacao=" + fkEstacao + ", hostname=" + hostname + ", dataAtual=" + dataAtual + ", sistemaOperacional=" + sistemaOperacional + ", fabricanteSistema=" + fabricanteSistema + ", arquitetura=" + arquitetura + ", inicializadoEm=" + inicializadoEm + ", permissoes=" + permissoes + ", marca=" + marca + ", fabricanteProcessador=" + fabricanteProcessador + ", microArquitetura=" + microArquitetura + ", cpusFisicas=" + cpusFisicas + ", cpusLogicas=" + cpusLogicas + ", pacotesFisicos=" + pacotesFisicos + ", frequencia=" + frequencia + ", memoriaEmUso=" + memoriaEmUso + ", memoriaDisponivel=" + memoriaDisponivel + ", totalProcessos=" + totalProcessos + ", totalThreads=" + totalThreads + ", totalDeServicos=" + totalDeServicos + ", temperatura=" + temperatura + '}';
+    }
+
+
+    
+    
 }

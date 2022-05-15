@@ -24,7 +24,7 @@ public class Info {
       } catch (UnknownHostException e) {
             e.printStackTrace();
       }
-  
+           
 
         sistema.setLinhas("-", 70);
         System.out.println("\t\t\t SISTEMA OPERACIONAL\n");
