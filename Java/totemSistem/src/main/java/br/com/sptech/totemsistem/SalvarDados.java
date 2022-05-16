@@ -78,20 +78,27 @@ public class SalvarDados {
 
     public void salvarDadosVariaveis() {
 
-        //String nomeTabela = "tb_log";
-        Long memoriaEmUso = looca.getMemoria().getEmUso();
-        Long memoriaDisponivel = looca.getMemoria().getDisponivel();
-        Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
-        Integer totalThreads = looca.getGrupoDeProcessos().getTotalThreads();
-        Integer totalDeServicos = looca.getGrupoDeServicos().getTotalDeServicos();
         String dataAtual = dtf2.format(LocalDateTime.now());
         System.out.println("Inserindo... " + dataAtual);
-        Double temperatura = looca.getTemperatura().getTemperatura();
+        
 
         String inserirDado = String.format("INSERT INTO tb_log"
-                + "(data_atual,memoria_uso,memoria_disponivel,total_processos,total_threads,total_servicos) VALUES"
-                + "('%s',%d,%d,%d,%d,%d)", dataAtual, memoriaEmUso, memoriaDisponivel,
-                totalProcessos, totalThreads, totalDeServicos);
+                + "(fk_hostname,"
+                + "data_atual,"
+                + "memoria_uso,"
+                + "memoria_disponivel,"
+                + "total_processos,"
+                + "total_threads,"
+                + "total_servicos) "
+                + "VALUES "
+                + "('%s','%s',%d,%d,%d,%d,%d)",
+                totem.getHostname(),
+                dataAtual,
+                totem.getMemoriaEmUso(),
+                totem.getMemoriaDisponivel(),
+                totem.getTotalProcessos(),
+                totem.getTotalThreads(),
+                totem.getTotalDeServicos());
 
         template.execute(inserirDado);
 

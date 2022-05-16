@@ -8,6 +8,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
 
+
 /**
  *
  * @author Vericoders
@@ -17,8 +18,10 @@ public class Teste {
     public static void main(String[] args) throws SQLException{
 
         BancoDeDados banco = new BancoDeDados();
+        SalvarDados salvar = new SalvarDados();
        
         
-        System.out.println(banco.getFkEstacao());
+        //System.out.println(banco.getFkEstacao());
+        salvar.salvarDadosVariaveis();
     }
 }
