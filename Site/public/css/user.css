@@ -8,6 +8,10 @@ html{
     background-color: #273c5c;
 }
 
+button{
+    cursor: pointer;
+}
+
 .cabeca{
     height: 16vh;
     width: 100vw;

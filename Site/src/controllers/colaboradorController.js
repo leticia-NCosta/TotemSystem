@@ -1,3 +1,4 @@
+var colaboradorModel = require("../models/colaboradorModel");
 
 
     function cadastrarColaborador(req, res){
@@ -22,7 +23,7 @@
         res.status(400).send("Sua senha está undefinied")
       }
           
-          empresaModel.cadastrarColaborador(nome, cpf, cargo, telefone, email, senha)
+          colaboradorModel.cadastrarColaborador(nome, cpf, cargo, telefone, email, senha)
               .then(
                   function (resultado) {
                       res.json(resultado);
@@ -62,7 +63,7 @@
         res.status(400).send("Sua senha está undefinied")
       }
           
-          empresaModel.atualizarColaborador(nome, cpf, cargo, telefone, email, senha)
+          colaboradorModel.atualizarColaborador(nome, cpf, cargo, telefone, email, senha)
               .then(
                   function (resultado) {
                       res.json(resultado);
@@ -82,7 +83,7 @@
   // aqui
   function deletarColaborador(req,res){    
     var cpf = req.params.cpf;
-    empresaModel.deletarColaborador(cpf)
+    colaboradorModel.deletarColaborador(cpf)
              .then(
                  function (resultado) {
                      res.json(resultado);

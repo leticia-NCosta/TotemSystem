@@ -37,81 +37,15 @@ function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmp
   return database.executar(instrucao);
 }
 
-function cadastrarEstacao(linha, cidade, quantTotem, bairro){
-  var instrucao = `
-    INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}', '${quantTotem}', '${bairro}')
-  `;
-
-  return database.executar(instrucao)
-}
-
-function cadastrarColaborador(nome, cpf, cargo, senha, telefone, email){
-  var instrucao = `
-    INSERT INTO tb_usuario (fk_empresa, nome, cpf, cargo, senha, telefone, email) VALUES (null, '${nome}', '${cpf}', '${cargo}', '${senha}', '${telefone}', '${email}')
-  `;
-
-  return database.executar(instrucao)
-}
-
-function atualizarColaborador(nome, cpf, cargo, senha, telefone, email){
-  // VER SE PRECISA DA FK
-  var instrucao = `
-    UPDATE tb_usuario  SET nome = '${nome}', cpf = '${cpf}', cargo = '${cargo}', senha = '${senha}', telefone = '${telefone}', email = '${email}' WHERE CPF = '${cpf}')
-  `;
-
-  return database.executar(instrucao)
-}
 
 
 
-function deletarColaborador(cpf){
-  var instrucao = `
-    DELETE FROM tb_usuario WHERE CPF = ${cpf} 
-  `;
-
-  return database.executar(instrucao)
-}
 
 
-
-function cadastrarTotem(dataImplementacao, modelo, marca, dataFabricacao){
-  var instrucao = `
-    INSERT INTO tb_totem (data_implementacao, modelo, marca, data_fabricacao) VALUES ( '${dataImplementacao}', '${modelo}', '${marca}', '${dataFabricacao}')
-  `;
-
-  return database.executar(instrucao)
-}
-
-
-function atualizarTotem(idTotem,dataImplementacao, modelo, marca, dataFabricacao){
-  var instrucao = `
-    UPDATE tb_totem SET data_implementacao = '${dataImplementacao}', modelo = '${modelo}', marca = '${marca}', data_fabricacao = '${dataFabricacao}' WHERE ID_TOTEM = ${idTotem} 
-  `;
-
-  return database.executar(instrucao)
-}
-
-
-
-function deletarTotem(idTotem){
-  var instrucao = `
-    DELETE FROM tb_totem WHERE ID_TOTEM = ${idTotem} 
-  `;
-
-  return database.executar(instrucao)
-}
 
 module.exports = {
   listar,
   cadastrar,
   entrar,
-  atualizar,
-  cadastrarEstacao,
-  cadastrarColaborador,
-  cadastrarTotem,
-  atualizarTotem,
-  deletarTotem,
-  atualizarColaborador,
-  deletarColaborador
-  
+  atualizar
 };
