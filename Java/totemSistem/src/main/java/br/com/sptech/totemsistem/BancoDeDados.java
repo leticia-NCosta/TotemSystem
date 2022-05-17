@@ -15,15 +15,15 @@ import java.sql.SQLException;
 public class BancoDeDados {
 
     // LOCAL
-    String url = "jdbc:mysql://127.0.0.1:3306/totemsystem";
-    String login = "root";
-    String senha = "root";
+    //String url = "jdbc:mysql://127.0.0.1:3306/totemsystem";
+    //String login = "root";
+    //String senha = "root";
 
     // AZURE
     //String url = "jdbc:sqlserver://svr-totem-system.database.windows.net:1433;database=bd-totem-system;user=admin-totem-system@svr-totem-system;password={2ads#grupo9};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
     //String login = "admin-totem-system";
     //String senha = "2ads#grupo9";
-    
+    /*
     public Integer getFkEstacao() throws SQLException {
 
         Connection conexão = DriverManager.getConnection(url, login, senha);
@@ -57,5 +57,5 @@ public class BancoDeDados {
         
 
     }
-
+    */
 }

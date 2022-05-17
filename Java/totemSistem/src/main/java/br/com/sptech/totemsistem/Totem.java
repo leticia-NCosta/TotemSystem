@@ -59,7 +59,7 @@ public class Totem {
         this.setTotalProcessos();
         this.setTotalThreads();
         this.setTotalDeServicos();
-        this.setTemperatura();
+        //this.setTemperatura();
 
     }
 
@@ -254,7 +254,7 @@ public class Totem {
     }
 
     public void setTemperatura() {
-        this.temperatura = looca.getTemperatura().getTemperatura();
+        //this.temperatura = looca.getTemperatura().getTemperatura();
     }
 
     @Override

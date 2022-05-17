@@ -11,12 +11,13 @@ public class SalvarDados {
 
     Connection config = new Connection();
     Looca looca = new Looca();
-    Totem totem = new Totem();
+    
     JdbcTemplate template = new JdbcTemplate(config.getDataSource());
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
     public void salvarDadosEstaticos() {
 
+        Totem totem = new Totem();
         ValidacaoLogin validacao = new ValidacaoLogin();
         
 
@@ -78,6 +79,7 @@ public class SalvarDados {
 
     public void salvarDadosVariaveis() {
 
+        Totem totem = new Totem();
         String dataAtual = dtf2.format(LocalDateTime.now());
         System.out.println("Inserindo... " + dataAtual);
         

@@ -151,14 +151,11 @@ public class TelaLogin extends javax.swing.JFrame {
         Usuario user = new Usuario();
 
 
-
-
-
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
         String email = inputEmail.getText();
         String senha = inputSenha.getText();
         
-         Boolean validacaoCampo = user.validacaoCampo(email, senha);
+        Boolean validacaoCampo = user.validacaoCampo(email, senha);
         
        
        if(validacaoCampo == true){
@@ -273,10 +270,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 System.out.println("\nSalvando dados...");
 
                 try {
-                    for (int i = 0; i < 30; i++) {
+                    for (int i = 0; i < 600; i++) {
 
                         salvar.salvarDadosVariaveis();
-                        Thread.sleep(1000);
+                        Thread.sleep(2000);
 
 
                     }

@@ -9,7 +9,7 @@ public class ValidacaoLogin {
 
     Connection config = new Connection();
     JdbcTemplate template = new JdbcTemplate(config.getDataSource());
-    JdbcTemplate template1 = new Connection().createConnection();
+    
 
     public Boolean validarLogin(String email, String senha) {
         Boolean resposta = false;
