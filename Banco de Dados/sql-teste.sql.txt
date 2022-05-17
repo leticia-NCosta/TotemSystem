@@ -19,6 +19,8 @@ fk_empresa int,
 nome_estacao varchar(45),
 linha_estacao varchar(45),
 bairro_estacao varchar(45),
+latitude_estacao varchar(45),
+longitude_estacao varchar(45),
 FOREIGN KEY(fk_empresa) REFERENCES tb_empresa(id_empresa));
 
 create table tb_usuario(
@@ -80,6 +82,9 @@ insert into tb_empresa (razao_social, email_empresa, senha_empresa) values
 insert into tb_usuario (fk_empresa,nome,email,senha) values
 (1,"Don","don@email.com","12345678");
 
+insert into tb_usuario (fk_empresa,nome,email,senha) values
+(1,"adm",'adm@adm.com',"12345678");
+
 insert into tb_estacao(fk_empresa, nome_estacao) values
 (1,"Liberdade"),
 (1,"Consolacao"),
@@ -127,8 +132,13 @@ select hostname from tb_totem where hostname = "don-pc" limit 1;
 -- Pegar dados de maquina:
 select memoria_uso from tb_log where fk_hostname = "evy-pc";
 
+select * from tb_totem;
 
-select * from tb_totem where hostname = 'VERINBK000062';
+select * from tb_log LIMIT 0, 2000;
 
+select * from tb_log;
 
+select * from tb_log where fk_hostname = 'VERINBK000062';
+
+update tb_totem set fk_estacao = 1 where hostname = 'VERINBK000062';
 
