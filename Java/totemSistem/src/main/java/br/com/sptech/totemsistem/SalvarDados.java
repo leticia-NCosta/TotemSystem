@@ -18,10 +18,10 @@ public class SalvarDados {
     public void salvarDadosEstaticos() {
 
         Totem totem = new Totem();
-        ValidacaoLogin validacao = new ValidacaoLogin();
+        
         
 
-        if (validacao.existeHostname()) {
+        
 
             String hostname = "";
             try {
@@ -70,39 +70,49 @@ public class SalvarDados {
 
             template.execute(inserirDado);
 
-        } else {
-
-            System.out.println("ERRO! Totem não cadastrado!");
-
-        }
     }
 
     public void salvarDadosVariaveis() {
-
-        Totem totem = new Totem();
-        String dataAtual = dtf2.format(LocalDateTime.now());
-        System.out.println("Inserindo... " + dataAtual);
+        
         
 
-        String inserirDado = String.format("INSERT INTO tb_log"
-                + "(fk_hostname,"
-                + "data_atual,"
-                + "memoria_uso,"
-                + "memoria_disponivel,"
-                + "total_processos,"
-                + "total_threads,"
-                + "total_servicos) "
-                + "VALUES "
-                + "('%s','%s',%d,%d,%d,%d,%d)",
-                totem.getHostname(),
-                dataAtual,
-                totem.getMemoriaEmUso(),
-                totem.getMemoriaDisponivel(),
-                totem.getTotalProcessos(),
-                totem.getTotalThreads(),
-                totem.getTotalDeServicos());
+            Totem totem = new Totem();
+            String dataAtual = dtf2.format(LocalDateTime.now());
+            System.out.println("Inserindo... " + dataAtual);
 
-        template.execute(inserirDado);
+
+            String inserirDado = String.format("INSERT INTO tb_log"
+                    + "(fk_hostname,"
+                    + "data_atual,"
+                    + "memoria_uso,"
+                    + "memoria_disponivel,"
+                    + "total_processos,"
+                    + "total_threads,"
+                    + "total_servicos,"
+                    + "total_servicos_ativos,"
+                    + "total_servicos_inativos,"
+                    + "volume_total,"
+                    + "volume_disponivel,"
+                    + "volume_em_uso) "
+                    + "VALUES "
+                    + "('%s','%s',%d,%d,%d,%d,%d,%d,%d,%d,%d,%d)",
+                    totem.getHostname(),
+                    dataAtual,
+                    totem.getMemoriaEmUso(),
+                    totem.getMemoriaDisponivel(),
+                    totem.getTotalProcessos(),
+                    totem.getTotalThreads(),
+                    totem.getTotalDeServicos(),
+                    totem.getTotalServicosAtivos(),
+                    totem.getTotalServicosInativos(),
+                    totem.getVolumeTotal(),
+                    totem.getVolumeDisponivel(),
+                    totem.getVolumeEmUso());
+
+            template.execute(inserirDado);
+            
+            
+        
 
     }
 
