@@ -1,15 +1,23 @@
 package br.com.sptech.totemsistem;
 
 // @author joao.siqueira
+
+//Criação Arquivo txxt
 import java.io.File;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+
+// Pegar hostname
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+// Data & Hora formatada
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+// Lista
 import java.util.ArrayList;
 import java.util.List;
 
