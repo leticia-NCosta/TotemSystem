@@ -89,17 +89,24 @@ instalar_docker(){
 	sudo docker pull mysql:latest
 	sudo docker build -t totemsystem:latest .
 	sudo docker run -d --name totemsystem totemsystem
-	sudo docker exec -it totemsystem bash
+	
 	
 }
 
 main(){
 
-
 	criar_urubu100
 	instalar_pacotes
 	clonar_github
+	baixar_scripts
 	instalar_docker
+
+}
+
+baixar_scripts(){
+
+	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/Dockerfile
+	wget -O sql.sql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/sql.sql
 
 }
 
