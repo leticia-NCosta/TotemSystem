@@ -1,5 +1,7 @@
 CREATE DATABASE totemsystem;
 
+-- drop database totemsystem;
+
 use totemsystem;
 
 create table tb_empresa(
@@ -64,6 +66,11 @@ memoria_disponivel bigint,
 total_processos int,
 total_threads int,
 total_servicos int,
+total_servicos_ativos int,
+total_servicos_inativos int,
+volume_total bigint,
+volume_disponivel bigint,
+volume_em_uso bigint,
 data_atual varchar(45),
 FOREIGN KEY(fk_hostname) REFERENCES tb_totem(hostname));
 
@@ -91,22 +98,12 @@ insert into tb_estacao(fk_empresa, nome_estacao) values
 (1,"Paulista");
 
 insert into tb_totem(fk_estacao,hostname) values
-(3,"don-pc"),
-(3,"evy-pc"),
-(1,"ze-pc"),
-(2,"adam-pc");
+(2,"VERINBK000062");
 
-
-insert into tb_log(fk_hostname,memoria_uso) values
-("don-pc",88888),
-("don-pc",99),
-("don-pc",1212),
-("evy-pc",343434),
-("evy-pc",77666),
-("evy-pc",99999);
 
 -- FAZER UMA LÓGICA PARA EVITAR QUE UM HOSTNAME SEJA COLOCADO EM OUTRO TOTEM DIFERENTE
-
+select * from tb_usuario;
+select * from tb_empresa;
 -- Pegar id da empresa através do email:
 select id_empresa from tb_empresa where email_empresa = "teste@teste.com";
 
@@ -117,10 +114,10 @@ select nome_estacao from tb_estacao where fk_empresa = 1;
 select count(nome_estacao) from tb_estacao where fk_empresa = 1;
 
 -- Pegar os hostnames de uma estação:
-select hostname from tb_totem where fk_estacao = 3; 
+select tb_totem.hostname from tb_totem join tb_estacao where tb_estacao.nome_estacao = "Liberdade"; 
 
 -- Contar quantos totens (hostname) a estação tem:
-select count(hostname) from tb_totem where fk_estacao = 3; 
+select count(hostname) from tb_totem where fk_estacao = 2; 
 
 -- Pegar o id da estação do totem (hostname):
 select fk_estacao from tb_totem where hostname = "don-pc" limit 1;
@@ -141,4 +138,22 @@ select * from tb_log;
 select * from tb_log where fk_hostname = 'VERINBK000062';
 
 update tb_totem set fk_estacao = 1 where hostname = 'VERINBK000062';
+
+select 
+tb_totem.hostname,tb_estacao.nome_estacao,
+tb_log.memoria_uso,tb_log.memoria_disponivel,tb_log.total_processos,tb_log.volume_disponivel,
+tb_log.volume_total,tb_log.volume_em_uso,tb_log.total_servicos,tb_log.total_servicos_ativos,
+tb_log.total_servicos_inativos
+from tb_totem
+join tb_log
+join tb_estacao
+where tb_totem.hostname = "VERINBK000062";
+
+select tb_empresa.razao_social,tb_empresa.email_empresa,tb_empresa.senha_empresa,
+tb_totem.hostname,tb_estacao.nome_estacao,tb_log.memoria_uso,tb_log.volume_total,
+tb_log.total_servicos
+from tb_empresa
+join tb_totem
+join tb_log
+join tb_estacao;
 

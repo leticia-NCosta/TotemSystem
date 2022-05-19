@@ -57,7 +57,8 @@ instalar_pacotes(){
 	echo "Verificando git..."
 	[ ! -x $(which git) ] && sudo apt-get install git-all
 	echo "Verificando docker..."
-	[ ! -x $(which docker) ] && instalar_docker
+	[ ! -x $(which docker) ] && sudo apt install docker.io
+
 
 }
 criar_urubu100(){
@@ -81,7 +82,7 @@ clonar_github(){
 }
 instalar_docker(){
 
-	sudo apt install docker.io
+	
 	sudo systemctl start docker
 	sudo systemctl enable  docker
 	sudo docker pull mysql:latest
@@ -96,6 +97,7 @@ main(){
 	criar_urubu100
 	instalar_pacotes
 	clonar_github
+	instalar_docker
 
 }
 
