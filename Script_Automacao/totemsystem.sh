@@ -79,6 +79,7 @@ clonar_github(){
 	echo "Criando uma pasta para o projeto..."
 	mkdir totem && mv ./totemSitem.jar totem/totemsystem.jar && cd totem
 	echo "\nTudo pronto meu chefe...\n"
+
 }
 instalar_docker(){
 
@@ -86,7 +87,8 @@ instalar_docker(){
 	sudo systemctl start docker
 	sudo systemctl enable  docker
 	sudo docker pull mysql:latest
-	sudo docker run -d -p 3306:3306 --name totemsystem -e "MYSQL_DATABASE=totemsystem" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:latest
+	sudo docker build -t totemsystem:latest .
+	sudo docker run -d --name totemsystem totemsystem
 	sudo docker exec -it totemsystem bash
 	
 }
