@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  mysql:
+    container_name: "totemsystem-mysql"
+    build: /mysql/Dockerfile
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - network-totemsystem
+  
+  java:
+    container_name: "totemsystem-java"
+    build: /java/Dockerfile
+    networks:
+      - network-totemsystem
+
+
+networks:
+  network-totemsystem:
+    driver: bridge

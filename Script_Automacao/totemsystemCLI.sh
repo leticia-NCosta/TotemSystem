@@ -112,7 +112,7 @@ instalar_docker(){
 	echo "\n\n=================================================="
 	echo "Fazendo o build do Dockerfile..."
 	echo "==================================================\n\n"
-	sudo docker build -t totemsystem:latest .
+	sudo docker-compose up -d
 	echo "\n\n=================================================="
 	echo "Rodando a imagem totemsystem no Docker.."
 	echo "==================================================\n\n"
@@ -133,6 +133,8 @@ main(){
 
 baixar_scripts(){
 
+	wget -O docker-compose.yml
+	wget -O Dockerfile-java 
 	wget -O Dockerfile-mysql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/Dockerfile-mysql
 	wget -O sql.sql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/sql.sql
 

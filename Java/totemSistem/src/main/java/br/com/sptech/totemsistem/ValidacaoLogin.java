@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ValidacaoLogin {
 
-    Connection configAZURE = new Connection("azure");
+    Connection configAZURE = new Connection("mysql");
     JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
     
 

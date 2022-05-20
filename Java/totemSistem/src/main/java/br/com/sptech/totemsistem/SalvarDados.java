@@ -11,12 +11,12 @@ import java.sql.SQLException;
 public class SalvarDados {
 
     Connection configMYSQL = new Connection("mysql");
-    Connection configAZURE = new Connection("azure");
+    //Connection configAZURE = new Connection("azure");
     Looca looca = new Looca();
     BancoDeDados banco = new BancoDeDados();
 
     JdbcTemplate templateMYSQL = new JdbcTemplate(configMYSQL.getDataSource());
-    JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
+    //JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
     public void salvarDadosEstaticos() {
@@ -66,7 +66,7 @@ public class SalvarDados {
                 totem.getHostname());
 
         templateMYSQL.execute(inserirDado);
-        templateAZURE.execute(inserirDado);
+        //templateAZURE.execute(inserirDado);
 
     }
 
@@ -105,7 +105,7 @@ public class SalvarDados {
                 totem.getVolumeEmUso());
 
         templateMYSQL.execute(inserirDado);
-        templateAZURE.execute(inserirDado);
+        //templateAZURE.execute(inserirDado);
 
     }
 
@@ -124,7 +124,7 @@ public class SalvarDados {
                     estacao);
 
             templateMYSQL.execute(inserirDado);
-            templateAZURE.execute(inserirDado);
+            //templateAZURE.execute(inserirDado);
 
         } else{
             System.out.println("Estação não existe no banco de dados! Cadastre em outra!");
