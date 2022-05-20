@@ -8,8 +8,6 @@ AUTOR="Totem System"
 CONTATO="https://github.com/leticiaNCosta18/TotemSystem"
 DESCRICAO="Script para executar o .jar do projeto"
 varEXE=$1 # Se não tiver parametros ela executa normal
-NEWUSR="urubu100"
-PASSWD="urubu100"
 
 
 #-VARIAVEIS PARAMETRO----------------------------------------------------#
@@ -82,12 +80,12 @@ criar_urubu100(){
 	echo "Criando usuário urubu100.."
 	echo "==================================================\n\n"
 	sleep 1
-	useradd -m -U $NEWUSR
-	echo $PASSWD | passwd --stdin $NEWUSR
+	useradd -m -U urubu100
+	#echo "urubu100" | passwd --stdin urubu100
 	echo "\n\n=================================================="
 	echo "Dando permissão de sudo para urubu100..."
 	echo "==================================================\n\n"
-	usermod -aG sudo $NEWUSR
+	usermod -aG sudo urubu100
 	
 
 }
@@ -101,9 +99,7 @@ clonar_github(){
 	echo "Criando uma pasta para o projeto..."
 	echo "==================================================\n\n"
 	mkdir totem && mv ./totemSitem.jar totem/totemsystem.jar && cd totem
-	echo "\n\n=================================================="
-	echo "Tudo pronto meu chefe.."
-	echo "==================================================\n\n"
+
 
 }
 instalar_docker(){
@@ -121,7 +117,7 @@ instalar_docker(){
 	echo "Rodando a imagem totemsystem no Docker.."
 	echo "==================================================\n\n"
 	sudo docker run -d --name totemsystem totemsystem
-	
+
 	
 }
 
@@ -147,4 +143,7 @@ baixar_scripts(){
 if [ -z "$varEXE" ]; then
 	# Coloca o main do programa aqui
 	main
+	echo "\n\n=================================================="
+	echo "Tudo pronto meu chefe.."
+	echo "==================================================\n\n"
 fi
