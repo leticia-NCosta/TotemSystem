@@ -81,7 +81,7 @@ criar_urubu100(){
 	echo "==================================================\n\n"
 	sleep 1
 	useradd -m -U urubu100
-	#echo "urubu100" | passwd --stdin urubu100
+	echo "urubu100:urubu100" | chpasswd 
 	echo "\n\n=================================================="
 	echo "Dando permissão de sudo para urubu100..."
 	echo "==================================================\n\n"

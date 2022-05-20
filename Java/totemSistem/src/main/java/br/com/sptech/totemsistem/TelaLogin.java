@@ -6,6 +6,7 @@ package br.com.sptech.totemsistem;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.lang.Thread;
+import java.sql.SQLException;
 
 /**
  *
@@ -150,6 +151,8 @@ public class TelaLogin extends javax.swing.JFrame {
        
         Usuario user = new Usuario();
         ValidacaoLogin validacao = new ValidacaoLogin();
+        Scanner leitor = new Scanner(System.in);
+        SalvarDados salvar = new SalvarDados();
 
 
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
@@ -168,6 +171,22 @@ public class TelaLogin extends javax.swing.JFrame {
                     this.menu();
                 } else {
                     System.out.println("ERRO! Totem não cadastrado!");
+                    System.out.println("Deseja cadastrar este Totem minimamente? (S/N)");
+                    String resposta = leitor.nextLine();
+                    if(resposta.equals("S")){
+                        System.out.println("\nDigite o nome da estação onde deseja cadastrar o Totem:");
+                        String estacao = leitor.nextLine();
+                        try {
+                            salvar.salvarTotemTemporariamente(estacao);
+                        } catch (SQLException e) {
+                            System.out.println("Erro desconhecido no banco");
+                        }
+                        
+                    } else if(resposta.equals("N")){
+                        System.out.println("Fim do Programa!");
+                    } else{
+                        System.out.println("Valor incorreto");
+                    }
                 }
                 
             }

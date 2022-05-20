@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.sptech.totemsistem;
 
 import java.net.InetAddress;
@@ -41,10 +38,9 @@ public class Teste {
         //System.out.println(banco.getFkEstacao());
         //salvar.salvarDadosVariaveis();
         
-        System.out.println(looca.getGrupoDeServicos().getTotalDeServicos());
-        System.out.println(looca.getGrupoDeServicos().getTotalServicosAtivos());
-        System.out.println(looca.getGrupoDeServicos().getTotalServicosInativos());
-       
+        
+        System.out.println(banco.existeEstacao("Liberdade", "mysql"));
+        System.out.println(banco.getIdEstacao("Consolação", "mysql"));
   
         
     }
