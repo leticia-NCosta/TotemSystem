@@ -8,6 +8,9 @@ AUTOR="Totem System"
 CONTATO="https://github.com/leticiaNCosta18/TotemSystem"
 DESCRICAO="Script para executar o .jar do projeto"
 varEXE=$1 # Se não tiver parametros ela executa normal
+NEWUSR="urubu100"
+PASSWD="urubu100"
+
 
 #-VARIAVEIS PARAMETRO----------------------------------------------------#
 
@@ -46,48 +49,77 @@ done
 
 instalar_pacotes(){
 
-	echo "\nInstalando e verificando todos os pacotes...\n"
+	echo "\n\n=================================================="
+	echo "Instalando e verificando todos os pacotes..."
+	echo "==================================================\n\n"
 	sleep 1
+	echo "\n\n=================================================="
 	echo "Dando update nos arquivos..."
+	echo "==================================================\n\n"
 	sudo apt-get update && sudo apt-get upgrade -y
+	echo "\n\n=================================================="
 	echo "Verificando java..."
-	[ ! -x $(which java) ] && sudo apt-get install openjdk-11-jdk
+	echo "==================================================\n\n"
+	[ ! -x $(which java) ] && sudo apt-get install openjdk-11-jdk -y
+	echo "\n\n=================================================="
 	echo "Instalando interface gráfica"
+	echo "==================================================\n\n"
 	sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
+	echo "\n\n=================================================="
 	echo "Verificando git..."
+	echo "==================================================\n\n"
 	[ ! -x $(which git) ] && sudo apt-get install git-all
+	echo "\n\n=================================================="
 	echo "Verificando docker..."
-	[ ! -x $(which docker) ] && sudo apt install docker.io
+	echo "==================================================\n\n"
+	sudo apt install docker.io -y
 
 
 }
 criar_urubu100(){
 
-	echo "\nCriando usuário urubu100...\n"
+	echo "\n\n=================================================="
+	echo "Criando usuário urubu100.."
+	echo "==================================================\n\n"
 	sleep 1
-	adduser urubu100
+	useradd -m -U $NEWUSR
+	echo $PASSWD | passwd --stdin $NEWUSR
+	echo "\n\n=================================================="
 	echo "Dando permissão de sudo para urubu100..."
-	usermod -aG sudo urubu100
+	echo "==================================================\n\n"
+	usermod -aG sudo $NEWUSR
 	
 
 }
 clonar_github(){
 
-
-	echo "\nClonando github e criando pastas...\n"
+	echo "\n\n=================================================="
+	echo "Clonando github e criando pastas..."
+	echo "==================================================\n\n"
 	wget -O totemSitem.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Java/totemSistem/out/artifacts/totemSitem_jar/totemSitem.jar 
+	echo "\n\n=================================================="
 	echo "Criando uma pasta para o projeto..."
+	echo "==================================================\n\n"
 	mkdir totem && mv ./totemSitem.jar totem/totemsystem.jar && cd totem
-	echo "\nTudo pronto meu chefe...\n"
+	echo "\n\n=================================================="
+	echo "Tudo pronto meu chefe.."
+	echo "==================================================\n\n"
 
 }
 instalar_docker(){
 
-	
+	echo "\n\n=================================================="
+	echo "Permissões ao docker"
+	echo "==================================================\n\n"
 	sudo systemctl start docker
 	sudo systemctl enable  docker
-	sudo docker pull mysql:latest
+	echo "\n\n=================================================="
+	echo "Fazendo o build do Dockerfile..."
+	echo "==================================================\n\n"
 	sudo docker build -t totemsystem:latest .
+	echo "\n\n=================================================="
+	echo "Rodando a imagem totemsystem no Docker.."
+	echo "==================================================\n\n"
 	sudo docker run -d --name totemsystem totemsystem
 	
 	
