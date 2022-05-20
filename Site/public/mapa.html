@@ -1,41 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <title>Mapa</title>
+
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        #map {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+            width: 100vw;
         }
 
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
+        /* Container que contem o conteudo do popup */
+        .leaflet-popup-content-wrapper {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+        }
+
+        /* Div de conteudo do popup */
+        .leaflet-popup-content {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Texto para o link que vai a propriedade selecionada */
+        .leaflet-popup-content a {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Container do Tip do popup */
+        .leaflet-popup-tip-container {}
+
+        /* Tip do popup */
+        .leaflet-popup-tip {
+            display: none;
+        }
+
+        .leaflet-container {
+            z-index: 5;
+        }
+
+        .leaflet-popup-close-button {
+            margin: 12px 5px 0 0;
         }
     </style>
 </head>
 
 <body>
     <div id="map"></div>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoibGV0aWNpYW5jb3N0YSIsImEiOiJjbDMwbnpmN3Mxb2k4M2RvNWtyMmhvM3JzIn0.fMTUzsAks2aead4ceXCGvg';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/leticiancosta/cl30o2bcw002r15tdk1qv98ck', // style URL
-            center: [-46.66065241831226,-23.557575025832566], 
-            
-            zoom: 18 // starting zoom
+</body>
+
+<script>
+    var idEstacao = 2;
+
+    function createMap(latitude, longitude) {
+        const map = L.map("map").setView([latitude, longitude], 15);
+
+        L.tileLayer(
+            "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaWdvcnN1cmljYXMiLCJhIjoiY2t2Ym0waXc4MHdzbDJwdDJqbW9qazgybyJ9.7vOBK8_AgqPHKN1SDVaoMg",
+            {
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+        ).addTo(map);
+
+        L.marker([latitude, longitude]).addTo(map).bindPopup(hostname);
+    }
+
+    fetch(`/mapa/buscarDadosMapas/${idEstacao}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            resposta.json().then(response => {
+                const latitude = Number(response[0].latitude_estacao);
+                const longitude = Number(response[0].longitude_estacao);
+                const hostname = response[0].hostname;
+
+                createMap(latitude, longitude);
+            })
+
+            if (resposta.ok) {
+                window.alert("Sucesso ao consultar!");
+            } else {
+                throw ("Houve um erro ao tentar realizar o consulta!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            //finalizarAguardar();
         });
 
-        // Add zoom and rotation controls to the map.
-        map.addControl(new mapboxgl.NavigationControl());
-    </script>
 
-</body>
+</script>
