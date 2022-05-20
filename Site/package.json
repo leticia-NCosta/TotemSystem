@@ -13,6 +13,7 @@
   "dependencies": {
     "ca": "^0.1.9",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "mssql": "^7.3.1",
