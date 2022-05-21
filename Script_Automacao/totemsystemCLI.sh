@@ -119,7 +119,7 @@ instalar_docker(){
 	echo "\n\n=================================================="
 	echo "Rodando a imagem totemsystem-java no Docker.."
 	echo "==================================================\n\n"
-	docker run --name totem-mysql -d totem_mysql
+	#docker run --name totem-mysql -d totem_mysql
 	
 
 	
