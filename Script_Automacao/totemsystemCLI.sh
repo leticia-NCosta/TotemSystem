@@ -79,7 +79,6 @@ criar_urubu100(){
 	echo "\n\n=================================================="
 	echo "Criando usuário urubu100.."
 	echo "==================================================\n\n"
-	sleep 1
 	useradd -m -U urubu100
 	echo "urubu100:urubu100" | chpasswd 
 	echo "\n\n=================================================="
@@ -110,13 +109,13 @@ instalar_docker(){
 	sudo systemctl start docker
 	sudo systemctl enable  docker
 	echo "\n\n=================================================="
-	echo "Fazendo o build do Dockerfile..."
+	echo "Fazendo o build do Docker Compose..."
 	echo "==================================================\n\n"
 	sudo docker-compose up -d
 	echo "\n\n=================================================="
-	echo "Rodando a imagem totemsystem no Docker.."
+	echo "Rodando a imagem totemsystem-java no Docker.."
 	echo "==================================================\n\n"
-	sudo docker run -d --name totemsystem totemsystem
+	sudo docker run -it --name totemsystem totemsystem-java
 
 	
 }
@@ -133,10 +132,17 @@ main(){
 
 baixar_scripts(){
 
+	mkdir mysql
+	mkdir java
 	wget -O docker-compose.yml
-	wget -O Dockerfile-java 
-	wget -O Dockerfile-mysql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/Dockerfile-mysql
+	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/java/Dockerfile
+	mv ./Dockerfile ./java/Dockerfile
+	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/mysql/Dockerfile
+	mv ./Dockerfile ./mysql/Dockerfile
 	wget -O sql.sql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/sql.sql
+	mv ./sql.sql ./mysql/sql.sql
+	mv ./TotemSystemCLI.jar ./java/TotemSystemCLI.jar
+	
 
 }
 
@@ -145,7 +151,4 @@ baixar_scripts(){
 if [ -z "$varEXE" ]; then
 	# Coloca o main do programa aqui
 	main
-	echo "\n\n=================================================="
-	echo "Tudo pronto meu chefe.."
-	echo "==================================================\n\n"
 fi
