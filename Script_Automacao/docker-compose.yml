@@ -8,15 +8,15 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - network-totemsystem
+      - networktotem
   
   java:
     container_name: "totemsystem-java"
     build: ./java/.
     networks:
-      - network-totemsystem
+      - networktotem
 
 
 networks:
-  network-totemsystem:
+  networktotem:
     driver: bridge

@@ -111,18 +111,27 @@ instalar_docker(){
 	echo "\n\n=================================================="
 	echo "Instalando docker compose"
 	echo "==================================================\n\n"
-	sudo apt  install docker-compose -y
+	#sudo apt install docker-compose -y
 	echo "\n\n=================================================="
 	echo "Fazendo o build do Docker Compose..."
 	echo "==================================================\n\n"
-	sudo docker-compose up -d
+	#sudo docker-compose up --no-start --build
 	echo "\n\n=================================================="
-	echo "Rodando a imagem totemsystem-java no Docker.."
+	echo "Criando uma network..."
 	echo "==================================================\n\n"
-	#docker run --name totem-mysql -d totem_mysql
-	
+	sudo docker network create totem-net
+	echo "\n\n=================================================="
+	echo "Rodando mysql no Docker"
+	echo "==================================================\n\n"
+	sudo docker create --name mysql-totem -p 3306:3306 --net=totem-net -e MYSQL_ROOT_PASSWORD=root mysql:latest
+	sudo docker cp ./mysql/sql.sql mysql-totem:/docker-entrypoint-initdb.d/sql.sql
+	sudo docker start mysql-totem
+	echo "\n\n=================================================="
+	echo "Rodando java no Docker"
+	echo "==================================================\n\n"
+	sudo docker create --name java-totem --link mysql-totem --net=totem-net openjdk:11
+	sudo docker cp ./java/TotemSystemCLI.jar java-totem:/.
 
-	
 }
 
 main(){
