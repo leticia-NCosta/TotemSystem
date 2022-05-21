@@ -1,7 +1,5 @@
 FROM openjdk:11
 
-COPY /app/TotemSystemCLI.jar /app/TotemSystemCLI.jar
+COPY /TotemSystemCLI.jar /TotemSystemCLI.jar
 
-WORKDIR /app
-
-ENTRYPOINT [ "java","-jar","totemsystemCLI.jar" ]
+ENTRYPOINT [ "java","-jar","TotemSystemCLI.jar" ]

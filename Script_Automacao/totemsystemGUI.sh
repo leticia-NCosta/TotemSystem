@@ -94,11 +94,11 @@ clonar_github(){
 	echo "\n\n=================================================="
 	echo "Clonando github e criando pastas..."
 	echo "==================================================\n\n"
-	wget -O totemSitem.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Java/totemSistem/out/artifacts/totemSitem_jar/totemSitem.jar 
+	wget -O TotemSystemGUI.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/TotemSystemGUI.jar 
 	echo "\n\n=================================================="
 	echo "Criando uma pasta para o projeto..."
 	echo "==================================================\n\n"
-	mkdir totem && mv ./totemSitem.jar totem/totemsystem.jar && cd totem
+	mkdir totem && mv ./TotemSystemGUI.jar totem/TotemSystemGUI.jar && cd totem
 
 
 }
@@ -128,6 +128,7 @@ main(){
 	clonar_github
 	baixar_scripts
 	instalar_docker
+	
 
 }
 
@@ -138,12 +139,22 @@ baixar_scripts(){
 
 }
 
+executar_java(){
+
+	chmod +x TotemSystemGUI.jar
+	java -jar TotemSystemGUI.jar
+
+}
+
 #-EXECUÇÃO-------------------------------------------------------------------------#
 
 if [ -z "$varEXE" ]; then
+
 	# Coloca o main do programa aqui
 	main
 	echo "\n\n=================================================="
 	echo "Tudo pronto meu chefe.."
 	echo "==================================================\n\n"
+	executar_java
+
 fi

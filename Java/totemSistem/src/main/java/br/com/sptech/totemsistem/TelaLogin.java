@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package br.com.sptech.totemsistem;
+
+
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.lang.Thread;
@@ -149,7 +148,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
-        Usuario user = new Usuario();
+Usuario user = new Usuario();
         ValidacaoLogin validacao = new ValidacaoLogin();
         Scanner leitor = new Scanner(System.in);
         SalvarDados salvar = new SalvarDados();

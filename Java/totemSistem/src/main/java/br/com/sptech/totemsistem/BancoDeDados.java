@@ -59,7 +59,6 @@ public class BancoDeDados {
 
         Integer id = 0;
 
-
         PreparedStatement pesquisa = conexão.prepareStatement(String.format("select id_estacao from tb_estacao where nome_estacao = '%s' LIMIT 1", nomeEstacao));
         ResultSet resultado = pesquisa.executeQuery();
 
@@ -76,26 +75,50 @@ public class BancoDeDados {
         return id;
 
     }
-    
-    public Boolean existeEstacao(String nomeEstacao, String local)throws SQLException{
-        
-        
+
+    public Boolean existeEstacao(String nomeEstacao, String local) throws SQLException {
+
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
-        
-        PreparedStatement pesquisa = conexão.prepareStatement(String.format("select nome_estacao from tb_estacao where nome_estacao = '%s'",nomeEstacao));
+
+        PreparedStatement pesquisa = conexão.prepareStatement(String.format("select nome_estacao from tb_estacao where nome_estacao = '%s'", nomeEstacao));
         ResultSet resultado = pesquisa.executeQuery();
-        
-        if(resultado.next()){
+
+        if (resultado.next()) {
             return true;
         } else {
             return false;
         }
-        
-        
+
     }
-    
-    
-    
-    
+
+    public Boolean validarLogin(String email, String senha, String local) throws SQLException {
+
+        Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
+        PreparedStatement pesquisa = conexão.prepareStatement(String.format("select * from tb_usuario where email = '%s' and  senha = '%s'", email, senha));
+        ResultSet resultado = pesquisa.executeQuery();
+
+        if (resultado.next()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public Boolean existeHostname(String local) throws SQLException {
+
+
+        Totem totem = new Totem();
+
+        Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
+        PreparedStatement pesquisa = conexão.prepareStatement(String.format("select hostname from tb_totem where hostname = '%s' limit 1", totem.getHostname()));
+        ResultSet resultado = pesquisa.executeQuery();
+
+        if (resultado.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

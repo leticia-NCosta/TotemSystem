@@ -1,6 +1,7 @@
 version: "3.7"
 
 services:
+
   mysql:
     container_name: "totemsystem-mysql"
     build: /mysql/Dockerfile

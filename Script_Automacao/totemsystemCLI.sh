@@ -92,13 +92,13 @@ criar_urubu100(){
 clonar_github(){
 
 	echo "\n\n=================================================="
-	echo "Clonando github e criando pastas..."
+	echo "Baixa o .jar"
 	echo "==================================================\n\n"
-	wget -O totemSitem.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Java/totemSistem/out/artifacts/totemSitem_jar/totemSitem.jar 
+	wget -O TotemSystemCLI.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/TotemSystemCLI.jar 
 	echo "\n\n=================================================="
 	echo "Criando uma pasta para o projeto..."
 	echo "==================================================\n\n"
-	mkdir totem && mv ./totemSitem.jar totem/totemsystem.jar && cd totem
+	mkdir totem && mv ./TotemSystemCLI.jar totem/TotemSystemCLI.jar && cd totem
 
 
 }
