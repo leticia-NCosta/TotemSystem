@@ -109,13 +109,18 @@ instalar_docker(){
 	sudo systemctl start docker
 	sudo systemctl enable  docker
 	echo "\n\n=================================================="
+	echo "Instalando docker compose"
+	echo "==================================================\n\n"
+	sudo apt  install docker-compose -y
+	echo "\n\n=================================================="
 	echo "Fazendo o build do Docker Compose..."
 	echo "==================================================\n\n"
 	sudo docker-compose up -d
 	echo "\n\n=================================================="
 	echo "Rodando a imagem totemsystem-java no Docker.."
 	echo "==================================================\n\n"
-	sudo docker run -it --name totemsystem totemsystem-java
+	docker run --name totem-mysql -d totem_mysql
+	
 
 	
 }
@@ -134,7 +139,7 @@ baixar_scripts(){
 
 	mkdir mysql
 	mkdir java
-	wget -O docker-compose.yml
+	wget -O docker-compose.yml https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/docker-compose.yml
 	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/java/Dockerfile
 	mv ./Dockerfile ./java/Dockerfile
 	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/mysql/Dockerfile

@@ -4,9 +4,7 @@ services:
 
   mysql:
     container_name: "totemsystem-mysql"
-    build: ./mysql/ .
-    volumes:
-      - ./mysql:/var/lib/mysql
+    build: ./mysql/.
     ports:
       - "3306:3306"
     networks:
@@ -14,7 +12,7 @@ services:
   
   java:
     container_name: "totemsystem-java"
-    build: ./java/ .
+    build: ./java/.
     networks:
       - network-totemsystem
 
