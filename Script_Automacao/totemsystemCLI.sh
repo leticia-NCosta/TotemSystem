@@ -93,7 +93,7 @@ clonar_github(){
 	echo "\n\n=================================================="
 	echo "Baixa o .jar"
 	echo "==================================================\n\n"
-	wget -O TotemSystemCLI.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/TotemSystemCLI.jar 
+	wget -O TotemSystemCLI.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/java/TotemSystemCLI.jar 
 	chmod 777 TotemSystemCLI.jar
 	echo "\n\n=================================================="
 	echo "Criando uma pasta para o projeto..."
