@@ -1,4 +1,4 @@
--- CREATE DATABASE totemsystem;
+CREATE DATABASE totemsystem;
 
 -- drop database totemsystem;
 

@@ -1,7 +1,8 @@
 FROM mysql:latest
 
 ENV MYSQL_ROOT_PASSWORD=root
-ENV MYSQL_DATABASE=totemsystem
+
+RUN rm -r /var/lib/mysql
 
 COPY /sql.sql /docker-entrypoint-initdb.d/sql.sql
 
