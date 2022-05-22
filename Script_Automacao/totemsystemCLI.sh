@@ -94,6 +94,7 @@ clonar_github(){
 	echo "Baixa o .jar"
 	echo "==================================================\n\n"
 	wget -O TotemSystemCLI.jar https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/TotemSystemCLI.jar 
+	chmod 777 TotemSystemCLI.jar
 	echo "\n\n=================================================="
 	echo "Criando uma pasta para o projeto..."
 	echo "==================================================\n\n"
@@ -129,8 +130,8 @@ instalar_docker(){
 	echo "\n\n=================================================="
 	echo "Rodando java no Docker"
 	echo "==================================================\n\n"
-	sudo docker create --name java-totem --link mysql-totem --net=totem-net openjdk:11
-	sudo docker cp ./java/TotemSystemCLI.jar java-totem:/.
+	sudo docker build -t totemsystem-image ./java/.
+	sudo docker run -it --name java-totem --link mysql-totem --net=totem-net totemsystem-image                                                            
 
 }
 
@@ -148,7 +149,7 @@ baixar_scripts(){
 
 	mkdir mysql
 	mkdir java
-	wget -O docker-compose.yml https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/docker-compose.yml
+	#wget -O docker-compose.yml https://github.com/leticia-NCosta/TotemSystem/raw/main/Script_Automacao/docker-compose.yml
 	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/java/Dockerfile
 	mv ./Dockerfile ./java/Dockerfile
 	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/mysql/Dockerfile
