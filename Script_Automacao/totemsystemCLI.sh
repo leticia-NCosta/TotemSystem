@@ -150,7 +150,7 @@ baixar_scripts(){
 	mv ./Dockerfile ./java/Dockerfile
 	wget -O Dockerfile https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/mysql/Dockerfile
 	mv ./Dockerfile ./mysql/Dockerfile
-	wget -O sql.sql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/sql.sql
+	wget -O sql.sql https://raw.githubusercontent.com/leticia-NCosta/TotemSystem/main/Script_Automacao/mysql/sql.sql
 	mv ./sql.sql ./mysql/sql.sql
 	mv ./TotemSystemCLI.jar ./java/TotemSystemCLI.jar
 	
