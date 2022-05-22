@@ -55,14 +55,11 @@ instalar_pacotes(){
 	echo "Dando update nos arquivos..."
 	echo "==================================================\n\n"
 	sudo apt-get update && sudo apt-get upgrade -y
-	echo "\n\n=================================================="
-	echo "Verificando java..."
-	echo "==================================================\n\n"
-	[ ! -x $(which java) ] && sudo apt-get install openjdk-11-jdk -y
-	echo "\n\n=================================================="
-	echo "Instalando interface gráfica"
-	echo "==================================================\n\n"
-	sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
+	#echo "\n\n=================================================="
+	#echo "Verificando java..."
+	#echo "==================================================\n\n"
+	#[ ! -x $(which java) ] && sudo apt-get install openjdk-11-jdk -y
+	#sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
 	echo "\n\n=================================================="
 	echo "Verificando git..."
 	echo "==================================================\n\n"
@@ -124,14 +121,13 @@ instalar_docker(){
 	echo "\n\n=================================================="
 	echo "Rodando mysql no Docker"
 	echo "==================================================\n\n"
-	sudo docker create --name mysql-totem -p 3306:3306 --net=totem-net -e MYSQL_ROOT_PASSWORD=root mysql:latest
-	sudo docker cp ./mysql/sql.sql mysql-totem:/docker-entrypoint-initdb.d/sql.sql
-	sudo docker start mysql-totem
+	sudo docker build -t mysql-image ./mysql/.
+	sudo docker run -d --name mysql-totem -p 3306:3306 --net=totem-net mysql-image
 	echo "\n\n=================================================="
 	echo "Rodando java no Docker"
 	echo "==================================================\n\n"
-	sudo docker build -t totemsystem-image ./java/.
-	sudo docker run -it --name java-totem --link mysql-totem --net=totem-net totemsystem-image                                                            
+	sudo docker build -t java-image ./java/.
+	sudo docker run -it --name java-totem --link mysql-totem --net=totem-net java-image                                                           
 
 }
 
