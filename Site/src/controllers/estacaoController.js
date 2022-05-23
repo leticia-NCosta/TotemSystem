@@ -67,23 +67,26 @@ function estacoesPorEmpresa(req, res) {
 
 
 function cadastrarEstacao(req, res) {
+  var nome = req.body.nomeServer;
   var linha = req.body.linhaServer;
-  var cidade = req.body.cidadeServer;
   var bairro = req.body.bairroServer;
-  var quantTotem = req.body.quantTotemServer;
+  var latitudeTotem = req.body.latitudeServer;
+  var longitudeTotem = req.body.longitudeServer;
 
 
-  if (linha == undefined) {
+  if (nome == undefined) {
+    res.status(400).send("Seu nome está undefined!");
+  } else if (linha == undefined) {
     res.status(400).send("Sua linha está undefined!");
-  } else if (cidade == undefined) {
-    res.status(400).send("Sua cidade está undefined!");
   } else if (bairro == undefined) {
     res.status(400).send("Seu bairro está undefined!");
-  } else if (quantTotem == undefined) {
-    res.status(400).send("Seu quantTotem está undefinied")
+  } else if (latitude == undefined) {
+    res.status(400).send("Seu latitude está undefinied")
+  } else if (longitude == undefined) {
+    res.status(400).send("Seu longitude está undefinied")
   }
 
-  empresaModel.cadastrarEstacao(linha, cidade, quantTotem, bairro)
+  estacaoModel.cadastrarEstacao(nome, linha, bairro, latitude, longitude)
     .then(
       function (resultado) {
         res.json(resultado);

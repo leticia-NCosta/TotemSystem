@@ -26,9 +26,9 @@ function estacoesPorEmpresa(idEmpresa) {
 }
 
 
-function cadastrarEstacao(linha, cidade, quantTotem, bairro){
+function cadastrarEstacao(nome, linha, bairro, latitude, longitude){
   var instrucao = `
-    INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}', '${quantTotem}', '${bairro}')
+    INSERT INTO tb_estacao (nome_estacao, linha_estacao, bairro_estacao, latitude_estacao, longitude_estacao) VALUES ('${nome}', '${linha}', '${bairro}', '${latitude}', '${longitude}')
   `;
 
   return database.executar(instrucao)
