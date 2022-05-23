@@ -82,6 +82,7 @@ criar_urubu100(){
 	echo "Dando permissão de sudo para urubu100..."
 	echo "==================================================\n\n"
 	usermod -aG sudo urubu100
+	cd /home/urubu100
 	
 
 }
@@ -106,6 +107,7 @@ instalar_docker(){
 	echo "==================================================\n\n"
 	sudo systemctl start docker
 	sudo systemctl enable  docker
+	usermod -aG docker urubu100
 	echo "\n\n=================================================="
 	echo "Criando uma network..."
 	echo "==================================================\n\n"
@@ -122,12 +124,7 @@ instalar_docker(){
 	#sudo docker run -it --name java-totem --link mysql-totem --net=totem-net java-image                                                           
 
 }
-mover_arquivos(){
 
-	cp -r ./totem /home/urubu100
-	cd /home/urubu100
-
-}
 
 
 main(){
@@ -142,12 +139,11 @@ main(){
 	clear
 	instalar_docker
 	clear
-	mover_arquivos
-	clear
+	su urubu100
 	echo "\n\n=================================================="
 	echo "Tudo certo. Entre pelo RDP"
 	echo "==================================================\n\n"
-
+	
 }
 
 baixar_scripts(){
