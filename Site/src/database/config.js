@@ -1,7 +1,6 @@
 var mysql = require("mysql2");
 var sql = require("mssql");
 
-// (NUVEM)
 /*
 var sqlServerConfig = {
     user: "admin-totem-system",
@@ -26,6 +25,7 @@ var mySqlConfig = {
      database: "totemsystem",
      port: "3306",
 };
+
 
 function executar(instrucao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {

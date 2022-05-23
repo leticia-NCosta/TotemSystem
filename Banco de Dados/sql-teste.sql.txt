@@ -99,8 +99,13 @@ insert into tb_estacao(fk_empresa, nome_estacao) values
 
 insert into tb_totem(fk_estacao,hostname) values
 (2,"VERINBK000062");
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> cd9b4c08dde2e4b6d73343328f27f333bd3d89cd
 -- FAZER UMA LÓGICA PARA EVITAR QUE UM HOSTNAME SEJA COLOCADO EM OUTRO TOTEM DIFERENTE
 select * from tb_usuario;
 select * from tb_empresa;
@@ -157,6 +162,7 @@ join tb_totem
 join tb_log
 join tb_estacao;
 
+
 insert into tb_log values (null,    'VERINBK000062',    7060676608,    1038114816,    311,    1561,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:35');
 insert into tb_log values (null,    'VERINBK000062',    7078457344,    1020334080,    311,    1560,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:39');
 insert into tb_log values (null,    'VERINBK000062',    7086411776,    1012379648,    311,    1560,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:43');
@@ -166,3 +172,4 @@ insert into tb_log values (null,    'VERINBK000062',    7060807680,    103798374
 insert into tb_log values (null,    'VERINBK000062',    7068221440,    1030569984,    309,    1559,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:59');
 insert into tb_log values (null,    'VERINBK000062',    7071809536,    1026981888,    309,    1558,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:39:04');
 insert into tb_log values (null,    'VERINBK000062',    7072497664,    1026293760,    309,    1558,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:39:08');
+

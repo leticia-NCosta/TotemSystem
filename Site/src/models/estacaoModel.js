@@ -12,6 +12,7 @@ function dadosTotensServicos(hostname) {
   return database.executar(`SELECT total_servicos_ativos, total_servicos_inativos from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc limit 1`);
 }
 
+
 function dadosTotensProcessos(hostname) {
   return database.executar(`SELECT total_processos, data_atual from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc limit 5`);
 }
@@ -24,6 +25,7 @@ function estacoesPorEmpresa(idEmpresa) {
   return database.executar(`select te.nome_estacao, COUNT(tt.hostname) as quantidade_totens from tb_estacao te left join tb_totem tt on te.id_estacao = tt.fk_estacao where te.fk_empresa = ${idEmpresa} GROUP by te.nome_estacao`)
 }
 
+
 function cadastrarEstacao(linha, cidade, quantTotem, bairro){
   var instrucao = `
     INSERT INTO tb_estacao (linha_estacao, cidade_estacao, quant_totem, bairro_estacao) VALUES ('${linha}', '${cidade}', '${quantTotem}', '${bairro}')
@@ -32,4 +34,8 @@ function cadastrarEstacao(linha, cidade, quantTotem, bairro){
   return database.executar(instrucao)
 }
 
+
 module.exports = { dadosTotensMem, dadosTotensVol, dadosTotensServicos, dadosTotensProcessos, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao }
+
+
+

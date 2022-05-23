@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.sptech.totemsistem;
+
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.lang.Thread;
+import java.sql.SQLException;
 
 /**
  *
@@ -147,34 +145,53 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-       
+
         Usuario user = new Usuario();
-
-
-
-
+        ValidacaoLogin validacao = new ValidacaoLogin();
+        Scanner leitor = new Scanner(System.in);
+        SalvarDados salvar = new SalvarDados();
 
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
         String email = inputEmail.getText();
         String senha = inputSenha.getText();
-        
-         Boolean validacaoCampo = user.validacaoCampo(email, senha);
-        
-       
-       if(validacaoCampo == true){
-           // Boolean validacaoBanco = user.validarCredenciais(email, senha);
-            if(validacaoBanco.validarLogin(email, senha)){
+
+        Boolean validacaoCampo = user.validacaoCampo(email, senha);
+
+        if (validacaoCampo == true) {
+            // Boolean validacaoBanco = user.validarCredenciais(email, senha);
+            if (validacaoBanco.validarLogin(email, senha)) {
 
                 JOptionPane.showMessageDialog(rootPane, "Usuário logado com sucesso!!!");
-                this.menu();
+                if (validacao.existeHostname()) {
+                    this.menu();
+                } else {
+                    System.out.println("ERRO! Totem não cadastrado!");
+                    System.out.println("Deseja cadastrar este Totem minimamente? (S/N)");
+                    String resposta = leitor.nextLine();
+                    if (resposta.toLowerCase().equals("s")) {
+                        System.out.println("\nDigite o nome da estação onde deseja cadastrar o Totem:");
+                        String estacao = leitor.nextLine();
+                        try {
+                            salvar.salvarTotemTemporariamente(estacao);
+                            this.menu();
+                        } catch (SQLException e) {
+                            System.out.println("Erro desconhecido no banco");
+                        }
+
+                    } else if (resposta.equals("N")) {
+                        System.out.println("Fim do Programa!");
+                    } else {
+                        System.out.println("Valor incorreto");
+                    }
+                }
+
             }
-       }
-       else {
-           //System.out.println(username);
-           System.out.println("Dados incorretos!!!!!");
-           JOptionPane.showMessageDialog(rootPane, "Email ou senha inválidos!");
-           //System.out.println(username + "test");
-       }
+        } else {
+            //System.out.println(username);
+            System.out.println("Dados incorretos!!!!!");
+            JOptionPane.showMessageDialog(rootPane, "Email ou senha inválidos!");
+            //System.out.println(username + "test");
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
@@ -236,62 +253,69 @@ public class TelaLogin extends javax.swing.JFrame {
         Totem totem = new Totem();
         SalvarDados salvar = new SalvarDados();
 
-        sistema.setLinhas("=",20);
-        System.out.println("Escolha uma opção:"
-                + "\n1 - Mostrar informações do Totem."
-                + "\n2 - Mostrar processos do Totem."
-                + "\n3 - Mostrar serviços em Execução."
-                + "\n4 - Salvar dados de máquina."
-                + "\n5 - Salvar dados variáveis.");
-        Integer opcao = leitor.nextInt();
+        Integer opcao = 0;
 
-        switch(opcao){
+        while (opcao <= 5) {
 
-            case 1:
-                System.out.println("\nOpção escolhida: Informações do Totem\n");
-                info.getInfo();
-                System.out.println("\nFim.");
-                break;
-            case 2:
-                System.out.println("\nOpção escolhida: Mostrar processos do Totem.\n");
-                totem.processos();
-                System.out.println("\nFim.");
-                break;
-            case 3:
-                System.out.println("\nOpção escolhida: Mostrar serviços em Execução.\n");
-                totem.servicos();
-                System.out.println("\nFim.");
-                break;
-            case 4:
-                System.out.println("\nOpção escolhida: Salvar dados estáticos.\n");
-                System.out.println("\nSalvando dados...");
-                salvar.salvarDadosEstaticos();
-                System.out.println("\nFim.");
-                break;
-            case 5:
-                System.out.println("\nOpção escolhida: Salvar dados variáveis.");
-                System.out.println("\nSalvando dados...");
+            sistema.setLinhas("=", 20);
+            System.out.println("\nBEM VINDO À TOTEM SYSTEM\n");
+            System.out.println("Escolha uma opção:"
+                    + "\n1 - Mostrar informações do Totem."
+                    + "\n2 - Mostrar processos do Totem."
+                    + "\n3 - Mostrar serviços em Execução."
+                    + "\n4 - Salvar dados de máquina."
+                    + "\n5 - Salvar dados variáveis."
+                    + "\n6 - Sair.");
+            opcao = leitor.nextInt();
 
-                try {
-                    for (int i = 0; i < 30; i++) {
+            switch (opcao) {
 
-                        salvar.salvarDadosVariaveis();
-                        Thread.sleep(1000);
+                case 1:
+                    System.out.println("\nOpção escolhida: Informações do Totem\n");
+                    info.getInfo();
+                    System.out.println("\nFim.");
+                    break;
+                case 2:
+                    System.out.println("\nOpção escolhida: Mostrar processos do Totem.\n");
+                    totem.processos();
+                    System.out.println("\nFim.");
+                    break;
+                case 3:
+                    System.out.println("\nOpção escolhida: Mostrar serviços em Execução.\n");
+                    totem.servicos();
+                    System.out.println("\nFim.");
+                    break;
+                case 4:
+                    System.out.println("\nOpção escolhida: Salvar dados estáticos.\n");
+                    System.out.println("\nSalvando dados...");
+                    salvar.salvarDadosEstaticos();
+                    System.out.println("\nFim.");
+                    break;
+                case 5:
+                    System.out.println("\nOpção escolhida: Salvar dados variáveis.");
+                    System.out.println("\nSalvando dados...");
 
+                    try {
+                        for (int i = 0; i < 600; i++) {
 
+                            salvar.salvarDadosVariaveis();
+                            Thread.sleep(2000);
+
+                        }
+                    } catch (Exception e) {
+                        System.out.println("ERRO");
                     }
-                }
-                catch (Exception e) {
-                    System.out.println("ERRO");
-                }
-                System.out.println("\nFim.");
-                break;
+                    System.out.println("\nFim.");
+                    break;
+                case 6:
+                    System.out.println("Saindo... até logo!");
+                    break;
 
-            default:
-                System.out.println("\nOpção Inválida.\n");
-                break;
+                default:
+                    System.out.println("\nOpção Inválida.\n");
+                    break;
+            }
+
         }
-
-
     }
 }

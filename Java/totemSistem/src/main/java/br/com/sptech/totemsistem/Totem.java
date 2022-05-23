@@ -3,6 +3,7 @@ package br.com.sptech.totemsistem;
 
 import java.util.List;
 import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.discos.Volume;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
@@ -30,11 +31,16 @@ public class Totem {
     private Integer pacotesFisicos;
     private Long frequencia;
     // Dados Variaveis
+    private Long volumeTotal;
+    private Long volumeDisponivel;
+    private Long volumeEmUso;
     private Long memoriaEmUso;
     private Long memoriaDisponivel;
     private Integer totalProcessos;
     private Integer totalThreads;
     private Integer totalDeServicos;
+    private Integer totalServicosAtivos;
+    private Integer totalServicosInativos;
     private Double temperatura;
 
 
@@ -54,12 +60,15 @@ public class Totem {
         this.setCpusLogicas();
         this.setPacotesFisicos();
         this.setFrequencia();
+        this.setVolumes();
         this.setMemoriaEmUso();
         this.setMemoriaDisponivel();
         this.setTotalProcessos();
         this.setTotalThreads();
         this.setTotalDeServicos();
-        this.setTemperatura();
+        this.setTotalServicosAtivos();
+        this.setTotalServicosInativos();
+        //this.setTemperatura();
 
     }
 
@@ -83,6 +92,19 @@ public class Totem {
             System.out.println(listaServicos.get(i));
         }
 
+    }
+    
+    private void setVolumes(){
+        
+        List<Volume> listaVolume = looca.getGrupoDeDiscos().getVolumes();
+        for (Volume volume : listaVolume) {
+            
+            this.setVolumeTotal(volume.getTotal());
+            this.setVolumeDisponivel(volume.getDisponivel());
+                  
+        }
+            this.setVolumeEmUso();
+        
     }
 
     public Integer getFkEstacao(){
@@ -209,6 +231,31 @@ public class Totem {
         this.frequencia = looca.getProcessador().getFrequencia();
     }
 
+    public Long getVolumeTotal() {
+        return volumeTotal;
+    }
+
+    public void setVolumeTotal(Long discoTotal) {
+        this.volumeTotal = discoTotal;
+    }
+
+    public Long getVolumeDisponivel() {
+        return volumeDisponivel;
+    }
+
+    public void setVolumeDisponivel(Long discoEmUso) {
+        this.volumeDisponivel = discoEmUso;
+    }
+
+    public Long getVolumeEmUso() {
+        return volumeEmUso;
+    }
+
+    public void setVolumeEmUso() {
+        this.volumeEmUso = this.getVolumeTotal() - this.getVolumeDisponivel();
+    }
+    
+
     public Long getMemoriaEmUso() {
         return memoriaEmUso;
     }
@@ -249,12 +296,30 @@ public class Totem {
         this.totalDeServicos = looca.getGrupoDeServicos().getTotalDeServicos();
     }
 
+    public Integer getTotalServicosAtivos() {
+        return totalServicosAtivos;
+    }
+
+    public void setTotalServicosAtivos() {
+        this.totalServicosAtivos = looca.getGrupoDeServicos().getTotalServicosAtivos();
+    }
+
+    public Integer getTotalServicosInativos() {
+        return totalServicosInativos;
+    }
+
+    public void setTotalServicosInativos() {
+        this.totalServicosInativos = looca.getGrupoDeServicos().getTotalServicosInativos();
+    }
+    
+    
+
     public Double getTemperatura() {
         return temperatura;
     }
 
     public void setTemperatura() {
-        this.temperatura = looca.getTemperatura().getTemperatura();
+        //this.temperatura = looca.getTemperatura().getTemperatura();
     }
 
     @Override
