@@ -60,10 +60,10 @@ instalar_pacotes(){
 	#echo "==================================================\n\n"
 	#[ ! -x $(which java) ] && sudo apt-get install openjdk-11-jdk -y
 	#sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
-	echo "\n\n=================================================="
-	echo "Verificando git..."
-	echo "==================================================\n\n"
-	[ ! -x $(which git) ] && sudo apt-get install git-all
+	#echo "\n\n=================================================="
+	#echo "Verificando git..."
+	#echo "==================================================\n\n"
+	#[ ! -x $(which git) ] && sudo apt-get install git-all
 	echo "\n\n=================================================="
 	echo "Verificando docker..."
 	echo "==================================================\n\n"
@@ -106,13 +106,13 @@ instalar_docker(){
 	echo "==================================================\n\n"
 	sudo systemctl start docker
 	sudo systemctl enable  docker
-	echo "\n\n=================================================="
-	echo "Instalando docker compose"
-	echo "==================================================\n\n"
+	#echo "\n\n=================================================="
+	#echo "Instalando docker compose"
+	#echo "==================================================\n\n"
 	#sudo apt install docker-compose -y
-	echo "\n\n=================================================="
-	echo "Fazendo o build do Docker Compose..."
-	echo "==================================================\n\n"
+	#echo "\n\n=================================================="
+	#echo "Fazendo o build do Docker Compose..."
+	#echo "==================================================\n\n"
 	#sudo docker-compose up --no-start --build
 	echo "\n\n=================================================="
 	echo "Criando uma network..."

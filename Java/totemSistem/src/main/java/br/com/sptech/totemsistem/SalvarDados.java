@@ -110,18 +110,18 @@ public class SalvarDados {
     }
 
     public void salvarTotemTemporariamente(String estacao) throws SQLException {
-
-        if (banco.existeEstacao(estacao, "azure")) {
+        Totem totem = new Totem();
+        if (banco.existeEstacao(estacao, "mysql")) {
             
-            Integer id = banco.getIdEstacao(estacao, "azure");
+            Integer id = banco.getIdEstacao(estacao, "mysql");
 
             String inserirDado = String.format("INSERT INTO tb_totem"
-                    + "(id_estacao,"
-                    + "nome_estacao)"
+                    + "(fk_estacao,"
+                    + "hostname)"
                     + "values"
-                    + "(%d,'%s'",
+                    + "(%d,'%s')",
                     id,
-                    estacao);
+                    totem.getHostname());
 
             templateMYSQL.execute(inserirDado);
             //templateAZURE.execute(inserirDado);
