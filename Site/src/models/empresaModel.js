@@ -38,11 +38,6 @@ function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmp
 }
 
 
-
-
-
-
-
 module.exports = {
   listar,
   cadastrar,

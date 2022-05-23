@@ -4,6 +4,7 @@ function atualizarCadastro(){
     var email = localStorage.getItem("EMAIL_EMPRESA");
     console.log(email)
     atualizar(email)
+    // location.reload();
 }
 
 function atualizar(email){
@@ -30,12 +31,35 @@ function atualizar(email){
 
             
         })
+
     }).then(function (resposta) {
 
-        console.log("resposta: ", resposta);
+        // console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro atualizado com sucesso!");
+            console.log(resposta);
+            alert("Cadastro atualizado com sucesso!!!")
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+
+                sessionStorage.RAZAO_SOCIAL = json.razaoSocialServer;
+                sessionStorage.RUA_EMPRESA = json.ruaServer;
+                sessionStorage.NUMERO_EMPRESA = json.numeroServer;
+                sessionStorage.COMPLEMENTO_EMPRESA = json.complementoServer;
+                sessionStorage.TELEFONE_EMPRESA = json.telefoneServer;
+
+                
+                localStorage.setItem('RAZAO_SOCIAL',json.razaoSocialServer)
+                localStorage.setItem('RUA_EMPRESA',json.ruaServer)
+                localStorage.setItem('NUMERO_EMPRESA',json.numeroServer)
+                localStorage.setItem('COMPLEMENTO_EMPRESA',json.complementoServer)
+                localStorage.setItem('TELEFONE_EMPRESA',json.telefoneServer)
+
+                
+            });
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }

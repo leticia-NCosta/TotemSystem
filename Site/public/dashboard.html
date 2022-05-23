@@ -53,13 +53,19 @@
             <div id="alertasID" class="alertas"></div>
 
             <div id="id_graficos" style="display: none;" class="graficos">
-                <div class="grafico1">
                     <div class="titulo_grafico">
-                        <p>Sistemas operacionais</p>
+                        <p>Dados estação</p>
                     </div>
-                    <div id="grafico1" class="canva1"><canvas id="myChart1"></canvas></div>
+                    <div class="dados_estacao">
+                        <p>Nome: <span>Consolacao</span> </p>
+                        <p>Linha: <span>Verde</span> </p>
+                        <p>Bairro: <span>Consolacao</span></p>
+                        <p>Latitude: <span>12124213</span></p>
+                        <p>Longitude: <span>41241234</span></p>
+                    </div>
+                    <button class="botao">Excluir estação</button>
                 </div>
-            </div>
+
         </div>
     </div>
 
@@ -74,9 +80,11 @@
                 <div id="alerta_atual" class="alertas2"></div>
             </div>
             <div class="botao_voltar">
+                <button onclick="exportar()">CSV</button>
                 <button> <a href="https://app.slack.com/client/T03DZ5B98PL/C03DSGCPH8E">Slack</a></button>
                 <button onclick="irMapa()"> Ver Mapa</button>
                 <button> <a href="https://app.pipefy.com/public/form/tMaaWuWJ">Contatar Suporte</a></button>
+                <button>Excluir Totem</button>
                 <button onclick="voltarDash()">Voltar</button>
             </div>
 

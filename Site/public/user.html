@@ -77,11 +77,16 @@
                     <div class="descricao"><p>Seus dados cadastrais voce pode ver aqui, alem de poder atualiza-los</p></div>
                     <div class="dados">
                        <p> CNPJ:<span id="bd_cnpj"></span></p>
+                       <p> Email: <span id="bd_email"></span></p>
                        <p> Razao Social: <span id="bd_razao"></span></p>
                        <p> Rua: <span id="bd_rua"></span></p>
                        <p> Numero: <span id="bd_numero"></span></p>
                        <p> Complemento: <span id="bd_comp"></span></p>
-                       <p> Email: <span id="bd_email"></span></p>
+                       <p> Telefone: <span id="bd_tel"></span></p>
+                        <div class="btn">
+                            <button class="botoes">Deletar conta</button>
+
+                        </div>
                     </div>
                     <div class="formulario_cadastro">
                        <div class="titulo"><h1>Cadastrar Dados</h1></div>
@@ -92,7 +97,6 @@
                        <p>Telefone:</p> <input id="input_telefone">
                        <div class="btn">
                        <button class="botoes" type="submit" onclick="atualizarCadastro()">Atualizar cadastro</button>
-                       <button class="botoes" type="submit" onclick="deletarCadastro()">Deletar cadastro</button>
                     </div>
                     </div>
                 </div>
@@ -103,6 +107,7 @@
                     <div class="descricao"><p>Cadastre novos totens aqui</p></div>
                     <div class="formulario_cadastro">
                         <div class="titulo"><h1>Cadastrar Totem</h1></div>
+                        <p>Hostname:</p> <input id="input_hostname">
                         <p>Modelo:</p> <input id="input_modelo">
                         <p>Marca:</p> <input id="input_marca">
                         <p>Data de implementação:</p> <input id="input_data_implementacao">
@@ -110,7 +115,7 @@
                         
                         <div class="btn">
                             <button class="botoes" type="submit" onclick="cadastrarTotem()">Cadastrar totem</button>
-                            <button class="botoes" type="submit" onclick="deletarTotem()">Deletar totem</button>
+                            <button class="botoes" type="submit" onclick="atualizarTotem()">Atualizar totem</button>
                          </div>
 
                     </div>
@@ -131,7 +136,6 @@
 
                         <div class="btn">
                             <button class="botoes" type="submit" onclick="cadastrarColaborador()">Cadastrar Colaborador</button>
-                            <button class="botoes" type="submit" onclick="deletarColaborador()">Deletar Colaborador</button>
                          </div>
 
                     </div>
@@ -143,14 +147,15 @@
                     <div class="descricao"><p>Aqui voce pode cadastrar novas estações, assim como atualizar os seus dados alem de exclui-las</p></div>
                     <div class="formulario_cadastro">
                         <div class="titulo"><h1>Cadastrar Estações</h1></div>
+                        <p>Nome:</p> <input id="input_nome_estacao">
                         <p>Linha:</p> <input id="input_linha">
-                        <p>Cidade:</p> <input id="input_cidade">
                         <p>Bairro:</p> <input id="input_bairro">
-                        <p>Quantidade de totem:</p> <input id="input_quant_totem">
+                        <p>Latitude:</p> <input id="input_latitude">
+                        <p>Longitude:</p> <input id="input_longitude">
 
                         <div class="btn">
                             <button class="botoes" type="submit" onclick="cadastrarEstacao()">Cadastrar estação</button>
-                            <button class="botoes" type="submit" onclick="deletarEstacao()">Deletar estação</button>
+                            <button class="botoes" type="submit" onclick="atualizarEstacao()">Atualizar estação</button>
                          </div>
                     </div>
                 </div>
@@ -165,3 +170,28 @@
     <script src="./js/cadastrarTotem.js"></script>
 </body>
 </html>
+
+<script>
+
+    const cnpj = sessionStorage.getItem("CNPJ")
+    bd_cnpj.innerHTML = cnpj
+
+    const razao = sessionStorage.getItem("RAZAO_SOCIAL")
+    bd_razao.innerHTML = razao
+
+    const numero = sessionStorage.getItem("NUMERO_EMPRESA")
+    bd_numero.innerHTML = numero 
+
+    const rua = sessionStorage.getItem("RUA_EMPRESA")
+    bd_rua.innerHTML = rua
+
+    const comple = sessionStorage.getItem("COMPLEMENTO_EMPRESA")
+    bd_comp.innerHTML = comple
+
+    const email = sessionStorage.getItem("EMAIL_EMPRESA")
+    bd_email.innerHTML = email
+
+    const tel = sessionStorage.getItem("TELEFONE_EMPRESA")
+    bd_tel.innerHTML = tel
+
+</script>
