@@ -19,8 +19,8 @@ public class BancoDeDados {
         String url = "Local inválido";
 
         if (local.equals("mysql")) {
-            return url = "jdbc:mysql://127.0.0.1:3306/totemsystem";
-            //return url = "jdbc:mysql://mysql-totem:3306/totemsystem";
+            //return url = "jdbc:mysql://127.0.0.1:3306/totemsystem";
+            return url = "jdbc:mysql://mysql-totem:3306/totemsystem";
         } else if (local.equals("azure")) {
             return url = "jdbc:sqlserver://svr-totem-system.database.windows.net:1433;database=bd-totem-system;user=admin-totem-system@svr-totem-system;password={2ads#grupo9};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
         } else {

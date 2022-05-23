@@ -58,7 +58,7 @@ instalar_pacotes(){
 	echo "\n\n=================================================="
 	echo "Verificando java..."
 	echo "==================================================\n\n"
-	[ ! -x $(which java) ] && sudo apt-get install openjdk-11-jdk -y
+	sudo apt-get install openjdk-11-jdk -y
 	sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
 	echo "\n\n=================================================="
 	echo "Verificando git..."
@@ -124,7 +124,7 @@ instalar_docker(){
 }
 mover_arquivos(){
 
-	mv . /home/urubu100
+	cp -r ./totem /home/urubu100
 	cd /home/urubu100
 
 }
