@@ -134,10 +134,15 @@ instalar_docker(){
 main(){
 
 	criar_urubu100
+	clear
 	instalar_pacotes
+	clear
 	clonar_github
+	clear
 	baixar_scripts
+	clear
 	instalar_docker
+	
 
 }
 

@@ -133,11 +133,17 @@ mover_arquivos(){
 main(){
 
 	criar_urubu100
+	clear
 	instalar_pacotes
+	clear
 	clonar_github
+	clear
 	baixar_scripts
+	clear
 	instalar_docker
+	clear
 	mover_arquivos
+	clear
 	echo "\n\n=================================================="
 	echo "Tudo certo. Entre pelo RDP"
 	echo "==================================================\n\n"
