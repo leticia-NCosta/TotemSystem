@@ -3,16 +3,16 @@ var router = express.Router();
 
 var estacaoController = require("../controllers/estacaoController")
 
-router.get("/buscar-todos", function (req, res) {
-  estacaoController.buscarTodos(req, res);
+router.post("/dados-totens", function (req, res) {
+  estacaoController.dadosTotens(req, res);
 });
 
-router.get("/dashboard", function (req, res) {
-  estacaoController.buscarDashboard(req, res);
+router.post("/totens-por-estacao", function (req, res) {
+  estacaoController.totensPorEmpresa(req, res);
 });
 
-router.get("/totens-por-estacao", function (req, res) {
-  estacaoController.totensPorEstacao(req, res)
+router.get("/estacoes-por-empresa/:idEmpresa", function (req, res) {
+  estacaoController.estacoesPorEmpresa(req, res);
 });
 
 router.post("/cadastrarEstacao", function(req, res){

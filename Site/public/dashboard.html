@@ -17,10 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./assests/IconTotemSystem-Circulo.png"/>
+    <link rel="shortcut icon" href="./assests/IconTotemSystem-Circulo.png" />
     <title>Dashboard | Totem System</title>
 
 </head>
+
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 
@@ -28,7 +29,7 @@
 
         <div class="logo">
             <a href="./user.html"><img src="./assests/IconTotemSystem-Circulo.png" alt="logo"></a>
-            
+
         </div>
         <div class="links">
             <h1 id="nome_titulo">Escolha uma Estação</h1>
@@ -52,16 +53,12 @@
             <div id="alertasID" class="alertas"></div>
 
             <div id="id_graficos" style="display: none;" class="graficos">
-
                 <div class="grafico1">
-                    <div class="titulo_grafico"><p>Sistemas operacionais</p></div>
+                    <div class="titulo_grafico">
+                        <p>Sistemas operacionais</p>
+                    </div>
                     <div id="grafico1" class="canva1"><canvas id="myChart1"></canvas></div>
                 </div>
-                <div class="grafico1">
-                    <div class="titulo_grafico"><p>Quantidade de totens por estação</p></div>
-                    <div id="grafico2" class="canva1"><canvas id="myChart2"></canvas></div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -88,21 +85,25 @@
             <div class="retangulo">
                 <div class="box1">
                     <div class="box_img">
-                        <div class="campo_img"></div>
-                        
+                        <div class="campo_img">
+                            <canvas id="chartMem"></canvas>
+                        </div>
                     </div>
                     <div class="box_txt">
                         <div class="txt_titulo">Memória RAM</div>
-                        <div class="txt_corpo"></div>
+                        <div class="txt_corpo">
+                        </div>
                     </div>
                 </div>
                 <div class="box2">
                     <div class="box_img">
-                        <div class="campo_img"></div>
-                        
+                        <div class="campo_img">
+                            <canvas id="chartServicos"></canvas>
+                        </div>
+
                     </div>
                     <div class="box_txt">
-                        <div class="txt_titulo">CPU</div>
+                        <div class="txt_titulo">Serviços</div>
                         <div class="txt_corpo"></div>
                     </div>
                 </div>
@@ -110,21 +111,25 @@
             <div class="retangulo">
                 <div class="box1">
                     <div class="box_img">
-                        <div class="campo_img"></div>
-                        
+                        <div class="campo_img">
+                            <canvas id="chartCpu"></canvas>
+                        </div>
+
                     </div>
                     <div class="box_txt">
-                        <div class="txt_titulo">Conexão</div>
+                        <div class="txt_titulo">Volumes</div>
                         <div class="txt_corpo"></div>
                     </div>
                 </div>
                 <div class="box2">
                     <div class="box_img">
-                        <div class="campo_img"></div>
-                        
+                        <div class="campo_img">
+                            <canvas id="chartProcessos"></canvas>
+                        </div>
+
                     </div>
                     <div class="box_txt">
-                        <div class="txt_titulo">Outro</div>
+                        <div class="txt_titulo">Processos</div>
                         <div class="txt_corpo"></div>
                     </div>
                 </div>
@@ -133,4 +138,5 @@
     </div>
     <script src="./js/dashboard_funcs.js"></script>
 </body>
+
 </html>

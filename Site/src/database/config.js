@@ -2,6 +2,7 @@ var mysql = require("mysql2");
 var sql = require("mssql");
 
 // (NUVEM)
+/*
 var sqlServerConfig = {
     user: "admin-totem-system",
     password: "2ads#grupo9",
@@ -16,15 +17,15 @@ var sqlServerConfig = {
         encrypt: true,
     },
 };
+*/
 
-
-// var mySqlConfig = {
-//     host: "localhost",
-//     user: "root",
-//     password: "root",
-//     database: "totemsystem",
-//     port: "3306",
-// };
+var mySqlConfig = {
+    host: "localhost",
+     user: "root",
+     password: "root",
+     database: "totemsystem",
+     port: "3306",
+};
 
 function executar(instrucao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
