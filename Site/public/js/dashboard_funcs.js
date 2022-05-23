@@ -45,19 +45,14 @@ function verCorBotao() {
 
 }
 
-
-
-
 function criarBotoes() {
-
-    fetch('/estacoes/totens-por-estacao', {
+    fetch(`/estacoes/estacoes-por-empresa/${sessionStorage.ID_EMPRESA}`, {
         method: 'GET',
     }).then((resposta) => {
         if (resposta.status == 200) {
             resposta.json().then((json) => {
                 for (let index = 0; index < json.length; index++) {
-                    lista_regioes.push(json[index].linha_estacao);
-                    console.log(json[index].quantidade_totens);
+                    lista_regioes.push(json[index].nome_estacao);
                     quant_totens.push(json[index].quantidade_totens);
                     rand = (Math.random() * (lista_regioes.length - 1)).toFixed(0)
                     local = lista_regioes[rand]
@@ -78,54 +73,61 @@ function criarBotoes() {
                     if (local == lista_regioes[i]) {
                         botao.style.backgroundColor = 'red'
                     }
-
-                    botao.addEventListener('click', () => {
+                    botao.onclick = (teste) => {
+                        criarBotaoToten(teste.target.innerHTML)
 
                         var nome_titulo = document.getElementById("nome_titulo")
                         nome_titulo.innerHTML = event.target.innerHTML
 
-                        removeAlertas()
-                        criarAlertas(quant_totens[i], lista_regioes[i])
                         ultimo_botao_clicado = event.target.innerHTML
                         id_graficos.style.display = 'flex'
                         gerarDados()
                         limparGrafico()
-                        graficoPizza()
-                        graficoBar()
-
-                    })
+                    }
                 }
+            });
+        }
+    });
+}
+
+function criarBotaoToten(nome_estacao) {
+    fetch("/estacoes/totens-por-estacao", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idEmpresa: sessionStorage.ID_EMPRESA,
+            estacaoNome: nome_estacao
+        })
+    }).then((resposta) => {
+        if (resposta.status == 200) {
+            resposta.json().then((json) => {
+                criarAlertas(json)
             })
         }
     })
-
-
-
 }
 
-
-
-function criarAlertas(num_alerta, regiao) {
+function criarAlertas(totens) {
+    removeAlertas()
 
     if (rand_alert == 0) {
-
         rand_alert = (Math.random() * (quant_totens[regiao_alerta] - 1) + 1).toFixed(0)
-
     }
 
-
-
-    for (let i = 0; i < num_alerta; i++) {
-
+    for (let i = 0; i < totens.length; i++) {
+        var regiao = totens[i].nome_estacao
         var alertas = document.getElementById("alertasID")
         var alerta = document.createElement('div')
-        var txt = document.createElement('p')
         alerta.setAttribute('class', 'alerta')
-        alerta.setAttribute('style', 'background-color: #2e861')
+        alerta.setAttribute('style', 'background-color: #2e861; color: white; font-size: 30px')
         alerta.setAttribute('id', `${regiao}`)
+        alerta.onclick = () => {
+            carregarDadosToten(alerta.innerHTML);
+        }
 
-        txt.innerHTML = `${i + 1}`
-        alerta.appendChild(txt)
+        alerta.innerHTML = `${totens[i].hostname}`
         alertas.appendChild(alerta)
 
         alerta.addEventListener('click', () => {
@@ -138,17 +140,7 @@ function criarAlertas(num_alerta, regiao) {
 
             pag1.style.display = 'none';
             pag2.style.display = 'flex';
-
-
-
-            //console.log(rand_alert)
-            //console.log(lista_regioes[regiao_alerta])
-
-
-
-
-        })
-
+        });
     }
 
 
@@ -158,10 +150,7 @@ function criarAlertas(num_alerta, regiao) {
 
         var class_alertas = document.getElementsByClassName('alerta')
 
-
-
         class_alertas[rand_alert - 1].style.backgroundColor = 'red'
-        //getIdAlerta.style.backgroundColor = 'red'
 
         if (alerta_piscando == false) {
             alerta_piscando = true
@@ -175,17 +164,157 @@ function criarAlertas(num_alerta, regiao) {
                 }
 
             }, 500)
-
-
-
-
         }
-
     }
+}
 
+function carregarDadosToten(_hostname) {
+    fetch("/estacoes/dados-totens", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            hostname: _hostname
+        })
+    }).then((resposta) => {
+        if (resposta.status == 200) {
+            resposta.json().then((json) => {
+                console.log(json);
+                criarChartMem(json.memoria[0])
+                criarChartVol(json.volume[0])
+                criarChartServicos(json.servicos[0])
+                criarChartProcessos(json.processos)
+            })
+        }
+    })
+}
 
+function criarChartMem(respostaJson) {
+    console.log(respostaJson);
+    const canvasMem = document.getElementById('chartMem').getContext('2d');
+    const chartPie = new Chart(canvasMem, {
+        type: 'pie',
+        data: {
+            labels: ['em uso', 'livre'],
+            datasets: [{
+                label: '# lbl',
+                data: [respostaJson.memoria_uso, respostaJson.memoria_disponivel],
+                backgroundColor: [
+                    'rgba(0, 0, 255, 1)',
+                    'rgba(0, 255, 0, 1)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 1)',
+                    'rgba(0, 0, 0, 1)'
+                ],
+                borderWidth: 1
+            }],
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    })
+}
 
+function criarChartVol(respostaJson) {
+    console.log(respostaJson);
+    const canvasCpu = document.getElementById('chartCpu').getContext('2d');
+    const chartPie = new Chart(canvasCpu, {
+        type: 'pie',
+        data: {
+            labels: ['em uso', 'livre'],
+            datasets: [{
+                label: '# lbl',
+                data: [respostaJson.volume_em_uso, respostaJson.volume_disponivel],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(0, 255, 0, 1)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 1)',
+                    'rgba(0, 0, 0, 1)'
+                ],
+                borderWidth: 1
+            }],
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    })
+}
 
+function criarChartServicos(respostaJson) {
+    console.log(respostaJson);
+    const canvaServico = document.getElementById('chartServicos').getContext('2d');
+    const chartPie = new Chart(canvaServico, {
+        type: 'pie',
+        data: {
+            labels: ['ativo', 'inativo'],
+            datasets: [{
+                label: '# lbl',
+                data: [respostaJson.total_servicos_ativos, respostaJson.total_servicos_inativos],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(0, 255, 0, 1)'
+                ],
+                borderColor: [
+                    'rgba(0, 0, 0, 1)',
+                    'rgba(0, 0, 0, 1)'
+                ],
+                borderWidth: 1
+            }],
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    })
+}
+
+function criarChartProcessos(respostaJson) {
+    let processos = [];
+    let data = [];
+    for (let i = 0; i < respostaJson.length; i++) {
+        processos.push(respostaJson[i].total_processos);
+        data.push(respostaJson[i].data_atual.split(" ")[1]);        
+    }
+    const canvaServico = document.getElementById('chartProcessos').getContext('2d');
+    const chartPie = new Chart(canvaServico, {
+        type: 'line',
+        data: {
+            labels: data,
+            datasets: [{
+                label: 'Processos',
+                data: processos,
+                fill: false,
+                borderColor: 'rgba(255, 0, 0, 1)',
+                tension: 0.1
+            }],
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    })
 }
 
 function removeAlertas() {
@@ -193,26 +322,16 @@ function removeAlertas() {
     var pai = document.getElementById("alertasID")
     var existe = !!document.getElementsByClassName("alerta")
 
-
     if (existe) {
 
         var filhos = pai.childNodes;
-
+        
         for (let i = filhos.length - 1; i >= 0; i--) {
-
-
             filhos[i].remove()
-
-
         }
-
     }
-
-
-
-    //
-
 }
+
 function voltarDash() {
 
     pag1.style.display = 'flex';

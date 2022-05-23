@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-// process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-=======
+
+
 process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 //process.env.AMBIENTE_PROCESSO = "producao";
->>>>>>> 3876fc05120f731dca756f8ada2b69a4063ef9ed
+
 
 var express = require("express");
 var cors = require("cors");

@@ -71,9 +71,9 @@ function entrar(){
                 console.log(JSON.stringify(json));
 
 
-                sessionStorage.EMAIL_EMPRESA = json.EMAIL_EMPRESA;
-                sessionStorage.CNPJ = json.CNPJ;
-                sessionStorage.ID_EMPRESA = json.ID_EMPRESA;
+                sessionStorage.EMAIL_EMPRESA = json.email_empresa;
+                sessionStorage.CNPJ = json.cnpj;
+                sessionStorage.ID_EMPRESA = json.id_empresa;
 
                 
                 localStorage.setItem('EMAIL_EMPRESA',json.email_empresa)
