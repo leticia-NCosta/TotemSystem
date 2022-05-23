@@ -12,6 +12,16 @@ Escolha uma modalidade de script (CLI ou GUI) e execute o comando abaixo.
 
 * CLI: `wget -O totemsystemCLI.sh https://raw.githubusercontent.com/Don616/sptech/main/Script_Automacao/totemsystemCLI.sh`
 * GUI: `wget -O totemsystemGUI.sh https://raw.githubusercontent.com/Don616/sptech/main/Script_Automacao/totemsystemGUI.sh`
+
+Depois que baixar, dê o comando: 
+* CLI: `chmod +x totemsystemCLI.sh`
+* GUI: `chmod +x totemsystemGUI.sh`
+Depois dê o comando:
+* CLI: `sh totemsystemCLI.sh`
+* GUI: `sh totemsystemGUI.sh`
+
+
+> ATENÇÃO: Se você escolheu a opção GUI, terá que abrir a interface gráfica!
 ---
 
 Proect Owner: [@Letícia](https://github.com/leticiaNCosta18)
