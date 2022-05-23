@@ -91,6 +91,7 @@ function criarBotoes() {
 }
 
 function criarBotaoToten(nome_estacao) {
+    removeAlertas()
     fetch("/estacoes/totens-por-estacao", {
         method: "POST",
         headers: {
