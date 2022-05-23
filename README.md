@@ -6,6 +6,10 @@
 ## Grupo de PI do segundo semestre SPTech - 2ADSB/2022
 
 > Links para automação do processo de instalação na EC2:
+
+Ao entrar na EC2 via SSH, mude para o usuario root através do comando `sudo su` e em seguida dê o comando `cd` para ir à home do root.
+Escolha uma modalidade de script (CLI ou GUI) e execute o comando abaixo.
+
 * CLI: `wget -O totemsystemCLI.sh https://raw.githubusercontent.com/Don616/sptech/main/Script_Automacao/totemsystemCLI.sh`
 * GUI: `wget -O totemsystemGUI.sh https://raw.githubusercontent.com/Don616/sptech/main/Script_Automacao/totemsystemGUI.sh`
 ---
