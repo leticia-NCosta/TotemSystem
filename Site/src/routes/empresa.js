@@ -1,4 +1,5 @@
 var express = require("express");
+const { route } = require("express/lib/application");
 var router = express.Router();
 
 var empresaController = require("../controllers/empresaController");
@@ -19,7 +20,9 @@ router.put("/atualizar/:email", function(req, res) {
   empresaController.atualizar(req, res);
 })
 
-
+router.delete("/deletar/:email" ,function(req, res){
+  empresaController.deletar(req, res);
+})
 
 router.post("/autenticar", function (req, res) {
   empresaController.entrar(req, res);

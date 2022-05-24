@@ -1,10 +1,9 @@
 // const { json } = require("express/lib/response");
 
 function atualizarCadastro(){
-    var email = localStorage.getItem("EMAIL_EMPRESA");
+    var email = sessionStorage.getItem("EMAIL_EMPRESA");
     console.log(email)
     atualizar(email)
-    // location.reload();
 }
 
 function atualizar(email){
@@ -60,6 +59,7 @@ function atualizar(email){
 
                 
             });
+            window.location = "./user.html"
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }

@@ -131,10 +131,29 @@ function atualizar(req, res) {
   }
 }
 
+function deletar(req, res){
+  empresaModel.deletar(req.params.email)
+  .then(
+    function (resultado){
+      res.json(resultado);
+    }
+  ).catch(
+    function (erro) {
+      console.log(erro)
+      console.log(
+        "\n Houve erro ao realizar a exclusao! Erro: ",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    }
+  );
+}
+
 module.exports = {
   listar,
   testar,
   cadastrar,
   entrar,
   atualizar,
+  deletar
 };
