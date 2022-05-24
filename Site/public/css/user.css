@@ -237,7 +237,7 @@ button{
     background-color: #273c5c;
     color: #ffffff;
     width: 97%;
-    height: 60%;
+    height:  75%;
     display: flex;
     justify-content:left;
     align-items: left;
@@ -272,14 +272,17 @@ button{
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     color: #ffffff;
     padding: 20px 20px;
     margin-left: 10px;
 }
 
 
-
+.telas .container .botoes:hover{
+    background-color: #ffffff;
+    color: #273c5c;
+}
 
 
 

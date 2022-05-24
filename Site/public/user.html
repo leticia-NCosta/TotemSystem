@@ -63,7 +63,7 @@
             <div class="titulo_sidebar">Colaboradores</div>
             <div class="titulo_sidebar">Estações</div>
             <!-- <div class="titulo_sidebar">Mapa</div> -->
-            <div class="titulo_sidebar"><a href="./index.html">Sair</a></div>
+            <div class="titulo_sidebar" onclick="sair()">Sair</div>
             <div id="corpo_sidebarID" class="corpo_sidebar"></div>
 
         </div>
@@ -84,7 +84,7 @@
                        <p> Complemento: <span id="bd_comp"></span></p>
                        <p> Telefone: <span id="bd_tel"></span></p>
                         <div class="btn">
-                            <button class="botoes">Deletar conta</button>
+                            <button class="botoes" onclick="deletarEmpresa()">Deletar conta</button>
 
                         </div>
                     </div>
@@ -168,6 +168,7 @@
     <script src="./js/cadastrarEstacao.js"></script>
     <script src="./js/cadastrarColaborador.js"></script>
     <script src="./js/cadastrarTotem.js"></script>
+    <script src="./js/deletarEmpresa.js"></script>
 </body>
 </html>
 

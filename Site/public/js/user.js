@@ -4,6 +4,11 @@ function mvDashboard(){
     window.location = "./dashboard.html"
 }
 
+function sair(){
+    window.location = "./index.html"
+    sessionStorage.clear();
+}
+
 function mudarTela(){
 
     var botao = document.getElementsByClassName('titulo_sidebar')

@@ -8,7 +8,7 @@
 }
 
 .formulario {
-  border-radius: 20px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,17 +49,41 @@
   margin: 0 25px;
 }
 
+.dados h1{
+  text-align: center;
+  font-weight: bold;
+}
+
 .dados input {
   width: 80%;
-  height: 50%;
+  height:25px;
   background-color: #fff8f8;
   border: none;
   border: 1px solid #00000070;
- 
+  border-radius: 5px;
 }
 
 .dados #mensagem {
   height: 80px;
+}
+
+.dados button{
+  background-color: #273c5c;
+  color: #fff8f8;
+  height: 20px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 4px;
+
+}
+
+.dados button:hover{
+  background-color: #fff8f8;
+  color: #273c5c;
+  border: 1px solid #00000070;
 }
 
 .informacao {

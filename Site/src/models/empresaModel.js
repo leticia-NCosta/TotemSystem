@@ -37,10 +37,18 @@ function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmp
   return database.executar(instrucao);
 }
 
+function deletar(email){
+  var instrucao = `
+    DELETE FROM tb_empresa WHERE email_empresa = ${email}
+  `
+  return database.executar(instrucao)
+}
+
 
 module.exports = {
   listar,
   cadastrar,
   entrar,
-  atualizar
+  atualizar,
+  deletar
 };
