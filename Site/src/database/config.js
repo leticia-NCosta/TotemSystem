@@ -1,7 +1,7 @@
 var mysql = require("mysql2");
 var sql = require("mssql");
 
-/*
+
 var sqlServerConfig = {
     user: "admin-totem-system",
     password: "2ads#grupo9",
@@ -16,7 +16,7 @@ var sqlServerConfig = {
         encrypt: true,
     },
 };
-*/
+
 
 var mySqlConfig = {
     host: "localhost",
