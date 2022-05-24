@@ -168,6 +168,7 @@ html{
     justify-content: center;
     align-items: center;
     box-shadow: 2px 2px 2px black;
+
     
 
 }
@@ -179,7 +180,7 @@ html{
 }
 .dash .alertas .alerta p{
 
-    font-size: 50px;
+    font-size: 30px;
     color: white;
 
 }
