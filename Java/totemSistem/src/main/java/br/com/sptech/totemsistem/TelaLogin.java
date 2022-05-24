@@ -150,6 +150,7 @@ public class TelaLogin extends javax.swing.JFrame {
         ValidacaoLogin validacao = new ValidacaoLogin();
         Scanner leitor = new Scanner(System.in);
         SalvarDados salvar = new SalvarDados();
+        BancoDeDados banco = new BancoDeDados();
 
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
         String email = inputEmail.getText();
@@ -162,27 +163,11 @@ public class TelaLogin extends javax.swing.JFrame {
             if (validacaoBanco.validarLogin(email, senha)) {
 
                 JOptionPane.showMessageDialog(rootPane, "Usuário logado com sucesso!!!");
-                if (validacao.existeHostname()) {
-                    this.menu();
-                } else {
-                    System.out.println("ERRO! Totem não cadastrado!");
-                    System.out.println("Deseja cadastrar este Totem minimamente? (S/N)");
-                    String resposta = leitor.nextLine();
-                    if (resposta.toLowerCase().equals("s")) {
-                        System.out.println("\nDigite o nome da estação onde deseja cadastrar o Totem:");
-                        String estacao = leitor.nextLine();
-                        try {
-                            salvar.salvarTotemTemporariamente(estacao);
-                            this.menu();
-                        } catch (SQLException e) {
-                            System.out.println("Erro desconhecido no banco");
-                        }
 
-                    } else if (resposta.equals("N")) {
-                        System.out.println("Fim do Programa!");
-                    } else {
-                        System.out.println("Valor incorreto");
-                    }
+                try {
+                    this.validacoesTotem();
+                } catch (Exception e) {
+                    System.out.println(e);
                 }
 
             }
@@ -317,5 +302,38 @@ public class TelaLogin extends javax.swing.JFrame {
             }
 
         }
+    }
+
+    public void validacoesTotem() throws SQLException {
+
+        Usuario user = new Usuario();
+        ValidacaoLogin validacao = new ValidacaoLogin();
+        Scanner leitor = new Scanner(System.in);
+        SalvarDados salvar = new SalvarDados();
+        BancoDeDados banco = new BancoDeDados();
+
+        
+        if (banco.existeHostname("azure") && banco.existeHostname("mysql")) {
+
+            this.menu();
+
+        } else if(!banco.existeHostname("azure") || !banco.existeHostname("mysql")){
+            System.out.println("\nERRO! Totem não cadastrado!");
+            System.out.println("Deseja cadastrar este Totem minimamente? (S/N)");
+            String resposta = leitor.nextLine();
+            if (resposta.toLowerCase().equals("s")) {
+                System.out.println("\nDigite o nome da estação onde deseja cadastrar o Totem:");
+                String estacao = leitor.nextLine();
+
+                    salvar.salvarTotemTemporariamente(estacao);
+                    this.menu();
+
+            } else if (resposta.equals("N")) {
+                System.out.println("Fim do Programa!");
+            } else {
+                System.out.println("Valor incorreto");
+            }
+        }
+
     }
 }

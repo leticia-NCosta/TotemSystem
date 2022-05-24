@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ValidacaoLogin {
 
-    Connection configAZURE = new Connection("mysql");
+    Connection configAZURE = new Connection("azure");
     JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
     
 
@@ -30,7 +30,7 @@ public class ValidacaoLogin {
         
         Totem totem = new Totem();
         List<Totem> queryTotem;
-        queryTotem = templateAZURE.query("select hostname from tb_totem where hostname = ? limit 1",
+        queryTotem = templateAZURE.query("select hostname from tb_totem where hostname = ?",
                 new BeanPropertyRowMapper<>(Totem.class), totem.getHostname());
 
         if (!queryTotem.isEmpty()) {
