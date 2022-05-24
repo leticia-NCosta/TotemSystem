@@ -20,8 +20,8 @@ var sqlServerConfig = {
 
 var mySqlConfig = {
     host: "localhost",
-     user: "root",
-     password: "",
+     user: "aluno",
+     password: "sptech",
      database: "totemsystem",
      port: "3306",
 };
