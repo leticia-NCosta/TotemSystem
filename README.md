@@ -5,6 +5,23 @@
 
 ## Grupo de PI do segundo semestre SPTech - 2ADSB/2022
 
+> Links para automação do processo de instalação na EC2:
+
+Ao entrar na EC2 via SSH, mude para o usuario root através do comando `sudo su` e em seguida dê o comando `cd` para ir à home do root.
+Escolha uma modalidade de script (CLI ou GUI) e execute o comando abaixo.
+
+* CLI: `wget -O totemsystemCLI.sh https://raw.githubusercontent.com/Don616/sptech/main/Script_Automacao/totemsystemCLI.sh`
+* GUI: `wget -O totemsystemGUI.sh https://raw.githubusercontent.com/Don616/sptech/main/Script_Automacao/totemsystemGUI.sh`
+
+Depois que baixar, dê o comando: 
+* CLI: `chmod +x totemsystemCLI.sh`
+* GUI: `chmod +x totemsystemGUI.sh`
+Depois dê o comando:
+* CLI: `sh totemsystemCLI.sh`
+* GUI: `sh totemsystemGUI.sh`
+
+
+> ATENÇÃO: Se você escolheu a opção GUI, terá que abrir a interface gráfica!
 ---
 
 Proect Owner: [@Letícia](https://github.com/leticiaNCosta18)
@@ -18,26 +35,26 @@ Sprint 3: 31/05/2022
 ## Entregáveis Sprint 3:
 - [ ] Slide de Apresentação;
 - [ ] Plano de resposta - Lições aprendidas;
-- [ ] Planner;
-- [ ] Diagrama de Solução;
-- [ ] Diagrama de Banco;
-- [ ] Metodologia e Especialização;
-- [ ] Github atualizado;
+- [x] Planner;
+- [x] Diagrama de Solução;
+- [x] Diagrama de Banco;
+- [x] Metodologia e Especialização;
+- [x] Github atualizado;
 - [ ] 3 CRUDS;
 - [ ] Slack com alertas;
-- [ ] Abertura de Chamado;
+- [x] Abertura de Chamado;
 - [ ] Geração de Logs;
-- [ ] Responsividade Obrigatória;
-- [ ] Usabilidade;
+- [x] Responsividade Obrigatória;
+- [x] Usabilidade;
 - [ ] Inovação útil;
 - [ ] Documentação Completa;
 - [ ] Alertas alinhados ao negócio;
 - [ ] Inovação completa com PPT de "Deep Dive";
 - [ ] Diagrama de Classe;
 - [ ] Aplicação provisória na Nuvem;
-- [ ] Docker;
-- [ ] Assistente de Instalação do Cliente;
-- [ ] Jar completo com Swing;
+- [x] Docker;
+- [x] Assistente de Instalação do Cliente;
+- [x] Jar completo com Swing;
 - [ ] Dashboard completo;
 - [ ] Jar executável final;
 

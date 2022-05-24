@@ -84,6 +84,7 @@ function entrar(){
                 
                 setTimeout(function () {
                     window.location = "../user.html";
+                    
                 }, 1000); // apenas para exibir o loading
                 
             });
