@@ -9,6 +9,9 @@ function sair(){
     sessionStorage.clear();
 }
 
+function voltar(){
+    window.location = "./user.html"
+}
 function mudarTela(){
 
     var botao = document.getElementsByClassName('titulo_sidebar')

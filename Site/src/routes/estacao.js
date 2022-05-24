@@ -16,11 +16,11 @@ router.get("/estacoes-por-empresa/:idEmpresa", function (req, res) {
 });
 
 router.post("/cadastrarEstacao", function(req, res){
-  empresaController.cadastrarEstacao(req,res);
+  estacaoController.cadastrarEstacao(req,res);
 })
 
 router.put("/atualizarEstacao", function(req, res){
-  empresaController.atualizarEstacao(req,res);
+  estacaoController.atualizarEstacao(req,res);
 })
 
 
