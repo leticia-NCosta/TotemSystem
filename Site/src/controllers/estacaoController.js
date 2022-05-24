@@ -70,8 +70,8 @@ function cadastrarEstacao(req, res) {
   var nome = req.body.nomeServer;
   var linha = req.body.linhaServer;
   var bairro = req.body.bairroServer;
-  var latitudeTotem = req.body.latitudeServer;
-  var longitudeTotem = req.body.longitudeServer;
+  var latitudeEstacao = req.body.latitudeServer;
+  var longitudeEstacao = req.body.longitudeServer;
 
 
   if (nome == undefined) {
@@ -80,13 +80,13 @@ function cadastrarEstacao(req, res) {
     res.status(400).send("Sua linha está undefined!");
   } else if (bairro == undefined) {
     res.status(400).send("Seu bairro está undefined!");
-  } else if (latitude == undefined) {
+  } else if (latitudeEstacao == undefined) {
     res.status(400).send("Seu latitude está undefinied")
-  } else if (longitude == undefined) {
+  } else if (longitudeEstacao == undefined) {
     res.status(400).send("Seu longitude está undefinied")
   }
 
-  estacaoModel.cadastrarEstacao(nome, linha, bairro, latitude, longitude)
+  estacaoModel.cadastrarEstacao(nome, linha, bairro, latitudeEstacao, longitudeEstacao)
     .then(
       function (resultado) {
         res.json(resultado);

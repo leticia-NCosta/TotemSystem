@@ -8,7 +8,7 @@ function cadastrarEstacao(){
     console.log(nome, linha, bairro, longitude, latitude)
 
 
-    fetch("usuarios/cadastrarEstacao", {
+    fetch("estacoes/cadastrarEstacao", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

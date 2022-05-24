@@ -1,13 +1,14 @@
 var express = require("express");
 var router = express.Router();
 
+var colaboradorController = require("../controllers/colaboradorController")
 
 router.post("/cadastrarColaborador", function(req, res){
-    empresaController.cadastrarColaborador(req,res);
+    colaboradorController.cadastrarColaborador(req,res);
   })
   
   router.put("/atualizarColaborador", function(req, res){
-    empresaController.atualizarColaborador(req,res);
+    colaboradorController.atualizarColaborador(req,res);
   })
 
   

@@ -1,5 +1,6 @@
 function cadastrarTotem(){
-        
+    
+    var hostname = input_hostname.value;
     var marca = input_marca.value;
     var modelo = input_modelo.value;
     var dataImplementacao = input_data_implementacao.value;
@@ -7,12 +8,13 @@ function cadastrarTotem(){
     
 
 
-    fetch("/usuarios/cadastrarTotem", {
+    fetch("totem/cadastrarTotem", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
+            hostnameServer: hostname, 
             marcaServer: marca,
             modeloServer: modelo,
             dataImplementacaoServer: dataImplementacao,

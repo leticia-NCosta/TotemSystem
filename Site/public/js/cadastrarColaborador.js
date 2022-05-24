@@ -9,7 +9,7 @@ function cadastrarColaborador(){
 
     console.log(nome, cpf, cargo, telefone, email, senha)
 
-    fetch("/usuarios/cadastrarColaborador", {
+    fetch("/colaborador/cadastrarColaborador", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
