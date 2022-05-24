@@ -57,6 +57,7 @@ function entrar(){
         function (resposta) {
             if(resposta.status == 200){
                 resposta.json().then(json =>{
+                
                     sessionStorage.RAZAO_SOCIAL = json.razao_social;
                     sessionStorage.RUA_EMPRESA = json.rua_empresa;
                     sessionStorage.NUMERO_EMPRESA = json.numero_empresa;

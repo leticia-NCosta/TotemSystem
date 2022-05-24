@@ -1,8 +1,8 @@
 var database = require("../database/config");
 
-function cadastrarTotem(dataImplementacao, modelo, marca, dataFabricacao){
+function cadastrarTotem(hostname, dataImplementacao, modelo, marca, dataFabricacao){
     var instrucao = `
-      INSERT INTO tb_totem (data_implementacao, modelo, marca, data_fabricacao) VALUES ( '${dataImplementacao}', '${modelo}', '${marca}', '${dataFabricacao}')
+      INSERT INTO tb_totem (hostname, data_implementacao, modelo, marca, data_fabricacao) VALUES ( '${hostname}', '${dataImplementacao}', '${modelo}', '${marca}', '${dataFabricacao}')
     `;
   
     return database.executar(instrucao)

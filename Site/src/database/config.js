@@ -1,12 +1,12 @@
 var mysql = require("mysql2");
 var sql = require("mssql");
 
-/*
+
 var sqlServerConfig = {
-    user: "admin-totem-system",
+    user: "svr-totemsystem",
     password: "2ads#grupo9",
-    database: "bd-totem-system",
-    server: "svr-totem-system.database.windows.net",
+    database: "TotemSystem",
+    server: "totemsystem.database.windows.net",
     pool: {
         max: 10,
         min: 0,
@@ -16,8 +16,8 @@ var sqlServerConfig = {
         encrypt: true,
     },
 };
-*/
 
+<<<<<<< HEAD
 var mySqlConfig = {
     host: "localhost",
      user: "aluno",
@@ -25,6 +25,16 @@ var mySqlConfig = {
      database: "totemsystem",
      port: "3306",
 };
+=======
+
+// var mySqlConfig = {
+//     host: "localhost",
+//      user: "root",
+//      password: "",
+//      database: "totemsystem",
+//      port: "3306",
+// };
+>>>>>>> f3a794a0424fc44cc89e705ac69fae54edc2df22
 
 
 function executar(instrucao) {
