@@ -7,12 +7,13 @@ public class Connection {
     private BasicDataSource dataSource;
     
 
-    public Connection(String local) {
+    public Connection(String local){
         this.dataSource = new BasicDataSource();
 
         if (local.equals("mysql")) {
             
-            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+            
+            dataSource.setDriverClassName("com.mysql.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/totemsystem");
             //dataSource.setUrl("jdbc:mysql://mysql-totem:3306/totemsystem");
             dataSource.setUsername("root");
@@ -21,8 +22,8 @@ public class Connection {
         } else if (local.equals("azure")) {
             
             dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            dataSource.setUrl("jdbc:sqlserver://svr-totem-system.database.windows.net:1433;database=bd-totem-system;user=admin-totem-system@svr-totem-system;password={2ads#grupo9};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
-            dataSource.setUsername("admin-totem-system");
+            dataSource.setUrl("jdbc:sqlserver://totemsystem.database.windows.net:1433;database=TotemSystem;user=svr-totemsystem@totemsystem;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
+            dataSource.setUsername("svr-totemsystem");
             dataSource.setPassword("2ads#grupo9");
         }
 

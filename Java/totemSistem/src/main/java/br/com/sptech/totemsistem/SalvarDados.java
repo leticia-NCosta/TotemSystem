@@ -11,12 +11,12 @@ import java.sql.SQLException;
 public class SalvarDados {
 
     Connection configMYSQL = new Connection("mysql");
-    //Connection configAZURE = new Connection("azure");
+    Connection configAZURE = new Connection("azure");
     Looca looca = new Looca();
     BancoDeDados banco = new BancoDeDados();
 
     JdbcTemplate templateMYSQL = new JdbcTemplate(configMYSQL.getDataSource());
-    //JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
+    JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
     public void salvarDadosEstaticos() {
@@ -66,7 +66,7 @@ public class SalvarDados {
                 totem.getHostname());
 
         templateMYSQL.execute(inserirDado);
-        //templateAZURE.execute(inserirDado);
+        templateAZURE.execute(inserirDado);
 
     }
 
@@ -105,29 +105,51 @@ public class SalvarDados {
                 totem.getVolumeEmUso());
 
         templateMYSQL.execute(inserirDado);
-        //templateAZURE.execute(inserirDado);
+        templateAZURE.execute(inserirDado);
 
     }
 
-    public void salvarTotemTemporariamente(String estacao) throws SQLException {
+    public void salvarTotemTemporariamente(String estacao) throws SQLException, ClassNotFoundException {
         Totem totem = new Totem();
-        if (banco.existeEstacao(estacao, "mysql")) {
+
+        if (!banco.existeHostname("azure")) {
+            if (banco.existeEstacao(estacao, "azure")) {
+                System.out.println("Estação encontrada... Salvando na Azure...");
+                Integer id = banco.getIdEstacao(estacao, "azure");
+
+                String inserirDado = String.format("INSERT INTO tb_totem"
+                        + "(fk_estacao,"
+                        + "hostname)"
+                        + "values"
+                        + "(%d,'%s')",
+                        id,
+                        totem.getHostname());
+
+                templateAZURE.execute(inserirDado);
+
+            } else {
+                System.out.println("Estação não existe no banco de dados! Cadastre em outra!");
+            }
             
-            Integer id = banco.getIdEstacao(estacao, "mysql");
+        } 
+        if (!banco.existeHostname("mysql")) {
+            if (banco.existeEstacao(estacao, "mysql")) {
+                System.out.println("Estação encontrada... Salvando no MYSQL");
+                Integer id = banco.getIdEstacao(estacao, "mysql");
 
-            String inserirDado = String.format("INSERT INTO tb_totem"
-                    + "(fk_estacao,"
-                    + "hostname)"
-                    + "values"
-                    + "(%d,'%s')",
-                    id,
-                    totem.getHostname());
+                String inserirDado = String.format("INSERT INTO tb_totem"
+                        + "(fk_estacao,"
+                        + "hostname)"
+                        + "values"
+                        + "(%d,'%s')",
+                        id,
+                        totem.getHostname());
 
-            templateMYSQL.execute(inserirDado);
-            //templateAZURE.execute(inserirDado);
+                templateMYSQL.execute(inserirDado);
 
-        } else{
-            System.out.println("Estação não existe no banco de dados! Cadastre em outra!");
+            } else {
+                System.out.println("Estação não existe no banco de dados! Cadastre em outra!");
+            }
         }
 
     }
