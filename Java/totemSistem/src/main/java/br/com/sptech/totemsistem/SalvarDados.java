@@ -109,7 +109,7 @@ public class SalvarDados {
 
     }
 
-    public void salvarTotemTemporariamente(String estacao) throws SQLException {
+    public void salvarTotemTemporariamente(String estacao) throws SQLException, ClassNotFoundException {
         Totem totem = new Totem();
 
         if (!banco.existeHostname("azure")) {

@@ -13,6 +13,17 @@ import java.sql.SQLException;
  * @author TotemSystem
  */
 public class BancoDeDados {
+    
+    public String getDriver(String local) {
+        
+        String driver = "Local inválido";
+        
+        if (local.equals("mysql")) {
+            return driver = "com.mysql.jdbc.Driver";
+        } else {
+            return driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        }
+    }
 
     public String getURL(String local) {
 
@@ -54,8 +65,8 @@ public class BancoDeDados {
         }
     }
 
-    public Integer getIdEstacao(String nomeEstacao, String local) throws SQLException {
-
+    public Integer getIdEstacao(String nomeEstacao, String local) throws SQLException, ClassNotFoundException {
+        Class.forName(this.getDriver(local)); /* Aqui registra */
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
         
 
@@ -78,8 +89,8 @@ public class BancoDeDados {
 
     }
 
-    public Boolean existeEstacao(String nomeEstacao, String local) throws SQLException {
-
+    public Boolean existeEstacao(String nomeEstacao, String local) throws SQLException, ClassNotFoundException {
+        Class.forName(this.getDriver(local)); /* Aqui registra */
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
 
         PreparedStatement pesquisa = conexão.prepareStatement(String.format("select nome_estacao from tb_estacao where nome_estacao = '%s'", nomeEstacao));
@@ -93,8 +104,9 @@ public class BancoDeDados {
 
     }
 
-    public Boolean validarLogin(String email, String senha, String local) throws SQLException {
-
+    public Boolean validarLogin(String email, String senha, String local) throws SQLException, ClassNotFoundException {
+        
+        Class.forName(this.getDriver(local)); /* Aqui registra */
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
         PreparedStatement pesquisa = conexão.prepareStatement(String.format("select * from tb_usuario where email = '%s' and  senha = '%s'", email, senha));
         ResultSet resultado = pesquisa.executeQuery();
@@ -107,11 +119,11 @@ public class BancoDeDados {
 
     }
 
-    public Boolean existeHostname(String local) throws SQLException {
+    public Boolean existeHostname(String local) throws SQLException, ClassNotFoundException {
 
 
         Totem totem = new Totem();
-
+        Class.forName(this.getDriver(local)); /* Aqui registra */         
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
         PreparedStatement pesquisa = conexão.prepareStatement(String.format("select hostname from tb_totem where hostname = '%s'", totem.getHostname()));
         ResultSet resultado = pesquisa.executeQuery();

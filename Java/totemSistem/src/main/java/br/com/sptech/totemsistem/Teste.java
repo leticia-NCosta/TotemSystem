@@ -19,7 +19,7 @@ import java.net.SocketException;
  */
 public class Teste {
 
-    public static void main(String[] args) throws SQLException, SocketException {
+    public static void main(String[] args) throws SQLException, SocketException, ClassNotFoundException {
 
         String hostname = "";
         try {

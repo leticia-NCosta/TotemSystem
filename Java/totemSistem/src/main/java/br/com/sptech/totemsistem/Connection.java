@@ -13,7 +13,7 @@ public class Connection {
         if (local.equals("mysql")) {
             
             
-            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+            dataSource.setDriverClassName("com.mysql.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/totemsystem");
             //dataSource.setUrl("jdbc:mysql://mysql-totem:3306/totemsystem");
             dataSource.setUsername("root");

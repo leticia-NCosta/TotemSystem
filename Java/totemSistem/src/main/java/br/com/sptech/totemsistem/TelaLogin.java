@@ -304,7 +304,7 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }
 
-    public void validacoesTotem() throws SQLException {
+    public void validacoesTotem() throws SQLException, ClassNotFoundException {
 
         Usuario user = new Usuario();
         ValidacaoLogin validacao = new ValidacaoLogin();
