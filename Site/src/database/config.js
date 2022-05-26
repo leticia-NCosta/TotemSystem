@@ -17,7 +17,6 @@ var sqlServerConfig = {
     },
 };
 
-<<<<<<< HEAD
 var mySqlConfig = {
     host: "localhost",
      user: "aluno",
@@ -25,16 +24,6 @@ var mySqlConfig = {
      database: "totemsystem",
      port: "3306",
 };
-=======
-
-// var mySqlConfig = {
-//     host: "localhost",
-//      user: "root",
-//      password: "",
-//      database: "totemsystem",
-//      port: "3306",
-// };
->>>>>>> f3a794a0424fc44cc89e705ac69fae54edc2df22
 
 
 function executar(instrucao) {

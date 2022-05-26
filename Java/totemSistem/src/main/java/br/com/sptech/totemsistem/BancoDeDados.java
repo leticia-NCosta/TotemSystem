@@ -19,7 +19,7 @@ public class BancoDeDados {
         String driver = "Local inválido";
         
         if (local.equals("mysql")) {
-            return driver = "com.mysql.jdbc.Driver";
+            return driver = "com.mysql.cj.jdbc.Driver";
         } else {
             return driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         }
@@ -66,6 +66,7 @@ public class BancoDeDados {
     }
 
     public Integer getIdEstacao(String nomeEstacao, String local) throws SQLException, ClassNotFoundException {
+        
         Class.forName(this.getDriver(local)); /* Aqui registra */
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
         

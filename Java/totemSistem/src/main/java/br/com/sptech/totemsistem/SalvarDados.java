@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.github.britooo.looca.api.core.Looca;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class SalvarDados {
 
@@ -111,7 +112,7 @@ public class SalvarDados {
 
     public void salvarTotemTemporariamente(String estacao) throws SQLException, ClassNotFoundException {
         Totem totem = new Totem();
-
+        Scanner leitor = new Scanner(System.in);
         if (!banco.existeHostname("azure")) {
             if (banco.existeEstacao(estacao, "azure")) {
                 System.out.println("Estação encontrada... Salvando na Azure...");
@@ -129,9 +130,11 @@ public class SalvarDados {
 
             } else {
                 System.out.println("Estação não existe no banco de dados! Cadastre em outra!");
+                String novaEstacao = leitor.nextLine();
+                this.salvarTotemTemporariamente(novaEstacao);
             }
-            
-        } 
+
+        }
         if (!banco.existeHostname("mysql")) {
             if (banco.existeEstacao(estacao, "mysql")) {
                 System.out.println("Estação encontrada... Salvando no MYSQL");
@@ -149,6 +152,8 @@ public class SalvarDados {
 
             } else {
                 System.out.println("Estação não existe no banco de dados! Cadastre em outra!");
+                String novaEstacao = leitor.nextLine();
+                this.salvarTotemTemporariamente(novaEstacao);
             }
         }
 
