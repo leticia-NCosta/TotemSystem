@@ -122,7 +122,7 @@ function criarAlertas(totens) {
         var alertas = document.getElementById("alertasID")
         var alerta = document.createElement('div')
         alerta.setAttribute('class', 'alerta')
-        alerta.setAttribute('style', 'background-color: #2e861; color: white; font-size: 30px')
+        alerta.setAttribute('style', 'color: white; font-size: 20px')
         alerta.setAttribute('id', `${regiao}`)
         alerta.onclick = () => {
             carregarDadosToten(alerta.innerHTML);

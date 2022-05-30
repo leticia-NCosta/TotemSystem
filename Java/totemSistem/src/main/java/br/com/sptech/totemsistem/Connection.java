@@ -22,7 +22,11 @@ public class Connection {
         } else if (local.equals("azure")) {
             
             dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            dataSource.setUrl("jdbc:sqlserver://totemsystem.database.windows.net:1433;database=TotemSystem;user=svr-totemsystem@totemsystem;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30");
+            dataSource.setUrl("jdbc:sqlserver://totemsystem.database.windows.net"
+                    + ":1433;database=TotemSystem;user=svr-totemsystem@totemsystem;"
+                    + "password={your_password_here};encrypt=true;"
+                    + "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;"
+                    + "loginTimeout=30");
             dataSource.setUsername("svr-totemsystem");
             dataSource.setPassword("2ads#grupo9");
         }
