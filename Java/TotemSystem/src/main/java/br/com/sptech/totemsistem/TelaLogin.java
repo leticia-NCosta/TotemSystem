@@ -7,6 +7,7 @@ import java.lang.Thread;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
 
 /**
  *
@@ -155,6 +156,7 @@ public class TelaLogin extends javax.swing.JFrame {
         SalvarDados salvar = new SalvarDados();
         BancoDeDados banco = new BancoDeDados();
         Sistema sistema = new Sistema();
+        JSONObject json = new JSONObject();
 
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
         String email = inputEmail.getText();

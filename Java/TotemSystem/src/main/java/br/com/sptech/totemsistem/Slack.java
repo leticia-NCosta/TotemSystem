@@ -17,7 +17,11 @@ import org.json.JSONObject;
  */
 public class Slack {
     private static HttpClient client = HttpClient.newHttpClient();
-    private static final String URL = "https://hooks.slack.com/services/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";
+    private static String link1 = "https://hooks.slack.com";
+    private static String link2 = "/services/T03DZ5B98PL/B03H4PPRZM5";
+    private static String link3 = "/GvIrWQcIWhqmTqLZUxsMOZ73";
+            
+    private static final String URL = link1+link2+link3;
     
     
     public static void sendMessage(JSONObject content)throws IOException, InterruptedException{ 

@@ -33,8 +33,8 @@ public class BancoDeDados {
         String url = "Local inválido";
 
         if (local.equals("mysql")) {
-            return url = "jdbc:mysql://127.0.0.1:3306/totemsystem";
-            //return url = "jdbc:mysql://mysql-totem:3306/totemsystem";
+            return url = "jdbc:mysql://127.0.0.1:3306/totemsystem?useTimezone=true&serverTimezone=UTC";
+            //return url = "jdbc:mysql://mysql-totem:3306/totemsystem?useTimezone=true&serverTimezone=UTC";
         } else if (local.equals("azure")) {
             return url = "jdbc:sqlserver://totemsystem.database.windows.net:1433;"
                     + "database=TotemSystem;user=svr-totemsystem@totemsystem;"

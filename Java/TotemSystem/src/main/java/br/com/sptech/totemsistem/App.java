@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class App {
     public static void main(String[] args) throws IOException, InterruptedException {
         JSONObject json = new JSONObject();
-        json.put("text", "huk");
+        json.put("text", "Olá, mundo!");
         Slack.sendMessage(json);
         
         
