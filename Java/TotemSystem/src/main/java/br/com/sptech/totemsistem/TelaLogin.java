@@ -1,9 +1,12 @@
 package br.com.sptech.totemsistem;
 
+import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.lang.Thread;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -151,6 +154,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Scanner leitor = new Scanner(System.in);
         SalvarDados salvar = new SalvarDados();
         BancoDeDados banco = new BancoDeDados();
+        Sistema sistema = new Sistema();
 
         ValidacaoLogin validacaoBanco = new ValidacaoLogin();
         String email = inputEmail.getText();
@@ -163,11 +167,21 @@ public class TelaLogin extends javax.swing.JFrame {
             if (validacaoBanco.validarLogin(email, senha)) {
 
                 JOptionPane.showMessageDialog(rootPane, "Usuário logado com sucesso!!!");
+                try {
+                    sistema.logAcao("---> Usuário "+email+" acessou o totem");
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
                 try {
                     this.validacoesTotem();
                 } catch (Exception e) {
                     System.out.println(e);
+                    try {
+                        sistema.logErro("---> Erro na conexão com o banco");
+                    } catch (IOException ex) {
+                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             }
@@ -175,7 +189,12 @@ public class TelaLogin extends javax.swing.JFrame {
             //System.out.println(username);
             System.out.println("Dados incorretos!!!!!");
             JOptionPane.showMessageDialog(rootPane, "Email ou senha inválidos!");
-            //System.out.println(username + "test");
+            try {
+                sistema.logAcao("---> tentativa de login com email: "+email);
+                //System.out.println(username + "test");
+            } catch (IOException ex) {
+                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -230,7 +249,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void menu() {
+    public void menu() throws IOException {
 
         Sistema sistema = new Sistema();
         Scanner leitor = new Scanner(System.in);
@@ -258,26 +277,31 @@ public class TelaLogin extends javax.swing.JFrame {
                 case 1:
                     System.out.println("\nOpção escolhida: Informações do Totem\n");
                     info.getInfo();
+                    sistema.logAcao("---> Usuario visualizou informações do Totem");
                     System.out.println("\nFim.");
                     break;
                 case 2:
                     System.out.println("\nOpção escolhida: Mostrar processos do Totem.\n");
                     totem.processos();
+                    sistema.logAcao("---> Usuario visualizou processos do totem");
                     System.out.println("\nFim.");
                     break;
                 case 3:
                     System.out.println("\nOpção escolhida: Mostrar serviços em Execução.\n");
                     totem.servicos();
+                    sistema.logAcao("---> Usuario visualizou serviços do totem");
                     System.out.println("\nFim.");
                     break;
                 case 4:
                     System.out.println("\nOpção escolhida: Salvar dados estáticos.\n");
                     System.out.println("\nSalvando dados...");
                     salvar.salvarDadosEstaticos();
+                    sistema.logAcao("---> Usuario salvou dados estáticos do Totem");
                     System.out.println("\nFim.");
                     break;
                 case 5:
                     System.out.println("\nOpção escolhida: Salvar dados variáveis.");
+                    sistema.logAcao("---> Usuario salvou dados variáveis do Totem");
                     System.out.println("\nSalvando dados...");
 
                     try {
@@ -294,23 +318,26 @@ public class TelaLogin extends javax.swing.JFrame {
                     break;
                 case 6:
                     System.out.println("Saindo... até logo!");
+                    sistema.logAcao("---> Usuario deslogou do sistema");
                     break;
 
                 default:
                     System.out.println("\nOpção Inválida.\n");
+                    sistema.logAcao("---> Usuario digitou opção inválida");
                     break;
             }
 
         }
     }
 
-    public void validacoesTotem() throws SQLException, ClassNotFoundException {
+    public void validacoesTotem() throws SQLException, ClassNotFoundException, IOException {
 
         Usuario user = new Usuario();
         ValidacaoLogin validacao = new ValidacaoLogin();
         Scanner leitor = new Scanner(System.in);
         SalvarDados salvar = new SalvarDados();
         BancoDeDados banco = new BancoDeDados();
+        Sistema sistema = new Sistema();
 
         
         if (banco.existeHostname("azure") && banco.existeHostname("mysql")) {
@@ -319,18 +346,23 @@ public class TelaLogin extends javax.swing.JFrame {
 
         } else if(!banco.existeHostname("azure") || !banco.existeHostname("mysql")){
             System.out.println("\nERRO! Totem não cadastrado!");
+            sistema.logErro("---> Erro! Totem não cadastrado!");
             System.out.println("Deseja cadastrar este Totem minimamente? (S/N)");
             String resposta = leitor.nextLine();
             if (resposta.toLowerCase().equals("s")) {
+                sistema.logAcao("---> Cadastro de novo totem escolhido");
                 System.out.println("\nDigite o nome da estação onde deseja cadastrar o Totem:");
                 String estacao = leitor.nextLine();
 
                     salvar.salvarTotemTemporariamente(estacao);
+                    sistema.logAcao("---> Novo totem salvo na estação: "+estacao);
                     this.menu();
 
             } else if (resposta.equals("N")) {
+                sistema.logAcao("---> Usuario não cadastrou novo totem");
                 System.out.println("Fim do Programa!");
             } else {
+                sistema.logErro("---> Erro! Usuario digitou valor incorreto");
                 System.out.println("Valor incorreto");
             }
         }

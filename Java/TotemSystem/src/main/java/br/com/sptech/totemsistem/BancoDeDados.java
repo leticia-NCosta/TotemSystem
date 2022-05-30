@@ -1,5 +1,6 @@
 package br.com.sptech.totemsistem;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.sql.Connection;
@@ -13,6 +14,8 @@ import java.sql.SQLException;
  * @author TotemSystem
  */
 public class BancoDeDados {
+    
+    Sistema sistema = new Sistema();
     
     public String getDriver(String local) {
         
@@ -65,7 +68,7 @@ public class BancoDeDados {
         }
     }
 
-    public Integer getIdEstacao(String nomeEstacao, String local) throws SQLException, ClassNotFoundException {
+    public Integer getIdEstacao(String nomeEstacao, String local) throws SQLException, ClassNotFoundException, IOException {
         
         Class.forName(this.getDriver(local)); /* Aqui registra */
         Connection conexão = DriverManager.getConnection(this.getURL(local), this.getLogin(local), this.getSenha(local));
@@ -81,7 +84,7 @@ public class BancoDeDados {
                 id = Integer.valueOf(resultado.getString("id_estacao"));
             } catch (Exception e) {
                 System.out.println("ID está null");
-
+                sistema.logErro("---> ID da estação não encontrado");
             }
 
         }

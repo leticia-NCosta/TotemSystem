@@ -1,6 +1,7 @@
 package br.com.sptech.totemsistem;
 
 import com.github.britooo.looca.api.core.Looca;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -17,12 +18,13 @@ public class Info {
     
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
-    public void getInfo(){ 
+    public void getInfo() throws IOException{ 
         String hostname = "";
            try {
             hostname = InetAddress.getLocalHost().getHostName();
       } catch (UnknownHostException e) {
             e.printStackTrace();
+            sistema.logErro("---> Nome do Totem não detectado");
       }
            
 

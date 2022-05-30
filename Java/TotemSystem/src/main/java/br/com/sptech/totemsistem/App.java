@@ -18,8 +18,8 @@ public class App {
         Slack.sendMessage(json);
         
         
-        Logs log = new Logs();
-        log.gerarLog("Primeiro Log");
+        
+       
                 
     }
 }

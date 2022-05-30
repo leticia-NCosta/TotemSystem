@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.github.britooo.looca.api.core.Looca;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -15,12 +16,13 @@ public class SalvarDados {
     Connection configAZURE = new Connection("azure");
     Looca looca = new Looca();
     BancoDeDados banco = new BancoDeDados();
+    Sistema sistema = new Sistema();
 
     JdbcTemplate templateMYSQL = new JdbcTemplate(configMYSQL.getDataSource());
     JdbcTemplate templateAZURE = new JdbcTemplate(configAZURE.getDataSource());
     DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yy/MM/dd HH:mm:ss");
 
-    public void salvarDadosEstaticos() {
+    public void salvarDadosEstaticos() throws IOException {
 
         Totem totem = new Totem();
 
@@ -29,6 +31,7 @@ public class SalvarDados {
             hostname = InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             e.printStackTrace();
+            sistema.logErro("---> Nome do Totem não detectado!");
         }
 
         String nomeTabela = "tb_totem";
@@ -110,7 +113,7 @@ public class SalvarDados {
 
     }
 
-    public void salvarTotemTemporariamente(String estacao) throws SQLException, ClassNotFoundException {
+    public void salvarTotemTemporariamente(String estacao) throws SQLException, ClassNotFoundException, IOException {
         Totem totem = new Totem();
         Scanner leitor = new Scanner(System.in);
         if (!banco.existeHostname("azure")) {
