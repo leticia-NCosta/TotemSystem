@@ -30,7 +30,7 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
-Sprint 3: 31/05/2022
+Sprint 3: 07/06/2022
 
 ## Entregáveis Sprint 3:
 - [ ] Slide de Apresentação;
