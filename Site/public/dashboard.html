@@ -45,13 +45,89 @@
 
             </div>
             <div class="botoes_corpo1">
-                <button id="voltar">Voltar</button>
-                <button id="exluirTotem">Exculir Totem</button>
-                <button id="excluirEstação">Exculir Estação</button>  
+                <button id="voltar"> <a href="/public/user.html">Voltar</a></button>
+                <button id="excluirEstação">Excluir Estação</button>  
             </div>
-    
         </div>
 
+
+
+
+
+        <div id="pag2" class="corpo2">
+            <div class="sidebar2">
+    
+                <div class="titulo_sidebar2">
+                    <p>▽ Totem ▽</p>
+                </div>
+                <div id="corpo_sidebarID" class="corpo_sidebar2">
+                    <div id="alerta_atual" class="alertas2"></div>
+                </div>
+                <div class="botao_voltar">
+                    <button onclick="exportar()">CSV</button>
+                    <button> <a href="https://app.slack.com/client/T03DZ5B98PL/C03DSGCPH8E">Slack</a></button>
+                    <button onclick="irMapa()"> Ver Mapa</button>
+                    <button> <a href="https://app.pipefy.com/public/form/tMaaWuWJ">Contatar Suporte</a></button>
+                    <button>Excluir Totem</button>
+                    <button onclick="voltarDash()">Voltar</button>
+                </div>
+    
+            </div>
+            <div class="infos">
+                <div class="retangulo">
+                    <div class="box1">
+                        <div class="box_img">
+                            <div class="campo_img">
+                                <canvas id="chartMem"></canvas>
+                            </div>
+                        </div>
+                        <div class="box_txt">
+                            <div class="txt_titulo">Memória RAM</div>
+                            <div class="txt_corpo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <div class="box_img">
+                            <div class="campo_img">
+                                <canvas id="chartServicos"></canvas>
+                            </div>
+    
+                        </div>
+                        <div class="box_txt">
+                            <div class="txt_titulo">Serviços</div>
+                            <div class="txt_corpo"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="retangulo">
+                    <div class="box1">
+                        <div class="box_img">
+                            <div class="campo_img">
+                                <canvas id="chartCpu"></canvas>
+                            </div>
+    
+                        </div>
+                        <div class="box_txt">
+                            <div class="txt_titulo">Volumes</div>
+                            <div class="txt_corpo"></div>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <div class="box_img">
+                            <div class="campo_img">
+                                <canvas id="chartProcessos"></canvas>
+                            </div>
+    
+                        </div>
+                        <div class="box_txt">
+                            <div class="txt_titulo">Processos</div>
+                            <div class="txt_corpo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
     <script src="./js/dashboard_funcs.js"></script>
 </body>

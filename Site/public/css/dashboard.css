@@ -59,7 +59,7 @@ html{
 }
 
 
-.corpo, .corpo2{
+.corpo{
     
     background-color: #011222;
     width: 100vw;
@@ -93,15 +93,15 @@ html{
 }
 
 .corpo .corpo_sidebar button{
-   
-    background-color: #000000;
+
+    background-color: #273c5c;
     width: 15%;
     height: 30%;
     margin-left: 5%;
     font-size: 20px;
     color: white;
     border-radius: 10px;
-    border: 3px solid #273c5c;
+    border: 3px solid black;
    
 }
 
@@ -109,6 +109,7 @@ html{
 .corpo_sidebar button:hover{
 
     cursor: pointer;
+    background-color: black;
     border: 5px solid #273c5c;
   
 }
@@ -128,10 +129,10 @@ html{
 }
 
 .dash h1{
-    color: white;
     margin: 0;
     margin-left: 2%;
     margin-top: 2%;
+    color: white;
     font-family: 'Saira Semi Condensed', sans-serif;
 }
 
@@ -147,13 +148,13 @@ html{
 
 .dash .alertas .alerta{
 
-    background-color: black;
+    background-color: #273c5c;
     width: 12%;
     height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid #273c5c;
+    border: 3px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px 2px #000000;
 
@@ -163,8 +164,8 @@ html{
 .dash .alertas .alerta:hover{
 
     cursor: pointer;
+    background-color: black;
     border: 5px solid #273c5c;
-
 }
 
 
@@ -194,94 +195,124 @@ html{
     border: 5px solid #273c5c;
 }
 
+.botoes_corpo1 button a {
+    text-decoration:none;
+    color: white;
+}
+
 
 #pag2{
     display: none;
 }
 
+.corpo2{
+    
+    background-color: #011222;
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 
 .corpo2 .sidebar2{
 
-    height: 100%;
+    background-color: #011222;
     width: 20%;
-    background-color: #273c5c;
-    border-top: 3px solid white;
-    border-right: 3px solid white;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-top: 3px solid white;
 
 }
 .corpo2 .sidebar2 .corpo_sidebar2{
 
     width: 100%;
     height: 80%;
-    background-color: black;
+    background-color: #011222;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 3px solid white;
+
 
 }
 .corpo2 .sidebar2 .titulo_sidebar2{
 
     width: 100%;
     height: 10%;
-    background-color: #273c5c;
+    background-color: #011222;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 3px solid white;
 
 }
+
+#alerta_atual{
+    width: 60%;
+    height: 20%;
+    margin-top: 10%;
+    font-size: 20px;
+    color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
 .corpo2 .sidebar2 .botao_voltar{
 
+    background-color: #011222;
     width: 100%;
     height: 60%;
-    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    border-bottom: 3px solid #ffffff;
+
 
 }
 
 .corpo2 .sidebar2 button a{
 
-    height: 40%;
     width: 80%;
-    background-color: #808080;
+    height: 40%;
     font-size: 20px;
-    color: #ffffff;
     text-decoration: none;
+    color: #ffffff;
+
 }
 .corpo2 .sidebar2 button{
 
-    height: 40%;
+    background-color:#273c5c ;
     width: 80%;
-    background-color: #808080;
+    height: 40%;
     font-size: 20px;
     color: #ffffff;
+    border: 3px solid black;
+    border-radius: 10px;
 }
 .corpo2 .sidebar2 button:hover{
-    border: 3px #ffffff solid;
+
+    background-color: #000000;
     cursor: pointer;
+    border: 5px solid #273c5c;
+    
 }
 
 .titulo_sidebar2 p{
 
-    font-size: 25px;
     color: #ffffff;
+    font-size: 25px;
     
 
 
 }
 .corpo2 .infos{
 
-    height: 100%;
     width: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,19 +322,18 @@ html{
 }
 .corpo2 .infos .retangulo{
 
-    height: 50%;
+    background-color: #011222;
     width: 100%;
-    background-color: #273c5c;
+    height: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
 .corpo2 .infos .retangulo .box1{
-
-    height: 100%;
+    
     width: 50%;
-    border: 3px solid #ffffff;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -311,22 +341,21 @@ html{
 }
 .corpo2 .infos .retangulo .box2{
 
-    height: 100%;
     width: 50%;
-    border: 3px solid #ffffff;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .corpo2 .infos .retangulo .box_img{
 
-    height: 70%;
     width: 30%;
-    border: 3px solid #ffffff;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 3px solid rgba(255, 255, 255, 0.77);
 
 }
 .corpo2 .infos .retangulo .box_img{
@@ -349,79 +378,58 @@ html{
 }
 .corpo2 .infos .retangulo .box_img .suporte{
 
-    height: 30%;
     width: 100%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .corpo2 .infos .retangulo .box_img .suporte button{
-
-    height: 80%;
+    
+    background-color: #273c5c;
     width: 90%;
-    background-color: #808080;
+    height: 80%;
     font-size: 20px;
     color: #ffffff;
+    border: 3px solid black;
+    border-radius: 10px;
 
 }
 
 .corpo2 .infos .retangulo .box_txt{
 
-    height: 100%;
     width: 70%;
-    border: 3px solid #ffffff;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border: 3px solid rgba(255, 255, 255, 0.77);
 
 }
 .box_txt .txt_titulo{
-    height: 10%;
+    
     width: 100%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     color: #ffffff;
-    border-bottom: 3px solid white;
+    border: 3px solid rgba(255, 255, 255, 0.77);
 }
 .corpo_sidebar2 .alertas2{
 
-    height: 30%;
     width: 100%;
-    background-color: black;
-    border-bottom: 3px solid white;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-#alerta_atual{
-
-    font-size: 50px;
-    color: white;
-
-}
-.botoes a{
-    text-decoration: none;
-    color:#ffffff;
+    border-bottom: 3px solid wite;
+   
+    
 }
 
-.botoes{
-    /* height: 15%; */
-    background-color: #011222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    color: #ffffff;
-    padding: 20px 20px;
-    margin-left: 10px;
-}
 
-.botoes:hover{
-    background-color: #ffffff;
-    color: #273c5c;
-}
+
