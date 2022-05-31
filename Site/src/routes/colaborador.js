@@ -3,7 +3,7 @@ var router = express.Router();
 
 var colaboradorController = require("../controllers/colaboradorController")
 
-router.post("/cadastrarColaborador", function(req, res){
+router.post("/cadastrarColaborador/:fkEmpresa", function(req, res){
     colaboradorController.cadastrarColaborador(req,res);
   })
   

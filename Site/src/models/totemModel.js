@@ -19,9 +19,9 @@ function cadastrarTotem(hostname, dataImplementacao, modelo, marca, dataFabricac
   
   
   
-  function deletarTotem(idTotem){
+  function deletarTotem(hostname){
     var instrucao = `
-      DELETE FROM tb_totem WHERE ID_TOTEM = ${idTotem} 
+      DELETE FROM tb_totem WHERE hostname = ${hostname} 
     `;
   
     return database.executar(instrucao)

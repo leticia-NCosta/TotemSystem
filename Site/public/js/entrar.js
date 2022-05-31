@@ -51,23 +51,6 @@ function entrar(){
         return false;
     }
 
-    fetch("/usuarios/listar", {
-        method: "GET"
-    }).then(
-        function (resposta) {
-            if(resposta.status == 200){
-                resposta.json().then(json =>{
-                
-                    sessionStorage.RAZAO_SOCIAL = json.razao_social;
-                    sessionStorage.RUA_EMPRESA = json.rua_empresa;
-                    sessionStorage.NUMERO_EMPRESA = json.numero_empresa;
-                    sessionStorage.COMPLEMENTO_EMPRESA = json.complemento_empresa;
-                    sessionStorage.TELEFONE_EMPRESA = json.telefone_empresa;
-                })
-            }
-        }
-    )
-
     fetch("/usuarios/autenticar", {
         method: "POST",
         headers: {
@@ -91,6 +74,11 @@ function entrar(){
                 sessionStorage.EMAIL_EMPRESA = json.email_empresa;
                 sessionStorage.CNPJ = json.cnpj;
                 sessionStorage.ID_EMPRESA = json.id_empresa;
+                sessionStorage.RAZAO_SOCIAL = json.razao_social;
+                sessionStorage.RUA_EMPRESA = json.rua_empresa;
+                sessionStorage.NUMERO_EMPRESA = json.numero_empresa;
+                sessionStorage.COMPLEMENTO_EMPRESA = json.complemento_empresa;
+                sessionStorage.TELEFONE_EMPRESA = json.telefone_empresa;
 
                 
                 localStorage.setItem('EMAIL_EMPRESA',json.email_empresa)

@@ -16,11 +16,11 @@ router.post("/cadastrar", function (req, res) {
   empresaController.cadastrar(req, res);
 })
 
-router.put("/atualizar/:email", function(req, res) {
+router.put("/atualizar/:id", function(req, res) {
   empresaController.atualizar(req, res);
 })
 
-router.delete("/deletar/:email" ,function(req, res){
+router.delete("/deletar/:id" ,function(req, res){
   empresaController.deletar(req, res);
 })
 

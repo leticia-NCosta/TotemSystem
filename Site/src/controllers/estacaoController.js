@@ -72,6 +72,7 @@ function cadastrarEstacao(req, res) {
   var bairro = req.body.bairroServer;
   var latitudeEstacao = req.body.latitudeServer;
   var longitudeEstacao = req.body.longitudeServer;
+  var fkEmpresa = req.params.fkEmpresa;
 
 
   if (nome == undefined) {
@@ -86,7 +87,7 @@ function cadastrarEstacao(req, res) {
     res.status(400).send("Seu longitude está undefinied")
   }
 
-  estacaoModel.cadastrarEstacao(nome, linha, bairro, latitudeEstacao, longitudeEstacao)
+  estacaoModel.cadastrarEstacao(fkEmpresa, nome, linha, bairro, latitudeEstacao, longitudeEstacao)
     .then(
       function (resultado) {
         res.json(resultado);

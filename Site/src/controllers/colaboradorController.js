@@ -8,6 +8,7 @@ var colaboradorModel = require("../models/colaboradorModel");
         var telefone = req.body.telefoneServer;
         var email = req.body.emailServer;
         var senha = req.body.senhaServer;
+        var fkEmpresa = req.params.fkEmpresa
   
         if (nome == undefined) {
           res.status(400).send("Seu nome está undefined!");
@@ -23,7 +24,7 @@ var colaboradorModel = require("../models/colaboradorModel");
         res.status(400).send("Sua senha está undefinied")
       }
           
-          colaboradorModel.cadastrarColaborador(nome, cpf, cargo, telefone, email, senha)
+          colaboradorModel.cadastrarColaborador(fkEmpresa, nome, cpf, cargo, telefone, email, senha)
               .then(
                   function (resultado) {
                       res.json(resultado);

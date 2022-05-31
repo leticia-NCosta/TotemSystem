@@ -1,16 +1,15 @@
 var database = require("../database/config");
 
 
-function cadastrarColaborador(nome, cpf, cargo, senha, telefone, email){
+function cadastrarColaborador(fkEmpresa, nome, cpf, cargo, senha, telefone, email){
     var instrucao = `
-      INSERT INTO tb_usuario (fk_empresa, nome, cpf, cargo, senha, telefone, email) VALUES (null, '${nome}', '${cpf}', '${cargo}', '${senha}', '${telefone}', '${email}')
+      INSERT INTO tb_usuario (fk_empresa, nome, cpf, cargo, senha, telefone, email) VALUES (${fkEmpresa}, '${nome}', '${cpf}', '${cargo}', '${senha}', '${telefone}', '${email}')
     `;
   
     return database.executar(instrucao)
   }
   
   function atualizarColaborador(nome, cpf, cargo, senha, telefone, email){
-    // VER SE PRECISA DA FK
     var instrucao = `
       UPDATE tb_usuario  SET nome = '${nome}', cpf = '${cpf}', cargo = '${cargo}', senha = '${senha}', telefone = '${telefone}', email = '${email}' WHERE CPF = '${cpf}')
     `;

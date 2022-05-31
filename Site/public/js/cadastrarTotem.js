@@ -5,6 +5,7 @@ function cadastrarTotem(){
     var modelo = input_modelo.value;
     var dataImplementacao = input_data_implementacao.value;
     var dataFabricacao = input_data_fabricacao.value;
+    var estacao = input_estacao.value;
     
 
 

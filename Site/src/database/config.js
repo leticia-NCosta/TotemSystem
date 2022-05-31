@@ -17,13 +17,13 @@ var sqlServerConfig = {
     },
 };
 
-var mySqlConfig = {
-    host: "localhost",
-     user: "aluno",
-     password: "sptech",
-     database: "totemsystem",
-     port: "3306",
-};
+// var mySqlConfig = {
+//     host: "localhost",
+//      user: "aluno",
+//      password: "sptech",
+//      database: "totemsystem",
+//      port: "3306",
+// };
 
 
 function executar(instrucao) {

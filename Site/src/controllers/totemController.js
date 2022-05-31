@@ -67,9 +67,9 @@ function atualizarTotem(req, res) {
 }
 
 function deletarTotem(req, res) {
-  var idTotem = req.params.idTotem;
+  var hostname = req.params.hostname;
   totemModel
-    .deletarTotem(idTotem)
+    .deletarTotem(hostname)
     .then(function (resultado) {
       res.json(resultado);
     })

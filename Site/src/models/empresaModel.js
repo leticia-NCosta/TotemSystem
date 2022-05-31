@@ -28,18 +28,19 @@ function entrar(email, senha) {
   return database.executar(instrucao);
 }
 
-function atualizar(email, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmpresa, telefoneEmpresa){
+function atualizar(id, razaoSocial, ruaEmpresa, numeroEmpresa, complementoEmpresa, telefoneEmpresa){
   var instrucao = `
     UPDATE tb_empresa 
     SET razao_social = '${razaoSocial}', rua_empresa = '${ruaEmpresa}', numero_empresa = '${numeroEmpresa}', complemento_empresa = '${complementoEmpresa}', telefone_empresa = '${telefoneEmpresa}'
-    WHERE email_empresa = '${email}';
+    WHERE id_empresa = ${id};
   `;
   return database.executar(instrucao);
 }
 
-function deletar(email){
+function deletar(id){
+  
   var instrucao = `
-    DELETE FROM tb_empresa WHERE email_empresa = ${email}
+    DELETE FROM tb_empresa WHERE id_empresa = ${id}
   `
   return database.executar(instrucao)
 }

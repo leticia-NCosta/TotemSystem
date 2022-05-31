@@ -13,7 +13,7 @@ router.post("/cadastrarTotem", function(req, res){
     totemController.atualizarTotem(req, res);
   })
   
-  router.delete("/deletarTotem/:idTotem", function(req, res) {
+  router.delete("/deletarTotem/:hostname", function(req, res) {
     totemController.deletarTotem(req, res);
   })
 

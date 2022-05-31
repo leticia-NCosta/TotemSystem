@@ -1,14 +1,15 @@
-function cadastrarEstacao(){
+function cadastrarEstacao(fkEmpresa){
         
     var nome = input_nome_estacao.value;
     var linha = input_linha.value;
     var bairro = input_bairro.value;
     var latitude = input_latitude.value;
     var longitude = input_longitude.value;
-    console.log(nome, linha, bairro, longitude, latitude)
+    fkEmpresa = sessionStorage.getItem("ID_EMPRESA")
+    console.log(fkEmpresa, nome, linha, bairro, longitude, latitude)
 
 
-    fetch("estacoes/cadastrarEstacao", {
+    fetch(`estacoes/cadastrarEstacao/${fkEmpresa}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

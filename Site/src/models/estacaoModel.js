@@ -1,20 +1,20 @@
 var database = require("../database/config");
 
 function dadosTotensMem(hostname) {
-  return database.executar(`SELECT memoria_uso, memoria_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc limit 1`);
+  return database.executar(`SELECT memoria_uso, memoria_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function dadosTotensVol(hostname) {
-  return database.executar(`SELECT volume_em_uso, volume_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc limit 1`);
+  return database.executar(`SELECT volume_em_uso, volume_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function dadosTotensServicos(hostname) {
-  return database.executar(`SELECT total_servicos_ativos, total_servicos_inativos from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc limit 1`);
+  return database.executar(`SELECT total_servicos_ativos, total_servicos_inativos from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 
 function dadosTotensProcessos(hostname) {
-  return database.executar(`SELECT total_processos, data_atual from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc limit 5`);
+  return database.executar(`SELECT total_processos, data_atual from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function totensPorEmpresa(idEmpresa, nomeEstacao) {
@@ -26,9 +26,9 @@ function estacoesPorEmpresa(idEmpresa) {
 }
 
 
-function cadastrarEstacao(nome, linha, bairro, latitude, longitude){
+function cadastrarEstacao(fkEmpresa, nome, linha, bairro, latitude, longitude){
   var instrucao = `
-    INSERT INTO tb_estacao (nome_estacao, linha_estacao, bairro_estacao, latitude_estacao, longitude_estacao) VALUES ('${nome}', '${linha}', '${bairro}', '${latitude}', '${longitude}')
+    INSERT INTO tb_estacao (fk_empresa, nome_estacao, linha_estacao, bairro_estacao, latitude_estacao, longitude_estacao) VALUES (${fkEmpresa},'${nome}', '${linha}', '${bairro}', '${latitude}', '${longitude}')
   `;
 
   return database.executar(instrucao)

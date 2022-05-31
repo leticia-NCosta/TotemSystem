@@ -6,29 +6,27 @@ function atualizarCadastro(){
     atualizar(email)
 }
 
-function atualizar(email){
-    console.log(email)
+function atualizar(id){
     var razaoSocial = input_razao_social.value;
     var rua = input_rua.value;
     var numero = input_numero.value;
     var complemento = input_complemento.value;
     var telefone = input_telefone.value;
-
-  
-    fetch(`/usuarios/atualizar/${email}`, {
+    
+    id = sessionStorage.getItem("ID_EMPRESA")
+    console.log(id)
+    
+    fetch(`/usuarios/atualizar/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            emailServer: email,
             razaoSocialServer: razaoSocial,
             ruaServer: rua,
             numeroServer: numero,
             complementoServer: complemento,
             telefoneServer: telefone,
-
-            
         })
 
     }).then(function (resposta) {

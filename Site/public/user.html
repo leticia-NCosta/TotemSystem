@@ -176,24 +176,53 @@
 <script>
 
     const cnpj = sessionStorage.getItem("CNPJ")
-    bd_cnpj.innerHTML = cnpj
+    if(cnpj == "null"){
+        bd_cnpj.innerHTML = " "
+    }else{
+        bd_cnpj.innerHTML = cnpj
+    }
+    
 
     const razao = sessionStorage.getItem("RAZAO_SOCIAL")
-    bd_razao.innerHTML = razao
+    if(razao == "null"){
+        bd_razao.innerHTML = " "
+    }else{
+        bd_razao.innerHTML = razao
+    }
 
     const numero = sessionStorage.getItem("NUMERO_EMPRESA")
-    bd_numero.innerHTML = numero 
+    if(numero == "null"){
+        bd_numero.innerHTML = " "
+    }else{
+        bd_numero.innerHTML = numero 
+    }
 
     const rua = sessionStorage.getItem("RUA_EMPRESA")
-    bd_rua.innerHTML = rua
+    if(rua == "null"){
+        bd_rua.innerHTML = " "
+    }else{
+        bd_rua.innerHTML = rua
+    }
 
     const comple = sessionStorage.getItem("COMPLEMENTO_EMPRESA")
-    bd_comp.innerHTML = comple
+    if(comple == "null"){
+        bd_comp.innerHTML = " "
+    }else{
+        bd_comp.innerHTML = comple
+    }
 
     const email = sessionStorage.getItem("EMAIL_EMPRESA")
-    bd_email.innerHTML = email
+    if(email == "null"){
+        bd_email.innerHTML = ""    
+    } else{
+        bd_email.innerHTML = email
+    }
 
     const tel = sessionStorage.getItem("TELEFONE_EMPRESA")
-    bd_tel.innerHTML = tel
+    if(tel == "null"){
+        bd_tel.innerHTML = " "
+    } else {
+        bd_tel.innerHTML = tel
+    }
 
 </script>

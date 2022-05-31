@@ -1,11 +1,11 @@
-function deletarEmpresa(email) {
+function deletarEmpresa(id) {
 
-    fetch(".usuarios/deletar/" + email, {
+    id = sessionStorage.getItem("ID_EMPRESA")
+    console.log(id)
+    fetch(`/usuarios/deletar/${id}`, {
         method: "DELETE"
     }).then(function (resposta) {
-        resposta.json().then(json =>{
             alert("Empresa removida com sucesso")
+            console.log(resposta)
         })
-    })
-    
 }

@@ -1,4 +1,4 @@
-function cadastrarColaborador(){
+function cadastrarColaborador(fkEmpresa){
         
     var nome = input_nome.value;
     var cpf = input_cpf.value;
@@ -6,10 +6,12 @@ function cadastrarColaborador(){
     var telefone = input_telefone_colaborador.value;
     var email = input_email.value;
     var senha = input_senha.value;
+    fkEmpresa = sessionStorage.getItem("ID_EMPRESA")
 
-    console.log(nome, cpf, cargo, telefone, email, senha)
 
-    fetch("/colaborador/cadastrarColaborador", {
+    console.log(fkEmpresa, nome, cpf, cargo, telefone, email, senha)
+
+    fetch(`/colaborador/cadastrarColaborador/${fkEmpresa}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

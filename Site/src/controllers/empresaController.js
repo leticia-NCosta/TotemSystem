@@ -95,7 +95,7 @@ function atualizar(req, res) {
   var numeroEmpresa = req.body.numeroServer;
   var complementoEmpresa = req.body.complementoServer;
   var telefoneEmpresa = req.body.telefoneServer;
-  var email = req.params.emailServer;
+  var id = req.params.id;
 
   if (razaoSocial == "") {
     res.status(400).send("Razao social não está definida!");
@@ -110,7 +110,7 @@ function atualizar(req, res) {
   } else {
     empresaModel
       .atualizar(
-        email,
+        id,
         razaoSocial,
         ruaEmpresa,
         numeroEmpresa,
@@ -119,6 +119,7 @@ function atualizar(req, res) {
       )
       .then(function (resultado) {
         res.status(200).json(req.body);
+        res.json(resultado);
       })
       .catch(function (erro) {
         console.log(erro);
@@ -132,7 +133,7 @@ function atualizar(req, res) {
 }
 
 function deletar(req, res){
-  empresaModel.deletar(req.params.email)
+  empresaModel.deletar(req.params.id)
   .then(
     function (resultado){
       res.json(resultado);
