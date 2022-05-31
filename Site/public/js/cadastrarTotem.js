@@ -17,6 +17,7 @@ function cadastrarTotem(){
             hostnameServer: hostname, 
             marcaServer: marca,
             modeloServer: modelo,
+            estacaoServer: estacao,
             dataImplementacaoServer: dataImplementacao,
             dataFabricacaoServer: dataFabricacao
         })

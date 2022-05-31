@@ -18,9 +18,8 @@ function cadastrarTotem(req, res) {
   } else if (hostname == undefined) {
     res.status(400).send("Seu hostname está undefinied");
   }
-
   totemModel
-    .cadastrarTotem(hostname, modelo, marca, dataImplementacao, dataFabricacao)
+    .cadastrarTotem(hostname, modelo, marca,dataImplementacao, dataFabricacao)
     .then(function (resultado) {
       res.json(resultado);
     })
@@ -53,7 +52,7 @@ function atualizarTotem(req, res) {
   }
 
   totemModel
-    .atualizarTotem(idTotem, modelo, marca, dataImplementacao, dataFabricacao)
+    .atualizarTotem(idTotem, modelo, marca,dataImplementacao, dataFabricacao)
     .then(function (resultado) {
       res.json(resultado);
     })
