@@ -115,7 +115,7 @@ public class Totem {
         return hostname;
     }
 
-    public void setHostname() {
+    private void setHostname() {
 
         this.hostname = "";
         try {
@@ -130,7 +130,7 @@ public class Totem {
         return dataAtual;
     }
 
-    public void setDataAtual() {
+    private void setDataAtual() {
         DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd/MM/yy - HH:mm:ss");
         this.dataAtual = dtf2.format(LocalDateTime.now());
     }
@@ -139,7 +139,7 @@ public class Totem {
         return sistemaOperacional;
     }
 
-    public void setSistemaOperacional() {
+    private void setSistemaOperacional() {
         this.sistemaOperacional = looca.getSistema().getSistemaOperacional();
     }
 
@@ -147,7 +147,7 @@ public class Totem {
         return fabricanteSistema;
     }
 
-    public void setFabricanteSistema() {
+    private void setFabricanteSistema() {
         this.fabricanteSistema = looca.getSistema().getFabricante();
     }
 
@@ -155,7 +155,7 @@ public class Totem {
         return arquitetura;
     }
 
-    public void setArquitetura() {
+    private void setArquitetura() {
         this.arquitetura = looca.getSistema().getArquitetura();
     }
 
@@ -163,7 +163,7 @@ public class Totem {
         return inicializadoEm;
     }
 
-    public void setInicializadoEm() {
+    private void setInicializadoEm() {
         this.inicializadoEm = String.valueOf(looca.getSistema().getInicializado());
     }
 
@@ -171,7 +171,7 @@ public class Totem {
         return permissoes;
     }
 
-    public void setPermissoes() {
+    private void setPermissoes() {
         this.permissoes = String.valueOf(looca.getSistema().getPermissao());
     }
 
@@ -179,7 +179,7 @@ public class Totem {
         return marca;
     }
 
-    public void setMarca() {
+    private void setMarca() {
         this.marca = looca.getProcessador().getNome();
     }
 
@@ -187,7 +187,7 @@ public class Totem {
         return fabricanteProcessador;
     }
 
-    public void setFabricanteProcessador() {
+    private void setFabricanteProcessador() {
         this.fabricanteProcessador = looca.getProcessador().getFabricante();
     }
 
@@ -195,7 +195,7 @@ public class Totem {
         return microArquitetura;
     }
 
-    public void setMicroArquitetura() {
+    private void setMicroArquitetura() {
         this.microArquitetura = looca.getProcessador().getMicroarquitetura();
     }
 
@@ -203,7 +203,7 @@ public class Totem {
         return cpusFisicas;
     }
 
-    public void setCpusFisicas() {
+    private void setCpusFisicas() {
         this.cpusFisicas = looca.getProcessador().getNumeroCpusFisicas();
     }
 
@@ -211,7 +211,7 @@ public class Totem {
         return cpusLogicas;
     }
 
-    public void setCpusLogicas() {
+    private void setCpusLogicas() {
         this.cpusLogicas = looca.getProcessador().getNumeroCpusLogicas();
     }
 
@@ -219,7 +219,7 @@ public class Totem {
         return pacotesFisicos;
     }
 
-    public void setPacotesFisicos() {
+    private void setPacotesFisicos() {
         this.pacotesFisicos = looca.getProcessador().getNumeroPacotesFisicos();
     }
 
@@ -227,7 +227,7 @@ public class Totem {
         return frequencia;
     }
 
-    public void setFrequencia() {
+    private void setFrequencia() {
         this.frequencia = looca.getProcessador().getFrequencia();
     }
 
@@ -235,7 +235,7 @@ public class Totem {
         return volumeTotal;
     }
 
-    public void setVolumeTotal(Long discoTotal) {
+    private void setVolumeTotal(Long discoTotal) {
         this.volumeTotal = discoTotal;
     }
 
@@ -243,7 +243,7 @@ public class Totem {
         return volumeDisponivel;
     }
 
-    public void setVolumeDisponivel(Long discoEmUso) {
+    private void setVolumeDisponivel(Long discoEmUso) {
         this.volumeDisponivel = discoEmUso;
     }
 
@@ -251,7 +251,7 @@ public class Totem {
         return volumeEmUso;
     }
 
-    public void setVolumeEmUso() {
+    private void setVolumeEmUso() {
         this.volumeEmUso = this.getVolumeTotal() - this.getVolumeDisponivel();
     }
     
@@ -260,7 +260,7 @@ public class Totem {
         return memoriaEmUso;
     }
 
-    public void setMemoriaEmUso() {
+    private void setMemoriaEmUso() {
         this.memoriaEmUso = looca.getMemoria().getEmUso();
     }
 
@@ -268,7 +268,7 @@ public class Totem {
         return memoriaDisponivel;
     }
 
-    public void setMemoriaDisponivel() {
+    private void setMemoriaDisponivel() {
         this.memoriaDisponivel = looca.getMemoria().getDisponivel();
     }
 
@@ -276,7 +276,7 @@ public class Totem {
         return totalProcessos;
     }
 
-    public void setTotalProcessos() {
+    private void setTotalProcessos() {
         this.totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
     }
 
@@ -284,7 +284,7 @@ public class Totem {
         return totalThreads;
     }
 
-    public void setTotalThreads() {
+    private void setTotalThreads() {
         this.totalThreads = looca.getGrupoDeProcessos().getTotalThreads();
     }
 
@@ -292,7 +292,7 @@ public class Totem {
         return totalDeServicos;
     }
 
-    public void setTotalDeServicos() {
+    private void setTotalDeServicos() {
         this.totalDeServicos = looca.getGrupoDeServicos().getTotalDeServicos();
     }
 
@@ -300,7 +300,7 @@ public class Totem {
         return totalServicosAtivos;
     }
 
-    public void setTotalServicosAtivos() {
+    private void setTotalServicosAtivos() {
         this.totalServicosAtivos = looca.getGrupoDeServicos().getTotalServicosAtivos();
     }
 
@@ -308,7 +308,7 @@ public class Totem {
         return totalServicosInativos;
     }
 
-    public void setTotalServicosInativos() {
+    private void setTotalServicosInativos() {
         this.totalServicosInativos = looca.getGrupoDeServicos().getTotalServicosInativos();
     }
     
@@ -318,7 +318,7 @@ public class Totem {
         return temperatura;
     }
 
-    public void setTemperatura() {
+    private void setTemperatura() {
         //this.temperatura = looca.getTemperatura().getTemperatura();
     }
 

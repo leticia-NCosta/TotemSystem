@@ -32,12 +32,19 @@ public class Teste {
         BancoDeDados banco = new BancoDeDados();
         SalvarDados salvar = new SalvarDados();
         Looca looca = new Looca();
+        Flags flag = new Flags();
+        
+        Totem totem = new Totem();
 
         //System.out.println(banco.getFkEstacao());
         //salvar.salvarDadosVariaveis();
 
-        sistema.logErro("Erro teste");
-        sistema.logAcao("outr teste");
 
+        
+        System.out.println("Flag de Volume: "+flag.getFlagVolume(totem));
+        System.out.println("Flag de Processos: "+flag.getFlagProcessos(totem));
+        System.out.println("Flag de Serviços: "+flag.getFlagServicos(totem));
+        System.out.println("Flag de Ram: "+flag.getFlagRam(totem));
+        
     }
 }
