@@ -43,14 +43,14 @@ Sprint 3: 31/05/2022
 - [ ] 3 CRUDS;
 - [ ] Slack com alertas;
 - [x] Abertura de Chamado;
-- [ ] Geração de Logs;
+- [x] Geração de Logs;
 - [x] Responsividade Obrigatória;
 - [x] Usabilidade;
 - [ ] Inovação útil;
 - [ ] Documentação Completa;
 - [ ] Alertas alinhados ao negócio;
 - [ ] Inovação completa com PPT de "Deep Dive";
-- [ ] Diagrama de Classe;
+- [x] Diagrama de Classe;
 - [ ] Aplicação provisória na Nuvem;
 - [x] Docker;
 - [x] Assistente de Instalação do Cliente;
