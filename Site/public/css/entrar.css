@@ -101,6 +101,7 @@
 }
 .modal-entrar button:hover{
     cursor: pointer;
+    border: 3px solid #ffffff;
 }
 
 .modal-entrar .cadastro {
