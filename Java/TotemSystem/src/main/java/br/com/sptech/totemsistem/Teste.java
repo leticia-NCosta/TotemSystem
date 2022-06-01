@@ -13,6 +13,7 @@ import java.util.List;
 import java.net.UnknownHostException;
 import java.net.InetAddress;
 import java.net.SocketException;
+import org.json.JSONObject;
 
 /**
  *
@@ -20,7 +21,11 @@ import java.net.SocketException;
  */
 public class Teste {
 
-    public static void main(String[] args) throws SQLException, SocketException, ClassNotFoundException, IOException {
+    public static void main(String[] args) throws SQLException, SocketException, ClassNotFoundException, IOException, InterruptedException {
+
+        //JSONObject json = new JSONObject();
+        //json.put("text", "Testando...⚠✅🚨");
+        //Slack.sendMessage(json);
 
         String hostname = "";
         try {
@@ -34,17 +39,14 @@ public class Teste {
         Looca looca = new Looca();
         Flags flag = new Flags();
         
+
         Totem totem = new Totem();
-
-        //System.out.println(banco.getFkEstacao());
-        //salvar.salvarDadosVariaveis();
-
-
         
-        System.out.println("Flag de Volume: "+flag.getFlagVolume(totem));
-        System.out.println("Flag de Processos: "+flag.getFlagProcessos(totem));
-        System.out.println("Flag de Serviços: "+flag.getFlagServicos(totem));
-        System.out.println("Flag de Ram: "+flag.getFlagRam(totem));
         
+        salvar.salvarDadosVariaveis();
+        
+
+
+
     }
 }
