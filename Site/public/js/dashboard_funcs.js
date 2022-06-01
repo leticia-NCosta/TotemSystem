@@ -199,13 +199,14 @@ function criarChartMem(respostaJson) {
     const chartPie = new Chart(canvasMem, {
         type: 'pie',
         data: {
-            labels: ['em uso', 'livre'],
+            labels: ['em uso','livre' , 'Amarelo'],
             datasets: [{
                 label: '# lbl',
                 data: [respostaJson.memoria_uso, respostaJson.memoria_disponivel],
                 backgroundColor: [
                     'rgba(166, 15, 15)',
-                    'rgba(40, 119, 11)'
+                    'rgb(58, 185, 4)',
+                    'rgba(255, 234, 2, 0.921)'
                 ],
                 borderColor: [
                     'rgba(0, 0, 0, 1)',
@@ -231,13 +232,14 @@ function criarChartVol(respostaJson) {
     const chartPie = new Chart(canvasCpu, {
         type: 'pie',
         data: {
-            labels: ['em uso', 'livre'],
+            labels: ['em uso','livre', 'Amarelo'],
             datasets: [{
                 label: '# lbl',
                 data: [respostaJson.volume_em_uso, respostaJson.volume_disponivel],
                 backgroundColor: [
                     'rgba(166, 15, 15)',
-                    'rgba(40, 119, 11)'
+                    'rgb(58, 185, 4)',
+                    'rgba(255, 234, 2, 0.921)'
                 ],
                 borderColor: [
                     'rgba(0, 0, 0, 1)',
@@ -263,13 +265,14 @@ function criarChartServicos(respostaJson) {
     const chartPie = new Chart(canvaServico, {
         type: 'pie',
         data: {
-            labels: ['ativo', 'inativo'],
+            labels: ['ativo','inativo', 'Amarelo'],
             datasets: [{
                 label: '# lbl',
                 data: [respostaJson.total_servicos_ativos, respostaJson.total_servicos_inativos],
                 backgroundColor: [
                     'rgba(166, 15, 15)',
-                    'rgba(40, 119, 11)'
+                    'rgb(58, 185, 4)',
+                    'rgba(255, 234, 2, 0.921)'
                 ],
                 borderColor: [
                     'rgba(0, 0, 0, 1)',
@@ -305,7 +308,7 @@ function criarChartProcessos(respostaJson) {
                 label: 'Processos',
                 data: processos,
                 fill: false,
-                borderColor: 'rgba(255, 0, 0, 1)',
+                borderColor: 'rgba(166, 15, 15)',
                 tension: 0.1
             }],
             options: {
@@ -500,11 +503,6 @@ function graficoBar() {// Cria o gráfico de barra
     });
 }
 
-function irMapa() {
-
-    window.location = 'mapa.html'
-
-}
 
 
 function aparecerModal(){
