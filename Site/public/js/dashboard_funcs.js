@@ -65,7 +65,7 @@ function criarBotoes() {
 
                     var corpo_sibebar = document.getElementById('corpo_sidebarID')
                     var botao = document.createElement('button')
-                    botao.setAttribute('id', `${i}`)
+                    botao.setAttribute('id', `estacao_${json[i].id_estacao}`)
                     botao.setAttribute('class', 'botoes_sidebar')
                     botao.innerHTML = lista_regioes[i]
                     corpo_sibebar.appendChild(botao)
@@ -75,7 +75,8 @@ function criarBotoes() {
                     }
                     botao.onclick = (teste) => {
                         criarBotaoToten(teste.target.innerHTML)
-
+                        console.log("teste", teste.target.id.split("_").at(-1))
+                        sessionStorage.ID_ESTACAO = teste.target.id.split("_").at(-1)
                         var nome_titulo = document.getElementById("nome_titulo")
                         nome_titulo.innerHTML = event.target.innerHTML
 
@@ -125,6 +126,7 @@ function criarAlertas(totens) {
         alerta.setAttribute('style', 'color: white; font-size: 20px')
         alerta.setAttribute('id', `${regiao}`)
         alerta.onclick = () => {
+            sessionStorage.HOSTNAME = totens[i].hostname
             carregarDadosToten(alerta.innerHTML);
         }
 

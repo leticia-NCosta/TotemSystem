@@ -22,7 +22,16 @@ function totensPorEmpresa(idEmpresa, nomeEstacao) {
 }
 
 function estacoesPorEmpresa(idEmpresa) {
-  return database.executar(`select te.nome_estacao, COUNT(tt.hostname) as quantidade_totens from tb_estacao te left join tb_totem tt on te.id_estacao = tt.fk_estacao where te.fk_empresa = ${idEmpresa} GROUP by te.nome_estacao`)
+  return database.executar(`
+  select te.nome_estacao, te.id_estacao, te.fk_empresa, COUNT(tt.hostname) as quantidade_totens from tb_estacao te 
+  left join tb_totem tt on te.id_estacao = tt.fk_estacao
+  where te.fk_empresa = ${idEmpresa} GROUP by te.nome_estacao, te.fk_empresa, te.id_estacao`)
+}
+
+function estacoesPorEmpresaBatata(idEmpresa) {
+  return database.executar(`select * from tb_estacao 
+  JOIN tb_empresa ON tb_empresa.id_empresa = tb_estacao.fk_empresa
+  WHERE tb_empresa.id_empresa = ${idEmpresa}`)
 }
 
 
@@ -35,7 +44,7 @@ function cadastrarEstacao(fkEmpresa, nome, linha, bairro, latitude, longitude){
 }
 
 
-module.exports = { dadosTotensMem, dadosTotensVol, dadosTotensServicos, dadosTotensProcessos, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao }
+module.exports = { dadosTotensMem, dadosTotensVol, dadosTotensServicos, dadosTotensProcessos, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao, estacoesPorEmpresaBatata }
 
 
 

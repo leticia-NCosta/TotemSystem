@@ -5,7 +5,7 @@ function cadastrarTotem(){
     var modelo = input_modelo.value;
     var dataImplementacao = input_data_implementacao.value;
     var dataFabricacao = input_data_fabricacao.value;
-    var estacao = input_estacao.value;
+    var nomeEstacao = input_estacao.value;
     
 
 
@@ -18,7 +18,7 @@ function cadastrarTotem(){
             hostnameServer: hostname, 
             marcaServer: marca,
             modeloServer: modelo,
-            estacaoServer: estacao,
+            nomeEstacaoServer: nomeEstacao,
             dataImplementacaoServer: dataImplementacao,
             dataFabricacaoServer: dataFabricacao
         })

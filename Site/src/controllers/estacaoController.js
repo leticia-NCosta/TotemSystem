@@ -64,6 +64,23 @@ function estacoesPorEmpresa(req, res) {
   });
 }
 
+function estacoesPorEmpresaBatata(req, res) {
+  estacaoModel.estacoesPorEmpresaBatata(req.params.idEmpresa).then(function (resultado) {
+    if (resultado.length > 0) {
+      res.status(200).json(resultado);
+    } else {
+      res.status(204).send("Nenhum resultado encontrado!");
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+    console.log(
+      "Houve um erro ao realizar a consulta! Erro: ",
+      erro.sqlMessage
+    );
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 
 
 function cadastrarEstacao(req, res) {
@@ -110,4 +127,4 @@ function cadastrarEstacao(req, res) {
 
 
 
-module.exports = { dadosTotens, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao }
+module.exports = { dadosTotens, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao, estacoesPorEmpresaBatata }

@@ -15,6 +15,10 @@ router.get("/estacoes-por-empresa/:idEmpresa", function (req, res) {
   estacaoController.estacoesPorEmpresa(req, res);
 });
 
+router.get("/estacoes-por-empresa-batata/:idEmpresa", function (req, res) {
+  estacaoController.estacoesPorEmpresaBatata(req, res);
+});
+
 router.post("/cadastrarEstacao/:fkEmpresa", function(req, res){
   estacaoController.cadastrarEstacao(req,res);
 })

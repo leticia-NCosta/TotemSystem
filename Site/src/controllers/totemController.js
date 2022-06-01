@@ -6,6 +6,7 @@ function cadastrarTotem(req, res) {
   var marca = req.body.marcaServer;
   var dataImplementacao = req.body.dataImplementacaoServer;
   var dataFabricacao = req.body.dataFabricacaoServer;
+  var nomeEstacao = req.body.nomeEstacaoServer;
 
   if (modelo == undefined) {
     res.status(400).send("Seu modelo está undefined!");
@@ -19,7 +20,7 @@ function cadastrarTotem(req, res) {
     res.status(400).send("Seu hostname está undefinied");
   }
   totemModel
-    .cadastrarTotem(hostname, modelo, marca,dataImplementacao, dataFabricacao)
+    .cadastrarTotem(hostname, nomeEstacao, modelo, marca,dataImplementacao, dataFabricacao)
     .then(function (resultado) {
       res.json(resultado);
     })
