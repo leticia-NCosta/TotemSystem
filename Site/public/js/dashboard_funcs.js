@@ -204,8 +204,8 @@ function criarChartMem(respostaJson) {
                 label: '# lbl',
                 data: [respostaJson.memoria_uso, respostaJson.memoria_disponivel],
                 backgroundColor: [
-                    'rgba(0, 0, 255, 1)',
-                    'rgba(0, 255, 0, 1)'
+                    'rgba(166, 15, 15)',
+                    'rgba(40, 119, 11)'
                 ],
                 borderColor: [
                     'rgba(0, 0, 0, 1)',
@@ -236,8 +236,8 @@ function criarChartVol(respostaJson) {
                 label: '# lbl',
                 data: [respostaJson.volume_em_uso, respostaJson.volume_disponivel],
                 backgroundColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(0, 255, 0, 1)'
+                    'rgba(166, 15, 15)',
+                    'rgba(40, 119, 11)'
                 ],
                 borderColor: [
                     'rgba(0, 0, 0, 1)',
@@ -268,8 +268,8 @@ function criarChartServicos(respostaJson) {
                 label: '# lbl',
                 data: [respostaJson.total_servicos_ativos, respostaJson.total_servicos_inativos],
                 backgroundColor: [
-                    'rgba(255, 0, 0, 1)',
-                    'rgba(0, 255, 0, 1)'
+                    'rgba(166, 15, 15)',
+                    'rgba(40, 119, 11)'
                 ],
                 borderColor: [
                     'rgba(0, 0, 0, 1)',
