@@ -49,23 +49,27 @@
             </div>
             <div class="botoes_corpo1">
                 <button id="voltar"> <a href="./user.html">Voltar</a></button>
-                <button id = "atualizarEstacao">Atualizar estação</button>
+                <button id = "atualizarEstacao" onclick="aparecerModal()">Atualizar Estação</button>
                 <button id="excluirEstacao">Excluir Estação</button>  
+            </div>
+
+            <div id="modal" style="display: none; width: 70%; min-height: 100%;">
+                <div class="modalAtualizarEstacao" id="atualizarEstacao">
+                    <h1>Atualizar Estações</h1>
+                    <p>Nome:</p> <input id="input_nome_estacao">
+                    <p>Linha:</p> <input id="input_linha">
+                    <p>Bairro:</p> <input id="input_bairro">
+                    <p>CEP:</p> <input id="input_cep">
+        
+                    <div class="btn">
+                        <button class="botoes" type="submit" onclick="atualizarEstacao()">Atualizar estação</button>
+                    </div>
+                </div>
             </div>
         </div>
 
 
-        <div class="modalAtualizarEstacao">
-            <div class="titulo"><h1>Atualizar Estações</h1></div>
-            <p>Nome:</p> <input id="input_nome_estacao">
-            <p>Linha:</p> <input id="input_linha">
-            <p>Bairro:</p> <input id="input_bairro">
-            <p>CEP:</p> <input id="input_cep">
-
-            <div class="btn">
-                <button class="botoes" type="submit" onclick="atualizarEstacao()">Atualizar estação</button>
-             </div>
-        </div>
+     
 
 
 

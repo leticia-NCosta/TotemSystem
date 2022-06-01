@@ -505,3 +505,9 @@ function irMapa() {
     window.location = 'mapa.html'
 
 }
+
+
+function aparecerModal(){
+
+    modal.style.display = "block"
+}
