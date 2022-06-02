@@ -83,6 +83,29 @@ descricao_manutencao varchar(255),
 FOREIGN KEY(fk_usuario) REFERENCES tb_usuario(id_usuario),
 FOREIGN KEY(fk_hostname) REFERENCES tb_totem(hostname));
 
+create table tb_alerta(
+id_alerta int primary key AUTO_INCREMENT,
+fk_hostname varchar(45),
+item varchar(45),
+alerta varchar(45), 
+check(alerta = "VERMELHO" or alerta = "AMARELO" or alerta = "VERDE"),
+situacao varchar(45),
+check(situacao = "PENDENTE" or situacao = "ANDAMENTO" or situacao = "RESOLVIDO"),
+data_atual varchar(45),
+FOREIGN KEY(fk_hostname) REFERENCES tb_totem(hostname));
+
+
+INSERT INTO tb_alerta (fk_hostname,item,alerta,situacao) values
+("VERINBK000062","RAM","VERMELHO","ANDAMENTO"),
+("VERINBK000062","VOLUME","VERDE",null),
+("VERINBK000062","PROCESSOS","AMARELO","RESOLVIDO");
+
+select * from tb_alerta ;
+
+select fk_hostname,item from tb_alerta where alerta = "VERMELHO" and situacao = "ANDAMENTO";
+select fk_hostname,item from tb_alerta where alerta = "AMARELO" and situacao = "ANDAMENTO";
+
+
 insert into tb_empresa (razao_social, email_empresa, senha_empresa) values
 ("Empresa Teste LTDA","teste@teste.com","12345678");
 
@@ -99,13 +122,10 @@ insert into tb_estacao(fk_empresa, nome_estacao) values
 
 insert into tb_totem(fk_estacao,hostname) values
 (2,"VERINBK000062");
-<<<<<<< HEAD
+
+select * from tb_totem;
 
 
-=======
-
-
->>>>>>> cd9b4c08dde2e4b6d73343328f27f333bd3d89cd
 -- FAZER UMA LÓGICA PARA EVITAR QUE UM HOSTNAME SEJA COLOCADO EM OUTRO TOTEM DIFERENTE
 select * from tb_usuario;
 select * from tb_empresa;
@@ -162,14 +182,8 @@ join tb_totem
 join tb_log
 join tb_estacao;
 
+select nome_estacao from tb_estacao where nome_estacao = "Liberdade";
 
-insert into tb_log values (null,    'VERINBK000062',    7060676608,    1038114816,    311,    1561,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:35');
-insert into tb_log values (null,    'VERINBK000062',    7078457344,    1020334080,    311,    1560,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:39');
-insert into tb_log values (null,    'VERINBK000062',    7086411776,    1012379648,    311,    1560,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:43');
-insert into tb_log values (null,    'VERINBK000062',    7089192960,    1009598464,    311,    1561,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:47');
-insert into tb_log values (null,    'VERINBK000062',    7092391936,    1006399488,    308,    1557,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:51');
-insert into tb_log values (null,    'VERINBK000062',    7060807680,    1037983744,    309,    1560,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:55');
-insert into tb_log values (null,    'VERINBK000062',    7068221440,    1030569984,    309,    1559,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:38:59');
-insert into tb_log values (null,    'VERINBK000062',    7071809536,    1026981888,    309,    1558,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:39:04');
-insert into tb_log values (null,    'VERINBK000062',    7072497664,    1026293760,    309,    1558,    84,    29,    55,    808452096,    725643264,    82808832,    '22/05/19 14:39:08');
-
+select id_estacao from tb_estacao where nome_estacao = "Consolação" LIMIT 1;
+use totemsystem;
+select * from tb_log LIMIT 2000;

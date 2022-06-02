@@ -31,6 +31,7 @@ public class Sistema {
 
     private void log(String texto) throws IOException {
 
+        File dir = new File("./logs");
         File arquivo = new File("./logs/totemsystem.log");
 
         String hostname = "";
@@ -38,6 +39,10 @@ public class Sistema {
             hostname = InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException existe) {
             existe.printStackTrace();
+        }
+
+        if (!dir.exists()) {
+            dir.mkdirs();
         }
 
         if (!arquivo.exists()) {
@@ -57,10 +62,15 @@ public class Sistema {
 
         Files.write(Paths.get(arquivo.getPath()), lista, StandardOpenOption.APPEND);
     }
-    
+
     public void logAcao(String texto) throws IOException {
 
+        File dir = new File("./logs");
         File arquivo = new File("./logs/totemsystem.log");
+
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
 
         if (!arquivo.exists()) {
             arquivo.createNewFile();
@@ -73,9 +83,10 @@ public class Sistema {
         this.log("Tipo: Update");
         Files.write(Paths.get(arquivo.getPath()), lista, StandardOpenOption.APPEND);
     }
-    
+
     public void logErro(String texto) throws IOException {
 
+        File dir = new File("./logs");
         File arquivo = new File("./logs/totemsystemERRO.log");
 
         String hostname = "";
@@ -83,6 +94,10 @@ public class Sistema {
             hostname = InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException existe) {
             existe.printStackTrace();
+        }
+
+        if (!dir.exists()) {
+            dir.mkdirs();
         }
 
         if (!arquivo.exists()) {
@@ -103,7 +118,5 @@ public class Sistema {
 
         Files.write(Paths.get(arquivo.getPath()), lista, StandardOpenOption.APPEND);
     }
-    
-    
 
 }

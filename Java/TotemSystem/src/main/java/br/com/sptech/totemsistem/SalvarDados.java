@@ -168,52 +168,54 @@ public class SalvarDados {
 
         Flags flag = new Flags();
         JSONObject json = new JSONObject();
+        
+        Long memoriaTotal = totem.getMemoriaEmUso()+totem.getMemoriaDisponivel();
 
         // PROCESSOS
         if (flag.getFlagProcessos(totem).equals("VERMELHO")) {
-            json.put("text", "🚨🚨🚨 ~~> Número de Processos e estado crítico no totem: " + totem.getHostname());
+            json.put("text", "🚨 ~~> Número de Processos ("+totem.getTotalProcessos()+") e estado crítico no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagProcessos(totem).equals("AMARELO")) {
-            json.put("text", "⚠⚠ ~~> Número de Processos e estado de alerta no totem: " + totem.getHostname());
+            json.put("text", "⚠ ~~> Número de Processos ("+totem.getTotalProcessos()+") e estado de alerta no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagProcessos(totem).equals("VERDE")) {
-            json.put("text", "✅ ~~> Número de Processos OK, no totem: " + totem.getHostname());
+            json.put("text", "✅ ~~> Número de Processos ("+totem.getTotalProcessos()+") OK, no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         }
 
         // VOLUMES
         if (flag.getFlagVolume(totem).equals("VERMELHO")) {
-            json.put("text", "🚨🚨🚨 ~~> Volume do disco em estado crítico no totem: " + totem.getHostname());
+            json.put("text", "🚨 ~~> Volume do disco ("+totem.getVolumeTotal()+") em estado crítico no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagVolume(totem).equals("AMARELO")) {
-            json.put("text", "⚠⚠ ~~> Volume do disco em estado de alerta no totem: " + totem.getHostname());
+            json.put("text", "⚠ ~~> Volume do disco ("+totem.getVolumeTotal()+") em estado de alerta no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagVolume(totem).equals("VERDE")) {
-            json.put("text", "✅ ~~> Volume do disco em OK, no totem: " + totem.getHostname());
+            json.put("text", "✅ ~~> Volume do disco ("+totem.getVolumeTotal()+") em OK, no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         }
 
         // MEMÓRIA RAM
         if (flag.getFlagRam(totem).equals("VERMELHO")) {
-            json.put("text", "🚨🚨🚨 ~~> Memória RAM em estado crítico no totem: " + totem.getHostname());
+            json.put("text", "🚨 ~~> Memória RAM ("+memoriaTotal+") em estado crítico no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagRam(totem).equals("AMARELO")) {
-            json.put("text", "⚠⚠ ~~> Memória RAM em estado de alerta no totem: " + totem.getHostname());
+            json.put("text", "⚠ ~~> Memória RAM ("+memoriaTotal+") em estado de alerta no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagRam(totem).equals("VERDE")) {
-            json.put("text", "✅ ~~> Memória RAM OK, no totem: " + totem.getHostname());
+            json.put("text", "✅ ~~> Memória RAM ("+memoriaTotal+") OK, no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         }
 
         // SERVIÇOS
         if (flag.getFlagServicos(totem).equals("VERMELHO")) {
-            json.put("text", "🚨🚨🚨 ~~> Número de Serviços em estado crítico no totem: " + totem.getHostname());
+            json.put("text", "🚨 ~~> Número de Serviços ("+totem.getTotalDeServicos()+") em estado crítico no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagServicos(totem).equals("AMARELO")) {
-            json.put("text", "⚠⚠ ~~> Número de Serviços em estado de alerta no totem: " + totem.getHostname());
+            json.put("text", "⚠ ~~> Número de Serviços ("+totem.getTotalDeServicos()+") em estado de alerta no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         } else if (flag.getFlagServicos(totem).equals("VERDE")) {
-            json.put("text", "✅ ~~> Número de Serviços OK, no totem: " + totem.getHostname());
+            json.put("text", "✅ ~~> Número de Serviços ("+totem.getTotalDeServicos()+") OK, no totem: " + totem.getHostname());
             Slack.sendMessage(json);
         }
     }
