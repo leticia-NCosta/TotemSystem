@@ -32,16 +32,16 @@ function verCorBotao() {
         }
     }
 
-    setInterval(() => {
+    //setInterval(() => {
 
-        if (botao_red.style.backgroundColor == 'red') {
-            botao_red.style.backgroundColor = 'black'
-        } else if (botao_red.style.backgroundColor == 'black') {
-            botao_red.style.backgroundColor = 'red'
+        //if (botao_red.style.backgroundColor == 'red') {
+        //   botao_red.style.backgroundColor = 'black'
+        //} else if (botao_red.style.backgroundColor == 'black') {
+        //    botao_red.style.backgroundColor = 'red'
 
-        }
+        //}
 
-    }, 500)
+    //}, 500)
 
 }
 
@@ -81,7 +81,7 @@ function criarBotoes() {
                         nome_titulo.innerHTML = event.target.innerHTML
 
                         ultimo_botao_clicado = event.target.innerHTML
-                        id_graficos.style.display = 'flex'
+                       // id_graficos.style.display = 'flex'
                         gerarDados()
                         limparGrafico()
                     }
@@ -142,7 +142,10 @@ function criarAlertas(totens) {
             }
 
             pag1.style.display = 'none';
+            imagem.src= './assests/barra-de-menu.png';
+            menubar.src = '';
             pag2.style.display = 'flex';
+
         });
     }
 
@@ -197,22 +200,22 @@ function criarChartMem(respostaJson) {
     console.log(respostaJson);
     const canvasMem = document.getElementById('chartMem').getContext('2d');
     const chartPie = new Chart(canvasMem, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-            labels: ['em uso','livre' , 'Amarelo'],
+            labels: ['em uso','livre'],
             datasets: [{
                 label: '# lbl',
                 data: [respostaJson.memoria_uso, respostaJson.memoria_disponivel],
                 backgroundColor: [
-                    'rgba(166, 15, 15)',
-                    'rgb(58, 185, 4)',
-                    'rgba(255, 234, 2, 0.921)'
+                    'rgba(255, 0, 0)',
+                    'rgb(58, 185, 4)'
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
-                    'rgba(0, 0, 0, 1)'
+                    'rgba(39, 60, 92,1)',
+                    'rgba(39, 60, 92, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1 ,
+                cutout: '70%'
             }],
             options: {
                 responsive: true,
@@ -230,22 +233,22 @@ function criarChartVol(respostaJson) {
     console.log(respostaJson);
     const canvasCpu = document.getElementById('chartCpu').getContext('2d');
     const chartPie = new Chart(canvasCpu, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-            labels: ['em uso','livre', 'Amarelo'],
+            labels: ['em uso','livre'],
             datasets: [{
                 label: '# lbl',
                 data: [respostaJson.volume_em_uso, respostaJson.volume_disponivel],
                 backgroundColor: [
-                    'rgba(166, 15, 15)',
-                    'rgb(58, 185, 4)',
-                    'rgba(255, 234, 2, 0.921)'
+                    'rgba(255, 0, 0)',
+                    'rgb(58, 185, 4)'
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
-                    'rgba(0, 0, 0, 1)'
+                    'rgba(39, 60, 92,1)',
+                    'rgba(39, 60, 92, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1 ,
+                cutout: '70%'
             }],
             options: {
                 responsive: true,
@@ -263,22 +266,22 @@ function criarChartServicos(respostaJson) {
     console.log(respostaJson);
     const canvaServico = document.getElementById('chartServicos').getContext('2d');
     const chartPie = new Chart(canvaServico, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-            labels: ['ativo','inativo', 'Amarelo'],
+            labels: ['ativo','inativo'],
             datasets: [{
                 label: '# lbl',
                 data: [respostaJson.total_servicos_ativos, respostaJson.total_servicos_inativos],
                 backgroundColor: [
-                    'rgba(166, 15, 15)',
                     'rgb(58, 185, 4)',
-                    'rgba(255, 234, 2, 0.921)'
+                    'rgba(255, 0, 0)'
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
-                    'rgba(0, 0, 0, 1)'
+                    'rgba(39, 60, 92,1)',
+                    'rgba(39, 60, 92, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1 ,
+                cutout: '70%'
             }],
             options: {
                 responsive: true,
@@ -510,3 +513,22 @@ function aparecerModal(){
     modal.style.display = "flex"
 
 }
+
+function modalTotem(){
+
+    modal2.style.display = "flex"
+
+}
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal2) {
+      modal2.style.display = "none";
+    }
+  }
