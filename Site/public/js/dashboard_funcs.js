@@ -507,5 +507,6 @@ function graficoBar() {// Cria o gráfico de barra
 
 function aparecerModal(){
 
-    modal.style.display = "block"
+    modal.style.display = "flex"
+
 }
