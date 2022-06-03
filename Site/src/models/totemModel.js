@@ -9,9 +9,9 @@ function cadastrarTotem(hostname, nomeEstacao, dataImplementacao, modelo, marca,
   }
   
   
-  function atualizarTotem(idTotem,dataImplementacao, modelo, marca, dataFabricacao){
+  function atualizarTotem(hostname , nomeEstacao){
     var instrucao = `
-      UPDATE tb_totem SET data_implementacao = '${dataImplementacao}', modelo = '${modelo}', marca = '${marca}', data_fabricacao = '${dataFabricacao}' WHERE ID_TOTEM = ${idTotem} 
+      UPDATE tb_totem SET fk_estacao = (SELECT id_estacao FROM tb_estacao WHERE nome_estacao = '${nomeEstacao}') WHERE hostname = '${hostname}' 
     `;
   
     return database.executar(instrucao)
@@ -21,7 +21,7 @@ function cadastrarTotem(hostname, nomeEstacao, dataImplementacao, modelo, marca,
   
   function deletarTotem(hostname){
     var instrucao = `
-      DELETE FROM tb_totem WHERE hostname = ${hostname} 
+      DELETE FROM tb_totem WHERE hostname = '${hostname}' 
     `;
   
     return database.executar(instrucao)

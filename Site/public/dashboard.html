@@ -54,7 +54,7 @@
                 <div class="botoes_corpo1">
                     <button id="voltar"> <a href="./user.html">Voltar</a></button>
                     <button id = "atualizarEstacao" onclick="aparecerModal()">Atualizar Estação</button>
-                    <button id="excluirEstacao">Excluir Estação</button>  
+                    <button id="excluirEstacao" onclick="deletarEstacao()">Excluir Estação</button>  
                 </div>
                 
                 <div id="modal">
@@ -101,12 +101,7 @@
                 <div id="modal2">
                     <div class="modalAtualizarTotem" id="atualizarTotem">
                         <h1>Atualizar Totem</h1>
-                        <p>Hostname:</p> <input id="input_hostname">
-                        <p>Modelo:</p> <input id="input_modelo">
-                        <p>Marca:</p> <input id="input_marca">
-                        <p>Nome Estação:</p> <input id="input_estacao">
-                        <p>Data de implementação:</p> <input id="input_data_implementacao">
-                        <p>Data de fabricação:</p> <input id="input_data_fabricacao">
+                        <p>Nova Estação:</p> <input id="input_estacao">
             
                         <div class="btn">
                             <button id="voltar"><a href="./dashboard.html">Voltar</a></button>
@@ -174,6 +169,11 @@
     <script src="./js/dashboard_funcs.js"></script>
     <script src="./js/cadastrarTotem.js"></script>
     <script src="./js/exportCSV.js"></script>
+    <script src="./js/deletarEstacao.js"></script>
+    <script src="./js/deletarTotem.js"></script>
+    <script src="./js/atualizarEstacao.js"></script>
+    <script src="./js/atualizarTotem.js"></script>
+
 </body>
 
 </html>

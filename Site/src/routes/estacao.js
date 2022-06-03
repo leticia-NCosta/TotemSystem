@@ -23,8 +23,12 @@ router.post("/cadastrarEstacao/:fkEmpresa", function(req, res){
   estacaoController.cadastrarEstacao(req,res);
 })
 
-router.put("/atualizarEstacao", function(req, res){
+router.put("/atualizarEstacao/:idEstacao", function(req, res){
   estacaoController.atualizarEstacao(req,res);
+})
+
+router.delete("/deletarEstacao/:idEstacao", function(req, res){
+  estacaoController.deletarEstacao(req,res);
 })
 
 

@@ -64,31 +64,12 @@ function estacoesPorEmpresa(req, res) {
   });
 }
 
-function estacoesPorEmpresaBatata(req, res) {
-  estacaoModel.estacoesPorEmpresaBatata(req.params.idEmpresa).then(function (resultado) {
-    if (resultado.length > 0) {
-      res.status(200).json(resultado);
-    } else {
-      res.status(204).send("Nenhum resultado encontrado!");
-    }
-  }).catch(function (erro) {
-    console.log(erro);
-    console.log(
-      "Houve um erro ao realizar a consulta! Erro: ",
-      erro.sqlMessage
-    );
-    res.status(500).json(erro.sqlMessage);
-  });
-}
-
-
 
 function cadastrarEstacao(req, res) {
   var nome = req.body.nomeServer;
   var linha = req.body.linhaServer;
   var bairro = req.body.bairroServer;
-  var latitudeEstacao = req.body.latitudeServer;
-  var longitudeEstacao = req.body.longitudeServer;
+  var cep = req.body.cepServer;
   var fkEmpresa = req.params.fkEmpresa;
 
 
@@ -98,13 +79,11 @@ function cadastrarEstacao(req, res) {
     res.status(400).send("Sua linha está undefined!");
   } else if (bairro == undefined) {
     res.status(400).send("Seu bairro está undefined!");
-  } else if (latitudeEstacao == undefined) {
-    res.status(400).send("Seu latitude está undefinied")
-  } else if (longitudeEstacao == undefined) {
-    res.status(400).send("Seu longitude está undefinied")
+  } else if (cep == undefined) {
+    res.status(400).send("Seu cep está undefinied")
   }
 
-  estacaoModel.cadastrarEstacao(fkEmpresa, nome, linha, bairro, latitudeEstacao, longitudeEstacao)
+  estacaoModel.cadastrarEstacao(fkEmpresa, nome, linha, bairro, cep)
     .then(
       function (resultado) {
         res.json(resultado);
@@ -122,9 +101,63 @@ function cadastrarEstacao(req, res) {
 
 }
 
+function atualizarEstacao(req, res) {
+  console.log("atualizar", req.body);
+  var nomeEstacao = req.body.nomeServer;
+  var linhaEstacao = req.body.linhaServer;
+  var bairroEstacao = req.body.bairroServer;
+  var cepEstacao = req.body.cepServer;
+  var idEstacao = req.params.idEstacao;
+
+  if (nomeEstacao == "") {
+    res.status(400).send("Nome não está definida!");
+  } else if (linhaEstacao == "") {
+    res.status(400).send("Linha não definido!");
+  } else if (bairroEstacao == "") {
+    res.status(400).send("Bairro não definido!");
+  } else if (cepEstacao == "") {
+    res.status(400).send("CEP não definido!");
+  } else {
+    estacaoModel
+      .atualizarEstacao(
+        idEstacao,
+        nomeEstacao,
+        linhaEstacao,
+        bairroEstacao,
+        cepEstacao,
+      )
+      .then(function (resultado) {
+        res.status(200).json(req.body);
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar a edição! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
+function deletarEstacao(req, res){
+  estacaoModel.deletarEstacao(req.params.idEstacao)
+  .then(
+    function (resultado){
+      res.json(resultado);
+    }
+  ).catch(
+    function (erro) {
+      console.log(erro)
+      console.log(
+        "\n Houve erro ao realizar a exclusao! Erro: ",
+        erro.sqlMessage
+      );
+      res.status(500).json(erro.sqlMessage);
+    }
+  );
+}
 
 
-
-
-
-module.exports = { dadosTotens, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao, estacoesPorEmpresaBatata }
+module.exports = { dadosTotens, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao, atualizarEstacao, deletarEstacao }

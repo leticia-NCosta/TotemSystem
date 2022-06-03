@@ -9,7 +9,7 @@ router.post("/cadastrarTotem", function(req, res){
   })
   
 
-  router.put("/atualizarTotem/:idTotem", function(req, res) {
+  router.put("/atualizarTotem/:hostname", function(req, res) {
     totemController.atualizarTotem(req, res);
   })
   

@@ -36,31 +36,22 @@ function cadastrarTotem(req, res) {
 }
 
 function atualizarTotem(req, res) {
-  var idTotem = req.params.idTotem;
-  var modelo = req.body.modeloServer;
-  var marca = req.body.marcaServer;
-  var dataImplementacao = req.body.dataImplementacaoServer;
-  var dataFabricacao = req.body.dataFabricacaoServer;
+  var hostname = req.params.hostname;
+  var nomeEstacao = req.body.nomeEstacaoServer;
 
-  if (modelo == undefined) {
-    res.status(400).send("Seu modelo está undefined!");
-  } else if (marca == undefined) {
-    res.status(400).send("Sua marca está undefined!");
-  } else if (dataImplementacao == undefined) {
-    res.status(400).send("Sua data de implementacao está undefined!");
-  } else if (dataFabricacao == undefined) {
-    res.status(400).send("Sua data de fabricacao está undefinied");
+  if (nomeEstacao == undefined) {
+    res.status(400).send("O nome da sua estacao está undefined!");
   }
 
   totemModel
-    .atualizarTotem(idTotem, modelo, marca,dataImplementacao, dataFabricacao)
+    .atualizarTotem(hostname, nomeEstacao)
     .then(function (resultado) {
       res.json(resultado);
     })
     .catch(function (erro) {
       console.log(erro);
       console.log(
-        "\nHouve um erro ao atualizar o cadastro! Erro: ",
+        "\nHouve um erro ao atualizar o totem! Erro: ",
         erro.sqlMessage
       );
       res.status(500).json(erro.sqlMessage);

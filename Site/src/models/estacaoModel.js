@@ -14,7 +14,7 @@ function dadosTotensServicos(hostname) {
 
 
 function dadosTotensProcessos(hostname) {
-  return database.executar(`SELECT total_processos, data_atual from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
+  return database.executar(`SELECT TOP 10 total_processos, data_atual from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function totensPorEmpresa(idEmpresa, nomeEstacao) {
@@ -35,16 +35,32 @@ function estacoesPorEmpresaBatata(idEmpresa) {
 }
 
 
-function cadastrarEstacao(fkEmpresa, nome, linha, bairro, latitude, longitude){
+function cadastrarEstacao(fkEmpresa, nome, linha, bairro, cep){
   var instrucao = `
-    INSERT INTO tb_estacao (fk_empresa, nome_estacao, linha_estacao, bairro_estacao, latitude_estacao, longitude_estacao) VALUES (${fkEmpresa},'${nome}', '${linha}', '${bairro}', '${latitude}', '${longitude}')
+    INSERT INTO tb_estacao (fk_empresa, nome_estacao, linha_estacao, bairro_estacao, cep_estacao) VALUES (${fkEmpresa},'${nome}', '${linha}', '${bairro}', '${cep}')
   `;
 
   return database.executar(instrucao)
 }
 
+function atualizarEstacao(idEstacao, nome, linha, bairro, cep){
+  var instrucao = `
+    UPDATE tb_estacao
+    SET nome_estacao = '${nome}', linha_estacao = '${linha}', bairro_estacao = '${bairro}', cep_estacao = '${cep}'
+    WHERE id_estacao = ${idEstacao}
+  `
+  return database.executar(instrucao)
+}
 
-module.exports = { dadosTotensMem, dadosTotensVol, dadosTotensServicos, dadosTotensProcessos, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao, estacoesPorEmpresaBatata }
+function deletarEstacao(idEstacao){
+  var instrucao = `
+    DELETE FROM tb_estacao WHERE id_estacao = ${idEstacao}
+  `
+  return database.executar(instrucao)
+}
+
+
+module.exports = { dadosTotensMem, dadosTotensVol, dadosTotensServicos, dadosTotensProcessos, totensPorEmpresa, estacoesPorEmpresa, cadastrarEstacao, atualizarEstacao, deletarEstacao }
 
 
 

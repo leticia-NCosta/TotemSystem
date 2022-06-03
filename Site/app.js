@@ -14,7 +14,6 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/empresa");
 var estacaoRouter = require("./src/routes/estacao");
-var mapaRouter = require("./src/routes/mapa");
 var totemRouter = require("./src/routes/totem");
 var colaboradorRouter = require("./src/routes/colaborador");
 
@@ -27,7 +26,6 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/estacoes", estacaoRouter);
-app.use("/mapa", mapaRouter);
 app.use("/totem", totemRouter);
 app.use("/colaborador", colaboradorRouter);
 
