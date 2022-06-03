@@ -323,11 +323,13 @@ html{
 
     background-color: #011222;
     width: 20%;
-    height: 100%;
+    height: 85%;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-right: 3px solid white;
     border-top: 3px solid white;
 
 }
@@ -402,7 +404,7 @@ html{
 
     background-color: #000000;
     cursor: pointer;
-    border: 5px solid #273c5c;
+    border: 3px solid #273c5c;
     
 }
 
@@ -416,28 +418,31 @@ html{
 }
 .corpo2 .infos{
 
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    overflow: scroll;
 
 
 }
 .corpo2 .infos .retangulo{
 
     background-color: #011222;
-    width: 100%;
-    height: 50%;
+    width: 80%;
+    height: 100%;
+    margin: 0 0 0 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 
 }
 .corpo2 .infos .retangulo .box1{
     
-    width: 50%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -446,16 +451,17 @@ html{
 }
 .corpo2 .infos .retangulo .box2{
 
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    min-height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .corpo2 .infos .retangulo .box_img{
 
     width: 30%;
-    height: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

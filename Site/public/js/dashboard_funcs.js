@@ -141,9 +141,7 @@ function criarAlertas(totens) {
                 alerta_atual.style.backgroundColor = '#2e8617'
             }
 
-            pag1.style.display = 'none';
-            imagem.src= './assests/barra-de-menu.png';
-            menubar.src = '';
+            pag1.style.display = 'none'
             pag2.style.display = 'flex';
 
         });
@@ -520,6 +518,10 @@ function modalTotem(){
 
 }
 
+function aparecerMenu(){
+
+    
+}
 
 window.onclick = function(event) {
     if (event.target == modal) {
