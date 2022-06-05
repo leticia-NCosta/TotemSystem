@@ -17,4 +17,8 @@ router.post("/cadastrarTotem", function(req, res){
     totemController.deletarTotem(req, res);
   })
 
+  router.get("/getTotemLog/:hostname", function(req, res){
+    totemController.getTotemLog(req,res);
+  })
+
   module.exports = router;

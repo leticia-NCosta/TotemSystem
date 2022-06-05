@@ -1,23 +1,25 @@
-function exportar() {
+function exportar(hostname) {
+  // var  = [];
+  // var quantidadeTotens = [];
+  const rows = [];
 
+  hostname = sessionStorage.getItem("HOSTNAME")
 
-    const rows = [
-        "nome", 
-         "Linha" 
-    ];
+  fetch(`totem/getTotemLog/${hostname}`, {
+    method: "GET",
+  }).then(function (resposta) {
+    resposta.json().then(() => {
 
-    let csvContent = "data:text/csv;charset=utf-8,";
-
-    rows.forEach(function (rowArray) {
-      let row = rowArray.join(",");
-      csvContent += row + "\r\n";
-    });
-
-    var encodedUri = encodeURI(csvContent);
+    var encodedUri = encodeURI();
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data.csv");
+    link.setAttribute("download", `${hostname}`);
     document.body.appendChild(link); // Required for FF
-
+  
     link.click(); // This will download the data file named "my_data.csv".
+    });
+  });
+
+
+
 }

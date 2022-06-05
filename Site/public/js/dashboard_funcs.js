@@ -324,6 +324,7 @@ function criarChartProcessos(respostaJson) {
     })
 }
 
+
 function removeAlertas() {
 
     var pai = document.getElementById("alertasID")
@@ -340,9 +341,7 @@ function removeAlertas() {
 }
 
 function voltarDash() {
-
-    pag1.style.display = 'flex';
-    pag2.style.display = 'none';
+    window.location = "./dashboard.html"
 }
 
 // -------------------------------------------------------

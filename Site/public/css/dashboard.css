@@ -443,7 +443,7 @@ html{
 .corpo2 .infos .retangulo .box1{
     
     width: 100%;
-    height: 100%;
+    min-height: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -452,7 +452,7 @@ html{
 .corpo2 .infos .retangulo .box2{
 
     width: 100%;
-    min-height: 100%;
+    min-height: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -460,8 +460,8 @@ html{
 
 .corpo2 .infos .retangulo .box_img{
 
-    width: 30%;
-    height: 100%;
+    width: 50%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -469,7 +469,7 @@ html{
     border: 3px solid rgba(255, 255, 255, 0.77);
 
 }
-.corpo2 .infos .retangulo .box_img{
+/* .corpo2 .infos .retangulo .box_img{
 
     width: 100%;
     min-height: 100%;
@@ -477,8 +477,17 @@ html{
     justify-content: center;
     align-items: center;
 
-}
+} */
 .corpo2 .infos .retangulo .box_img .campo_img{
+    width: 60%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.corpo2 .infos .retangulo .box_img .campo_img_processos{
     width: 100%;
     height: 50%;
     display: flex;
@@ -517,7 +526,7 @@ html{
 
 .corpo2 .infos .retangulo .box_txt{
 
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -537,6 +546,18 @@ html{
     color: #ffffff;
     border: 3px solid rgba(255, 255, 255, 0.77);
 }
+
+.box_txt .txt_corpo{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    color: #ffffff;
+}
+
 .corpo_sidebar2 .alertas2{
 
     width: 100%;
