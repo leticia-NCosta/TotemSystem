@@ -12,7 +12,7 @@ var chartPieVol;
 var chartPieServicos;
 var chartPieProcessos;
 
-var tempoGRAPH = 2000;
+var tempoGRAPH = 10000;
 
 function main() {
 
@@ -198,6 +198,7 @@ function carregarDadosToten(_hostname) {
                 criarChartVol(json.volume[0])
                 criarChartServicos(json.servicos[0])
                 criarChartProcessos(json.processos)
+                updateGrafico()
             })
         }
     })
@@ -218,6 +219,25 @@ function limparGrafico(){ //Para criar um gráfico novo é preciso destruir o an
 
     if(chartPieProcessos != undefined){
         chartPieProcessos.destroy();
+    }
+}
+
+function updateGrafico(){
+
+    if(chartPieMem != undefined){
+        chartPieMem.update();
+    }
+
+    if(chartPieVol != undefined){
+        chartPieVol.update();
+    }
+
+    if(chartPieServicos != undefined){
+        chartPieServicos.update();
+    }
+
+    if(chartPieProcessos != undefined){
+        chartPieProcessos.update();
     }
 }
 
@@ -252,6 +272,7 @@ function criarChartMem(respostaJson) {
             }
         }
     })
+
 }
 
 function criarChartVol(respostaJson) {
@@ -285,6 +306,7 @@ function criarChartVol(respostaJson) {
             }
         }
     })
+    chartPieVol.update();
 }
 
 function criarChartServicos(respostaJson) {
@@ -318,6 +340,8 @@ function criarChartServicos(respostaJson) {
             }
         }
     })
+
+    chartPieServicos.update();
 }
 
 function criarChartProcessos(respostaJson) {
@@ -349,6 +373,7 @@ function criarChartProcessos(respostaJson) {
             }
         }
     })
+    chartPieProcessos.update();
 }
 
 
