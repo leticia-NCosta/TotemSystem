@@ -582,7 +582,7 @@ html{
 .modalAtualizarTotem{
     background-color: #273c5c;
     width: 40%;
-    height: 100%;
+    height: 40%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -608,7 +608,7 @@ html{
 }
 
 .modalAtualizarTotem .btn{
-    width: 50% ;
+    width: 70% ;
     height: 50%;
     margin-left: 5%;
     display: flex;
@@ -621,7 +621,7 @@ html{
     background-color: #011222;
     width: 10%;
     height: 25%;
-    margin: 10% 10% 20% 0;
+    margin-left: 8%;
     display: flex;
     justify-content: center;
     align-items: center;

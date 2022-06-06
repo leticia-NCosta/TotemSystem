@@ -378,7 +378,7 @@ function criarChartProcessos(respostaJson) {
                 label: 'Processos',
                 data: processos,
                 fill: false,
-                borderColor: 'rgba(166, 15, 15)',
+                borderColor: 'rgba(255, 0, 0)',
                 tension: 0.1
             }],
             options: {
