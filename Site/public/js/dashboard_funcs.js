@@ -12,7 +12,7 @@ var chartPieVol;
 var chartPieServicos;
 var chartPieProcessos;
 
-var tempoGRAPH = 1000;
+var tempoGRAPH = 5000;
 
 function main() {
 
@@ -133,7 +133,7 @@ function criarAlertas(totens) {
         alerta.onclick = () => {
             sessionStorage.HOSTNAME = totens[i].hostname
             setInterval(() => {
-                //limparGrafico()
+                limparGrafico()
                 carregarDadosToten(sessionStorage.HOSTNAME);
             },tempoGRAPH)
             
