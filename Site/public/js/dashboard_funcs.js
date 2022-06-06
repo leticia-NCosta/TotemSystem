@@ -7,15 +7,20 @@ var rand_alert = 0;
 var regiao_alerta;
 var alerta_piscando = false;
 
+var chartPieMem;
+var chartPieVol;
+var chartPieServicos;
+var chartPieProcessos;
 
+var tempoGRAPH = 2000;
 
 function main() {
 
     criarBotoes()
 
-    setTimeout(() => {
-        verCorBotao();
-    }, 500)
+    //setTimeout(() => {
+    //    verCorBotao();
+    //}, 500)
 
 }
 
@@ -82,7 +87,7 @@ function criarBotoes() {
 
                         ultimo_botao_clicado = event.target.innerHTML
                        // id_graficos.style.display = 'flex'
-                        gerarDados()
+                        
                         limparGrafico()
                     }
                 }
@@ -127,7 +132,11 @@ function criarAlertas(totens) {
         alerta.setAttribute('id', `${regiao}`)
         alerta.onclick = () => {
             sessionStorage.HOSTNAME = totens[i].hostname
-            carregarDadosToten(alerta.innerHTML);
+            setInterval(() => {
+                limparGrafico()
+                carregarDadosToten(sessionStorage.HOSTNAME);
+            },tempoGRAPH)
+            
         }
 
         alerta.innerHTML = `${totens[i].hostname}`
@@ -194,10 +203,28 @@ function carregarDadosToten(_hostname) {
     })
 }
 
+function limparGrafico(){ //Para criar um gráfico novo é preciso destruir o anterior
+    if(chartPieMem != undefined){
+        chartPieMem.destroy();
+    }
+
+    if(chartPieVol != undefined){
+        chartPieVol.destroy();
+    }
+
+    if(chartPieServicos != undefined){
+        chartPieServicos.destroy();
+    }
+
+    if(chartPieProcessos != undefined){
+        chartPieProcessos.destroy();
+    }
+}
+
 function criarChartMem(respostaJson) {
     console.log(respostaJson);
     const canvasMem = document.getElementById('chartMem').getContext('2d');
-    const chartPie = new Chart(canvasMem, {
+    chartPieMem = new Chart(canvasMem, {
         type: 'doughnut',
         data: {
             labels: ['em uso','livre'],
@@ -230,7 +257,7 @@ function criarChartMem(respostaJson) {
 function criarChartVol(respostaJson) {
     console.log(respostaJson);
     const canvasCpu = document.getElementById('chartCpu').getContext('2d');
-    const chartPie = new Chart(canvasCpu, {
+    chartPieVol = new Chart(canvasCpu, {
         type: 'doughnut',
         data: {
             labels: ['em uso','livre'],
@@ -263,7 +290,7 @@ function criarChartVol(respostaJson) {
 function criarChartServicos(respostaJson) {
     console.log(respostaJson);
     const canvaServico = document.getElementById('chartServicos').getContext('2d');
-    const chartPie = new Chart(canvaServico, {
+    chartPieServicos = new Chart(canvaServico, {
         type: 'doughnut',
         data: {
             labels: ['ativo','inativo'],
@@ -301,7 +328,7 @@ function criarChartProcessos(respostaJson) {
         data.push(respostaJson[i].data_atual.split(" ")[1]);        
     }
     const canvaServico = document.getElementById('chartProcessos').getContext('2d');
-    const chartPie = new Chart(canvaServico, {
+    chartPieProcessos = new Chart(canvaServico, {
         type: 'line',
         data: {
             labels: data,
@@ -341,6 +368,7 @@ function removeAlertas() {
 }
 
 function voltarDash() {
+    limparGrafico()
     window.location = "./dashboard.html"
 }
 
@@ -362,146 +390,7 @@ var valores_aleatorios = [];
 
 main()
 
-function gerarDados() {
 
-    dado1 = (Math.random() * 19 + 1).toFixed(0)
-    dado2 = (Math.random() * 29 + 1).toFixed(0)
-    dado3 = (Math.random() * 39 + 1).toFixed(0)
-    dado4 = (Math.random() * 49 + 1).toFixed(0)
-    dado5 = (Math.random() * 59 + 1).toFixed(0)
-    dado6 = (Math.random() * 69 + 1).toFixed(0)
-    dado7 = (Math.random() * 59 + 1).toFixed(0)
-    dado8 = (Math.random() * 49 + 1).toFixed(0)
-
-    valores_aleatorios = [dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8]
-
-    var nome_estacao = event.target.innerHTML
-    var numero_estacao = lista_regioes.indexOf(nome_estacao)
-    quant_totens_local = []
-    for (let i = 1; i <= quant_totens[numero_estacao]; i++) {
-        quant_totens_local.push(i)
-
-    }
-    console.log(quant_totens_local)
-
-
-}
-
-
-function limparGrafico() { //Para criar um gráfico novo é preciso destruir o anterior
-    if (myChart1 != undefined) {
-        myChart1.destroy();
-    }
-
-    if (myChart2 != undefined) {
-        myChart2.destroy();
-    }
-
-}
-
-
-function graficoPizza() {// Cria o gráfico de pizza
-    var totalWin = 0
-    var totalUbu = 0
-
-    fetch('/estacoes/dashboard', {
-        method: 'GET',
-    }).then((resposta) => {
-        resposta.json().then((json) => {
-            for (let index = 0; index < json.length; index++) {
-
-                if (json[index].sistema_operacional == "Windows") {
-                    totalWin++
-                }
-
-                if (json[index].sistema_operacional == "Ubuntu") {
-                    totalUbu++
-                }
-            }
-            const ctx = document.getElementById('myChart1').getContext('2d');
-            myChart1 = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ['Windows', 'Ubuntu'],
-                    datasets: [{
-                        label: 'Sistemas Operaiconais',
-                        data: [totalWin, totalUbu],
-                        backgroundColor: [
-                            'red',
-                            'green',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: { grid: { tickColor: 'blue' }, ticks: { color: 'grey', fontSize: 5 } }
-                    },
-                    plugins: {
-                        legend: { labels: { font: { size: 16, weight: 'bolder' }, color: 'white' } },
-                        labels: { size: 15 },
-                        title: { color: 'black' }
-                    }
-                }
-            });
-        })
-    })
-
-
-
-}
-
-function graficoBar() {// Cria o gráfico de barra
-
-    var linhas = []
-    var quantidadeTotens = []
-
-    fetch('/estacoes/totens-por-estacao', {
-        method: 'GET',
-    }).then(function (resposta) {
-        resposta.json().then((json) => {
-            for (let index = 0; index < json.length; index++) {
-                linhas.push(json[index].linha_estacao)
-                quantidadeTotens.push(json[index].quantidade_totens)
-            }
-
-            const ctx = document.getElementById('myChart2').getContext('2d');
-            myChart2 = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: linhas,
-                    datasets: [{
-                        label: 'Totens por estação',
-                        data: quantidadeTotens,
-                        backgroundColor: [
-                            'gold'
-                        ],
-                        borderColor: [
-                            'gold'
-                        ],
-                        borderWidth: 3
-                    }]
-                },
-                options: {
-                    responsive: true,
-
-                    scales: {
-                        x: { grid: { tickColor: 'blue' }, ticks: { color: 'grey', fontSize: 5 } }
-                    },
-
-                    plugins: {
-
-                        legend: { labels: { font: { size: 16, weight: 'bolder' }, color: 'white' } },
-                        labels: { size: 15 },
-                        title: { color: 'black' }
-
-                    }
-                }
-            });
-        });
-    });
-}
 
 
 

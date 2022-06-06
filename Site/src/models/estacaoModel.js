@@ -1,15 +1,15 @@
 var database = require("../database/config");
 
 function dadosTotensMem(hostname) {
-  return database.executar(`SELECT memoria_uso, memoria_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
+  return database.executar(`SELECT top 1 memoria_uso, memoria_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function dadosTotensVol(hostname) {
-  return database.executar(`SELECT volume_em_uso, volume_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
+  return database.executar(`SELECT top 1 volume_em_uso, volume_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function dadosTotensServicos(hostname) {
-  return database.executar(`SELECT total_servicos_ativos, total_servicos_inativos from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
+  return database.executar(`SELECT top 1 total_servicos_ativos, total_servicos_inativos from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 
