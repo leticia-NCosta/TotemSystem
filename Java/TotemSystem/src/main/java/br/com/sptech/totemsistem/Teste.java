@@ -39,11 +39,13 @@ public class Teste {
         Looca looca = new Looca();
         Flags flag = new Flags();
         
+        
 
         Totem totem = new Totem();
         
         
-        salvar.salvarDadosVariaveis();
+        System.out.println("Memoria em uso: "+Conversor.formatarBytes(totem.getMemoriaEmUso()));
+        System.out.println("Memoria Disponivel: "+Conversor.formatarBytes(totem.getMemoriaDisponivel()));
         
 
 

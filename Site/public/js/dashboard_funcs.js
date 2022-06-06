@@ -12,7 +12,7 @@ var chartPieVol;
 var chartPieServicos;
 var chartPieProcessos;
 
-var tempoGRAPH = 10000;
+var tempoGRAPH = 1000;
 
 function main() {
 
@@ -252,10 +252,10 @@ function criarChartMem(respostaJson) {
     chartPieMem = new Chart(canvasMem, {
         type: 'doughnut',
         data: {
-            labels: ['em uso','livre'],
+            labels: [textToSize(respostaJson.memoria_uso),textToSize(respostaJson.memoria_disponivel)],
             datasets: [{
                 label: '# lbl',
-                data: [respostaJson.memoria_uso, respostaJson.memoria_disponivel],
+                data: [bytesToSize(respostaJson.memoria_uso), bytesToSize(respostaJson.memoria_disponivel)],
                 backgroundColor: [
                     'rgba(255, 0, 0)',
                     'rgb(58, 185, 4)'
@@ -291,10 +291,11 @@ function criarChartVol(respostaJson) {
     chartPieVol = new Chart(canvasCpu, {
         type: 'doughnut',
         data: {
-            labels: ['em uso','livre'],
+            labels: [textToSize(respostaJson.volume_em_uso),textToSize(respostaJson.volume_disponivel)],
             datasets: [{
                 label: '# lbl',
-                data: [respostaJson.volume_em_uso, respostaJson.volume_disponivel],
+                data: [bytesToSize(respostaJson.volume_em_uso), bytesToSize(respostaJson.volume_disponivel)],
+                //data: [1,2],
                 backgroundColor: [
                     'rgba(255, 0, 0)',
                     'rgb(58, 185, 4)'
@@ -316,7 +317,7 @@ function criarChartVol(respostaJson) {
             }
         }
     })
-    chartPieVol.update();
+ 
 }
 
 function criarChartServicos(respostaJson) {
@@ -356,7 +357,7 @@ function criarChartServicos(respostaJson) {
         }
     })
 
-    chartPieServicos.update();
+   
 }
 
 function criarChartProcessos(respostaJson) {
@@ -391,8 +392,7 @@ function criarChartProcessos(respostaJson) {
             }
         }
     })
-    addData(chartPieProcessos,data,processos)
-    removeData(chartPieProcessos)
+
 }
 
 
@@ -483,3 +483,17 @@ window.onclick = function(event) {
       modal2.style.display = "none";
     }
   }
+
+  function bytesToSize(bytes) {
+    //var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2).toFixed(2);
+ }
+
+ function textToSize(bytes) {
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+ }
