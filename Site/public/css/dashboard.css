@@ -469,18 +469,9 @@ html{
     border: 3px solid rgba(255, 255, 255, 0.77);
 
 }
-/* .corpo2 .infos .retangulo .box_img{
 
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-} */
 .corpo2 .infos .retangulo .box_img .campo_img{
-    width: 60%;
-    height: 50%;
+    width: 48%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -488,7 +479,7 @@ html{
 }
 
 .corpo2 .infos .retangulo .box_img .campo_img_processos{
-    width: 100%;
+    width: 90%;
     height: 50%;
     display: flex;
     justify-content: center;
@@ -497,7 +488,7 @@ html{
 }
 
 .grafico{
-    width: 19%;
+    width: 100%;
     padding: 10px 05px;
 }
 
@@ -549,7 +540,7 @@ html{
 
 .box_txt .txt_corpo{
     width: 100%;
-    height: 90%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
