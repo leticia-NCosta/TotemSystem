@@ -243,6 +243,11 @@ function updateGrafico(){
 
 function criarChartMem(respostaJson) {
     console.log(respostaJson);
+
+    span_memoria_total.innerHTML = `Memoria Total: ${respostaJson.memoria_uso + respostaJson.memoria_disponivel}`;
+    span_memoria_uso.innerHTML = `Memoria em uso: ${respostaJson.memoria_uso}` ;
+    span_memoria_disponivel.innerHTML = `Memoria disponivel: ${respostaJson.memoria_disponivel}` ;
+
     const canvasMem = document.getElementById('chartMem').getContext('2d');
     chartPieMem = new Chart(canvasMem, {
         type: 'doughnut',
@@ -277,6 +282,11 @@ function criarChartMem(respostaJson) {
 
 function criarChartVol(respostaJson) {
     console.log(respostaJson);
+
+    span_vol_total.innerHTML = `Volume total: ${respostaJson.volume_em_uso + respostaJson.volume_disponivel}`;
+    span_disponivel_total.innerHTML = `Volume disponivel: ${respostaJson.volume_em_uso}`;
+    span_uso_total.innerHTML = `Volume em uso: ${respostaJson.volume_disponivel}`;
+
     const canvasCpu = document.getElementById('chartCpu').getContext('2d');
     chartPieVol = new Chart(canvasCpu, {
         type: 'doughnut',
@@ -311,6 +321,11 @@ function criarChartVol(respostaJson) {
 
 function criarChartServicos(respostaJson) {
     console.log(respostaJson);
+
+    span_servicos_total.innerHTML = `Total de serviços: ${respostaJson.total_servicos_ativos + respostaJson.total_servicos_inativos}`;
+    span_servicos_ativo.innerHTML = `Total de serviços ativos: ${respostaJson.total_servicos_ativos}` ;
+    span_servicos_inativo.innerHTML = `Total de serviços inativos: ${respostaJson.total_servicos_inativos}` ;
+
     const canvaServico = document.getElementById('chartServicos').getContext('2d');
     chartPieServicos = new Chart(canvaServico, {
         type: 'doughnut',
@@ -351,6 +366,9 @@ function criarChartProcessos(respostaJson) {
         processos.push(respostaJson[i].total_processos);
         data.push(respostaJson[i].data_atual.split(" ")[1]);        
     }
+
+    span_ultimo_proc.innerHTML = `Total de processos ${processos[processos.length-1]} às ${data[data.length-1]}`;
+
     const canvaServico = document.getElementById('chartProcessos').getContext('2d');
     chartPieProcessos = new Chart(canvaServico, {
         type: 'line',
