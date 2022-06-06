@@ -244,9 +244,9 @@ function updateGrafico(){
 function criarChartMem(respostaJson) {
     console.log(respostaJson);
 
-    span_memoria_total.innerHTML = `Memoria Total: ${respostaJson.memoria_uso + respostaJson.memoria_disponivel}`;
-    span_memoria_uso.innerHTML = `Memoria em uso: ${respostaJson.memoria_uso}` ;
-    span_memoria_disponivel.innerHTML = `Memoria disponivel: ${respostaJson.memoria_disponivel}` ;
+    //span_memoria_total.innerHTML = `Memoria Total: ${textToSize(respostaJson.memoria_uso + respostaJson.memoria_disponivel)}`;
+    span_memoria_uso.innerHTML = `Memoria em uso: ${textToSize(respostaJson.memoria_uso)}` ;
+    span_memoria_disponivel.innerHTML = `Memoria disponivel: ${textToSize(respostaJson.memoria_disponivel)}` ;
 
     const canvasMem = document.getElementById('chartMem').getContext('2d');
     chartPieMem = new Chart(canvasMem, {
@@ -283,9 +283,9 @@ function criarChartMem(respostaJson) {
 function criarChartVol(respostaJson) {
     console.log(respostaJson);
 
-    span_vol_total.innerHTML = `Volume total: ${respostaJson.volume_em_uso + respostaJson.volume_disponivel}`;
-    span_disponivel_total.innerHTML = `Volume disponivel: ${respostaJson.volume_em_uso}`;
-    span_uso_total.innerHTML = `Volume em uso: ${respostaJson.volume_disponivel}`;
+    span_vol_total.innerHTML = `Volume total: ${textToSize(respostaJson.volume_total)}`;
+    span_disponivel_total.innerHTML = `Volume disponivel: ${textToSize(respostaJson.volume_disponivel)}`;
+    span_uso_total.innerHTML = `Volume em uso: ${textToSize(respostaJson.volume_em_uso)}`;
 
     const canvasCpu = document.getElementById('chartCpu').getContext('2d');
     chartPieVol = new Chart(canvasCpu, {
