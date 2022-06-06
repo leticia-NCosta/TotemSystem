@@ -133,7 +133,7 @@ function criarAlertas(totens) {
         alerta.onclick = () => {
             sessionStorage.HOSTNAME = totens[i].hostname
             setInterval(() => {
-                limparGrafico()
+                //limparGrafico()
                 carregarDadosToten(sessionStorage.HOSTNAME);
             },tempoGRAPH)
             
@@ -373,7 +373,8 @@ function criarChartProcessos(respostaJson) {
             }
         }
     })
-    chartPieProcessos.update();
+    addData(chartPieProcessos,data,processos)
+    removeData(chartPieProcessos)
 }
 
 
@@ -396,6 +397,23 @@ function voltarDash() {
     limparGrafico()
     window.location = "./dashboard.html"
 }
+
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
+
+function removeData(chart) {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    chart.update();
+}
+
 
 // -------------------------------------------------------
 
