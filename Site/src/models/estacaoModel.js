@@ -5,7 +5,7 @@ function dadosTotensMem(hostname) {
 }
 
 function dadosTotensVol(hostname) {
-  return database.executar(`SELECT top 1 volume_em_uso, volume_disponivel from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
+  return database.executar(`SELECT top 1 volume_em_uso, volume_disponivel, volume_total from tb_log tl where fk_hostname = '${hostname}' order by id_log  desc`);
 }
 
 function dadosTotensServicos(hostname) {
