@@ -46,7 +46,7 @@ Sprint 3: 07/06/2022
 - [x] Geração de Logs;
 - [x] Responsividade Obrigatória;
 - [x] Usabilidade;
-- [ ] Inovação útil;
+- [x] Inovação útil;
 - [x] Documentação Completa;
 - [x] Alertas alinhados ao negócio;
 - [ ] Inovação completa com PPT de "Deep Dive";
