@@ -7,5 +7,6 @@ function deletarEmpresa(id) {
     }).then(function (resposta) {
             alert("Empresa removida com sucesso")
             console.log(resposta)
+            window.location = "./index.html"
         })
 }
