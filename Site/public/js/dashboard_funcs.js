@@ -60,7 +60,7 @@ function verCorBotao() {
     var botao_red;
 
     for (let i = 0; i < botao.length; i++) {
-        if (botao[i].style.backgroundColor == 'red') {
+        if (botao[i].style.backgroundColor == '#273C5C') {
             botao_red = botao[i]
             regiao_alerta = botao_red.id
         }
@@ -105,7 +105,7 @@ function criarBotoes() {
                     corpo_sibebar.appendChild(botao)
 
                     if (local == lista_regioes[i]) {
-                        botao.style.backgroundColor = 'red'
+                        botao.style.backgroundColor = '#273C5C'
                     }
                     botao.onclick = (teste) => {
                         criarBotaoToten(teste.target.innerHTML)
@@ -286,10 +286,10 @@ function criarChartMem(respostaJson) {
     chartPieMem = new Chart(canvasMem, {
         type: 'doughnut',
         data: {
-            labels: [textToSize(respostaJson.memoria_uso),textToSize(respostaJson.memoria_disponivel)],
+            labels: ["Em uso","Disponivel"],
             datasets: [{
                 label: '# lbl',
-                data: [bytesToSize(respostaJson.memoria_uso), bytesToSize(respostaJson.memoria_disponivel)],
+                data: [bytesToSize(respostaJson.memoria_uso), bytesToSize(respostaJson.memoria_disponivel) ],
                 backgroundColor: [
                     'rgba(255, 0, 0)',
                     'rgb(58, 185, 4)'
@@ -334,7 +334,7 @@ function criarChartVol(respostaJson) {
     chartPieVol = new Chart(canvasCpu, {
         type: 'doughnut',
         data: {
-            labels: [textToSize(respostaJson.volume_em_uso),textToSize(respostaJson.volume_disponivel)],
+            labels: ["Em uso","Disponivel"],
             datasets: [{
                 label: '# lbl',
                 data: [bytesToSize(respostaJson.volume_em_uso), bytesToSize(respostaJson.volume_disponivel)],

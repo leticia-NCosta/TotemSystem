@@ -33,7 +33,7 @@ function deletarTotem(hostname) {
 
 function getTotemLog(hostname) {
   var instrucao = `
-    SELECT tt.hostname, tl.id_log, tl.memoria_uso, tl.memoria_disponivel, tl.total_processos, tl.total_threads, tl.total_servicos,
+    SELECT TOP 100 tt.hostname, tl.id_log, tl.memoria_uso, tl.memoria_disponivel, tl.total_processos, tl.total_threads, tl.total_servicos,
     tl.total_servicos_ativos, tl.total_servicos_inativos, tl.volume_total, tl.volume_disponivel, tl.volume_em_uso, tl.data_atual  FROM [dbo].[tb_totem] tt
     JOIN [dbo].[tb_log] tl 
     ON tt.hostname = '${hostname}'
