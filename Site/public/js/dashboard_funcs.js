@@ -14,10 +14,39 @@ var chartPieProcessos;
 
 var tempoGRAPH = 5000;
 
+function criarCharts(){
+
+    var campoChart1 = document.getElementById('campoChartMem')
+    var chart1 = document.createElement('canvas')
+    chart1.setAttribute('id','chartMem')
+    chart1.setAttribute('class','grafico')
+    campoChart1.appendChild(chart1)
+
+    var campoChart2 = document.getElementById('campoChartVol')
+    var chart2 = document.createElement('canvas')
+    chart2.setAttribute('id','chartCpu')
+    chart2.setAttribute('class','grafico')
+    campoChart2.appendChild(chart2)
+
+    var campoChart3 = document.getElementById('campoChartServicos')
+    var chart3 = document.createElement('canvas')
+    chart3.setAttribute('id','chartServicos')
+    chart3.setAttribute('class','grafico')
+    campoChart3.appendChild(chart3)
+
+    var campoChart4 = document.getElementById('campoChartProcessos')
+    var chart4 = document.createElement('canvas')
+    chart4.setAttribute('id','chartProcessos')
+    chart4.setAttribute('class','grafico')
+    campoChart4.appendChild(chart4)
+
+
+}
+
 function main() {
 
     criarBotoes()
-
+    criarCharts()
     //setTimeout(() => {
     //    verCorBotao();
     //}, 500)
@@ -109,7 +138,7 @@ function criarBotaoToten(nome_estacao) {
         })
     }).then((resposta) => {
         if (resposta.status == 200) {
-            resposta.json().then((json) => {
+            resposta.json().then((json) => {    
                 criarAlertas(json)
             })
         }
@@ -133,8 +162,10 @@ function criarAlertas(totens) {
         alerta.onclick = () => {
             sessionStorage.HOSTNAME = totens[i].hostname
             setInterval(() => {
+                
                 limparGrafico()
                 carregarDadosToten(sessionStorage.HOSTNAME);
+                
             },tempoGRAPH)
             
         }
@@ -239,6 +270,7 @@ function updateGrafico(){
     if(chartPieProcessos != undefined){
         chartPieProcessos.update();
     }
+
 }
 
 function criarChartMem(respostaJson) {
@@ -247,6 +279,8 @@ function criarChartMem(respostaJson) {
     //span_memoria_total.innerHTML = `Memoria Total: ${textToSize(respostaJson.memoria_uso + respostaJson.memoria_disponivel)}`;
     span_memoria_uso.innerHTML = `Memoria em uso: ${textToSize(respostaJson.memoria_uso)}` ;
     span_memoria_disponivel.innerHTML = `Memoria disponivel: ${textToSize(respostaJson.memoria_disponivel)}` ;
+
+    
 
     const canvasMem = document.getElementById('chartMem').getContext('2d');
     chartPieMem = new Chart(canvasMem, {
@@ -268,6 +302,7 @@ function criarChartMem(respostaJson) {
                 cutout: '70%'
             }],
             options: {
+                animation: false,
                 responsive: true,
                 scales: {
                     y: {
@@ -277,6 +312,12 @@ function criarChartMem(respostaJson) {
             }
         }
     })
+    
+    chartPieMem.data.datasets[0].data[0].value = bytesToSize(respostaJson.memoria_uso);
+    chartPieMem.data.datasets[0].data[1].value = bytesToSize(respostaJson.memoria_disponivel);
+    chartPieMem.update()
+
+    
 
 }
 
@@ -286,6 +327,8 @@ function criarChartVol(respostaJson) {
     span_vol_total.innerHTML = `Volume total: ${textToSize(respostaJson.volume_total)}`;
     span_disponivel_total.innerHTML = `Volume disponivel: ${textToSize(respostaJson.volume_disponivel)}`;
     span_uso_total.innerHTML = `Volume em uso: ${textToSize(respostaJson.volume_em_uso)}`;
+
+
 
     const canvasCpu = document.getElementById('chartCpu').getContext('2d');
     chartPieVol = new Chart(canvasCpu, {
@@ -308,6 +351,7 @@ function criarChartVol(respostaJson) {
                 cutout: '70%'
             }],
             options: {
+                animation: false,
                 responsive: true,
                 scales: {
                     y: {
@@ -326,6 +370,7 @@ function criarChartServicos(respostaJson) {
     span_servicos_total.innerHTML = `Total de serviços: ${respostaJson.total_servicos_ativos + respostaJson.total_servicos_inativos}`;
     span_servicos_ativo.innerHTML = `Total de serviços ativos: ${respostaJson.total_servicos_ativos}` ;
     span_servicos_inativo.innerHTML = `Total de serviços inativos: ${respostaJson.total_servicos_inativos}` ;
+
 
     const canvaServico = document.getElementById('chartServicos').getContext('2d');
     chartPieServicos = new Chart(canvaServico, {
@@ -347,6 +392,7 @@ function criarChartServicos(respostaJson) {
                 cutout: '70%'
             }],
             options: {
+                animation: false,
                 responsive: true,
                 scales: {
                     y: {
@@ -370,6 +416,8 @@ function criarChartProcessos(respostaJson) {
 
     span_ultimo_proc.innerHTML = `Total de processos ${processos[processos.length-1]} às ${data[data.length-1]}`;
 
+
+
     const canvaServico = document.getElementById('chartProcessos').getContext('2d');
     chartPieProcessos = new Chart(canvaServico, {
         type: 'line',
@@ -383,6 +431,7 @@ function criarChartProcessos(respostaJson) {
                 tension: 0.1
             }],
             options: {
+                animation: false,
                 responsive: true,
                 scales: {
                     y: {

@@ -42,11 +42,11 @@ public class Teste {
         
 
         Totem totem = new Totem();
+
+        while(true){
+           salvar.salvarDadosVariaveis(); 
+        }
         
-        
-        System.out.println("Memoria em uso: "+Conversor.formatarBytes(totem.getMemoriaEmUso()));
-        System.out.println("Memoria Disponivel: "+Conversor.formatarBytes(totem.getMemoriaDisponivel()));
-        System.out.println("Volume total: "+Conversor.formatarBytes(totem.getVolumeTotal()));
         
 
 
