@@ -43,9 +43,14 @@ public class Teste {
 
         Totem totem = new Totem();
 
-        while(true){
-           salvar.salvarDadosVariaveis(); 
-        }
+        //while(true){
+        //   salvar.salvarDadosVariaveis(); 
+        //}
+        
+        //System.out.println(totem.getVolumeTotal());
+        //System.out.println(totem.getVolumeEmUso());
+        
+        System.out.println(looca.getGrupoDeDiscos().getVolumes());
         
         
 

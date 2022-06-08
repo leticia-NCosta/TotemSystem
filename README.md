@@ -30,7 +30,7 @@ Scrum Master: [@Donilo](https://github.com/Don616)
 
 =================================
 
-Sprint 3: 07/06/2022
+~Sprint 3: 07/06/2022~
 
 ## Entregáveis Sprint 3:
 - [x] Slide de Apresentação;
@@ -49,9 +49,7 @@ Sprint 3: 07/06/2022
 - [x] Inovação útil;
 - [x] Documentação Completa;
 - [x] Alertas alinhados ao negócio;
-- [ ] Inovação completa com PPT de "Deep Dive";
 - [x] Diagrama de Classe;
-- [ ] Aplicação provisória na Nuvem;
 - [x] Docker;
 - [x] Assistente de Instalação do Cliente;
 - [x] Jar completo com Swing;
